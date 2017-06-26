@@ -1,4 +1,4 @@
 sub EVENT_DEATH_COMPLETE {
-	#signal our respective NoTarget NPC
-	quest::signalwith(162278,1,0); #cursed_nine
+  quest::depop_withtimer(162278);#cursed_two
+  quest::signalwith(10,0,0);
 }

@@ -1,3 +1,7 @@
+sub EVENT_ENTERZONE {
+  $client->BuffFadeByEffect(113);
+}
+
 # you do not need rallos to get into solrotower so why would he be needed to click up to solro area?
 # removed rallos requirement to click up
 # rallos was required to get to sol ro, not the zone, on live, that is why he was in here. - Reno

@@ -2,7 +2,8 @@
 #
 
 sub EVENT_DEATH_COMPLETE {
-  quest::spawn2(162177,0,0,420,-144,270.1,0); # spawn rhag`mozdezh
+  quest::setglobal("rhag2_dead",1,3,"S259200");
+  quest::signalwith(10,5,1);
 }
 
 # EOF zone: ssratemple ID: 162178 NPC: #Rhag`Mozdezh

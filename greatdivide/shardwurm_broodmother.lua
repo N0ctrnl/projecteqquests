@@ -19,6 +19,7 @@ function event_waypoint_arrive(e)
 	elseif(e.wp == 19) then
 		-- clear proximity and if the giants spawned then attack Gralk Dwarfkiller and send signal for Fergul Frostsky to run away.
 		eq.clear_proximity();
+		
 		if(eq.get_entity_list():IsMobSpawnedByNpcTypeID(118208)) then
 			eq.attack_npc_type(118208);
 			eq.signal(118207,1);

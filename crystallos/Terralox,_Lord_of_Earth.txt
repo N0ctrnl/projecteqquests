@@ -1,0 +1,27 @@
+sub EVENT_SAY {
+
+ my $business = quest::saylink("business");
+ my $Storm = quest::saylink("Storm");
+ my $wrath = quest::saylink("wrath");
+ 
+if ($text =~/Hail/i){
+plugin::Whisper ("'What brings mortals this deep into the realm of the earth keepers? Ponz Knows better than to let anyone get by. Very well then, off you go. You have no [$business] here.'"); 
+}
+
+if ($text =~/business/i){
+quest::me ("Terralox, Lord of Earth roars with laughter.");
+plugin::Whisper ("'You dare threaten me? The great keeper of earth! Foolish mortals, be off with you I don't have time for this. [$Storm] of the Elements should have stopped you at the gate'");
+}
+
+if ($text =~/Storm/i){
+plugin::Whisper ("'Storm of the Elements sent you, you say?. How dare you attempt to decieve me! Storm of the Elements does not "send" anyone into our realm. This is not the place for mortals. I've asked you to leave, now my patience has grown thin! Leave at once, or deal with my [wrath]!'");
+}
+
+if ($text =~/wrath/i){
+quest::me ("Terralox's shell slightly shifts, as he readies himself to attack.");
+plugin::Whisper ("'Prepare to meet your fate mortals!'");
+}
+
+}
+
+

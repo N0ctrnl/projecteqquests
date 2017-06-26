@@ -1,3 +1,7 @@
+sub EVENT_ENTERZONE {
+  $client->BuffFadeByEffect(113);
+}
+
 sub EVENT_CLICKDOOR {
   my $x = $client->GetX();
   my $y = $client->GetY();

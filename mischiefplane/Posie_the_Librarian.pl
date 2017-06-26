@@ -8,8 +8,9 @@
 sub EVENT_SAY {
   if ($text=~/hail/i) {
     quest::say("SSH! do not disturb the library! It's $race like you who have ruined your own books, you won't ruin mine!");
+  }
 }
- }
+
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 9510 => 1)) {
     quest::summonitem(17325);

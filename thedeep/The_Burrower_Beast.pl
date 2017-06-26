@@ -7,8 +7,10 @@ sub EVENT_SPAWN {
 
 sub EVENT_TIMER {
   if ($timer eq "start_controller") {
+    if (!$entity_list->GetNPCByNPCTypeID(164120)) {
     quest::spawn2(164120,0,0,1627,289,-54,0);
     quest::stoptimer("start_controller");
+    }
   }
 }
 

@@ -20,20 +20,14 @@ sub EVENT_ITEM {
     $z = $npc->GetZ();
     $h = $npc->GetHeading();
     quest::spawn2(102123,0,0,$x,$y,$z,$h);
-    quest::depop_withtimer();
+#    quest::depop_withtimer();
+    quest::depop();
   }
 }
 
-sub EVENT_SPAWN {
-  quest::settimer(1,20);
-}
-sub EVENT_TIMER {
-  if ($entity_list->IsMobSpawnedByNpcTypeID(102112)) {
-    quest::stoptimer(1);
-    quest::depop_withtimer();
-  }
-}
-
+#sub EVENT_DEATH_COMPLETE {
+#  quest::signalwith(111702096,2,0); #VSCont
+#}
 
 # EOF zone: karnor ID: 102099 NPC: Venril_Sathirs_remains
 

@@ -1,4 +1,14 @@
-#BEGIN File: ssratemple\#Blood_of_Ssraeshza.pl
+sub EVENT_SPAWN {
+  quest::enable_spawn2(34138);
+  quest::enable_spawn2(34139);
+  quest::enable_spawn2(34140);
+  quest::enable_spawn2(34141);
+  quest::enable_spawn2(34142);
+  quest::enable_spawn2(34143);
+  quest::enable_spawn2(34144);
+  quest::enable_spawn2(34145);
+
+}
 
 sub EVENT_AGGRO {
   my $guard1 = $entity_list->GetNPCByNPCTypeID(162123); #Heriz
@@ -41,10 +51,10 @@ sub EVENT_SIGNAL {
   my $hate_target = $npc->GetHateTop();
 
   $new_guard->AddToHateList($hate_target->CastToClient(), 1);
+#  $new_guard->AddToHateList($client, 1);
 }
 
 sub EVENT_DEATH_COMPLETE {
-  quest::signalwith(162260,1,0); #EmpCycle
+#  quest::signalwith(162260,3,0); #EmpCycle
+  quest::signalwith(162260,3,0); #zone_controller
 }
-
-#END File: ssratemple\#Blood_of_Ssraeshza.pl (162189)

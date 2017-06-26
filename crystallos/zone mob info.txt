@@ -1,0 +1,21 @@
+#CRUMBLE
+
+NPC-IDs used
+
+999993 - water droplet
+999994 - healing waters
+999995 - chunk of black ice
+999996 - chunk of ice
+999997 - Shard
+999998 - ring
+999999 - #Crumble
+
+Ring of ice golems moves to crumble and he absorbs them and grows
+
+every 5% he "crumbles" (max damage decreases, he shrinks), and 2 adds spawn.  Chunk of black ice (low hp easy to kill, but very nasty AE hp/mana drain in large area) which should be either rooted away from everyone or mezzed.
+other add is a "chunk of ice" hit hard but relatively low hp, however upon death 1-6 add spawn on death they are water droplets, they have insane dps, but can be killed with a decent AE spell
+
+at 50%, 4 shards of ice spawn, as long as they are up they will send healing waters to crumble, which will heal him some if they reach him, they are not targetable.
+the shards of ice need to be killed to stop the healing.
+
+once you reach 10% adds will come every 2% until Crumble is dead

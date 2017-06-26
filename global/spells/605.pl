@@ -1,6 +1,6 @@
 sub EVENT_SPELL_EFFECT_CLIENT
 {
-	if(($client->GetClientVersionBit() & 4294967292)!= 0)
+	if(($client->GetClientVersionBit() & 4294967295)!= 0)
 	{
 		quest::MovePCInstance(25, 1, -715, -57, 42, 0);
 	}

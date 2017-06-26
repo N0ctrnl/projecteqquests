@@ -39,6 +39,9 @@ sub EVENT_SAY {
       quest::say("As I expected you would be. Take this note to Wenglawks and return to me when you have some -- any -- information on this spy among us.");
       quest::summonitem(29068);
     }
+    if ($text=~/i wish to prove myself/i) {
+      quest::say("Very well, it is a minor task, but I am sure you are quite capable. Lately the food supply in the guards' galley has been dwindling. I fear that there are spiders amongst us who are pilfering our food when we do not see. I would ask of you to please seek out and eliminate these vermin for us. Bring their legs back to me and I shall reward you for your effort.");
+    }
   }
   else {
     quest::say("You must prove your worth before I will discuss such matters with you.");
@@ -65,6 +68,18 @@ sub EVENT_ITEM {
     quest::faction(42,10); #CoV
     quest::faction(189,-30); #Kromzek
     quest::delglobal("friendofthekin");
+  }
+# Kurt - Working on spider legs quest
+# plugin::return_items(\%itemcount);
+  if (plugin::check_handin(\%itemcount, 29080 => 4)) {
+    quest::say("Excellent work, $name. Here is your payment. I will also reward you for any more you bring.");
+    # This should give the Ring of the Chameleon 1/3 of the time and nothing the other 2/3
+    quest::summonitem(quest::ChooseRandom(29063,0,0));
+    quest::exp(32500);
+    quest::givecash(4,9,6,5);
+    quest::faction(362,10); #Yelinak
+    quest::faction(42,10); #CoV
+    quest::faction(189,-30); #Kromzek
   }
   plugin::return_items(\%itemcount);
 }

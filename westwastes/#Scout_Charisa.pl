@@ -16,6 +16,7 @@ sub EVENT_ITEM {
       quest::spawn(120121,0,0,-3452,-4841,-119); # Kromzek Warrior
       quest::spawn(120121,0,0,-3441,-4830,-122); # Kromzek Warrior
       quest::spawn(120121,0,0,-3430,-4819,-124); # Kromzek Warrior
+      quest::settimer("giant",720);
     }
     elsif (plugin::check_handin(\%itemcount, 29684 => 1)) { #Broken Disk
       quest::faction(42,30);   #Claws of Veeshan
@@ -24,6 +25,7 @@ sub EVENT_ITEM {
       quest::summonitem(29688); #Scout Report
       quest::summonitem(29685); #Robe of Benevolence
       quest::exp(100000);
+      quest::settimer("scout",300);
     }
     elsif (plugin::check_handin(\%itemcount, 29685 => 1)) { #Robe of Benevolence
       quest::summonitem(29686); #Bracer of Benevolence
@@ -38,4 +40,13 @@ sub EVENT_ITEM {
     plugin::return_items(\%itemcount);
 }
 
+sub EVENT_TIMER {
+  if ($timer eq "scout") {
+    quest::depop_withtimer();
+  }
+  if ($timer eq "giant") {
+    quest::depopall(120121);
+    quest::depopall(120115);
+  }
+}
 #End of File, Zone:westwastes  NPC:120000 -- #Scout_Charisa

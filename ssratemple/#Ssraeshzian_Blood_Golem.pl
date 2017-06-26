@@ -1,4 +1,14 @@
 #BEGIN File: ssratemple\#Ssraeshzian_Blood_Golem.pl
+sub EVENT_SPAWN {
+  quest::enable_spawn2(34138);
+  quest::enable_spawn2(34139);
+  quest::enable_spawn2(34140);
+  quest::enable_spawn2(34141);
+  quest::enable_spawn2(34142);
+  quest::enable_spawn2(34143);
+  quest::enable_spawn2(34144);
+  quest::enable_spawn3(34145);
+}
 
 sub EVENT_AGGRO {
   my $guard1 = $entity_list->GetNPCByNPCTypeID(162123); #Heriz
@@ -44,6 +54,7 @@ sub EVENT_SIGNAL {
 }
 
 sub EVENT_DEATH_COMPLETE {
+#  quest::signalwith(162260,1,0); #EmpCycle
   quest::signalwith(162260,1,0); #EmpCycle
 }
 

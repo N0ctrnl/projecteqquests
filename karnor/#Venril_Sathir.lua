@@ -5,3 +5,7 @@ function event_spawn(e)
     eq.depop_with_timer(102099);
   end
 end
+
+function event_death_complete(e)
+  eq.spawn2(102099,0,0,-553,-77.0,15.0,192.0); -- Spawn Venril's remains
+end
