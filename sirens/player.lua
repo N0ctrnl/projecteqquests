@@ -1,4 +1,7 @@
 --sirens/player.lua
+function event_enter_zone(e)
+  e.self:BuffFadeByEffect(113)
+end
 
 --Ench 1.5 Chest
 function event_loot(e)

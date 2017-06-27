@@ -15,8 +15,4 @@ sub EVENT_CLICKDOOR {
   }
 }
 
-sub EVENT_ENTERZONE {
-  $client->BuffFadeByEffect(113);
-}
-
 #Submitted by Jim Mills

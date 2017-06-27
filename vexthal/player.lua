@@ -1,4 +1,8 @@
 function event_enter_zone(e)
+    e.self:BuffFadeByEffect(113)
+end
+
+function event_enter_zone(e)
   if ( e.self:GetBindZoneID() == 158 ) then    
     e.self:Message(1, "Illegal Bind!")
     e.self:MovePC(69,840,70,0,0)
