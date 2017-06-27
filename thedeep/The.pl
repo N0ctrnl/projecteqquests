@@ -10,9 +10,10 @@ sub EVENT_SPAWN {
 
 sub EVENT_ENTER {
   if ($entity_list->GetNPCByNPCTypeID(164098)) {
-  quest::settimer("start_cycle",400);
-  quest::emote("ground around you begins to tremble and shake.");
-  quest::clear_proximity();
+    quest::settimer("start_cycle",400);
+    quest::emote("ground around you begins to tremble and shake.");
+    quest::clear_proximity();
+  }
 }
 
 sub EVENT_TIMER {

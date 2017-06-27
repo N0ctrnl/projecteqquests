@@ -1,14 +1,13 @@
 sub EVENT_ITEM_CLICK {
-plugin::debug("Test"};
-	if($spell_id == 7653)
-	{
-		$client->SetEntityVariable("PlacingItemID", $itemid);
-		$client->SetEntityVariable("PlacingGrowth", 500);
-		$client->SetEntityVariable("PlacingSize", 10);
-		$client->Message(15, "You ready the $itemname for use.");
-		return 1;
-	}
-	return 0;
+    if($spell_id == 7653)
+     {
+       $client->SetEntityVariable("PlacingItemID", $itemid);
+       $client->SetEntityVariable("PlacingGrowth", 500);
+       $client->SetEntityVariable("PlacingSize", 10);
+       $client->Message(15, "You ready the $itemname for use.");
+       return 1;
+     }
+     return 0;
 }
 
 sub EVENT_DROP_ITEM
