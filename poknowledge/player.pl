@@ -49,8 +49,8 @@ sub EVENT_CLICKDOOR
 			quest::movepc(46,-34,-721,-27,221.21);
 	  	#}
   	}
-  	if($doorid == 22)    #erud
-	{
+#  	if($doorid == 22)    #erud
+#	{
 		#$zonename = "Toxxulia Forest";
 		#if(($client->GetClientVersionBit() & 3)!= 0) #062/Titanium
 		#{
@@ -65,10 +65,10 @@ sub EVENT_CLICKDOOR
 		#       quest::popup("$zonename","Send you to the Classic $zonename? $popuptext",3,1);
 		#       quest::settimer(3,5);
 		#}
-		quest::movepc(38,296,-2330,-45.4,127);
-  	}
-  	if($doorid == 32)    #paineel
-	{
+#		quest::movepc(38,296,-2330,-45.4,127);
+#  	}
+#  	if($doorid == 32)    #paineel
+#	{
 		#$zonename = "Toxxulia Forest";
 		#if(($client->GetClientVersionBit() & 3)!= 0) #062/Titanium
 		#{
@@ -83,8 +83,8 @@ sub EVENT_CLICKDOOR
 		#       quest::popup("$zonename","Send you to the Classic $zonename? $popuptext",4,1);
 		#       quest::settimer(4,5);
 		#}
-		quest::movepc(38,-569,2325,-43.4,39);
-  	}
+#		quest::movepc(38,-569,2325,-43.4,39);
+#  	}
   	if($doorid == 24)
 	{
 		#$zonename = "Steamfont Mountains";
