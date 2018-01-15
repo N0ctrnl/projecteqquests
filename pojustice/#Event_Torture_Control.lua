@@ -199,16 +199,16 @@ function event_timer(e)
 			eq.spawn2(201455, 0, 0, e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading());
 		end
 
-	elseif (e.timer == "wraith_timer" or e.timer == "has_trial_started") then 
+--	elseif (e.timer == "wraith_timer" or e.timer == "has_trial_started") then 
 		-- Event Failed
-		eq.stop_timer(e.timer);
-		eq.get_entity_list():MessageClose(e.self, false, 120, 3, "You have been found unworthy and have failed, you should be shamed and publicly flogged.");
+--		eq.stop_timer(e.timer);
+--		eq.get_entity_list():MessageClose(e.self, false, 120, 3, "You have been found unworthy and have failed, you should be shamed and publicly flogged.");
 
 		-- Tell the Tribunal we failed
-		eq.signal(201438, 2);
-
-		despawn_prisoners();
-		eq.depop();
+--		eq.signal(201438, 2);
+--
+--		despawn_prisoners();
+--		eq.depop();
 
 	elseif (e.timer == "wave1_timer") then
 		eq.stop_timer(e.timer);

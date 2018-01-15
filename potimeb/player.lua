@@ -8,7 +8,6 @@ function event_enter_zone(e)
     eq.set_global("potimeb_lockout",tostring(instance_requests.GetLockoutEndTimeForHours(12)),5,"H12");
   end
   -- drop levitate, as it's not allowed here
-  e.self:BuffFadeByEffect(113);
 end
 
 function event_click_door(e)

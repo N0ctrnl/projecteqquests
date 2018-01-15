@@ -16,68 +16,66 @@ my $count = undef;
 my $pc = undef;
 
 sub EVENT_SPAWN {
-   #Depop any existing controllers
-	quest::depopall(201425);
-   #Spawn the controller
-   quest::spawn2(201425, 0, 0, 194, -1120, 72, 0);
+  #Depop any existing controllers
+    quest::depopall(201425);
+  #Spawn the controller
+  #quest::spawn2(201425, 0, 0, 194, -1120, 72, 0);
 }
 
-sub EVENT_SAY
-{   
-   if(defined $qglobals{pop_poj_mavuin}) {
-      if($text=~/Hail/i) {
-         quest::emote(" fixes you with a dark, peircing gaze. 'What do you want, mortal? Are you [" . quest::saylink("prepared") . "]?");
-      }
-      
-      elsif($text=~/prepared/i) {
-#         quest::say("Very well. When you are ready, you may begin the trial of execution. The victim will perish should the hooded executioner reach him. Its life will end only when all of the nemeses which accompany it also perish. We shall judge the mark of your success.");
-	quest::say("Very well. When you are ready, you may [" . quest::saylink("begin the trial of execution", 0, "begin the trial of execution") . "]. The victim will perish should the hooded executioner reach him. Its life will end only when all of the nemeses which accompany it also perish. We shall judge the mark of your success.");
+sub EVENT_SAY {
+  if(defined $qglobals{pop_poj_mavuin}) {
+    if($text=~/Hail/i) {
+      quest::emote(" fixes you with a dark, peircing gaze. 'What do you want, mortal? Are you [" . quest::saylink("prepared") . "]?");
+    }
 
-      }
+    elsif($text=~/prepared/i) {
+      quest::say("Very well. When you are ready, you may [" . quest::saylink("begin the trial of execution", 0, "begin the trial of execution") . "]. The victim will perish should the hooded executioner reach him. Its life will end only when all of the nemeses which accompany it also perish. We shall judge the mark of your success.");
+    } 
       
-      elsif($text=~/begin the trial of execution/i) {
-         if (!defined $in_progress) {
-            quest::say("Then begin.");
-            $in_progress = 1;
-            quest::settimer("delay_start", 30);
-            #Tell Event_Execution_Control about it
-            quest::signalwith(201425, 1, 0);            
+    elsif($text=~/begin the trial of execution/i) {
+      if (!defined $in_progress) {
+	quest::spawn2(201425, 0, 0, 194, -1120, 72, 0);
+	quest::say("Then begin.");
+        $in_progress = 1;
+        quest::settimer("delay_start", 30);
+       #Tell Event_Execution_Control about it
+       quest::signalwith(201425, 1, 0);            
 
-            #Cast Penance of Execution
-            #quest::selfcast(1127); #required db edit targettype = 41
-            $group = $entity_list->GetGroupByClient($client);
-            if ($group) { 
-              for ($count = 0; $count < $group->GroupCount(); $count++) {
-                $pc = $group->GetMember($count);
-                if ($pc->CalculateDistance($x,$y,$z) <= 50) {
-                  $pc->MovePC(201,254,-1053, 73, 150);
-                }
-              }
-            }
-            $group = undef;
-            $pc = undef;
-            $count = undef;
+       #Cast Penance of Execution
+       #quest::selfcast(1127); #required db edit targettype = 41
+       $group = $entity_list->GetGroupByClient($client);
+         if ($group) { 
+           for ($count = 0; $count < $group->GroupCount(); $count++) {
+             $pc = $group->GetMember($count);
+             if ($pc->CalculateDistance($x,$y,$z) <= 50) {
+               $pc->MovePC(201,254,-1053, 73, 150);
+             }
+           }
          }
+         $group = undef;
+         $pc = undef;
+         $count = undef;
+       }
          
-         else {
-            quest::say("I'm sorry, the Trial of Execution is currently unavailable to you.");
-         }
+       else {
+         quest::say("I'm sorry, the Trial of Execution is currently unavailable to you.");
+       }
       }
       
       elsif($text=~/what evidence of Mavuin/i) {
-         if(plugin::check_hasitem($client, 31842)) {
-            $client->Message(4,"You have completed a trial - impressive for mortals. You can tell Mavuin that we will hear his plea. We will seek him out as time befits us.");
+        if(plugin::check_hasitem($client, 31842)) {
+          $client->Message(4,"You have completed a trial - impressive for mortals. You can tell Mavuin that we will hear his plea. We will seek him out as time befits us.");
             quest::setglobal("pop_poj_tribunal", 1, 5, "F");
             quest::setglobal("pop_poj_execution", 1, 5, "F");
             $client->Message(15,"You receive a character flag!");
-         }
+          }
          
-         elsif(plugin::check_hasitem($client, 31796)) {
+          elsif(plugin::check_hasitem($client, 31796)) {
             $client->Message(4,"You have completed a trial - impressive for mortals. You can tell Mavuin that we will hear his plea. We will seek him out as time befits us.");
             quest::setglobal("pop_poj_tribunal", 1, 5, "F");
             quest::setglobal("pop_poj_flame", 1, 5, "F");
             $client->Message(15,"You receive a character flag!");
-         }
+          }
          
          elsif(plugin::check_hasitem($client, 31960)) {
             $client->Message(4,"You have completed a trial - impressive for mortals. You can tell Mavuin that we will hear his plea. We will seek him out as time befits us.");

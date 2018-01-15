@@ -1,8 +1,4 @@
 function event_enter_zone(e)
-    e.self:BuffFadeByEffect(113)
-end
-
-function event_enter_zone(e)
 	local qglobals = eq.get_qglobals(e.self);
 	local el = eq.get_entity_list();
 	

@@ -19,11 +19,11 @@ sub EVENT_SIGNAL {
 		quest::stoptimer("flame_wave3");
 		quest::stoptimer("flame_wave4");
 		quest::stoptimer("flame_boss");
+		quest::settimer("flame_reset", 300);
 		quest::signalwith(201420, 1, 5);
 		quest::signalwith(201447, 1, 5);
 		quest::signalwith(201446, 1, 5);
-		quest::signalwith(201434, 0, 5);
-		quest::depop();
+#		quest::signalwith(201434, 0, 5);
 	}
 }
 
@@ -73,6 +73,22 @@ sub EVENT_TIMER {
 		#Punisher of Flame, the boss.
 		quest::spawn2(201446,0,0,880,-805,55,0);
 	}
+	elsif ($timer eq "flame_reset") {
+		quest::stoptimer("flame_reset");
+		if ($ent->CalculateDistance($npc->GetX(),$npc->GetY(),$npc->GetZ()) <= 100) {
+                	$ent->MovePC(207,456,825,7,253.2);
+		}
+		quest::settimer("flame_reset2", 30);
+	}
+	elsif ($timer eq "flame_reset2") {
+		quest::stoptimer("flame_reset2");
+		if ($ent->CalculateDistance($npc->GetX(),$npc->GetY(),$npc->GetZ()) <= 100) {
+                	$ent->MovePC(207,456,825,7,253.2);
+		}
+		quest::signalwith(201434, 0, 5);
+		HandleCorpses();
+		quest::depop();
+	}
 }
 
 sub SpawnFlameMobs {
@@ -89,12 +105,7 @@ sub SpawnFlameMobs {
 	for ($count = 0; $count <= 3; $count++) {
 		my $test = rand(99);
 		
-                if ($test > 90) {
-			#Burning nemesis, with loot
-			quest::spawn2(201999, 0, 0, $locX[$count], $locY[$count], $locZ[$count], $locH[$count]);
-		}
-			
-		elsif ($test < 69) {
+		if ($test < 69) {
 			#Fiery Agressor, common mob
 			quest::spawn2(201420, 0, 0, $locX[$count], $locY[$count], $locZ[$count], $locH[$count]);
 		}
@@ -104,4 +115,32 @@ sub SpawnFlameMobs {
 			quest::spawn2(201447, 0, 0, $locX[$count], $locY[$count], $locZ[$count], $locH[$count]);
 		}
 	}
+}
+
+sub HandleCorpses {
+
+   if ($move_client_corpses) {
+      #Move player corpses to graveyard
+      @clist = $entity_list->GetCorpseList();
+      foreach $ent (@clist) {
+         if ($ent->IsPlayerCorpse()) {
+            if ($ent->CalculateDistance(880, -729, 55) < 120) {
+               $ent->GMMove(58, -47, 2);
+            }
+         }
+      }
+   }
+
+   #Delete npc corpses left in trial area
+   foreach $id (@mob_ids) {
+      $corpse_id = $entity_list->GetCorpseByID($id);
+      if (defined $corpse_id) {
+         if ($corpse_id->CalculateDistance(880, -729, 55) < 120) {
+            $corpse_id->Delete();
+         }
+      }
+   }
+
+   #Clear list
+   @mob_ids = ();
 }

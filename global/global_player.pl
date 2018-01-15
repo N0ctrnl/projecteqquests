@@ -1,3 +1,22 @@
+sub EVENT_LEVEL_UP {
+  if ($ulevel <= 46){
+    $client->Message(15,"Your experiences across the realm have infused you with increased power and knowledge...");
+
+    # set all available skills to maximum for race/class at current level
+    foreach my $skill (0 .. 42, 48 .. 54, 70 .. 74){
+      next unless $client->CanHaveSkill($skill);
+      my $maxSkill = $client->MaxSkill($skill, $client->GetClass(), $ulevel);
+#      next unless $maxSkill < $client->GetRawSkill($skill);
+      next unless $client->MaxSkill( $skill, $client->GetClass(), $ulevel ) > 0 & $client->GetRawSkill($skill) < 1;
+      $client->SetSkill($skill, 1);
+    }
+    # scribe all spells for current level
+    quest::scribespells($ulevel, $ulevel - 1);
+    # train all discs for current level
+    quest::traindiscs($ulevel, $ulevel - 1);
+  }
+}
+
 sub EVENT_CLICKDOOR{
     if($status > 200){
         plugin::Doors_Manipulation_EVENT_CLICKDOOR(); # Door Manipulation Plugin
@@ -300,6 +319,11 @@ sub EVENT_ENTERZONE {
   if($ulevel < 2){
     quest::settimer("popup",10);
     quest::settimer("popup2",15);
+  }
+  foreach my $zone_in (18, 31, 32, 36, 39, 40 .. 42, 44, 64 .. 66, 73, 80, 81, 88, 89, 97, 101, 103, 105, 107, 108, 111 .. 113, 123 .. 125, 128, 129, 150, 153, 154, 156 .. 158, 159, 161 .. 164, 179, 200, 212, 214, 216, 223, 228){
+    if($zoneid == $zone_in){
+      $client->BuffFadeByEffect(113);
+    }
   }
 }
 

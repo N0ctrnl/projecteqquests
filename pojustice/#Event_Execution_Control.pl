@@ -91,6 +91,10 @@ sub EVENT_SIGNAL {
       quest::signalwith(201432, 0, 5);
       #Despawn the boss if he's up
       quest::signalwith(201433, 0, 5);
+#      if ($ent->CalculateDistance($npc->GetX(),$npc->GetY(),$npc->GetZ()) <= 110) {
+#        $ent->MovePC(207,456,825,7,253.2);
+#      }
+#      quest::depop();
    }
    elsif ($signal == 3) {
       #fail message
@@ -298,6 +302,9 @@ sub EVENT_TIMER {
    elsif ($timer eq "trial_eject") {
       quest::stoptimer("trial_eject");
       quest::stoptimer("proximity_check");
+#      if ($ent->CalculateDistance($npc->GetX(),$npc->GetY(),$npc->GetZ()) <= 110) {
+#        $ent->MovePC(207,456,825,7,253.2);
+#      }
       
       #Eject everyone from trial area
       foreach $player (@trial_group) {
@@ -308,6 +315,7 @@ sub EVENT_TIMER {
             $c->Message(15, "A mysterious force translocates you.");
          }
       }
+      quest::depop();
       
       #Clear lists
       @allowed = ();
@@ -315,7 +323,7 @@ sub EVENT_TIMER {
       #Tell the tribunal it's over
       quest::signalwith(201078, 0, 5);
       $proximity_check_delay = 30;
-      quest::settimer("proximity_check", $proximity_check_delay);
+      #quest::settimer("proximity_check", $proximity_check_delay);
    }
    elsif ($timer eq "clear_corpses") {
       quest::stoptimer("clear_corpses");
