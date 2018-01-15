@@ -320,10 +320,17 @@ sub EVENT_ENTERZONE {
     quest::settimer("popup",10);
     quest::settimer("popup2",15);
   }
-  foreach my $zone_in (18, 31, 32, 36, 39, 40 .. 42, 44, 64 .. 66, 73, 80, 81, 88, 89, 97, 101, 103, 105, 107, 108, 111 .. 113, 123 .. 125, 128, 129, 150, 153, 154, 156 .. 158, 159, 161 .. 164, 179, 200, 212, 214, 216, 223, 228){
-    if($zoneid == $zone_in){
-      $client->BuffFadeByEffect(113);
-    }
+#  foreach my $zone_in (18, 31, 32, 36, 39, 40 .. 42, 44, 64 .. 66, 73, 80, 81, 88, 89, 97, 101, 103, 105, 107, 108, 111 .. 113, 123 .. 125, 128, 129, 150, 153, 154, 156 .. 158, 159, 161 .. 164, 179, 200, 212, 214, 216, 223, 228){
+#    if($zoneid == $zone_in){
+#      $client->BuffFadeByEffect(113);
+#    }
+#  }
+#::: Dismount on indoor zone
+  $ex = plugin::LoadMysql()->prepare("SELECT `castoutdoor` from `zone` WHERE `zoneidnumber` = ? AND `castoutdoor` = 0");
+  $ex->execute($zoneid);
+  while (@row = $ex->fetchrow_array()) {
+    quest::debug("[horse_mount] We have zoned into a indoor zone, dismounting...");
+    $client->BuffFadeByEffect(113);
   }
 }
 
@@ -404,183 +411,4 @@ sub EVENT_TIMER {
 sub EVENT_POPUPRESPONSE{
     #::: quest::say response subroutine
     quest::say_Process_Response();
-}
-sub EVENT_CAST
-{
-
-
-	if($spell_id == 7651)
-	{
-	
-		if($zonesn eq "neighborhood" && !plugin::HasRadius($client->GetEntityVariable("PlacingItemID")))
-		{
-			$client->SetEntityVariable("DoorCommand", "PlaceItem");
-			quest::signalwith(10, $client->GetID());
-		}
-		else
-		{
-			if(plugin::HasRadius($client->GetEntityVariable("PlacingItemID")))
-			{
-				my $object = $entity_list->GetObjectByID($client->GetEntityVariable("WardID" . $client->GetEntityVariable("PlacingItemID")));
-				my $radiusobj = $client->GetEntityVariable("PlacingItemID");
-				if(plugin::GetRadiusData($radiusobj, "reqclass") != 0 && plugin::GetRadiusData($radiusobj, "reqclass") != $client->GetClass())
-				{
-					if(plugin::GetRadiusData($radiusobj, "errmsgclass") && plugin::GetRadiusData($radiusobj, "errmsgclass") ne "")
-					{
-						$client->Message(15, plugin::GetRadiusData($radiusobj, "errmsgclass"));
-					}
-				}
-				elsif(plugin::GetRadiusData($radiusobj, "reqdeity") != 0 && plugin::GetRadiusData($radiusobj, "reqdeity") != $client->GetDeity())
-				{
-					if(plugin::GetRadiusData($radiusobj, "errmsgdeity") && plugin::GetRadiusData($radiusobj, "errmsgdeity") ne "")
-					{
-						$client->Message(15, plugin::GetRadiusData($radiusobj, "errmsgdeity"));
-					}
-				}
-				elsif(plugin::GetRadiusData($radiusobj, "reqlevel") != 0 && $client->GetLevel() < plugin::GetRadiusData($radiusobj, "reqlevel"))
-				{
-					if(plugin::GetRadiusData($radiusobj, "errmsglevel") && plugin::GetRadiusData($radiusobj, "errmsglevel") ne "")
-					{
-						$client->Message(15, plugin::GetRadiusData($radiusobj, "errmsglevel"));
-					}
-				}
-				elsif(defined($object))
-				{
-					if(plugin::GetRadiusData($radiusobj, "errmsgplaced") && plugin::GetRadiusData($radiusobj, "errmsgplaced") ne "")
-					{
-						$client->Message(15, plugin::GetRadiusData($radiusobj, "errmsgplaced"));
-					}
-				}
-				else
-				{
-					$slot = plugin::check_hasitem_inslot($client, $client->GetEntityVariable("PlacingItemID"));
-					if($slot != 65535)
-					{
-						$client->DeleteItemInInventory($slot, 1, 1);
-						$spawnid = quest::creategroundobject($client->GetEntityVariable("PlacingItemID"), $client->GetTargetRingX(), $client->GetTargetRingY(), $client->GetTargetRingZ(), $client->GetHeading(), plugin::GetRadiusData($radiusobj, "expire"));	#This spawns the ward, which lasts 60 seconds. Stores in $spawnid
-						$object = $entity_list->GetObjectByID($spawnid);
-						$object->SetEntityVariable("WardOwner", $client->GetID());
-						$object->SetSize($client->GetEntityVariable("PlacingSize") ? $client->GetEntityVariable("PlacingSize") : 100);
-						quest::settimer("WardTimer" . $client->GetEntityVariable("PlacingItemID"), plugin::GetRadiusData($radiusobj, "timer")); #Starts a timer with string "WardTimer" as $timer
-						my $triggered = 0;
-						if(plugin::GetRadiusData($radiusobj, "npcflag"))
-						{
-							#do stuff
-							my @npcs = $entity_list->GetNPCList();
-							foreach my $singlenpc (@npcs)
-							{
-								my $rad = plugin::GetRadiusData($radiusobj, "radius");
-								if(int($object->GetX()) > int($singlenpc->GetX())-$rad && int($object->GetX()) < int($singlenpc->GetX())+$rad &&
-								int($object->GetY()) > int($singlenpc->GetY())-$rad && int($object->GetY()) < int($singlenpc->GetY())+$rad)
-							  {					
-								if(plugin::GetRadiusData($radiusobj, "remove"))
-								{
-									$triggered = 1;
-								}
-								if(plugin::GetRadiusData($radiusobj, "spell_id"))
-								{
-									$client->SpellFinished(plugin::GetRadiusData($radiusobj, "spell_id"), $singlenpc);
-								}
-								
-								if(plugin::GetRadiusData($radiusobj, "spell_id2"))
-								{
-									$client->SpellFinished(plugin::GetRadiusData($radiusobj, "spell_id2"), $singlenpc);
-								}
-								
-								if(plugin::GetRadiusData($radiusobj, "spell_id3"))
-								{
-									$client->SpellFinished(plugin::GetRadiusData($radiusobj, "spell_id3"), $singlenpc);
-								}
-							  }
-							  else
-							  {
-									#	quest::gmsay("No radius!", 15);
-							  }
-							}
-						}
-						else
-						{
-							my @clients = $entity_list->GetClientList();
-							foreach my $singleclient (@clients)
-							{
-								my $rad = plugin::GetRadiusData($radiusobj, "radius");
-								if(int($object->GetX()) > int($singleclient->GetX())-$rad && int($object->GetX()) < int($singleclient->GetX())+$rad &&
-								int($object->GetY()) > int($singleclient->GetY())-$rad && int($object->GetY()) < int($singleclient->GetY())+$rad)
-							  {
-								if(plugin::GetRadiusData($radiusobj, "remove"))
-								{
-									$triggered = 1;
-								}
-								
-								if(plugin::GetRadiusData($radiusobj, "spell_id"))
-								{
-									$client->SpellFinished(plugin::GetRadiusData($radiusobj, "spell_id"), $singleclient);
-								}
-								
-								if(plugin::GetRadiusData($radiusobj, "spell_id2"))
-								{
-									$client->SpellFinished(plugin::GetRadiusData($radiusobj, "spell_id2"), $singleclient);
-								}
-								
-								if(plugin::GetRadiusData($radiusobj, "spell_id3"))
-								{
-									$client->SpellFinished(plugin::GetRadiusData($radiusobj, "spell_id3"), $singleclient);
-								}
-								
-							  }
-							  else
-							  {
-									#quest::gmsay("No radius!", 15);
-							  }
-							}
-						}
-						if($triggered)
-						{
-							$object->Depop();
-							quest::stoptimer("WardTimer" . $client->GetEntityVariable("PlacingItemID"));
-						}
-						
-						$client->SetEntityVariable("WardID" . $client->GetEntityVariable("PlacingItemID"), $spawnid);
-					}
-					else
-					{
-					$client->Message(15, "You have run out of " . plugin::GetRadiusData($radiusobj, "name"). "!");
-					}
-				}
-			}
-			else
-			{
-				if(!defined($client->GetEntityVariable("PlacingItemID")))
-				{
-				$client->Message(15, "Please select an item to use in the world before casting this ability.");
-				}
-				else
-				{
-					$slot = plugin::check_hasitem_inslot($client, $client->GetEntityVariable("PlacingItemID"));
-					if($slot != 65535)
-					{
-						$client->DeleteItemInInventory($slot, 1, 1);
-						
-						$spawnid = quest::creategroundobject($client->GetEntityVariable("PlacingItemID"), $client->GetTargetRingX(), $client->GetTargetRingY(), $client->GetTargetRingZ(), $client->GetHeading(), 0);	#62671 original ID
-						#quest::gmsay("SpawnID is $spawnid", 15);
-						$object = $entity_list->GetObjectByID($spawnid);
-						$object->SetSize(($client->GetEntityVariable("PlacingGrowth") / 5) + $client->GetEntityVariable("PlacingSize"));
-						$object->SetSolidType(0);
-						$object->SetEntityVariable("TreeGrowth", $client->GetEntityVariable("PlacingGrowth") / 5);
-						$object->SetEntityVariable("TreeWater", 0);
-						$object->SetEntityVariable("TreeDisease", 0);
-						$object->SetEntityVariable("TreeSize", $client->GetEntityVariable("PlacingSize"));
-						$object->SetEntityVariable("PlacingEffect", (plugin::HasEffect($object->GetItemID()) ? plugin::GetEffectData($object->GetItemID(), "spell_id") : (defined($object->GetEntityVariable("ClickEffect")) ? $object->GetEntityVariable("ClickEffect") : 0)));
-						$object->SetEntityVariable("Owner", $client->AccountID());
-						plugin::InsertTreeProcedure($object);
-						quest::signalwith(10,$spawnid);
-					}
-					else
-					{
-						$client->Message(15, "You need to highlight a useable item!");
-					}
-				}
-			}
-		}
-	}
 }

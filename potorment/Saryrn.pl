@@ -10,18 +10,7 @@
 
 
 sub EVENT_SPAWN {
-  quest::setnexthpevent(90);
-  quest::settimer(1,1);
-}
-
-sub EVENT_TIMER {
- my $x = $npc->GetX();
- my $y = $npc->GetY();
- my $z = $npc->GetZ();
- if($timer == 1 && ($z < 560)) {
-#    quest::shout("No! I must not leave the time chamber! If I do, I'll age and die!");
-    $npc->GMMove(-14.42,-85.21,579.75,119.6);
- }
+    quest::setnexthpevent(90);
 }
 
 sub EVENT_AGGRO {
@@ -140,5 +129,4 @@ sub EVENT_HP {
 
 sub EVENT_DEATH_COMPLETE {
   quest::spawn2(218068,0,0,$x,$y,$z,$h);
-  quest::stoptimer(1);
 }
