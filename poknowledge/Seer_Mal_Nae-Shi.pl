@@ -4,7 +4,7 @@ sub EVENT_SAY {
   }
   if ($text =~ /guided meditation/i) {
     $client->Message(1, "You converse with Seer Mal Nae`Shi as she guides your meditation... You feel a power within your being, pulling your thougts left and right.  After some time, your mind clears, and Seer Mal Nae`Shi speaks.");
-    $client->Message(9, "Now that your thoughts have calmed, tell me where you have traveled... There are many planes, try to think about your past, and your adventures in: [Plane of Justice] [Plane of Nightmare] [Plane of Innovation] [Plane of Disease] [Plane of Valor] [Plane of Storms] [Plane of Torment] [Ruins of Lxanvom] [Doomfire, the Burning Lands] [Drunder, Fortress of Zek] [Eryslai, the Kingdom of Wind] [Halls of Honor] [Lair of Terris Thule] [Bastion of Thunder] [Reef of Coirnav] [Tower of Solusek Ro] [Vegarlson, the Earthen Badlands] [Ragrax, Stronghold of the Twelve] [Temple of Marr].  If you have completed your elemental flag, say [elemental flag]");
+    $client->Message(9, "Now that your thoughts have calmed, tell me where you have traveled... There are many planes, try to think about your past, and your adventures in: [" . quest::saylink("plane of justice", 0, "Plane of Justice") . "][" . quest::saylink("plane of nightmare", 0, "Plane of Nightmare") . "][" . quest::saylink("plane of innovation", 0, "Plane of Innovation") . "][" . quest::saylink("plane of disease", 0, "Plane of Disease") . "][" . quest::saylink("plane of valor", 0, "Plane of Valor") . "][" . quest::saylink("plane of storms", 0, "Plane of Storms") . "][" . quest::saylink("plane of torment", 0, "Plane of Torment") . "][" . quest::saylink("ruins of lxanvom", 0, "Ruins of Lxanvom") . "][" . quest::saylink("doomfire", 0, "Doomfire, the Burning Lands") . "][" . quest::saylink("fortress of zek", 0, "Drunder, Fortress of Zek") . "][" . quest::saylink("kingdom of wind", 0, "Eryslai, the Kingdom of Wind") . "][" . quest::saylink("halls of honor", 0, "Halls of Honor") . "][" . quest::saylink("lair of terris thule", 0, "Lair of Terris Thule") . "][" . quest::saylink("bastion of thunder", 0, "Bastion of Thunder") . "][" . quest::saylink("reef of coirnav", 0, "Reef of Coirnav") . "][" . quest::saylink("tower of solusek ro", 0, "Tower of Solusek Ro") . "][" . quest::saylink("earthen badlands", 0, "Vegarlson, the Earthen Badlands") . "][" . quest::saylink("stronghold of twelve", 0, "Ragrax, Stronghold of the Twelve") . "][" . quest::saylink("temple of marr", 0, "Temple of Marr") . "].  If you have completed your elemental flag, say [" . quest::saylink("elemental flag", 0, "elemental flag") . "]");
     $client->Message(9, "If one option does not give you the information you need, you may be missing experience from some zones.  To find the credit you currently have, please just [unlock memories].");
     $client->Message(9, "There are special restrictions for the Temple of Marr, elemental planes, and Plane of Torment.  If you need assistance, say [special zones].");
   }
@@ -811,12 +811,12 @@ sub EVENT_SAY {
 ##############################################################################################################################
 ##############################################################################################################################
 ##############################################################################################################################
-  if ($text =~ /elemental planes/i
+  if ($text =~ /elemental flag/i
     && (!defined $qglobals{pop_hohb_marr} && !defined $qglobals{pop_bot_agnarr})
     )
   { $client->Message(4, "You first must kill Agnarr and Lord Marr before you may attempt a request for an elemental flag!  The elemental flags in [Plane of Nightmare] [Plane of Disease] [Plane of Justice] [Plane of Valor] [Plane of Storms] [Bastion of Thunder] [Plane of Torment] [Lair of Terris Thule] [Halls of Honor] [Ruins of Lxanvom].");
   }
-  if (   $text =~ /elemental planes/i
+  if (   $text =~ /elemental flag/i
       && defined $qglobals{pop_hohb_marr}
       && defined $qglobals{pop_bot_agnarr}
       && defined $qglobals{pop_pon_hedge_jezith}
