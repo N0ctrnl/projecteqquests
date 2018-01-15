@@ -16,7 +16,7 @@ sub EVENT_CLICKDOOR {
   
   #codecay
   if($doorid == 12) {
-    if($client->GetLevel() >= $level_for_tier_two || (defined $qglobals{pop_pod_alder_fuirstel} && defined $qglobals{pop_pod_grimmus_planar_projection} && defined $qglobals{pop_pod_elder_fuirstel}) || (defined $qglobals{pop_alt_access_codecay})) {
+    if($client->GetLevel() >= $level_for_tier_two || (defined $qglobals{pop_pod_alder_fuirstel} && defined $qglobals{pop_pod_grimmus_planar_projection} && defined $qglobals{pop_pod_elder_fuirstel})) {
       if(quest::has_zone_flag(200) != 1) {
         quest::set_zone_flag(200);
       }
@@ -25,7 +25,7 @@ sub EVENT_CLICKDOOR {
   
   #torment
   if($doorid == 93) {
-    if($client->GetLevel() >= $level_for_tier_two || (defined $qglobals{pop_pod_alder_fuirstel} && defined $qglobals{pop_pod_grimmus_planar_projection} && defined $qglobals{pop_pod_elder_fuirstel} && defined $qglobals{pop_pon_construct} && defined $qglobals{pop_pon_hedge_jezith} && defined $qglobals{pop_ponb_terris} && defined $qglobals{pop_ponb_poxbourne} &&  defined $qglobals{pop_cod_preflag} && defined $qglobals{pop_cod_bertox} && defined $qglobals{pop_cod_final}) || (defined $qglobals{pop_alt_access_potorment})) {
+    if($client->GetLevel() >= $level_for_tier_two || (defined $qglobals{pop_pod_alder_fuirstel} && defined $qglobals{pop_pod_grimmus_planar_projection} && defined $qglobals{pop_pod_elder_fuirstel} && defined $qglobals{pop_pon_construct} && defined $qglobals{pop_pon_hedge_jezith} && defined $qglobals{pop_ponb_terris} && defined $qglobals{pop_ponb_poxbourne} &&  defined $qglobals{pop_cod_preflag} && defined $qglobals{pop_cod_bertox} && defined $qglobals{pop_cod_final})) {
       if(quest::has_zone_flag(207) != 1) {
         quest::set_zone_flag(207);
       }
@@ -43,7 +43,7 @@ sub EVENT_CLICKDOOR {
 
   #hohonora
   if($doorid == 23) {
-    if($client->GetLevel() >= $level_for_tier_three || (defined $qglobals{pop_poj_mavuin} && defined $qglobals{pop_poj_tribunal} && defined $qglobals{pop_poj_valor_storms} && defined $qglobals{pop_pov_aerin_dar}) || (defined $qglobals{pop_alt_access_hohonora})) {
+    if($client->GetLevel() >= $level_for_tier_three || (defined $qglobals{pop_poj_mavuin} && defined $qglobals{pop_poj_tribunal} && defined $qglobals{pop_poj_valor_storms} && defined $qglobals{pop_pov_aerin_dar})) {
       if(quest::has_zone_flag(211) != 1) {
         quest::set_zone_flag(211);
       }
@@ -52,7 +52,7 @@ sub EVENT_CLICKDOOR {
 
   #potactics
   if($doorid == 24) {
-    if($client->GetLevel() >= $level_for_tier_three_five || (defined $qglobals{pop_poi_behometh_preflag} && defined $qglobals{pop_poi_behometh_flag}) || (defined $qglobals{pop_alt_access_potactics})) {
+    if($client->GetLevel() >= $level_for_tier_three_five || (defined $qglobals{pop_poi_behometh_preflag} && defined $qglobals{pop_poi_behometh_flag})) {
       if(quest::has_zone_flag(214) != 1) {
         quest::set_zone_flag(214);
       }
@@ -61,7 +61,7 @@ sub EVENT_CLICKDOOR {
   
   #solrotower
   if($doorid == 22) {
-    if($client->GetLevel() >= $level_for_tier_three_five || (defined $qglobals{pop_poi_behometh_preflag} && defined $qglobals{pop_poi_behometh_flag} && defined $qglobals{pop_tactics_tallon} && defined $qglobals{pop_tactics_vallon} && defined $qglobals{pop_pot_saryrn_final} && defined $qglobals{pop_pot_saryrn} && defined $qglobals{pop_hohb_marr}) || (defined $qglobals{pop_alt_access_solrotower})) {
+    if($client->GetLevel() >= $level_for_tier_three_five || (defined $qglobals{pop_poi_behometh_preflag} && defined $qglobals{pop_poi_behometh_flag} && defined $qglobals{pop_tactics_tallon} && defined $qglobals{pop_tactics_vallon} && defined $qglobals{pop_pot_saryrn_final} && defined $qglobals{pop_pot_saryrn} && defined $qglobals{pop_hohb_marr})) {
       if(quest::has_zone_flag(212) != 1) {
         quest::set_zone_flag(212);
       }
@@ -139,8 +139,8 @@ sub EVENT_CLICKDOOR {
   $qglobals{pop_eartha_arbitor_projection}=undef;
   $qglobals{pop_earthb_rathe}=undef;
   $qglobals{pop_time_maelin}=undef;
-  $qglobals{pop_alt_access_codecay}=undef;
-  $qglobals{pop_alt_access_potorment}=undef;
-  $qglobals{pop_alt_access_potactics}=undef;
-  $qglobals{pop_alt_access_solrotower}=undef;
+#  $qglobals{pop_alt_access_codecay}=undef;
+#  $qglobals{pop_alt_access_potorment}=undef;
+#  $qglobals{pop_alt_access_potactics}=undef;
+#  $qglobals{pop_alt_access_solrotower}=undef;
 }
