@@ -1,5 +1,6 @@
 sub EVENT_SPAWN {
   quest::settimer(4,1);
+  quest::settimer("depop",135);
 }
 
 sub EVENT_TIMER {
@@ -7,5 +8,9 @@ sub EVENT_TIMER {
     quest::signalwith(206046,1,1);
     $npc->CastSpell(2321,206069);
     quest::depop_withtimer();
+  }
+  if($timer == "depop") {
+    quest::stoptimer("depop");
+    quest::depop();
   }
 }

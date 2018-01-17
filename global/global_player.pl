@@ -38,105 +38,106 @@ sub EVENT_SAY {
 			$client->Message (15, "Distance from " . $client->GetTarget()->GetCleanName() . " to you.");
 			$client->Message (15, "X: " . ($client->GetTarget()->GetX() - $client->GetX())  . " Y: " . ($client->GetTarget()->GetY() - $client->GetY())  . "  Z: " . ($client->GetTarget()->GetZ() - $client->GetZ()));
 		}
-		elsif ($text=~/#stats/i) {
-			$client->Message (15, "MinDMG: ".$client->GetTarget()->CastToNPC()->GetMinDMG()." -- MaxDMG: ".$client->GetTarget()->CastToNPC()->GetMaxDMG()."");
-			$client->Message (15, "Beard Color: ".$client->GetTarget()->GetBeardColor()." -- Bodytype: ".$client->GetTarget()->GetBodyType()." -- Eye 1 Color ".$client->GetTarget()->GetEyeColor1()." -- Eye 2 Color: ".$client->GetTarget()->GetEyeColor2()."");
-			$client->Message (15, "Luclin Face Type: ".$client->GetTarget()->GetLuclinFace()."");
-		}
-		elsif ($text=~/#gmcon/i) {
-			$client->Message (15, "DEBUG: ".$client->CalcEXP(4)."");
-			## $pc->GetLevelCon($npc->GetLevel())
-		}
-		elsif($args[0]=~/#groundspawn/i){
-			if ($args[1]) { 
-				my $itemdrop = $args[1];
-				my $CX = $client->GetX();
-				my $CY = $client->GetY();
-				my $CZ = $client->GetZ();
-				my $CH = $client->GetHeading();
-				$connect = plugin::LoadMysql();
-				$sth = $connect->prepare("SELECT idfile FROM items WHERE id = $itemdrop");
-				$sth->execute();
-				my $graphic = $sth->fetchrow_array();
-				$sth = $connect->do("INSERT INTO `ground_spawns` VALUES ('', $zoneid, 0, $CX, $CY, $CZ, $CX, $CY, $CH, '".$graphic."_ACTORDEF', $itemdrop, 1, 'Auto', 300000)");
-				$client->Message(315, "Groundspawn added to $zonesn!");
-			}
-			else { $client->Message(315,"Groundspawn: Item ID required!"); }
-		}
-		elsif($args[0]=~/#treespawn/i && $status > 150){
-			if ($args[1] && $args[2] && $args[3] && $args[4]) {
-				plugin::InsertStaticTreeProcedure($text, $client);
-				$client->Message(13, "TreeSpawn added to $zonesn at your location!");
-			}
-			else { $client->Message(13,"Format: #treespawn itemid respawntimer basegrowth addsize"); }
-		}
-		elsif (($text=~/#gmwho/i) && ($status >= 250)) {
-			my %classhash = (
-				1 	=> "Warrior",
-				2 	=> "Cleric",
-				3 	=> "Paladin",
-				4 	=> "Ranger",
-				5 	=> "Shadow Knight",
-				6 	=> "Druid",
-				7 	=> "Monk",
-				8 	=> "Bard",
-				9 	=> "Rogue",
-				10	=> "Shaman",
-				11	=> "Necromancer",
-				12	=> "Wizard",
-				13	=> "Magician",
-				14	=> "Enchanter",
-				15	=> "Beastlord",
-				16	=> "Berserker",
-			);
-			my %racehash = (
-				1	=>	"Human",
-				2	=>	"Babarian",
-				3	=>	"Erudite",
-				4	=>	"Wood Elf",
-				5	=>	"High Elf",
-				6	=>	"Dark Elf",
-				7	=>	"Half Elf",
-				8	=>	"Dwarf",
-				9	=>	"Troll",
-				10	=>	"Ogre",
-				11	=>	"Halfling",
-				12	=>	"Gnome",
-				128	=>	"Iksar",
-				130	=>	"Vah Shir",
-				330	=>	"Froglok",
-			);
-			my @clientsarray = $entity_list->GetClientList();
-			$client->Message (11, "(GM List) Players in Zone:");
-			$client->Message (11, "----------------------------------");
-			foreach my $singleclient (@clientsarray) {
-				my $clientguildname;
-				my $longip = $singleclient->GetIP();
-				$firstoctet = $longip % 256;
-				$longip -= $firstoctet;
-				$longip /= 256;
-				$secondoctet = $longip % 256;
-				$longip -= $secondoctet;
-				$longip /= 256;
-				$thirdoctet = $longip % 256;
-				$longip -= $thirdoctet;
-				$longip /= 256;
-				if (quest::getguildnamebyid($singleclient->GuildID())) {
-					$clientguildname = "".quest::getguildnamebyid($singleclient->GuildID())."";
-				} else { $clientguildname = "UNGUILDED"; }
-				my $dottedip = "$firstoctet.$secondoctet.$thirdoctet.$longip";
-				my $wholist =	"[".$singleclient->GetLevel()." ".plugin::customclass($singleclient->GetClass(),$singleclient->GetDeity()).
-								"] ".$singleclient->GetName()." (".$classhash{$singleclient->GetClass()}.") (".
-								$racehash{$singleclient->GetRace()}.") <".$clientguildname."> [IP: ".$dottedip."]";
-				$client->Message (11, "".$wholist."");
-			}
-			$client->Message (11, "There are ".scalar (@clientsarray)." players in zone!");
-		}
 	}
-	if ($text=~/^#Update/i && $status < 100) {			
-			plugin::GetLeaderboard(%qglobals);
-			plugin::ShowLeaderboard("HP");
-		}
+#		elsif ($text=~/#stats/i) {
+#			$client->Message (15, "MinDMG: ".$client->GetTarget()->CastToNPC()->GetMinDMG()." -- MaxDMG: ".$client->GetTarget()->CastToNPC()->GetMaxDMG()."");
+#			$client->Message (15, "Beard Color: ".$client->GetTarget()->GetBeardColor()." -- Bodytype: ".$client->GetTarget()->GetBodyType()." -- Eye 1 Color ".$client->GetTarget()->GetEyeColor1()." -- Eye 2 Color: ".$client->GetTarget()->GetEyeColor2()."");
+#			$client->Message (15, "Luclin Face Type: ".$client->GetTarget()->GetLuclinFace()."");
+#		}
+#		elsif ($text=~/#gmcon/i) {
+#			$client->Message (15, "DEBUG: ".$client->CalcEXP(4)."");
+#			## $pc->GetLevelCon($npc->GetLevel())
+#		}
+#		elsif($args[0]=~/#groundspawn/i){
+#			if ($args[1]) { 
+#				my $itemdrop = $args[1];
+#				my $CX = $client->GetX();
+#				my $CY = $client->GetY();
+#				my $CZ = $client->GetZ();
+#				my $CH = $client->GetHeading();
+#				$connect = plugin::LoadMysql();
+#				$sth = $connect->prepare("SELECT idfile FROM items WHERE id = $itemdrop");
+#				$sth->execute();
+#				my $graphic = $sth->fetchrow_array();
+#				$sth = $connect->do("INSERT INTO `ground_spawns` VALUES ('', $zoneid, 0, $CX, $CY, $CZ, $CX, $CY, $CH, '".$graphic."_ACTORDEF', $itemdrop, 1, 'Auto', 300000)");
+#				$client->Message(315, "Groundspawn added to $zonesn!");
+#			}
+#			else { $client->Message(315,"Groundspawn: Item ID required!"); }
+#		}
+#		elsif($args[0]=~/#treespawn/i && $status > 150){
+#			if ($args[1] && $args[2] && $args[3] && $args[4]) {
+#				plugin::InsertStaticTreeProcedure($text, $client);
+#				$client->Message(13, "TreeSpawn added to $zonesn at your location!");
+#			}
+#			else { $client->Message(13,"Format: #treespawn itemid respawntimer basegrowth addsize"); }
+#		}
+#		elsif (($text=~/#gmwho/i) && ($status >= 250)) {
+#			my %classhash = (
+#				1 	=> "Warrior",
+#				2 	=> "Cleric",
+#				3 	=> "Paladin",
+#				4 	=> "Ranger",
+#				5 	=> "Shadow Knight",
+#				6 	=> "Druid",
+#				7 	=> "Monk",
+#				8 	=> "Bard",
+#				9 	=> "Rogue",
+#				10	=> "Shaman",
+#				11	=> "Necromancer",
+#				12	=> "Wizard",
+#				13	=> "Magician",
+#				14	=> "Enchanter",
+#				15	=> "Beastlord",
+#				16	=> "Berserker",
+#			);
+#			my %racehash = (
+#				1	=>	"Human",
+#				2	=>	"Babarian",
+#				3	=>	"Erudite",
+#				4	=>	"Wood Elf",
+#				5	=>	"High Elf",
+#				6	=>	"Dark Elf",
+#				7	=>	"Half Elf",
+#				8	=>	"Dwarf",
+#				9	=>	"Troll",
+#				10	=>	"Ogre",
+#				11	=>	"Halfling",
+#				12	=>	"Gnome",
+#				128	=>	"Iksar",
+#				130	=>	"Vah Shir",
+#				330	=>	"Froglok",
+#			);
+#			my @clientsarray = $entity_list->GetClientList();
+#			$client->Message (11, "(GM List) Players in Zone:");
+#			$client->Message (11, "----------------------------------");
+#			foreach my $singleclient (@clientsarray) {
+#				my $clientguildname;
+#				my $longip = $singleclient->GetIP();
+#				$firstoctet = $longip % 256;
+#				$longip -= $firstoctet;
+#				$longip /= 256;
+#				$secondoctet = $longip % 256;
+#				$longip -= $secondoctet;
+#				$longip /= 256;
+#				$thirdoctet = $longip % 256;
+#				$longip -= $thirdoctet;
+#				$longip /= 256;
+#				if (quest::getguildnamebyid($singleclient->GuildID())) {
+#					$clientguildname = "".quest::getguildnamebyid($singleclient->GuildID())."";
+#				} else { $clientguildname = "UNGUILDED"; }
+#				my $dottedip = "$firstoctet.$secondoctet.$thirdoctet.$longip";
+#				my $wholist =	"[".$singleclient->GetLevel()." ".plugin::customclass($singleclient->GetClass(),$singleclient->GetDeity()).
+#								"] ".$singleclient->GetName()." (".$classhash{$singleclient->GetClass()}.") (".
+#								$racehash{$singleclient->GetRace()}.") <".$clientguildname."> [IP: ".$dottedip."]";
+#				$client->Message (11, "".$wholist."");
+#			}
+#			$client->Message (11, "There are ".scalar (@clientsarray)." players in zone!");
+#		}
+#	}
+#	if ($text=~/^#Update/i && $status < 100) {			
+#			plugin::GetLeaderboard(%qglobals);
+#			plugin::ShowLeaderboard("HP");
+#		}
 #	if ($text=~/#linked/i) {
 #            if ($client->GetTarget()->IsClient()) {
 #                $client->Message(11, "-------------------------------------------------------------------------");
@@ -163,78 +164,78 @@ sub EVENT_SAY {
 #                $client->Message(15, "[GM:] You MUST target a PLAYER to use this command!");
 #            }
 #        }
-	if ($args[0]=~/#Leaderboard/i) {
-		
-		if(!defined($args[1]))
-		{
-			my %hash = plugin::LeaderboardTypeHash();
-			foreach my $type (sort {$a cmp $b} keys %hash) {
-				$client->Message(315, quest::saylink("#leaderboard $type", 1, "Top 10 Players in $type"));
-			}
-		}
-		elsif($args[1] =~ /update/i && $status < 100)
-		{
-			plugin::GetLeaderboard(%qglobals);
-		}
-		plugin::ShowLeaderboard(substr($text, 13));
-
-	}
-	
-	if($args[0] =~/^#house/i)
-	{
-		if($args[1] =~ /check/i)
-		{
-			$client->SetEntityVariable("DoorCommand", "Info");
-			quest::signalwith(10, $client->GetID());
-		}
-		if($args[1] =~ /buy/i)
-		{
-			$client->SetEntityVariable("DoorCommand", "BuyHouse");
-			quest::signalwith(10, $client->GetID());
-		}
-		if($args[1] =~ /purchase/i)
-		{
-			$client->SetEntityVariable("DoorCommand", "PurchaseHouse");
-			quest::signalwith(10, $client->GetID());
-		}
-		if($args[1] =~ /sell/i)
-		{
-			$client->SetEntityVariable("DoorCommand", "SellHouse");
-			quest::signalwith(10, $client->GetID());
-		}
-		if($args[1] =~ /relinquish/i)
-		{
-			$client->SetEntityVariable("DoorCommand", "RelinquishHouse");
-			quest::signalwith(10, $client->GetID());
-		}
-		if($args[1] =~ /payrent/i)
-		{
-			$client->SetEntityVariable("DoorCommand", "PayRent");
-			quest::signalwith(10, $client->GetID());
-		}
-		
-	}
-	
-	if($args[0] =~/^#object/i)
-	{
-		if(defined($args[3]) && defined($args[2]) && defined($args[1]))
-		{
-			$client->SetEntityVariable("DoorCommand",  $args[0] . " " . $args[1] . " " . $args[2] . " " . $args[3]);
-		}
-		elsif(defined($args[1]) && defined($args[2]))
-		{
-			$client->SetEntityVariable("DoorCommand",  $args[0] . " " . $args[1] . " " . $args[2]);
-		}
-		elsif(defined($args[1]))
-		{
-			$client->SetEntityVariable("DoorCommand",  $args[0] . " " . $args[1]);
-		}
-		else
-		{
-			$client->SetEntityVariable("DoorCommand",  $args[0]);
-		}
-		quest::signalwith(10, $client->GetID());
-	}
+#	if ($args[0]=~/#Leaderboard/i) {
+#		
+#		if(!defined($args[1]))
+#		{
+#			my %hash = plugin::LeaderboardTypeHash();
+#			foreach my $type (sort {$a cmp $b} keys %hash) {
+#				$client->Message(315, quest::saylink("#leaderboard $type", 1, "Top 10 Players in $type"));
+#			}
+#		}
+#		elsif($args[1] =~ /update/i && $status < 100)
+#		{
+#			plugin::GetLeaderboard(%qglobals);
+#		}
+#		plugin::ShowLeaderboard(substr($text, 13));
+#
+#	}
+#	
+#	if($args[0] =~/^#house/i)
+#	{
+#		if($args[1] =~ /check/i)
+#		{
+#			$client->SetEntityVariable("DoorCommand", "Info");
+#			quest::signalwith(10, $client->GetID());
+#		}
+#		if($args[1] =~ /buy/i)
+#		{
+#			$client->SetEntityVariable("DoorCommand", "BuyHouse");
+#			quest::signalwith(10, $client->GetID());
+#		}
+#		if($args[1] =~ /purchase/i)
+#		{
+#			$client->SetEntityVariable("DoorCommand", "PurchaseHouse");
+#			quest::signalwith(10, $client->GetID());
+#		}
+#		if($args[1] =~ /sell/i)
+#		{
+#			$client->SetEntityVariable("DoorCommand", "SellHouse");
+#			quest::signalwith(10, $client->GetID());
+#		}
+#		if($args[1] =~ /relinquish/i)
+#		{
+#			$client->SetEntityVariable("DoorCommand", "RelinquishHouse");
+#			quest::signalwith(10, $client->GetID());
+#		}
+#		if($args[1] =~ /payrent/i)
+#		{
+#			$client->SetEntityVariable("DoorCommand", "PayRent");
+#			quest::signalwith(10, $client->GetID());
+#		}
+#		
+#	}
+#	
+#	if($args[0] =~/^#object/i)
+#	{
+#		if(defined($args[3]) && defined($args[2]) && defined($args[1]))
+#		{
+#			$client->SetEntityVariable("DoorCommand",  $args[0] . " " . $args[1] . " " . $args[2] . " " . $args[3]);
+#		}
+#		elsif(defined($args[1]) && defined($args[2]))
+#		{
+#			$client->SetEntityVariable("DoorCommand",  $args[0] . " " . $args[1] . " " . $args[2]);
+#		}
+#		elsif(defined($args[1]))
+#		{
+#			$client->SetEntityVariable("DoorCommand",  $args[0] . " " . $args[1]);
+#		}
+#		else
+#		{
+#			$client->SetEntityVariable("DoorCommand",  $args[0]);
+#		}
+#		quest::signalwith(10, $client->GetID());
+#	}
 
 #}
   if ($text=~/#www/i || $text=~/#website/i || $text=~/#webpage/i) {
@@ -255,23 +256,19 @@ sub EVENT_SAY {
   if ($text=~/#messages/i || $text=~/#pm/i || $text=~/#message/i) {
     $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=pm");
   }
-#	if ($text=~/#iteminfo/i) {
-#	if ($text=~/#iteminfo/i) {
-#	if ($text=~/#iteminfo/i) {
-#	if ($text=~/#iteminfo/i) {
-#	if ($text=~/#iteminfo/i) {
-#		if ($client->GetItemAt(30)) {
-#			$client->SendWebLink(""http://everquest.allakhazam.com/db/item.html?item="" . $client->GetItemIDAt(30));
-#		}
-#	} elsif ($text=~/#npcinfo/i) {
-#		if ($client->GetTarget() && $client->GetTarget()->IsNPC()) {
-#			$client->SendWebLink("http://everquest.allakhazam.com/db/npc.html?id=" . $client->GetTarget()->GetNPCTypeID());
-#		}
-#	} elsif ($text=~/#playerinfo/i) {
-#		if ($client->GetTarget() && $client->GetTarget()->IsClient()) {
-#			$client->SendWebLink("http://va.bladesofwrath.org/magelo-clone/character.php?char=" . $client->GetTarget()->GetCleanName());
-#		}
-#	}
+	if ($text=~/#iteminfo/i) {
+		if ($client->GetItemAt(30)) {
+			$client->SendWebLink("http://everquest.allakhazam.com/db/item.html?item=" . $client->GetItemIDAt(30));
+		}
+	} elsif ($text=~/#npcinfo/i) {
+		if ($client->GetTarget() && $client->GetTarget()->IsNPC()) {
+			$client->SendWebLink("http://everquest.allakhazam.com/db/npc.html?id=" . $client->GetTarget()->GetNPCTypeID());
+		}
+	} elsif ($text=~/#playerinfo/i) {
+		if ($client->GetTarget() && $client->GetTarget()->IsClient()) {
+			$client->SendWebLink("http://va.bladesofwrath.org/magelo-clone/character.php?char=" . $client->GetTarget()->GetCleanName());
+		}
+	}
 }
 sub EVENT_CONNECT {
     my %vet_aa = (481 => [1, 1, 1]); ## Lesson of the Devote 1 yr
@@ -320,11 +317,6 @@ sub EVENT_ENTERZONE {
     quest::settimer("popup",10);
     quest::settimer("popup2",15);
   }
-#  foreach my $zone_in (18, 31, 32, 36, 39, 40 .. 42, 44, 64 .. 66, 73, 80, 81, 88, 89, 97, 101, 103, 105, 107, 108, 111 .. 113, 123 .. 125, 128, 129, 150, 153, 154, 156 .. 158, 159, 161 .. 164, 179, 200, 212, 214, 216, 223, 228){
-#    if($zoneid == $zone_in){
-#      $client->BuffFadeByEffect(113);
-#    }
-#  }
 #::: Dismount on indoor zone
   $ex = plugin::LoadMysql()->prepare("SELECT `castoutdoor` from `zone` WHERE `zoneidnumber` = ? AND `castoutdoor` = 0");
   $ex->execute($zoneid);
