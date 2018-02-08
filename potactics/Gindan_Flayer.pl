@@ -3,6 +3,7 @@ quest::setnexthpevent(51);
 }
 sub EVENT_HP {
 if($hpevent == 51) {
+  quest::depop_withtimer();
   quest::spawn2(214128,0,0,($x + 10),$y,$z,$h);
   quest::spawn2(214128,0,0,($x - 10),$y,$z,$h);
   }

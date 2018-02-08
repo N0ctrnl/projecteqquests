@@ -10,40 +10,58 @@
 
 
 sub EVENT_SPAWN {
-    quest::setnexthpevent(90);
+  quest::setnexthpevent(90);
+}
+
+sub EVENT_TIMER {
+#  my $x = $npc->GetX();
+#  my $y = $npc->GetY();
+#  my $z = $npc->GetZ();
+  if($timer eq "CheckLeash") { 
+    if($npc->GetZ() lt 540) {
+    quest::shout("No! I must not leave the time chamber! If I do, I'll age and die! $z");
+      quest::stoptimer("CheckLeash");
+      $npc->GMMove(-14.42,-85.21,579.75,119.6);
+      quest::settimer("CheckLeash",1);
+    }
+    else {
+      quest::settimer("CheckLeash",1);
+    }
+  }
 }
 
 sub EVENT_AGGRO {
-    if ($npc->GetHPRatio() > 10 && $npc->GetHPRatio() < 20) {
-      quest::signalwith(207052,2,1);
-      quest::setnexthpevent(10);
-    } elsif ($npc->GetHPRatio() > 20 && !$entity_list->IsMobSpawnedByNpcTypeID(207052) && !$entity_list->IsMobSpawnedByNpcTypeID(207065)) {
-      quest::spawn2(207052,1,0,53.8,-0.7,579.1,128.9);
-      quest::signalwith(207052,1,0);
-      quest::setnexthpevent(20);
-    }
-    if ($npc->GetHPRatio() > 90) {
-      quest::signalwith(207052,1,0);
-      quest::setnexthpevent(90);
-    } elsif ($npc->GetHPRatio() > 80) {
-      quest::signalwith(207052,1,0);
-      quest::setnexthpevent(80);
-    } elsif ($npc->GetHPRatio() > 70) {
-      quest::signalwith(207052,1,0);
-      quest::setnexthpevent(70);
-    } elsif ($npc->GetHPRatio() > 60) {
-      quest::signalwith(207052,1,0);
-      quest::setnexthpevent(60);
-    } elsif ($npc->GetHPRatio() > 50) {
-      quest::signalwith(207052,1,0);
-      quest::setnexthpevent(50);
-    } elsif ($npc->GetHPRatio() > 40) {
-      quest::signalwith(207052,1,0);
-      quest::setnexthpevent(40);
-    } elsif ($npc->GetHPRatio() > 30) {
-      quest::signalwith(207052,1,0);
-      quest::setnexthpevent(30);
-    }
+  quest::settimer("CheckLeash",1);
+  if ($npc->GetHPRatio() > 10 && $npc->GetHPRatio() < 20) {
+    quest::signalwith(207052,2,1);
+    quest::setnexthpevent(10);
+  } elsif ($npc->GetHPRatio() > 20 && !$entity_list->IsMobSpawnedByNpcTypeID(207052) && !$entity_list->IsMobSpawnedByNpcTypeID(207065)) {
+    quest::spawn2(207052,1,0,53.8,-0.7,579.1,128.9);
+    quest::signalwith(207052,1,0);
+    quest::setnexthpevent(20);
+  }
+  if ($npc->GetHPRatio() > 90) {
+    quest::signalwith(207052,1,0);
+    quest::setnexthpevent(90);
+  } elsif ($npc->GetHPRatio() > 80) {
+    quest::signalwith(207052,1,0);
+    quest::setnexthpevent(80);
+  } elsif ($npc->GetHPRatio() > 70) {
+    quest::signalwith(207052,1,0);
+    quest::setnexthpevent(70);
+  } elsif ($npc->GetHPRatio() > 60) {
+    quest::signalwith(207052,1,0);
+    quest::setnexthpevent(60);
+  } elsif ($npc->GetHPRatio() > 50) {
+    quest::signalwith(207052,1,0);
+    quest::setnexthpevent(50);
+  } elsif ($npc->GetHPRatio() > 40) {
+    quest::signalwith(207052,1,0);
+    quest::setnexthpevent(40);
+  } elsif ($npc->GetHPRatio() > 30) {
+    quest::signalwith(207052,1,0);
+    quest::setnexthpevent(30);
+  }
 }
 
 sub EVENT_HP {
@@ -129,4 +147,5 @@ sub EVENT_HP {
 
 sub EVENT_DEATH_COMPLETE {
   quest::spawn2(218068,0,0,$x,$y,$z,$h);
+  quest::stoptimer("CheckLeash");
 }

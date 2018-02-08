@@ -271,10 +271,10 @@ sub EVENT_SAY {
 	}
 }
 sub EVENT_CONNECT {
-    my %vet_aa = (481 => [1, 1, 1]); ## Lesson of the Devote 1 yr
-#    482 => [63072000, 1, 1], ## Infusion of the Faithful 2 yr
+    my %vet_aa = (481 => [1, 1, 1], ## Lesson of the Devote 1 yr
+    482 => [63072000, 1, 1], ## Infusion of the Faithful 2 yr
 #    483 => [94608000, 1, 1], ## Chaotic Jester 3 yr
-#    484 => [126144000, 1, 1], ## Expedient Recovery 4 yr
+    484 => [126144000, 1, 1]); ## Expedient Recovery 4 yr
 #    485 => [157680000, 1, 1], ## Steadfast Servant 5 yr
 #    486 => [189216000, 1, 1], ## Staunch Recovery 6 yr
 #    487 => [220752000, 1, 1], ## Intensity of the Resolute 7 yr
@@ -310,9 +310,9 @@ sub EVENT_ENTERZONE {
     }
   }
 #    if ($class = CLERIC && $ulevel >= 56) {
-  if($class eq "Cleric" || $class eq "Paladin") {
-    quest::settimer("yaulp",2);
-  }
+#  if($class eq "Cleric" || $class eq "Paladin") {
+#    quest::settimer("yaulp",2);
+#  }
   if($ulevel < 2){
     quest::settimer("popup",10);
     quest::settimer("popup2",15);
@@ -321,7 +321,7 @@ sub EVENT_ENTERZONE {
   $ex = plugin::LoadMysql()->prepare("SELECT `castoutdoor` from `zone` WHERE `zoneidnumber` = ? AND `castoutdoor` = 0");
   $ex->execute($zoneid);
   while (@row = $ex->fetchrow_array()) {
-    quest::debug("[horse_mount] We have zoned into a indoor zone, dismounting...");
+#    quest::debug("[horse_mount] We have zoned into a indoor zone, dismounting...");
     $client->BuffFadeByEffect(113);
   }
 }
@@ -340,7 +340,7 @@ sub CheckSkills {
 sub EVENT_TIMER {
   if ($timer eq "999") {
   quest::stoptimer("999");
-    if ($ulevel < 11){
+    if ($ulevel < 5){
           plugin::DiaWind("mysterious Hello there, {g}$name~!(Please resize this window to show all content. It's a little buggy when scrolling)<br>
           Please check out our forums @ {r}http://www.vegarlson-server.org/~ for full server information as well as to report any issues!
           {linebreak}<br>
@@ -378,18 +378,18 @@ sub EVENT_TIMER {
 #          {linebreak}");
     }
   }
-  if ($timer eq "yaulp") {
-    quest::stoptimer("yaulp");
-    if ($client->IsSitting() && ($client->FindBuff(3186) || $client->FindBuff(2326) || $client->FindBuff(1534) || $client->FindBuff(210) || $client->FindBuff(44) || $client->FindBuff(43))) {
-      $client->BuffFadeBySpellID(3186);
-      $client->BuffFadeBySpellID(2326);
-      $client->BuffFadeBySpellID(1534);
-      $client->BuffFadeBySpellID(210);
-      $client->BuffFadeBySpellID(44);
-      $client->BuffFadeBySpellID(43);
-    }
-    quest::settimer("yaulp",1);
-  }
+#  if ($timer eq "yaulp") {
+#    quest::stoptimer("yaulp");
+#    if ($client->IsSitting() && ($client->FindBuff(3186) || $client->FindBuff(2326) || $client->FindBuff(1534) || $client->FindBuff(210) || $client->FindBuff(44) || $client->FindBuff(43))) {
+#      $client->BuffFadeBySpellID(3186);
+#      $client->BuffFadeBySpellID(2326);
+#      $client->BuffFadeBySpellID(1534);
+#      $client->BuffFadeBySpellID(210);
+#      $client->BuffFadeBySpellID(44);
+#      $client->BuffFadeBySpellID(43);
+#    }
+#    quest::settimer("yaulp",1);
+#  }
   if ($timer eq "popup") {
     quest::stoptimer("popup");
     plugin::MM("Please go to www.vegarlson-server.org for information about our server! You can find our patcher there to get the correct files (zones,spells,etc.) for the VA Server!");
