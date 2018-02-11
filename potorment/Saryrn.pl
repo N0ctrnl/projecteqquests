@@ -16,22 +16,20 @@ sub EVENT_SPAWN {
 sub EVENT_TIMER {
 #  my $x = $npc->GetX();
 #  my $y = $npc->GetY();
-#  my $z = $npc->GetZ();
-  if($timer eq "CheckLeash") { 
-    if($npc->GetZ() lt 540) {
-    quest::shout("No! I must not leave the time chamber! If I do, I'll age and die! $z");
-      quest::stoptimer("CheckLeash");
-      $npc->GMMove(-14.42,-85.21,579.75,119.6);
-      quest::settimer("CheckLeash",1);
-    }
-    else {
-      quest::settimer("CheckLeash",1);
-    }
+  my $z = $npc->GetZ();
+  {
+    quest::stoptimer(1);
+    quest::settimer(1,1);
+  }
+
+  if ($timer == 1 && $z < 560) {
+    $npc->GMMove(-14.42,-85.21,579.75,119.6);
   }
 }
 
 sub EVENT_AGGRO {
-  quest::settimer("CheckLeash",1);
+  quest::stoptimer(1);
+  quest::settimer(1,1);
   if ($npc->GetHPRatio() > 10 && $npc->GetHPRatio() < 20) {
     quest::signalwith(207052,2,1);
     quest::setnexthpevent(10);
@@ -147,5 +145,5 @@ sub EVENT_HP {
 
 sub EVENT_DEATH_COMPLETE {
   quest::spawn2(218068,0,0,$x,$y,$z,$h);
-  quest::stoptimer("CheckLeash");
+  quest::stoptimer(1);
 }
