@@ -1,5 +1,9 @@
 
 sub EVENT_SPAWN {
+  $SpawnX = $x;
+  $SpawnY = $y;
+  $SpawnZ = $z;
+  $SpawnH = $h;
   $LeashedID = $entity_list->GetMobByNpcTypeID(207069);
   quest::settimer(2,61);
   quest::settimer(99,1);
