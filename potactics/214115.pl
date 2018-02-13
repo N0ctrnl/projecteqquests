@@ -1,5 +1,5 @@
 sub EVENT_SPAWN {
-  quest::settimer(1,30);
+  quest::settimer(1,300);
 }
 
 sub EVENT_AGGRO {
@@ -16,6 +16,6 @@ sub EVENT_TIMER {
 sub EVENT_HATE_LIST {
   quest::stoptimer(1);
   if(!$hate_state){
-    quest::settimer(1,30);
+    quest::settimer(1,300);
   }
 }
