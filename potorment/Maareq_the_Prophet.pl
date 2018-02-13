@@ -5,7 +5,6 @@ sub EVENT_SPAWN {
   $SpawnY = $y;
   $SpawnZ = $z;
   $SpawnH = $h;
-  $LeashedID = $entity_list->GetMobByNpcTypeID(207004);
   quest::settimer(99, 1);
 }
 
@@ -17,6 +16,7 @@ sub EVENT_AGGRO {
 }
 
 sub EVENT_TIMER {
+  $LeashedID = $entity_list->GetMobByNpcTypeID(207004);
   my $x = $npc->GetX();
   my $y = $npc->GetY();
   my $z = $npc->GetZ();

@@ -19,7 +19,7 @@ sub EVENT_TIMER {
   my $z = $npc->GetZ();
   {
     quest::stoptimer(1);
-    quest::settimer(1,1);
+    quest::settimer(1,2);
   }
 
   if ($timer == 1 && $z < 560) {
@@ -29,7 +29,7 @@ sub EVENT_TIMER {
 
 sub EVENT_AGGRO {
   quest::stoptimer(1);
-  quest::settimer(1,1);
+  quest::settimer(1,2);
   if ($npc->GetHPRatio() > 10 && $npc->GetHPRatio() < 20) {
     quest::signalwith(207052,2,1);
     quest::setnexthpevent(10);
