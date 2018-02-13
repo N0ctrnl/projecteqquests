@@ -39,6 +39,7 @@ sub EVENT_SAY {
 			$client->Message (15, "X: " . ($client->GetTarget()->GetX() - $client->GetX())  . " Y: " . ($client->GetTarget()->GetY() - $client->GetY())  . "  Z: " . ($client->GetTarget()->GetZ() - $client->GetZ()));
 		}
 	}
+}
 #		elsif ($text=~/#stats/i) {
 #			$client->Message (15, "MinDMG: ".$client->GetTarget()->CastToNPC()->GetMinDMG()." -- MaxDMG: ".$client->GetTarget()->CastToNPC()->GetMaxDMG()."");
 #			$client->Message (15, "Beard Color: ".$client->GetTarget()->GetBeardColor()." -- Bodytype: ".$client->GetTarget()->GetBodyType()." -- Eye 1 Color ".$client->GetTarget()->GetEyeColor1()." -- Eye 2 Color: ".$client->GetTarget()->GetEyeColor2()."");
@@ -238,38 +239,38 @@ sub EVENT_SAY {
 #	}
 
 #}
-  if ($text=~/#www/i || $text=~/#website/i || $text=~/#webpage/i) {
-    $client->SendWebLink("http://www.vegarlson-server.org");
-  }
-  if ($text=~/#forum/i || $text=~/#forums/i || $text=~/#board/i) {
-    $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=forum");
-  }
-  if ($text=~/#alla/i || $text=~/#allaclone/i || $text=~/#clone/i) {
-    $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=alla");
-  }
-  if ($text=~/#char/i || $text=~/#character/i || $text=~/#characters/i) {
-    $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=charbrowser");
-  }
-  if ($text=~/#bug/i || $text=~/#bugs/i) {
-    $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=helpdesk;sa=main");
-  }
-  if ($text=~/#messages/i || $text=~/#pm/i || $text=~/#message/i) {
-    $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=pm");
-  }
-	if ($text=~/#iteminfo/i) {
-		if ($client->GetItemAt(30)) {
-			$client->SendWebLink("http://everquest.allakhazam.com/db/item.html?item=" . $client->GetItemIDAt(30));
-		}
-	} elsif ($text=~/#npcinfo/i) {
-		if ($client->GetTarget() && $client->GetTarget()->IsNPC()) {
-			$client->SendWebLink("http://everquest.allakhazam.com/db/npc.html?id=" . $client->GetTarget()->GetNPCTypeID());
-		}
-	} elsif ($text=~/#playerinfo/i) {
-		if ($client->GetTarget() && $client->GetTarget()->IsClient()) {
-			$client->SendWebLink("http://va.bladesofwrath.org/magelo-clone/character.php?char=" . $client->GetTarget()->GetCleanName());
-		}
-	}
-}
+#  if ($text=~/#www/i || $text=~/#website/i || $text=~/#webpage/i) {
+#    $client->SendWebLink("http://www.vegarlson-server.org");
+#  }
+#  if ($text=~/#forum/i || $text=~/#forums/i || $text=~/#board/i) {
+#    $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=forum");
+#  }
+#  if ($text=~/#alla/i || $text=~/#allaclone/i || $text=~/#clone/i) {
+#    $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=alla");
+#  }
+#  if ($text=~/#char/i || $text=~/#character/i || $text=~/#characters/i) {
+#    $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=charbrowser");
+#  }
+#  if ($text=~/#bug/i || $text=~/#bugs/i) {
+#    $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=helpdesk;sa=main");
+#  }
+#  if ($text=~/#messages/i || $text=~/#pm/i || $text=~/#message/i) {
+#    $client->SendWebLink("http://www.vegarlson-server.org/index.php?action=pm");
+#  }
+#	if ($text=~/#iteminfo/i) {
+#		if ($client->GetItemAt(30)) {
+#			$client->SendWebLink("http://everquest.allakhazam.com/db/item.html?item=" . $client->GetItemIDAt(30));
+#		}
+#	} elsif ($text=~/#npcinfo/i) {
+#		if ($client->GetTarget() && $client->GetTarget()->IsNPC()) {
+#			$client->SendWebLink("http://everquest.allakhazam.com/db/npc.html?id=" . $client->GetTarget()->GetNPCTypeID());
+#		}
+#	} elsif ($text=~/#playerinfo/i) {
+#		if ($client->GetTarget() && $client->GetTarget()->IsClient()) {
+#			$client->SendWebLink("http://va.bladesofwrath.org/magelo-clone/character.php?char=" . $client->GetTarget()->GetCleanName());
+#		}
+#	}
+#}
 sub EVENT_CONNECT {
     my %vet_aa = (481 => [1, 1, 1], ## Lesson of the Devote 1 yr
     482 => [63072000, 1, 1], ## Infusion of the Faithful 2 yr
