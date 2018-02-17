@@ -43,7 +43,7 @@ sub EVENT_CLICKDOOR {
 
   #hohonora
   if($doorid == 23) {
-    if($client->GetLevel() >= $level_for_tier_three || (defined $qglobals{pop_poj_mavuin} && defined $qglobals{pop_poj_tribunal} && defined $qglobals{pop_poj_valor_storms} && defined $qglobals{pop_pov_aerin_dar})) {
+    if($status > 0 && $client->GetLevel() >= $level_for_tier_three || (defined $qglobals{pop_poj_mavuin} && defined $qglobals{pop_poj_tribunal} && defined $qglobals{pop_poj_valor_storms} && defined $qglobals{pop_pov_aerin_dar})) {
       if(quest::has_zone_flag(211) != 1) {
         quest::set_zone_flag(211);
       }
