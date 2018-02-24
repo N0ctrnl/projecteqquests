@@ -1,7 +1,7 @@
 -- Necromancer Epic NPC -- a_failed_apprentice
 
 function event_death_complete(e)
-	eq.spawn2(51144,0,0,-1518.9,347.6,53,31):AddToHateList(e.other,1);
+	eq.spawn2(51144,0,0,-1518.9,347.6,53,62):AddToHateList(e.other,1);
 end
 
 --Quest by: Solid11  Zone:lakerathe  ID:51152 -- a_failed_apprentice

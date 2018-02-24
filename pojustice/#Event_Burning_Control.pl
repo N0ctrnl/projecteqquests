@@ -76,14 +76,14 @@ sub EVENT_TIMER {
 	elsif ($timer eq "flame_reset") {
 		quest::stoptimer("flame_reset");
 		if ($ent->CalculateDistance($npc->GetX(),$npc->GetY(),$npc->GetZ()) <= 100) {
-                	$ent->MovePC(207,456,825,7,253.2);
+                	$ent->MovePC(207,456,825,7,506.4);
 		}
 		quest::settimer("flame_reset2", 30);
 	}
 	elsif ($timer eq "flame_reset2") {
 		quest::stoptimer("flame_reset2");
 		if ($ent->CalculateDistance($npc->GetX(),$npc->GetY(),$npc->GetZ()) <= 100) {
-                	$ent->MovePC(207,456,825,7,253.2);
+                	$ent->MovePC(207,456,825,7,506.4);
 		}
 		quest::signalwith(201434, 0, 5);
 		HandleCorpses();

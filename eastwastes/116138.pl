@@ -25,7 +25,7 @@ sub EVENT_TIMER {
   }
   elsif($timer == 5) {
     quest::stoptimer(5);
-    quest::spawn2(116140,0,0,1056,-3406,145.55,195);
+    quest::spawn2(116140,0,0,1056,-3406,145.55,390);
     quest::settimer(6,10);
   }
   elsif($timer == 6) {

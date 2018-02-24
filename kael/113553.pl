@@ -18,7 +18,7 @@ sub EVENT_PROXIMITY_SAY {
 #  $giant3 = $entity_list->IsMobSpawnedByNpcTypeID(113508);
 #  $giant4 = $entity_list->IsMobSpawnedByNpcTypeID(113508);
   if($text=~/dain/i && !$dwarf1 && !$dwarf2 && !$giant1 && !$giant2 && !$giant3 && !$giant4 && !$giant5 && !defined $qglobals{doldigun}) {
-    quest::spawn2(113440,0,0,1126.4,-840.6,-118.3,62.6); #Doldigun, non-loot version
+    quest::spawn2(113440,0,0,1126.4,-840.6,-118.3,125.2); #Doldigun, non-loot version
     quest::setglobal("doldigun",1,3,"M30");
   }
 }
@@ -26,6 +26,6 @@ sub EVENT_PROXIMITY_SAY {
 sub EVENT_SIGNAL {
 #  if ($dwarf == 1) {
   if ($signal == 1 && !$entity_list->IsMobSpawnedByNpcTypeID(113440) && !$entity_list->IsMobSpawnedByNpcTypeID(113508)) {
-    quest::spawn2(113508,29,0,1130.3,-933.2,-125.6,63.4);
+    quest::spawn2(113508,29,0,1130.3,-933.2,-125.6,126.8);
   }
 }

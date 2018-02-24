@@ -83,24 +83,24 @@ my $Ulissa = quest::saylink("Ulissa", 1);
 sub EVENT_SPAWN 
 {
 #Spawn the golem ring MOB: no name, untargetable (may add animation later)
-quest::spawn2(999998, 1, 0, 478.7, 678.9, -46.9, 179);
-quest::spawn2(999998,1,0,480.5,667.2,-46.9,194);
-quest::spawn2(999998,1,0,479.7,654.9,-46.9,206.9);
-quest::spawn2(999998,1,0,472.6,644.7,-46.9,222.8);
-quest::spawn2(999998,1,0,463.5,636.8,-46.9,236.0);
-quest::spawn2(999998,1,0,451.7,632.3,-46.9,249.3);
-quest::spawn2(999998,1,0,439.5,632.5,-46.9,7.4);
-quest::spawn2(999998,1,0,427.4,636.7,-46.9,25.3);
-quest::spawn2(999998,1,0,418.2,644.8,-46.9,37.3);
-quest::spawn2(999998,1,0,412.5,655.4,-46.9,51.8);
-quest::spawn2(999998,1,0,409.3,667.7,-46.9,66.1);
-quest::spawn2(999998,1,0,413.1,679.4,-46.9,79.3);
-quest::spawn2(999998,1,0,418.6,690.6,-46.9,92.9);
-quest::spawn2(999998,1,0,428.6,697.5,-46.9,107.5);
-quest::spawn2(999998,1,0,439.8,702.2,-46.9,121.3);
-quest::spawn2(999998,1,0,451.5,702.6,-46.9,134.3);
-quest::spawn2(999998,1,0,464.1,698.6,-46.9,149.0);
-quest::spawn2(999998,1,0,473.1,690.4,-46.9,163.9);
+quest::spawn2(999998, 1, 0, 478.7, 678.9, -46.9, 358);
+quest::spawn2(999998,1,0,480.5,667.2,-46.9,388);
+quest::spawn2(999998,1,0,479.7,654.9,-46.9,413.8);
+quest::spawn2(999998,1,0,472.6,644.7,-46.9,445.6);
+quest::spawn2(999998,1,0,463.5,636.8,-46.9,472);
+quest::spawn2(999998,1,0,451.7,632.3,-46.9,498.6);
+quest::spawn2(999998,1,0,439.5,632.5,-46.9,14.8);
+quest::spawn2(999998,1,0,427.4,636.7,-46.9,50.6);
+quest::spawn2(999998,1,0,418.2,644.8,-46.9,74.6);
+quest::spawn2(999998,1,0,412.5,655.4,-46.9,103.6);
+quest::spawn2(999998,1,0,409.3,667.7,-46.9,132.2);
+quest::spawn2(999998,1,0,413.1,679.4,-46.9,158.6);
+quest::spawn2(999998,1,0,418.6,690.6,-46.9,185.8);
+quest::spawn2(999998,1,0,428.6,697.5,-46.9,215);
+quest::spawn2(999998,1,0,439.8,702.2,-46.9,242.6);
+quest::spawn2(999998,1,0,451.5,702.6,-46.9,268.6);
+quest::spawn2(999998,1,0,464.1,698.6,-46.9,298);
+quest::spawn2(999998,1,0,473.1,690.4,-46.9,327.8);
 #quest::gmsay("golem ring spawned",13,0);
 }
 
@@ -128,8 +128,8 @@ sub EVENT_HP {
 		{
 		quest::setnexthpevent(90);
 		quest::emote("begins to crumble");
-		quest::spawn2(999995,0,0,446.6,699.7,-46.9,64.1); #spawn black ice
-		quest::spawn2(999996,0,0,445.5,632.5,-46.9,34.8); #spawn ice chunk
+		quest::spawn2(999995,0,0,446.6,699.7,-46.9,128.2); #spawn black ice
+		quest::spawn2(999996,0,0,445.5,632.5,-46.9,69.6); #spawn ice chunk
 		quest::npcsize(48); #decrease size due to breakage
 		# Cast a spell on the random hate target (Wanton Destruction(modified))
 		
@@ -152,8 +152,8 @@ sub EVENT_HP {
 		{
 		quest::setnexthpevent(85);
 		quest::emote("begins to crumble");
-		quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-		quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+		quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+		quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 		quest::npcsize(46);
 		my $HateTarget = $npc->GetHateRandom();
 		
@@ -172,8 +172,8 @@ sub EVENT_HP {
 		{
 		quest::setnexthpevent(80);
 		quest::emote("begins to crumble");
-		quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-		quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+		quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+		quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 		quest::npcsize(44);
 		my $HateTarget = $npc->GetHateRandom();
 		
@@ -192,8 +192,8 @@ sub EVENT_HP {
 		{
 		quest::setnexthpevent(75);
 		quest::emote("begins to crumble");
-		quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-		quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+		quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+		quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 		quest::npcsize(42);
 		my $HateTarget = $npc->GetHateRandom();
 		
@@ -212,8 +212,8 @@ sub EVENT_HP {
 		{
 		quest::setnexthpevent(70);
 		quest::emote("begins to crumble");
-		quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-		quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+		quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+		quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 		quest::npcsize(40);
 		$HateTarget = $npc->GetHateRandom();
 		
@@ -232,8 +232,8 @@ sub EVENT_HP {
 		{
 		quest::setnexthpevent(65);
 		quest::emote("begins to crumble");
-		quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-		quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+		quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+		quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 		quest::npcsize(38);
 		$npc->SpellFinished(40050, $HateTarget);
 		quest::gmsay("AE CAST",13,0);	
@@ -246,8 +246,8 @@ sub EVENT_HP {
 		if ($hpevent == 65) {
 		quest::setnexthpevent(60);
 		quest::emote("begins to crumble");
-		quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-		quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+		quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+		quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 		quest::npcsize(36);
 		$HateTarget = $npc->GetHateRandom();
 		
@@ -266,8 +266,8 @@ sub EVENT_HP {
 		{
 		quest::setnexthpevent(55);
 		quest::emote("begins to crumble");
-		quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-		quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+		quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+		quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 		quest::npcsize(34);
 		$HateTarget = $npc->GetHateRandom();
 			
@@ -287,8 +287,8 @@ sub EVENT_HP {
 	if ($hpevent == 55) {
     quest::setnexthpevent(50);
     quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(32);
 	
 	$HateTarget = $npc->GetHateRandom();
@@ -331,8 +331,8 @@ sub EVENT_HP {
 	{
 	quest::setnexthpevent(40);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(28);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -351,8 +351,8 @@ sub EVENT_HP {
 	if ($hpevent == 40){
 	quest::setnexthpevent(35);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(26);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -373,8 +373,8 @@ sub EVENT_HP {
 	{
 	quest::setnexthpevent(30);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(24);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -394,8 +394,8 @@ sub EVENT_HP {
 	if ($hpevent == 30){
 	quest::setnexthpevent(25);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(22);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -410,8 +410,8 @@ sub EVENT_HP {
 	if ($hpevent == 25){
 	quest::setnexthpevent(20);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(20);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -431,8 +431,8 @@ sub EVENT_HP {
 	if ($hpevent == 20){
 	quest::setnexthpevent(15);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(18);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -451,8 +451,8 @@ sub EVENT_HP {
 	if ($hpevent == 15){
 	quest::setnexthpevent(10);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(16);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -472,8 +472,8 @@ sub EVENT_HP {
 	if ($hpevent == 10){
 	quest::setnexthpevent(8);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(14);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -492,8 +492,8 @@ sub EVENT_HP {
 	if ($hpevent == 8){
 	quest::setnexthpevent(6);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(12);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -513,8 +513,8 @@ sub EVENT_HP {
 	if ($hpevent == 6){
 	quest::setnexthpevent(4);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(10);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -533,8 +533,8 @@ sub EVENT_HP {
 	if ($hpevent == 4){
 	quest::setnexthpevent(2);
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(8);
 	$HateTarget = $npc->GetHateRandom();
 		
@@ -553,8 +553,8 @@ sub EVENT_HP {
 	
 	if ($hpevent == 2){
 	quest::emote("begins to crumble");
-	quest::spawn2(999995,1,0,446.6,699.7,-46.9,64.1);
-	quest::spawn2(999996,1,0,445.5,632.5,-46.9,34.8);
+	quest::spawn2(999995,1,0,446.6,699.7,-46.9,128.2);
+	quest::spawn2(999996,1,0,445.5,632.5,-46.9,69.6);
 	quest::npcsize(6);
 	$HateTarget = $npc->GetHateRandom();
 		

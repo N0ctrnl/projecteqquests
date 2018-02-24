@@ -6,7 +6,7 @@ sub EVENT_TIMER {
   if ($timer eq "UDB") {
     quest::stoptimer("UDB");
     # Timer is up. Let's spawn the Undead Bard
-    quest::spawn2(89168,0,0,-700.0,-2080.0,-140.13,64.0); ## An_Undead_Bard
+    quest::spawn2(89168,0,0,-700.0,-2080.0,-140.13,128); ## An_Undead_Bard
   }
 }
 

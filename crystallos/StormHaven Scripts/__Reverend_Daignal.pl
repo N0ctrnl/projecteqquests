@@ -71,8 +71,8 @@ sub EVENT_TIMER {
 	if ($timer eq "Spawn_Constants")
 	{
 		quest::stoptimer("Spawn_Constants");
-		quest::spawn2(859042,0,0, -894.7, 2261.6, -151, 185.8);
-		quest::spawn2(859041,0,0, -887.5, 2191.5, -151.0, 185.9);
+		quest::spawn2(859042,0,0, -894.7, 2261.6, -151, 371.6);
+		quest::spawn2(859041,0,0, -887.5, 2191.5, -151.0, 371.8);
 		$npc->NPCSpecialAttacks("ABf", 0);
 	}
 
@@ -94,7 +94,7 @@ sub EVENT_TIMER {
 		quest::depopall(859042);
 		quest::depopall(859041);
 		quest::emote("calms down.");
-		$npc->GMMove(-866, 2228.8, -147.5, 187.2);
+		$npc->GMMove(-866, 2228.8, -147.5, 374.4);
 		quest::modifynpcstat("runspeed", 0.00001);
 		quest::delglobal("Rev_Door_Close"); 
 	}

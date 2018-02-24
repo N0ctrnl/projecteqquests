@@ -2,11 +2,11 @@ my $dainring = undef;
 
 sub EVENT_SIGNAL {
 	if($signal==1) {
-		quest::moveto(5,780,38,130,1);
+		quest::moveto(5,780,38,260,1);
 #		quest::start(34);
 	}
 	if($signal==2) {
-		quest::moveto(-3,693,69,126,1);
+		quest::moveto(-3,693,69,252,1);
 	}
 }
 
@@ -84,11 +84,11 @@ sub EVENT_TIMER {
   elsif($timer == 15) {
     if(quest::get_spawn_condition("thurgadinb",2) == 1) {
     quest::stoptimer(15);
-    quest::moveto(-3,693,69,126,1);
+    quest::moveto(-3,693,69,252,1);
     }
     elsif (quest::get_spawn_condition("thurgadinb",1) == 1) {
     quest::stoptimer(15);
-    quest::moveto(5,780,38,130,1);
+    quest::moveto(5,780,38,260,1);
     }
   }
 }

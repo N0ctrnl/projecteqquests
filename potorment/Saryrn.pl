@@ -23,7 +23,7 @@ sub EVENT_TIMER {
   }
 
   if ($timer == 1 && $z < 560) {
-    $npc->GMMove(-14.42,-85.21,579.75,119.6);
+    $npc->GMMove(-14.42,-85.21,579.75,239.2);
   }
 }
 
@@ -34,7 +34,7 @@ sub EVENT_AGGRO {
     quest::signalwith(207052,2,1);
     quest::setnexthpevent(10);
   } elsif ($npc->GetHPRatio() > 20 && !$entity_list->IsMobSpawnedByNpcTypeID(207052) && !$entity_list->IsMobSpawnedByNpcTypeID(207065)) {
-    quest::spawn2(207052,1,0,53.8,-0.7,579.1,128.9);
+    quest::spawn2(207052,1,0,53.8,-0.7,579.1,257.8);
     quest::signalwith(207052,1,0);
     quest::setnexthpevent(20);
   }

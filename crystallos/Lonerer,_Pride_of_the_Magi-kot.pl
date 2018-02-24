@@ -34,7 +34,7 @@ sub EVENT_SIGNAL {
 	{
 	quest::modifynpcstat("runspeed",4.0);
 	quest::stopalltimers();
-	quest::moveto(224.5,2768.9,-525.1,190.4,1);
+	quest::moveto(224.5,2768.9,-525.1,380.8,1);
 	#plugin::ModSpecialAttack("ABH",1);
 	#quest::start(546790);
 	plugin::Debug("signal recieved");

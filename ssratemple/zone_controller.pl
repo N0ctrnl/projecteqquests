@@ -56,13 +56,13 @@ sub EVENT_TIMER {
 
     if ($check == 0) {
       if (!defined $qglobals{glyphed_dead} && !defined $qglobals{cursed_dead} && !defined $qglobals{exiled_dead}) {
-        quest::spawn2(162261,0,0,-51,-9,-218.1,63);# Glyphed
+        quest::spawn2(162261,0,0,-51,-9,-218.1,126);# Glyphed
       }
 #      elsif (defined $qglobals{glyphed_dead} && !defined $qglobals{cursed_dead} && !defined $qglobals{exiled_dead}) {
-#        quest::spawn2(162253,0,0,-51,-9,-218.1,63); # Runed
+#        quest::spawn2(162253,0,0,-51,-9,-218.1,126); # Runed
 #      }
 #      elsif (defined $qglobals{glyphed_dead} && !defined $qglobals{exiled_dead}) {
-#        quest::spawn2(162261,0,0,-51,-9,-218.1,63);#glyphed
+#        quest::spawn2(162261,0,0,-51,-9,-218.1,126);#glyphed
 #      }
     }
   }
@@ -74,14 +74,14 @@ sub EVENT_SIGNAL {
   }
   if ($signal == 1) {
     if(!defined $qglobals{exiled_dead}) {
-      quest::spawn2(162232,0,0,-51,-9,-218.1,63);#Exiled
+      quest::spawn2(162232,0,0,-51,-9,-218.1,126);#Exiled
     } elsif (defined $qglobals{exiled_dead}) {
-      quest::spawn2(162214,0,0,-51,-9,-218.1,63);#Banished
+      quest::spawn2(162214,0,0,-51,-9,-218.1,126);#Banished
     }
   }
   if ($signal == 2) {
     if(!defined $qglobals{cursed_dead}) {
-      quest::spawn2(162206,0,0,-51,-9,-218.1,63);#Cursed
+      quest::spawn2(162206,0,0,-51,-9,-218.1,126);#Cursed
     }
   }
   if ($signal == 3) {

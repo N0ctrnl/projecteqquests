@@ -65,8 +65,8 @@ sub EVENT_TIMER {
 	if ($timer eq "spawn_constants")
 	{
 	quest::stoptimer("spawn_constants");
-	quest::spawn2(1000001,0,0,2126.9,2903.2,466.8,147.1);
-	quest::spawn2(1000002,0,0,1817.9,2890.3,471.6,112.4);
+	quest::spawn2(1000001,0,0,2126.9,2903.2,466.8,294.2);
+	quest::spawn2(1000002,0,0,1817.9,2890.3,471.6,224.8);
 	}
 
 	if ($timer eq "start")

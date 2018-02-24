@@ -115,7 +115,7 @@ sub EVENT_DEATH {
 
 $timestamp = localtime(time);
 
-  quest::spawn2(2700633,0,0, -740.2, 2914.7, 42.2,120.9);
+  quest::spawn2(2700633,0,0, -740.2, 2914.7, 42.2,241.8);
   quest::stoptimer("Tirr_DS2");
   quest::stoptimer("Tirr_AE2");
   quest::stoptimer("Tirr_AE3");

@@ -1,4 +1,4 @@
---e.other:MovePCInstance(259, instance_id, 149, -289, 51.13, 7)
+--e.other:MovePCInstance(259, instance_id, 149, -289, 51.13, 14)
 -- Friggal Bribbitz
 --
 function event_say(e)

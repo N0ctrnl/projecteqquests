@@ -2,7 +2,7 @@
 
 
 function event_death_complete(e)
-	eq.spawn2(51152,0,0,-1518.9,347.6,53,98.9):AddToHateList(e.other,1);
+	eq.spawn2(51152,0,0,-1518.9,347.6,53,197.8):AddToHateList(e.other,1);
 end
 
 --Quest by: Solid11  Zone:lakerathe  ID:51153 -- a_bone_golem

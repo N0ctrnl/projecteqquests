@@ -10,7 +10,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
 	if(plugin::check_handin(\%itemcount, 10092 => 1)) {
 		quest::say("Enjoy the exquisite anger, $name, and give my regards to Innoruuk!");
-		quest::movepc(186,-393,656,3);
+		quest::movepc(76,-353,-374.75,3.8,254);
 	}
 	if(plugin::check_handin(\%itemcount, 10094 => 1)) {
 		quest::say("Bah. Off you go.");

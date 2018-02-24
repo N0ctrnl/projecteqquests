@@ -62,8 +62,8 @@ sub EVENT_TIMER {
 	quest::modifynpcstat("runspeed",0.0);
 	quest::stoptimer("mainfight");
 	$npc->WipeHateList();
-	#$npc->GMMove(1817.9,2890.3,471.6,112.4);
-	$npc->GMMove(2126.9,2903.2,466.8,147.1);
+	#$npc->GMMove(1817.9,2890.3,471.6,224.8);
+	$npc->GMMove(2126.9,2903.2,466.8,294.2);
 	quest::settimer("die",1);
 	plugin::Debug("Death Signal Sent");
 	}

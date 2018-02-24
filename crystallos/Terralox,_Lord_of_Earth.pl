@@ -226,7 +226,7 @@ sub EVENT_TIMER
 	if ($timer eq "KILL")
 	{
 	quest::stoptimer("KILL");
-	#quest::spawn2(999343,0,0,-124.4,2868.9,-321.2,34.9); #spawn chest
+	#quest::spawn2(999343,0,0,-124.4,2868.9,-321.2,69.8); #spawn chest
 	quest::depop(1000013);
 	
 	}

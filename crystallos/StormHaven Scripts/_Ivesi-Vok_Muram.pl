@@ -93,7 +93,7 @@ sub EVENT_HP {
 		quest::shout("Come forth Ture! My trusted mount, aid me in destroying these pathetic creatures!");
 		$entity_list->MessageClose($npc, 1, 2000, 263, "Ivesi`Vok Muram begins to cast a spell. (Summon Mount)");
 		$entity_list->MessageClose($npc, 1, 2000, 263, "Ivesi`Vok Muram calls forth a legendary beast.");
-		quest::spawn2(859246,0,0, 55, 197, -247.4, 120);
+		quest::spawn2(859246,0,0, 55, 197, -247.4, 240);
 	}
 
 	if (($HP_RATIO_CHK <= 35) && ($Warp_Mode == 0) && ($Shadowbeast_Activiated != 1))
@@ -103,8 +103,8 @@ sub EVENT_HP {
 		$entity_list->MessageClose($npc, 1, 2000, 263, "Ivesi`Vok Muram calls forth a two horrifying creatures.");
 		quest::shout("Your battle prowiness is impressive! You would have made a nice addition to my army if you only were you willful! It's shame you will now
 		only be snacks for my beasts.");
-		quest::spawn2(859247,0,0, $x + 100, $y, $z, 126);
-		quest::spawn2(859248,0,0, $x - 100, $y, $z, 126);
+		quest::spawn2(859247,0,0, $x + 100, $y, $z, 252);
+		quest::spawn2(859248,0,0, $x - 100, $y, $z, 252);
 	}
 
 	if ( ($HP_RATIO_CHK <= 10) && ($Warp_Mode == 0) && ($End_Start != 1) )
@@ -169,22 +169,22 @@ sub EVENT_TIMER {
 		quest::setnexthpevent(99);
 		$Warp_Mode = 0;
 		quest::depopall(859214); quest::depopall(859244);quest::depopall(859245);
-		quest::spawn2(859214, 0 ,0, -63.903564453125, 277.782470703125, -249.702560424805 , 125.125);
-		quest::spawn2(859244, 0 ,0, 297.718627929688, 145.075454711914, -207.203109741211 , 193.375);
-		quest::spawn2(859244, 0 ,0, 238.787231445312, 233.938812255859, -207.203109741211 , 161.625);
-		quest::spawn2(859244, 0 ,0, -240.816452026367, 55.550365447998, -207.203125 , 34.125);
-		quest::spawn2(859244, 0 ,0, -298.234405517578, 144.825103759766, -207.203125 , 62.75);
-		quest::spawn2(859244, 0 ,0, -238.905517578125, 234.917602539062, -207.203125 , 102);
-		quest::spawn2(859244, 0 ,0, 242.050704956055, 55.0382270812988, -207.203125 , 226.125);
-		quest::spawn2(859245, 0 ,0, -0.499285012483597, 162.242645263672, -249.702560424805 , 254.75);
-		quest::spawn2(859245, 0 ,0, -35.1116180419922, 216.80973815918, -249.702560424805 , 78.125);
-		quest::spawn2(859245, 0 ,0, 1.54786896705627, 233.013748168945, -249.702560424805 , 132.875);
-		quest::spawn2(859245, 0 ,0, 31.4462833404541, 220.30549621582, -249.702560424805 , 155.5);
-		quest::spawn2(859245, 0 ,0, 37.7230644226074, 197.096298217773, -249.702560424805 , 186.375);
-		quest::spawn2(859245, 0 ,0, 30.6273326873779, 168.279678344727, -249.702560424805 , 219.25);
-		quest::spawn2(859245, 0 ,0, -24.638334274292, 168.257873535156, -249.702560424805 , 36.25);
-		quest::spawn2(859245, 0 ,0, -40.721263885498, 196.098968505859, -249.702560424805 , 61.5);
-		quest::spawn2(859214, 0 ,0, 66.3286666870117, 279.008422851562, -249.702560424805 , 133.125);
+		quest::spawn2(859214, 0 ,0, -63.903564453125, 277.782470703125, -249.702560424805 , 250.25);
+		quest::spawn2(859244, 0 ,0, 297.718627929688, 145.075454711914, -207.203109741211 , 386.75);
+		quest::spawn2(859244, 0 ,0, 238.787231445312, 233.938812255859, -207.203109741211 , 323.25);
+		quest::spawn2(859244, 0 ,0, -240.816452026367, 55.550365447998, -207.203125 , 68.25);
+		quest::spawn2(859244, 0 ,0, -298.234405517578, 144.825103759766, -207.203125 , 125.5);
+		quest::spawn2(859244, 0 ,0, -238.905517578125, 234.917602539062, -207.203125 , 204);
+		quest::spawn2(859244, 0 ,0, 242.050704956055, 55.0382270812988, -207.203125 , 452.25);
+		quest::spawn2(859245, 0 ,0, -0.499285012483597, 162.242645263672, -249.702560424805 , 509.5);
+		quest::spawn2(859245, 0 ,0, -35.1116180419922, 216.80973815918, -249.702560424805 , 156.25);
+		quest::spawn2(859245, 0 ,0, 1.54786896705627, 233.013748168945, -249.702560424805 , 265.75);
+		quest::spawn2(859245, 0 ,0, 31.4462833404541, 220.30549621582, -249.702560424805 , 311);
+		quest::spawn2(859245, 0 ,0, 37.7230644226074, 197.096298217773, -249.702560424805 , 372.75);
+		quest::spawn2(859245, 0 ,0, 30.6273326873779, 168.279678344727, -249.702560424805 , 438.5);
+		quest::spawn2(859245, 0 ,0, -24.638334274292, 168.257873535156, -249.702560424805 , 72.5);
+		quest::spawn2(859245, 0 ,0, -40.721263885498, 196.098968505859, -249.702560424805 , 123);
+		quest::spawn2(859214, 0 ,0, 66.3286666870117, 279.008422851562, -249.702560424805 , 266.25);
 		quest::stoptimer("Root_Snare_Break");
 		quest::stoptimer("5675");
 		quest::stoptimer("5678");
@@ -391,14 +391,14 @@ sub EVENT_TIMER {
 		quest::stoptimer("Warp_Go");
 		$entity_list->MessageClose($npc, 1, 20000, 7, "Ivesi`Vok Muram's blinks out of sight.'");
 		my $Random_Jump = quest::ChooseRandom(1,2,3,4,5,6,7,8);
-		if ($Random_Jump == 1) { $npc->GMMove(-167.6, 290.1, -212.5, 104.9); }
-		if ($Random_Jump == 2) { $npc->GMMove(-294.8, 202.1, -215.5, 85.9); }
-		if ($Random_Jump == 3) { $npc->GMMove(-304.8, 74.5, -212.5, 35.5); }
-		if ($Random_Jump == 4) { $npc->GMMove(-212, 14, -212.5, 8); }
-		if ($Random_Jump == 5) { $npc->GMMove(116.5, 307.5, -212.5, 135.6); }
-		if ($Random_Jump == 6) { $npc->GMMove(216.5, 278.4, -212.5, 171.6); }
-		if ($Random_Jump == 7) { $npc->GMMove(299.6, 210.6, -212.5, 165.6); }
-		if ($Random_Jump == 8) { $npc->GMMove(298.6, 88.6, -212.5, 212); }
+		if ($Random_Jump == 1) { $npc->GMMove(-167.6, 290.1, -212.5, 209.8); }
+		if ($Random_Jump == 2) { $npc->GMMove(-294.8, 202.1, -215.5, 171.8); }
+		if ($Random_Jump == 3) { $npc->GMMove(-304.8, 74.5, -212.5, 71); }
+		if ($Random_Jump == 4) { $npc->GMMove(-212, 14, -212.5, 16); }
+		if ($Random_Jump == 5) { $npc->GMMove(116.5, 307.5, -212.5, 271.2); }
+		if ($Random_Jump == 6) { $npc->GMMove(216.5, 278.4, -212.5, 343.2); }
+		if ($Random_Jump == 7) { $npc->GMMove(299.6, 210.6, -212.5, 331.2); }
+		if ($Random_Jump == 8) { $npc->GMMove(298.6, 88.6, -212.5, 424); }
 		plugin::Debug("[$mobid] Jump loc $Random_Jump");
 		quest::settimer("Kill_Shot",3);
 	}
@@ -547,7 +547,7 @@ sub EVENT_TIMER {
 	if ($timer eq "Warp_End")
 	{
 		quest::stoptimer("Warp_End");
-		$npc->GMMove(-0.8, 197.7, -249.7, 126.8); 
+		$npc->GMMove(-0.8, 197.7, -249.7, 253.6); 
 		$npc->NPCSpecialAttacks("EFRQMCNIDf", 0);
 		$Client_ID = $npc->GetEntityVariable(1);
 		if ($Client_ID)
@@ -587,8 +587,8 @@ sub EVENT_TIMER {
 	if ($timer eq "END2")
 	{
 		quest::stoptimer("END2");
-		quest::spawn2(859249,0,0, -300, 144, -207, 59);
-		quest::spawn2(859251,0,0, -292, 145, -239, 59);
+		quest::spawn2(859249,0,0, -300, 144, -207, 118);
+		quest::spawn2(859251,0,0, -292, 145, -239, 118);
 		$entity_list->MessageClose($npc, 1, 20000, 335, "A deafening clash of thunder rings through your ears.'");
 		$entity_list->MessageClose($npc, 1, 20000, 262, "The Gatekeeper shouts,'Stop! You have weakened the beast enough do not kill him! They will only find another way to bring him back!'");
 		quest::settimer("END3",6);
@@ -757,7 +757,7 @@ sub EVENT_TIMER {
 	{
 		quest::stoptimer("SEQ8");
 		$entity_list->MessageClose($npc, 1, 20000, 262, "Ivesi`Vok Muram laugh,'Councilman while I do owe my thanks for restoring my flesh your usefullness to me has run out!'");
-		$npc->GMMove($x, $y, $z, 70);
+		$npc->GMMove($x, $y, $z, 140);
 		quest::settimer("SEQ9",6);
 	}
 
@@ -790,7 +790,7 @@ sub EVENT_TIMER {
 	{
 		quest::stoptimer("SEQ10");
 		$entity_list->MessageClose($npc, 1, 20000, 262, "Ivesi`Vok Muram laugh,'Where do you think your going?'");
-		$npc->GMMove($x, $y, $z, 187);
+		$npc->GMMove($x, $y, $z, 374);
 		quest::doanim(44);
 
 
@@ -813,7 +813,7 @@ sub EVENT_TIMER {
 		quest::stoptimer("SEQ11");
 		$entity_list->MessageClose($npc, 1, 20000, 262, "Ivesi`Vok Muram voice booms,'Now prepare to face power beyond your wildest nightmares!'");
 		$entity_list->MessageClose($npc, 1, 20000, 263, "Ivesi`Vok begins to cast a spell. (Obliteration of the Muram)!'");
-		$npc->GMMove($x, $y, $z, 126);
+		$npc->GMMove($x, $y, $z, 252);
 		$npc->SetAppearance(1);
 		quest::settimer("SEQ12",6);
 	}
@@ -1011,8 +1011,8 @@ sub EVENT_TIMER {
 
 		if (($HP_RATIO_CHK <= 10) && ($Warp_Mode == 0) && ($Restart_End == 1))
 		{
-			quest::spawn2(859249,0,0, -300, 144, -207, 59);
-			quest::spawn2(859251,0,0, -292, 145, -239, 59);
+			quest::spawn2(859249,0,0, -300, 144, -207, 118);
+			quest::spawn2(859251,0,0, -292, 145, -239, 118);
 			$entity_list->MessageClose($npc, 1, 20000, 262, "The Gatekeeper I will try once more! Keep Ivesi`Vok distracted and a safe distance away from me so I can complete the Statis spell!'");
 			$npc->WipeHateList();
 			#$npc->NPCSpecialAttacks("FQMCDf", 0);
@@ -1034,7 +1034,7 @@ sub EVENT_TIMER {
 	{
 		quest::stoptimer("Final1");
 		quest::depop(859249);
-		quest::spawn2(859249,0,0, 5.9, 172, -247, 137);
+		quest::spawn2(859249,0,0, 5.9, 172, -247, 274);
 		$entity_list->MessageClose($npc, 1, 20000, 262, "The Gatekeeper shouts,'We are lucky on this day! The world nearly avoided assured destruction thanks to your valiant efforts! No words can express my gratitude your bravery here will not be forgetten!'");
 		$entity_list->MessageClose($npc, 1, 20000, 262, "The Gatekeeper shouts,'Please accept this chest as a minor token of my thanks, I found it hidden within a secret chamber of the citadel perhaps you will find something of value within!'");
 		quest::signalwith(859252,1,0);
@@ -1066,8 +1066,8 @@ sub EVENT_SIGNAL {
 		$entity_list->MessageClose($npc, 1, 20000, 335, "The Gatekeeper narrowly avoids Ivesi`Vok Muram's deadly blow by teleporting himself a safe distance away!'");
 		$entity_list->MessageClose($npc, 1, 20000, 335, "The Gatekeeper you must keep him away from me I will have start the incantation from the beginning!'");
 		quest::depop(859249); quest::depop(859251);
-		quest::spawn2(859249,0,0, 300, 144, -207, 59);
-		quest::spawn2(859251,0,0, 292, 145, -239, 188);
+		quest::spawn2(859249,0,0, 300, 144, -207, 118);
+		quest::spawn2(859251,0,0, 292, 145, -239, 376);
 		quest::settimer("End_ATTACK_GATEKEEPER",3);
 	
 	}
@@ -1078,8 +1078,8 @@ sub EVENT_SIGNAL {
 		$entity_list->MessageClose($npc, 1, 20000, 335, "The Gatekeeper narrowly avoids Ivesi`Vok Muram's deadly blow by teleporting himself a safe distance away!'");
 		$entity_list->MessageClose($npc, 1, 20000, 262, "The Gatekeeper you must keep him away from me I will have start the incantation from the beginning!'");
 		quest::depop(859249); quest::depop(859251);
-		quest::spawn2(859249,0,0, -300, 144, -207, 59);
-		quest::spawn2(859251,0,0, -292, 145, -239, 59);
+		quest::spawn2(859249,0,0, -300, 144, -207, 118);
+		quest::spawn2(859251,0,0, -292, 145, -239, 118);
 		quest::settimer("End_ATTACK_GATEKEEPER",3);
 	}
 
@@ -1120,7 +1120,7 @@ sub EVENT_DEATH {
 
 	quest::we(13, "$mname EVENT STATUS: FAIL [Please contact GM to report this immediately]");
 			quest::depop(859249);
-		quest::spawn2(859249,0,0, 5.9, 172, -247, 137);
+		quest::spawn2(859249,0,0, 5.9, 172, -247, 274);
 		$entity_list->MessageClose($npc, 1, 20000, 262, "The Gatekeeper shouts,'We are lucky on this day! The world nearly avoided assured destruction thanks to your valiant efforts! No words can express my gratitude your bravery here will not be forgetten!'");
 		$entity_list->MessageClose($npc, 1, 20000, 262, "The Gatekeeper shouts,'Please accept this chest as a minor token of my thanks, I found it hidden within a secret chamber of the citadel perhaps you will find something of value within!'");
 		quest::signalwith(859252,1,0);
