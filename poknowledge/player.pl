@@ -1,11 +1,3 @@
-sub EVENT_ENTERZONE
-{
-	if (quest::istaskcompleted(138) == 0 && quest::istaskactive(138) == 0) #Check if completed Task: New Beginnings
-	{
-    	quest::assigntask(138); #Force assign Task: New Beginnings
-  	}
-}
-
 sub EVENT_CLICKDOOR
 {
 	my $popuptext = "If you do not respond within 5 seconds, you will automatically be sent to the overhauled version.";

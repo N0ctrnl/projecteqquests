@@ -12,22 +12,25 @@ sub EVENT_SAY {
   ## others to first check if you are already carrying the items.
   if(($text=~/certificate/i) && ($qglobals{Shar_Vahl_Cit} == 2)){
     quest::say("Luckily for you, someone found this blowing around the plaza.");
-    quest::summonitem(2874);}
-  if(($text=~/note/i) && ($qglobals{Shar_Vahl_Cit} == 4)){
-    quest::say("Luckily for you, someone found this stuck in a bush.");
-    quest::summonitem(18299);}
-  if(($text=~/application/i) && ($qglobals{Shar_Vahl_Cit} == 6)){
-    quest::say("Luckily for you, someone found this on the floor in the bakery.");
-    quest::summonitem(2897);}
-  if(($text=~/acrylia slate/i) && ($qglobals{Shar_Vahl_Cit} => 6)){
-    ## No idea what she says here, so won't bother.
-    quest::summonitem(2877);}
+    quest::summonitem(2874);
   }
+  elsif(($text=~/note/i) && ($qglobals{Shar_Vahl_Cit} == 4)){
+    quest::say("Luckily for you, someone found this stuck in a bush.");
+    quest::summonitem(18299);
+  }
+  elsif(($text=~/application/i) && ($qglobals{Shar_Vahl_Cit} == 6)){
+    quest::say("Luckily for you, someone found this on the floor in the bakery.");
+    quest::summonitem(2897);
+  }
+  elsif(($text=~/acrylia slate/i) && ($qglobals{Shar_Vahl_Cit} => 6)){
+    ## No idea what she says here, so won't bother.
+    quest::summonitem(2877);
+  }
+}
 
-sub EVENT_ITEM
-{
-  if(plugin::check_handin(\%itemcount, 2873 => 1))
-  {
+sub EVENT_ITEM {
+  plugin::mq_process_items(\%itemcount); ## Place all items from the hash %itemcount into MQ entity variable (if a MQ'able quest)
+  if(plugin::check_handin(\%itemcount, 2873 => 1)) {
     quest::say("Young $name, I will be happy to process your registration for you. While I etch your name on our people's book of records I will require you to run a couple of errands. Take this certificate to the tax collector and obtain his seal. While you're out doing that, have Mignah create your personal Acrylia slate for you. Bring both the seal and the slate to me as soon as you can.");
     quest::ding();
     quest::exp(100);
@@ -37,7 +40,22 @@ sub EVENT_ITEM
   }
 
   # Stamped Certificate of Taxability & Acrylia Slate
-  elsif(plugin::check_handin(\%itemcount, 2875 => 1, 2876 => 1))
+#  elsif(plugin::check_handin(\%itemcount, 2875 => 1, 2876 => 1))
+#  {
+#    quest::say("Ahh, there you are. I was about to send someone looking for you. Everything seems to be in order here, only one task remains. You must gain audience with the king and swear fealty to his highness by handing him this document. Return to me when this is done.");
+#    quest::ding();
+#    quest::exp(100);
+#    # Note to King Raja
+#    quest::setglobal("Shar_Vahl_Cit",4,5,"F");
+#    quest::summonitem("18299");
+#  }
+  if (plugin::check_handin(\%itemcount, 2875 => 1)) { ## Did they give you a cloth cap as the MQ item?
+    plugin::mq_process_items(2875 => 1); ## They did so lets add that 1 cloth cap to the MQ entity variable
+  }
+  elsif (plugin::check_handin(\%itemcount, 2876 => 1)) { ## Did they give you a cloth cap as the MQ item?
+    plugin::mq_process_items(2876 => 1); ## They did so lets add that 1 cloth cap to the MQ entity variable
+  }
+  elsif(plugin::check_mq_handin(2875 => 1, 2876 => 1))
   {
     quest::say("Ahh, there you are. I was about to send someone looking for you. Everything seems to be in order here, only one task remains. You must gain audience with the king and swear fealty to his highness by handing him this document. Return to me when this is done.");
     quest::ding();
@@ -45,6 +63,7 @@ sub EVENT_ITEM
     # Note to King Raja
     quest::setglobal("Shar_Vahl_Cit",4,5,"F");
     quest::summonitem("18299");
+    plugin::clear_mq_handin();
   }
 
   # Note from King Raja
@@ -57,7 +76,6 @@ sub EVENT_ITEM
     # Notarized Application
     quest::summonitem("2897");
     quest::setglobal("Shar_Vahl_Cit",6,5,"F");
-
     quest::say("Oh, by the way, be careful with this as it will be important for recording your service to our society. If you should somehow lose it, ask me about your slate and I will issue you a new one.");
     quest::ding();
     # Citizens of Sharvahl
