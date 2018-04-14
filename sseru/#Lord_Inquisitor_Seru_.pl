@@ -3,12 +3,12 @@ sub EVENT_SPAWN {
 }
 
 sub EVENT_TIMER {
- my $x = $npc->GetX();
- my $y = $npc->GetY();
- if($timer == 1 && ($x < -353 || $x > -109 || $y < -549 || $y > -310)) {
+  my $x = $npc->GetX();
+  my $y = $npc->GetY();
+  if($timer == 1 && ($x < -353 || $x > -109 || $y < -549 || $y > -310)) {
     quest::shout("No! I must not leave the time chamber! If I do, I'll age and die!");
     $npc->GMMove(-231.464005,-432.937469,202.375946,0.25);
- }
+  }
 }
 
 sub EVENT_DEATH_COMPLETE {
