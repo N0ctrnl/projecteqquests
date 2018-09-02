@@ -2,7 +2,7 @@ sub EVENT_SAY {
   if($text=~/hail/i){
     plugin::Whisper("Hello there, $name! If you didn't get your spells and disciplines auto-scribed for you as you leveled up - this feature was added in January 2018 - then you could be missing some spells! Just tell me to [" . quest::saylink("fix") . "] it, and I'll set you right up!");
   } elsif($text=~/Fix/i){
-    if ($ulevel <= 46){
+    if ($ulevel <= 45){
       $client->Message(15,"Your experiences across the realm have infused you with increased power and knowledge...");
 
       # set all available skills to maximum for race/class at current level
@@ -18,8 +18,8 @@ sub EVENT_SAY {
       # train all discs for current level
       quest::traindiscs($ulevel, $ulevel - 1);
     } else {
-      quest::scribespells(46, 1);
-      quest::traindiscs(46, 1);
+      quest::scribespells(45, 1);
+      quest::traindiscs(45, 1);
       plugin::Whisper("There you go!");
     }
   }

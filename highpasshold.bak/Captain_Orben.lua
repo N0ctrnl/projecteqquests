@@ -2,14 +2,14 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 	
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, traveler! I am Captain Ashlan of the Highpass Guards. I keep watch over my men and the [volunteers] here at the East Gate. It's been a busy [job] here lately, with the [orc raids] and all.");
+		e.self:Say("Greetings, traveler! I am Captain Orben of the Highpass Guards. I keep watch over my men and the [volunteers] here at the West Gate. It's been a busy [job] here lately, with the [gnoll raids] and all.");
 	elseif(fac < 7) then
 		if(e.message:findi("job")) then
 			e.self:Say("We're short-handed around here, as usual. Would you like to help us out with the [Volunteer Watch]?");
 		elseif(e.message:findi("volunteer")) then
-			e.self:Say("The Volunteer Watch guards the entry gates of Highpass. Since the [orc raids] are becoming more and more frequent, it's a busy job. But it can pay well, depending on how many [orcs] you slay.");
-		elseif(e.message:findi("orc")) then
-			e.self:Say("One of the orc clans of Kithicor Woods has been trying to expand their territory. Small orc raiding parties are frequently rushing the East Gate. Without the [Volunteer Watch] helping us out, Highpass would probably be overrun by those vile beasts.");
+			e.self:Say("The Volunteer Watch guards the entry gates of Highpass. Since the [gnoll raids] are becoming more and more frequent, it's a busy job. But it can pay well, depending on how many [gnolls] you slay.");
+		elseif(e.message:findi("gnoll")) then
+			e.self:Say("The Mucktail Gnolls of the Karanas have been trying to expand their territory. Small gnoll raiding parties are frequently rushing the West Gate. Without the [Volunteer Watch] helping us out, Highpass would probably be overrun by those vile beasts.");
 		end
 	else
 		e.self:Say("I will not deal with ilk such as you."); -- text made up
@@ -21,13 +21,13 @@ function event_trade(e)
 	local scalp = 0;
 	local item_lib =require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13791,item2 = 13791,item3 = 13791,item4 = 13791})) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 13792,item2 = 13792,item3 = 13792,item4 = 13792})) then
 			scalp = 4;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13791,item2 = 13791,item3 = 13791})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13792,item2 = 13792,item3 = 13792})) then
 			scalp = 3;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13791,item2 = 13791})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13792,item2 = 13792})) then
 			scalp = 2;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13791})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13792})) then
 			scalp = 1;
 	end
 	
