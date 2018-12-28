@@ -52,7 +52,7 @@ sub EVENT_CLICKDOOR {
 
   #potactics
   if($doorid == 24) {
-    if($client->GetLevel() >= $level_for_tier_three_five || (defined $qglobals{pop_poi_behometh_preflag} && defined $qglobals{pop_poi_behometh_flag})) {
+    if($client->GetLevel() >= $level_for_tier_three || (defined $qglobals{pop_poi_behometh_preflag} && defined $qglobals{pop_poi_behometh_flag})) {
       if(quest::has_zone_flag(214) != 1) {
         quest::set_zone_flag(214);
       }

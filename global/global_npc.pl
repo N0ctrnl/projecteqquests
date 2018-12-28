@@ -1,6 +1,5 @@
 sub EVENT_SPAWN {
   $roll = int(rand(1000)) + 1;
-  $roll2 = int(rand(1000)) + 1;
 
   if($roll >= 995 && $mlevel >= 46) {
     my $itemid=(132522);
