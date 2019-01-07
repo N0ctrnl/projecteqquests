@@ -1,7 +1,7 @@
-local x_max = -455;
-local x_min = -760;
-local y_max = -1771;
-local y_min = -2140;
+local x_max = -445;
+local x_min = -770;
+local y_max = -1761;
+local y_min = -2158;
 local z_const = 207.7;
 
 function event_combat(e)
@@ -18,8 +18,8 @@ end
 
 function event_timer(e)
     if (e.timer == "shadowstep") then
-        local new_x = math.floor(math.random(0, 1) * (x_max - x_min + 1)) + x_min;
-        local new_y = math.floor(math.random(0, 1) * (y_max - y_min + 1)) + y_min;
+        local new_x = math.floor(math.random() * (x_max - x_min + 1)) + x_min;
+        local new_y = math.floor(math.random() * (y_max - y_min + 1)) + y_min;
         local new_z = z_const;
         e.self:Emote("steps into the shadows.");
         e.self:GMMove(new_x, new_y, new_z);
@@ -30,5 +30,9 @@ function event_timer(e)
         e.self:GMMove(-620, -1959, 207.7);
         eq.stop_timer(e.timer);
     end
+end
+
+function event_death_complete(e)
+    eq.spawn2(218068, 0, 0, e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading());
 end
 
