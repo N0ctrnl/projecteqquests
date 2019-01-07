@@ -1,7 +1,7 @@
-local x_max = -445;
-local x_min = -770;
-local y_max = -1761;
-local y_min = -2158;
+local x_max = -455;
+local x_min = -760;
+local y_max = -1771;
+local y_min = -2148;
 local z_const = 207.7;
 
 function event_combat(e)
