@@ -272,10 +272,10 @@ sub EVENT_SAY {
 #	}
 #}
 sub EVENT_CONNECT {
-    my %vet_aa = (481 => [1, 1, 1], ## Lesson of the Devote 1 yr
-    482 => [63072000, 1, 1], ## Infusion of the Faithful 2 yr
+  my %vet_aa = (481 => [1, 1, 1], ## Lesson of the Devote 1 yr
+  482 => [63072000, 1, 1], ## Infusion of the Faithful 2 yr
 #    483 => [94608000, 1, 1], ## Chaotic Jester 3 yr
-    484 => [126144000, 1, 1]); ## Expedient Recovery 4 yr
+  484 => [126144000, 1, 1]); ## Expedient Recovery 4 yr
 #    485 => [157680000, 1, 1], ## Steadfast Servant 5 yr
 #    486 => [189216000, 1, 1], ## Staunch Recovery 6 yr
 #    487 => [220752000, 1, 1], ## Intensity of the Resolute 7 yr
@@ -286,15 +286,18 @@ sub EVENT_CONNECT {
 #    453 => [378432000, 1, 1], ## Summon Permutation Peddler 12 yr
 #    182 => [409968000, 1, 1], ## Summon Personal Tribute Master 13 yr
 #    600 => [441504000, 1, 1]); ## Blessing of the Devoted 14 yr
-    my $age = $client->GetAccountAge();
-    foreach my $key (keys %vet_aa) {
-        if ($vet_aa{$key}[2] && ($vet_aa{$key}[2] || $age >= $vet_aa{$key}[0])) {
-            $client->GrantAlternateAdvancementAbility($key, 1);
-        }
-    }
-    if($ulevel < 2){
-        quest::settimer("999",10);
-    }
+  my $age = $client->GetAccountAge();
+  foreach my $key (keys %vet_aa) {
+      if ($vet_aa{$key}[2] && ($vet_aa{$key}[2] || $age >= $vet_aa{$key}[0])) {
+          $client->GrantAlternateAdvancementAbility($key, 1);
+      }
+  }
+  if($ulevel < 2){
+      quest::settimer("999",10);
+  }
+  if(!$qglobals{CharMaxLevel}){
+    $client->SetGlobal(CharMaxLevel, "65", 5, 'F');
+  }
 }
 
 sub EVENT_ENTERZONE {
