@@ -4,7 +4,6 @@ my $check = 0;
 sub EVENT_SPAWN {  
   $check = 0;
   quest::settimer("vulak",60);
-  quest::disable_spawn2(382992);
 }
 
 sub EVENT_TIMER {
@@ -37,6 +36,7 @@ $check = 0;
     }
     if ($check == 1) {
       quest::settimer("vulak",60);
+      quest::disable_spawn2(382992);
     } 
     if ($check == 0 && !defined $qglobals{vulak} && !$entity_list->IsMobSpawnedByNpcTypeID(124155)) {
 #      quest::spawn2(124155,0,0,-739.4,517.2,121,510);
@@ -44,7 +44,7 @@ $check = 0;
       quest::settimer("vulak",60);
     }
     elsif ($check == 0) {
-      quest::settimer("vulak",3600);
+      quest::settimer("vulak",300);
     }
   }
 }      
