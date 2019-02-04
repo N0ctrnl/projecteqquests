@@ -25,7 +25,8 @@ sub EVENT_SAY {
 }
 
 sub EVENT_ITEM {
-  if (($faction==1) && ($CircletFalinkan=="2")) {
+#  if (($faction==1) && ($CircletFalinkan=="2")) {
+  if ($faction==1) {
     # 1866  Glanitar's Imbued Talisman
     if (plugin::check_handin(\%itemcount,1866=>1)) {
       quest::say("It is with great sorrow that I receive this talisman which clearly symbolizes the death of my son for he would first suffer a hundred deaths then rather then to willingly give up his only bind to his Mother. However your assistance and dedication to me is unquestioned. For your efforts I would like you to carry something very special to me. Please take this Circlet and treasure it always as it belonged to my Faliana. I feel as much as you assisted me in obtaining the whereabouts of my son I know that she would want you to have it as much as I do. Sadly, now I must mourn my lost son however I shall never forget your kindness, $name, Thank you.");

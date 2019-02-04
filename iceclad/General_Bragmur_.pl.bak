@@ -3,8 +3,12 @@
 # Armored version of the General for the 8th coldain prayer shawl quest.
 #
 
-sub EVENT_SAY {
+sub EVENT_SPAWN {
+  $npc->SetFlyMode(1);
+  quest::start(55);
 }
+#sub EVENT_SAY {
+#}
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 8897 => 1)) {
@@ -14,9 +18,8 @@ sub EVENT_ITEM {
     my $y = $npc->GetY();
     my $z = $npc->GetZ();
     my $h = $npc->GetHeading();
-#    quest::spawn2(110118,0,0,$x,$y,$z,$h);
-#    quest::depop();
-    quest::start(55);
+    quest::spawn2(110118,55,0,$x,$y,$z,$h);
+    quest::depop();
   }
   plugin::return_items(\%itemcount);
 }
