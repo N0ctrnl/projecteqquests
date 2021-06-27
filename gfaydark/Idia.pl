@@ -8,15 +8,15 @@
 
 sub EVENT_SAY { 
 if($text=~/Hail/i){
-quest::say("Hail. $name - Are you [interested] in helping the League of Antonican Bards by delivering some [mail]?");
+quest::say("Hail. $name - Are you [" . quest::saylink("I am interested",0,"interested") . "] in helping the League of Antonican Bards by delivering some [" . quest::saylink("mail") . "]?");
 }
 
 if($text=~/am interested/i){
-quest::say("I have messages that need to go to - well. right now I have one that needs to go to Freeport.  Will you [deliver] mail to [Freeport] for me?");
+quest::say("I have messages that need to go to - well. right now I have one that needs to go to Freeport.  Will you [" . quest::saylink("I will deliver mail to Freeport",0,"deliver mail to Freeport") . "] for me?");
 }
 
-if($text=~/What mail/i){
-quest::say("The League of Antonican Bards has a courier system made up of travelers, adventurers, and [agents].  We pay good gold to anyone who will take messages from bards such as myself to one of our more distant offices.  Are you [interested]?");
+if($text=~/mail/i){
+quest::say("The League of Antonican Bards has a courier system made up of travelers, adventurers, and [" . quest::saylink("What agents?",0,"agents") . "].  We pay good gold to anyone who will take messages from bards such as myself to one of our more distant offices.  Are you [" . quest::saylink("I am interested",0,"interested") . "]?");
 }
 
 if($text=~/agents/i){

@@ -13,10 +13,10 @@ sub EVENT_ENTER {
 
 sub EVENT_SAY {
 	if($text=~/hail/i) {
-		quest::say("Welcome to Kelethin, $name! I am Maesyn Trueshot, commander of Faydark's Champions. We are the finest marksmen in all of Norrath. With our trusty [Trueshot longbows] we can miss no target regardless of the distance or the conditions.");
+		quest::say("Welcome to Kelethin, $name! I am Maesyn Trueshot, commander of Faydark's Champions. We are the finest marksmen in all of Norrath. With our trusty [" . quest::saylink("Trueshot Longbows") . "] we can miss no target regardless of the distance or the conditions.");
 	}
 	if($text=~/trueshot longbows/i) {
-		quest::say("The Trueshot Longbow was created by my famed father. Eldin Trueshot. It is quite accurate and takes a ranger's skill to wield. We use our new recruits to [gather materials] needed by my father.  We shall soon begin to release the formula to good elves so all may fletch such a bow.");
+		quest::say("The Trueshot Longbow was created by my famed father. Eldin Trueshot. It is quite accurate and takes a ranger's skill to wield. We use our new recruits to [" . quest::saylink("I will gather materials",0,"gather materials") . "] needed by my father.  We shall soon begin to release the formula to good elves so all may fletch such a bow.");
 	}
 	if(($text=~/gather materials/i) && ($class eq "Ranger")) {
 		if($faction < 4) { #Needs better than indifferent
@@ -34,7 +34,7 @@ sub EVENT_SAY {
 		quest::say("The Trueshot Longbow was once enchanted by the Koada'Dal enchanters.  Once it was enchanted now it is no more.  I am sure if you were ask the Koada'Dal [where the enchanted bows] are you will get an answer.");
 	}
 	if($text=~/trades/i) {
-		quest::say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
+		quest::say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [" . quest::saylink("second book") . "], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
 		quest::summonitem(51121); # Item: Tradeskill Basics : Volume I
 	}
 	if($text=~/second book/i)	{
@@ -45,7 +45,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 12112 => 1)) { #Pack of Materials
-    quest::say("I shall see that my father gets the materials. I hope this can be of use to you. It will serve as your starting point toward fletching a Trueshot longbow. It is unfortunate that we are unable to enchant the bow to its [next incarnation], but it is still a fine weapon. You do know the [correct components] needed for fletching such a bow, do you not?");
+    quest::say("I shall see that my father gets the materials. I hope this can be of use to you. It will serve as your starting point toward fletching a Trueshot longbow. It is unfortunate that we are unable to enchant the bow to its [" . quest::saylink("next incarnation") . "], but it is still a fine weapon. You do know the [" . quest::saylink("I know the correct components",0,"correct components") . "] needed for fletching such a bow, do you not?");
     quest::givecash(0,6,0,0); #6 gold
     quest::summonitem(8091); #Treant Bow Staff
     quest::faction(246,10); #Faydark's Champions
@@ -55,7 +55,7 @@ sub EVENT_ITEM {
     quest::faction(234,-10); #Crushbone Orcs got worse. 
   }
   elsif (plugin::check_handin(\%itemcount, 18785 => 1)) { #A tattered note
-    quest::say("Hail, $name, and welcome.. I am Maesyn Trueshot, leader of Faydark's Champions. I will teach and train you, as I have done for many others. Let's get started.. Here, put this on.. it'll help protect you from the elements. Once you are ready to begin your training please make sure that you see Samatansyn Flamecaller, he can assist you in developing your hunting and gathering skills. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.");
+    quest::say("Hail, $name, and welcome.. I am Maesyn Trueshot, leader of Faydark's Champions. I will teach and train you, as I have done for many others. Let's get started.. Here, put this on.. it'll help protect you from the elements. Once you are ready to begin your training please make sure that you see Samatansyn Flamecaller, he can assist you in developing your hunting and gathering skills. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [" . quest::saylink("trades") . "] you will have available to you.");
 		quest::ding();
     quest::faction(246,100);  # Faydark's Champions
     quest::faction(279,25); # King Tearis Thex

@@ -1,16 +1,16 @@
 # items: 54062, 10053, 54048, 54033, 54050, 54049, 54034, 54051, 54035, 54040, 16537, 10037, 54027, 54042, 54041, 54028, 54043, 54029, 54058, 54060, 54056, 54039, 54059, 54061, 54057, 9590
 sub EVENT_SAY {
  if($text=~/Hail/i) {
-   quest::say("Hello, my name is Seana Marsinger. I am here representing my loyalty to the League of Antonican Bards. It matters not to me whether you support the League or loathe it; propaganda is not my objective. Everyone must find their own truths in this life path. So says Quellious. To business then, are you [familiar with the Plane of Hate?]");
+   quest::say("Hello, my name is Seana Marsinger. I am here representing my loyalty to the League of Antonican Bards. It matters not to me whether you support the League or loathe it; propaganda is not my objective. Everyone must find their own truths in this life path. So says Quellious. To business then, are you [" . quest::saylink("I am familiar with the Plane of Hate"",0,"familiar with the Plane of Hate?") . "]);
  }
  if($text=~/I am familiar with the Plane of Hate/i) {
-   quest::say("Good, I need someone that has a bit of an eye for how things should look up there. My brother and I have been studying Innoruuk and his intricate dealings for years. Being raised in New Tanaan may lend us certain neutrality towards all people, yet the values our parents have instilled in us do not allow us to let him go unwatched. In fact, I have begun to believe that my paranoia may prove useful not only to the League, but to the Citizens of Tranquility and New Tanaan itself as well. We have received a simple [piece of intelligence] that may conceivably upset the entire balance of the Pantheon and have most dire repercussions here in Norrath.");
+   quest::say("Good, I need someone that has a bit of an eye for how things should look up there. My brother and I have been studying Innoruuk and his intricate dealings for years. Being raised in New Tanaan may lend us certain neutrality towards all people, yet the values our parents have instilled in us do not allow us to let him go unwatched. In fact, I have begun to believe that my paranoia may prove useful not only to the League, but to the Citizens of Tranquility and New Tanaan itself as well. We have received a simple [" . quest::saylink("What piece of intelligence?",0,"piece of intelligence") . "] that may conceivably upset the entire balance of the Pantheon and have most dire repercussions here in Norrath.");
  }
  if($text=~/piece of intelligence/i) {
-   quest::say("An old friend of our father's in Qeynos, Jusean Evanesque, has been very busy sorting out the information that is coming to him in droves. The first clue came from Kardin Nillic in Gunthak, and then in bits and pieces from many travelers moving through Qeynos. Piracy on the seas has grown, and somehow the Broken Skull Clan has gained power that should have been out of their grasp. Our informants there say that it can only come from Innoruuk. I am afraid that the Plane itself has shifted with this power. I do not believe that we will be able to uncover all that we need [alone] in time to warn people of the dangers.");
+   quest::say("An old friend of our father's in Qeynos, Jusean Evanesque, has been very busy sorting out the information that is coming to him in droves. The first clue came from Kardin Nillic in Gunthak, and then in bits and pieces from many travelers moving through Qeynos. Piracy on the seas has grown, and somehow the Broken Skull Clan has gained power that should have been out of their grasp. Our informants there say that it can only come from Innoruuk. I am afraid that the Plane itself has shifted with this power. I do not believe that we will be able to uncover all that we need [" . quest::saylink("alone") . "] in time to warn people of the dangers.");
  }
  if($text=~/Alone/i) {
-   quest::say("Our parents are back in Qeynos assisting Jusean with all that needs to be verified and ensuring that the League's network contacts are all still viable. They will need to stay there in case we must get the word out quickly. I do not believe that any of the residents of Tanaan would approve of our little quest, and would view it as biased. Thus we are here alone. Does this type of project [interest] you?");
+   quest::say("Our parents are back in Qeynos assisting Jusean with all that needs to be verified and ensuring that the League's network contacts are all still viable. They will need to stay there in case we must get the word out quickly. I do not believe that any of the residents of Tanaan would approve of our little quest, and would view it as biased. Thus we are here alone. Does this type of project [" . quest::saylink("I am interested",0,"interest") . "] you?");
  }
  if(($text=~/interested/i) && (($class eq "Wizard") || ($class eq "Magician") || ($class eq "Necromancer") || ($class eq "Enchanter") || ($class eq "Ranger") || ($class eq "Paladin") || ($class eq "Shadowknight") || ($class eq "Beastlord") || ($class eq "Bard"))) {
    quest::say("Please speak to my brother, Stefan, for further information. He will be your primary contact for any tasks you perform for us in Innoruuk's realm. The League of Antonican Bards and I commend you for your efforts.");
@@ -44,12 +44,12 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 54062 => 1, 10053 => 1, 54048 => 1)) { #melee 1
     quest::summonitem(54033); #gem of war
-    quest::say("Wonderful! I also have some more [work] for you to do in the plane of hatred if you wish."); #need real text
+    quest::say("Wonderful! I also have some more [" . quest::saylink("What work?",0,"work") . "] for you to do in the plane of hatred if you wish."); #need real text
     quest::exp(60000);
   }
   if (plugin::check_handin(\%itemcount, 54050 => 1, 54049 => 1, 54033 => 1)) { #melee 2
     quest::summonitem(54034); #gem of contention
-    quest::say("Splendid work! Should you venture to the Plane of Hatred again, I have a [final task] that needs to be completed."); #need real text
+    quest::say("Splendid work! Should you venture to the Plane of Hatred again, I have a [" . quest::saylink("What final task?",0,"final task") . "] that needs to be completed."); #need real text
     quest::exp(60000);
   }
   if (plugin::check_handin(\%itemcount, 54051 => 1, 54034 => 1)) { #melee 3
@@ -59,12 +59,12 @@ sub EVENT_ITEM {
   }
   if (plugin::check_handin(\%itemcount, 54040 => 1, 16537 => 1, 10037 => 1)) { #priest 1
     quest::summonitem(54027); #gem of faith
-    quest::say("Wonderful! I also have some more [work] for you to do in the plane of hatred if you wish."); #need real text
+    quest::say("Wonderful! I also have some more [" . quest::saylink("What work?",0,"work") . "] for you to do in the plane of hatred if you wish."); #need real text
     quest::exp(60000);
   }
   if (plugin::check_handin(\%itemcount, 54042 => 1, 54041 => 1, 54027 => 1)) { #priest 2
     quest::summonitem(54028); #gem of piety
-    quest::say("Splendid work! Should you venture to the Plane of Hatred again, I have a [final task] that needs to be completed."); #need real text
+    quest::say("Splendid work! Should you venture to the Plane of Hatred again, I have a [" . quest::saylink("What final task?",0,"final task") . "] that needs to be completed."); #need real text
     quest::exp(60000);
   }
   if (plugin::check_handin(\%itemcount, 54043 => 1, 54028 => 1)) { #priest 3

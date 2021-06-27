@@ -4,10 +4,10 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::emote("seems lost in thought and looks up only briefly from her work. 'Oh, hello $name, welcome to the New Thicket Inn! If you'll excuse me, I'm a bit busy copying this [scroll]. I'll be with you in a moment to chat, or to trade if you've come about the [earring]'");
+    quest::emote("seems lost in thought and looks up only briefly from her work. 'Oh, hello $name, welcome to the New Thicket Inn! If you'll excuse me, I'm a bit busy copying this [" . quest::saylink("scroll") . "]. I'll be with you in a moment to chat, or to trade if you've come about the [" . quest::saylink("earring") . "]'");
   }
   if ($text=~/scroll/i) {
-    quest::emote("looks up again with a quiet smile, 'I'm making a copy of a new Protection spell, it's very exciting! The druids of Norrath have just completed an important ritual, and the gods have blessed us with this new spell! I'd be happy to scribe you a copy, if you were to fetch me the [ingredients].'");
+    quest::emote("looks up again with a quiet smile, 'I'm making a copy of a new Protection spell, it's very exciting! The druids of Norrath have just completed an important ritual, and the gods have blessed us with this new spell! I'd be happy to scribe you a copy, if you were to fetch me the [" . quest::saylink("ingredients") . "].'");
   }
   if ($text=~/ingredients/i) {
     quest::say("Oh, let me see... I'll need a sheet of fancy Blessed parchment, a small flask of Dark Root ink, and of course a large quill. I think a Stormraven's quill would be best, certainly better than this one I've been using so far. Bring those items to me and I'll be happy to make you a copy for yourself. I'm not sure where you'll find all of those, I seem to have bought up the last of the stock in several places. Someone's bound to have them for sale, good luck with it!");

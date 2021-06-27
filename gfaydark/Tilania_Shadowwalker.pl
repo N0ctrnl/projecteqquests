@@ -1,20 +1,20 @@
 # items: 17365, 22671, 22672, 22673, 22674, 22675, 22676, 22677
 sub EVENT_SAY { 
 if($text=~/Hail/i){
-quest::say("Greetings to you $name. I welcome you to the Scouts of Tunare training halls. I have seen many scouts pass through my halls with unimaginable abilities and daggers guided by Tunare herself. I cannot say for certain what the future has in store for you. But I can say that wherever your adventures may take you it is always wise to have the proper [training].");
+quest::say("Greetings to you $name. I welcome you to the Scouts of Tunare training halls. I have seen many scouts pass through my halls with unimaginable abilities and daggers guided by Tunare herself. I cannot say for certain what the future has in store for you. But I can say that wherever your adventures may take you it is always wise to have the proper [" . quest::saylink("What training?",0,"training") . "].");
 }
 if($text=~/what training/i){
-quest::say("The training that I speak of is only intended for rogues of Tunare that wish to develop skills that will mold them into the most deadly assassins in all of the lands. If you are a [rogue of Tunare] then I will be happy to explain the training exercises to you. However. if you are not a rogue I suggest you seek training from another house.");
+quest::say("The training that I speak of is only intended for rogues of Tunare that wish to develop skills that will mold them into the most deadly assassins in all of the lands. If you are a [" . quest::saylink("I am a rogue of Tunare",0,"rogue of Tunare") . "] then I will be happy to explain the training exercises to you. However. if you are not a rogue I suggest you seek training from another house.");
 }
 if($text=~/i am a rogue of tunare/i){
-quest::say("Excellent $name. let us get started then. Your training will test your fighting and gathering skills respectively. because of the items you will be required to gather all over the Faydark for [magical armor materials].");
+quest::say("Excellent $name. let us get started then. Your training will test your fighting and gathering skills respectively. because of the items you will be required to gather all over the Faydark for [" . quest::saylink("What magical armor materials?",0,"magical armor materials") . "].");
 }
 if($text=~/what magical armor materials/i){
-quest::say("First things first. here is your Assassins Mail Assembly Kit. Inside this kit you will combine different magical items. which in certain quantities in your mail kit can create armor materials for specific pieces of Tunarean Scouts Armor. Once you have completed a specific armor material you can then place it in a forge with the applicable pattern to create your piece of armor.[continue]");
+quest::say("First things first. here is your Assassins Mail Assembly Kit. Inside this kit you will combine different magical items. which in certain quantities in your mail kit can create armor materials for specific pieces of Tunarean Scouts Armor. Once you have completed a specific armor material you can then place it in a forge with the applicable pattern to create your piece of armor.[" . quest::saylink("continue") . "]");
 quest::summonitem("17365")
 }
 if($text=~/continue/i){
-quest::say("Simply tell me what armor piece you [want] to craft and I can provide you with the material recipes and armor patterns for [Coifs][Bracers][Sleeves][Boots][Legplates][Gauntlets] and [Tunics].");
+quest::say("Simply tell me what armor piece you want to craft and I can provide you with the material recipes and armor patterns for [" . quest::saylink("Coifs") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Sleeves") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Legplates") . "], [" . quest::saylink("Gauntlets") . "] and [" . quest::saylink("Tunics") . "].");
 quest::summonitem("17365")
 }
 if($text=~/i want to craft coifs/i){
@@ -42,11 +42,11 @@ quest::say("To create your gauntlets material you will need to combine 3 Bricks 
 quest::summonitem("22676");
 }
 if($text=~/i want to craft tunics/i){
-quest::say("To create your tunic material you will need to combine 5 Bricks of Crude Bronze. 1 Coyote Skull. 1 Orc Ribcage. 1 Pristine Forest Drakeling Scale. 1 Crushbone Shoulderpads and 1 Golden Bandit Tooth in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Tunic of the Tunarean Scout. Please return to me after you have completed your tunic. for I have one final [favor] to ask of you.");
+quest::say("To create your tunic material you will need to combine 5 Bricks of Crude Bronze. 1 Coyote Skull. 1 Orc Ribcage. 1 Pristine Forest Drakeling Scale. 1 Crushbone Shoulderpads and 1 Golden Bandit Tooth in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Tunic of the Tunarean Scout. Please return to me after you have completed your tunic. for I have one final [" . quest::saylink("What favor?",0,"favor") . "] to ask of you.");
 quest::summonitem("22677");
 }
 if($text=~/what favor/i){
-quest::say("I have recently been trying my hand at weaponcrafting and I can say that it is going quite well. Before I can practice my skills however I need some [specific items] that will enable me to begin crafting daggers for our young scouts like yourself that have completed the training exercises.");
+quest::say("I have recently been trying my hand at weaponcrafting and I can say that it is going quite well. Before I can practice my skills however I need some [" . quest::saylink("What specific items?",0,"specific items") . "] that will enable me to begin crafting daggers for our young scouts like yourself that have completed the training exercises.");
 }
 if($text=~/what specific items/i){
 quest::say("In order to craft some more daggers I am in need of 1 Preserved Orc Hide and 2 Rotting Orc Teeth. You can most likely find these items on the vile orcs that inhabit the Faydark and Clan Crushbone of course. Bring me these items and I will reward you with a training dagger of the finest quality."); }

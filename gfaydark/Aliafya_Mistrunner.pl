@@ -3,17 +3,17 @@
 
 sub EVENT_SAY {
   if ($text=~/Hail/i) {
-    quest::say("Pleased to meet you, $name, I am Aliafya Mistrunner Preserver of Nature and loyal servant of Tunare. I have resided in this guild house for many of my years. I pride myself on being a mentor to many young druids of Tunare that come up through our ranks. If you are a [druid of Tunare] then I might have some work for you.");
+    quest::say("Pleased to meet you, $name, I am Aliafya Mistrunner Preserver of Nature and loyal servant of Tunare. I have resided in this guild house for many of my years. I pride myself on being a mentor to many young druids of Tunare that come up through our ranks. If you are a [" . quest::saylink("I am a druid of Tunare",0,"druid of Tunare") . "] then I might have some work for you.");
   }
   if ($text=~/druid of Tunare/i) {
-    quest::say("I am always pleased to see new faces amongst us indeed $name. However, I must learn if you are loyal to your house and your god by asking you to complete a series of training exercises. These tests will enable you to learn your way around this great land we call home and to pick up some very valuable hunting skills that will aid you in all of your battles to come. When you are [ready to begin your training] I will present you with your Leafrunners Assembly Kit.");
+    quest::say("I am always pleased to see new faces amongst us indeed $name. However, I must learn if you are loyal to your house and your god by asking you to complete a series of training exercises. These tests will enable you to learn your way around this great land we call home and to pick up some very valuable hunting skills that will aid you in all of your battles to come. When you are [" . quest::saylink("I am ready to begin my training",0,"ready to begin your training") . "] I will present you with your Leafrunners Assembly Kit.");
   }
   if ($text=~/ready to begin/i) {
     quest::summonitem(17366); # Item: Leafrunners Assembly Kit
-    quest::say("Here is your Leafrunners Assembly Kit, $name. In this kit you will place a number of [magical components] that will be infused together to create armor materials used to crafting Leafrunners Leather Armor. Once you have created the armor materials you will then take them to a loom along with the correct pattern to fashion together your armor piece.");
+    quest::say("Here is your Leafrunners Assembly Kit, $name. In this kit you will place a number of [" . quest::saylink("magical components") . "] that will be infused together to create armor materials used to crafting Leafrunners Leather Armor. Once you have created the armor materials you will then take them to a loom along with the correct pattern to fashion together your armor piece.");
   }
   if($text =~ /magical components/i) {
-    quest::say("The components you will need to collect for your armor will take you to all parts of the faydark. These items can be found on some of the deadliest creatures and also on some of our most trust worthy merchants. Once you are ready to begin creating your armor pieces simply tell me what piece you [want] to craft. I can provide you with the material recipes and patterns for Leafrunners [Caps], [Bracers], [Sleeves], [Boots], [Leggings], [Gloves] and [Tunics].");
+    quest::say("The components you will need to collect for your armor will take you to all parts of the faydark. These items can be found on some of the deadliest creatures and also on some of our most trust worthy merchants. Once you are ready to begin creating your armor pieces simply tell me what piece you want to craft. I can provide you with the material recipes and patterns for Leafrunners [" . quest::saylink("Caps") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Sleeves") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Leggings") . "],  [" . quest::saylink("Gloves") . "] and [" . quest::saylink("Tunics") . "].");
   }
   if($text =~ /boot/i) {
     quest::summonitem(38742); # Item: Pattern for Wood Elven Boots
@@ -41,7 +41,7 @@ sub EVENT_SAY {
   }
   if($text =~ /tunic/i) {
     quest::summonitem(38744); # Item: Pattern for Wood Elven Tunics
-    quest::say("To create your tunic material you will need to combine 5 Woven Spider Silks, 1 Pristine Forest Drakeling Scale, 1 Golden Bandit Tooth, 1 Orc Ribcage and 1 Legionnaires Bracer in your assembly kit. Once you have created the proper material take it to a loom along with this mold to fashion your very own Tunic of the Leafrunner. When you have completed all of your armor pieces please return to me when you are [ready to complete the test of loyalty].");
+    quest::say("To create your tunic material you will need to combine 5 Woven Spider Silks, 1 Pristine Forest Drakeling Scale, 1 Golden Bandit Tooth, 1 Orc Ribcage and 1 Legionnaires Bracer in your assembly kit. Once you have created the proper material take it to a loom along with this mold to fashion your very own Tunic of the Leafrunner. When you have completed all of your armor pieces please return to me when you are [" . quest::saylink("I am ready to complete the test of loyalty",0,"ready to complete the test of loyalty") . "].");
   }
   if($text =~ /ready to complete the test of loyalty/i) {
     quest::say("There have been numerous attacks mounted lately by the orcs of Clan Crushbone. With their stronghold ever so close to us it is feared that a full-scale attack could level our city and at the very least, leave many of our bretheren dead by the hands of the filthy orcs. What I ask is that you bring me the detailed battle plans that only the highest ranking orcs could be carrying. Bring me these battle plans along with 2 pairs of Crushbone Battle Beads and I will surely reward you for your trouble.");

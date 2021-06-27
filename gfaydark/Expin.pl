@@ -20,7 +20,7 @@ sub DoRandomPatchwork {
 
 sub EVENT_SAY { 
 	if($text=~/Hail/i){
-		quest::say("How are you, my friend?  You must be a [new scout of Kelethin].  I would hope so.  We dearly need more recruits.  Most of the Fier'Dal choose the path of the ranger.");
+		quest::say("How are you, my friend?  You must be a [" . quest::saylink("I am a new scout of Kelethin",0,"new scout of Kelethin") . "].  I would hope so.  We dearly need more recruits.  Most of the Fier'Dal choose the path of the ranger.");
 	}
 	if($text=~/new scout of Kelethin/i){
 		quest::say("Good.  I have an easy, but very important, task for you.  We require all young members to cleanse these woods of the troublesome pixie tricksters.  Take this pouch, fill it, and when it is combined, return it to me.  I just may have some used armor lying around for you.");

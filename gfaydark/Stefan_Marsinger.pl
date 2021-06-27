@@ -1,7 +1,7 @@
 # items: 10037, 54044, 16537, 54036, 54045, 54046, 54037, 54047, 54038, 10053, 54052, 54062, 54030, 54053, 54054, 54031, 54055, 54032, 54058, 54060, 54056, 54039, 54059, 54057, 54061, 9590
 sub EVENT_SAY {
  if($text =~ /Hail/i) {
-   quest::say("Salutations, my name is Stefan Marsinger. My sister Seana and I are here on a mission for the League of Antonican Bards. Are you [interested] in assisting us in our task?");
+   quest::say("Salutations, my name is Stefan Marsinger. My sister Seana and I are here on a mission for the League of Antonican Bards. Are you [" . quest::saylink("I am interested",0,"interested") . "] in assisting us in our task?");
  }
  if(($text=~/interested/i) && (($class eq "Ranger") || ($class eq "Paladin") || ($class eq "Shadowknight") || ($class eq "Beastlord") || ($class eq "Bard"))) {
      quest::say("I believe it is safest if you study those who have similar interests as yourself. Travel to the Plane of Hate and observe the ghasts, scorn banshees, and haunted chests. They seem to share some qualities of your art and lie in the least dangerous areas. My interaction with these creatures has been mostly at a distance, and I am not as familiar with them as I would like. If you survive long enough to uncover some sort of minor signet that verifies you have been studying these creatures, and truly wish to aid with this cause, bring it to me along with some abhorrent powder and a jacinth. I can craft you protective item and may have some further work for you to do.");
@@ -35,12 +35,12 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 10037 => 1, 54044 => 1, 16537 => 1)) { #caster 1
     quest::summonitem(54036); #gem of sorcery
-    quest::emote("inspects the items closely before transforming them into a small glimmering jewel. 'That should help a bit. My studies are coming along rather well, although it is still far too early to decipher what is going on for certain. Do you wish to venture further into the plane and do some more [work] for me?");
+    quest::emote("inspects the items closely before transforming them into a small glimmering jewel. 'That should help a bit. My studies are coming along rather well, although it is still far too early to decipher what is going on for certain. Do you wish to venture further into the plane and do some more [" . quest::saylink("What work?"0,"work") . "] for me?");
     quest::exp(60000);
   }
   if (plugin::check_handin(\%itemcount, 54036 => 1, 54045 => 1, 54046 => 1)) { #caster 2
     quest::summonitem(54037); #gem of enchantment
-    quest::say("Very interesting, I must get to this at once. I am sure the bones will prove most valuable in learning of the drakes as well. Take this with you once more; the protective properties are even more powerful now. Are you up to a [final task]?");
+    quest::say("Very interesting, I must get to this at once. I am sure the bones will prove most valuable in learning of the drakes as well. Take this with you once more; the protective properties are even more powerful now. Are you up to a [" . quest::saylink("What final task?",0,"final task") . "]?");
     quest::exp(60000);
   }
   if (plugin::check_handin(\%itemcount, 54037 => 1, 54047 => 1)) { #caster 3
@@ -50,12 +50,12 @@ sub EVENT_ITEM {
   }
   if (plugin::check_handin(\%itemcount, 10053 => 1, 54052 => 1, 54062 => 1)) { #hybrid 1
     quest::summonitem(54030); #gem of courage
-    quest::emote("inspects the items closely before transforming them into a small glimmering jewel. 'That should help a bit. My studies are coming along rather well, although it is still far too early to decipher what is going on for certain. Do you wish to venture further into the plane and do some more [work] for me?");
+    quest::emote("inspects the items closely before transforming them into a small glimmering jewel. 'That should help a bit. My studies are coming along rather well, although it is still far too early to decipher what is going on for certain. Do you wish to venture further into the plane and do some more [" . quest::saylink("What work?",0,"work") . "] for me?");
     quest::exp(60000);
   }
   if (plugin::check_handin(\%itemcount, 54030 => 1, 54053 => 1, 54054 => 1)) { #hybrid 2
     quest::summonitem(54031); #gem of daring
-    quest::say("Very interesting, I must get to this at once. I am sure the bones will prove most valuable in learning of the drakes as well. Take this with you once more; the protective properties are even more powerful now. Are you up to a [final task]?");
+    quest::say("Very interesting, I must get to this at once. I am sure the bones will prove most valuable in learning of the drakes as well. Take this with you once more; the protective properties are even more powerful now. Are you up to a [" . quest::saylink("What final task?",0,"final task") . "]?");
     quest::exp(60000);
   }
   if (plugin::check_handin(\%itemcount, 54031 => 1, 54055 => 1)) { #hybrid 3

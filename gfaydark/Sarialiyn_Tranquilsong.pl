@@ -1,16 +1,16 @@
 # items: 17368, 22611, 22610, 22613, 22612, 22614, 22615, 22616, 22694, 27540, 27533
 sub EVENT_SAY{
   if($text=~/Hail/i){
-    quest::say("Pleased to meet you $name. I am Sarialiyn Tranquilsong. Virtuoso of the Songweavers Kelethin division. I have spent all of my years here in Kelethin training our new recruits to ensure that all are ready to defend themselves once their adventures take them away from the Faydark and beyond. If you are a [young bard of Kelethin] then I might have some exercises for you to complete.");
+    quest::say("Pleased to meet you $name. I am Sarialiyn Tranquilsong. Virtuoso of the Songweavers Kelethin division. I have spent all of my years here in Kelethin training our new recruits to ensure that all are ready to defend themselves once their adventures take them away from the Faydark and beyond. If you are a [" . quest::saylink("I am a young bard of Kelethin",0,"young bard of Kelethin") . "] then I might have some exercises for you to complete.");
   }
   if($text=~/i am a young bard of kelethin/i){
-    quest::say("Well then you surely must be interested in some of the [training exercises] I have created for all young members of the Songweavers bard guild.");
+    quest::say("Well then you surely must be interested in some of the [" . quest::saylink("What training exercises?",0,"training exercises") . "] I have created for all young members of the Songweavers bard guild.");
   }
   if($text=~/what training exercises/i){
-    quest::say("The training exercises that I speak of are very important in the development of a young bards core abilities. You will have to rely on all of your skills including hunting and gathering to complete these tests but in the end you will be rewarded with a full set of your own armor that you will craft by your own hand. Are you ready to [begin the exercises]?");
+    quest::say("The training exercises that I speak of are very important in the development of a young bards core abilities. You will have to rely on all of your skills including hunting and gathering to complete these tests but in the end you will be rewarded with a full set of your own armor that you will craft by your own hand. Are you ready to [" . quest::saylink("I am ready to begin the exercises",0,"begin the exercises") . "]?");
   }
   if($text=~/begin the exercises/i){
-    quest::say("Fantastic $name. here is your Melodic Assembly Kit. In this kit you will collect various items from all over the Faydark. Clan Crushbone and in our hometown of Kelethin. You will then combine these items in certain quantities inside your Assembly Kit to create armor materials. which are then placed in a forge with the applicable mold to yield your armor piece. As I provided you with your assembly kit. I can also provide you with the armor molds for Tranquilsong [Helms]. [Bracers]. [Armguards]. [Boots]. [Greaves]. [Gauntlets] and [Breastplates]. All you must do is simply tell me what armor piece you [want] to craft. and I shall give you the appropriate mold and material recipe.");
+    quest::say("Fantastic $name. here is your Melodic Assembly Kit. In this kit you will collect various items from all over the Faydark. Clan Crushbone and in our hometown of Kelethin. You will then combine these items in certain quantities inside your Assembly Kit to create armor materials. which are then placed in a forge with the applicable mold to yield your armor piece. As I provided you with your assembly kit. I can also provide you with the armor molds for Tranquilsong [" . quest::saylink("Helms") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Armguards") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Greaves") . "], [" . quest::saylink("Gauntlets") . "] and [" . quest::saylink("Breastplates") . "]. All you must do is simply tell me what armor piece you want to craft. and I shall give you the appropriate mold and material recipe.");
     quest::summonitem(17368); # Item: Melodic Assembly Kit
   }
   if($text=~/bracers/i){

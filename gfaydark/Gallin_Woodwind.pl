@@ -1,7 +1,7 @@
 # items: 17953, 12121
 sub EVENT_SAY { 
 if($text=~/Hail/i){
-quest::say("Greetings. friend! I am Gallin Woodwind of the Emerald Warriors. It is my charge to send forth Fier'Dal to [hunt for meat]. Kelethin's citizens must be nourished and this requires meat. Such is the circle of life.");
+quest::say("Greetings. friend! I am Gallin Woodwind of the Emerald Warriors. It is my charge to send forth Fier'Dal to [" . quest::saylink("I want to hunt for meat",0,"hunt for meat") . "]. Kelethin's citizens must be nourished and this requires meat. Such is the circle of life.");
 }
 if($text=~/i want to hunt for meat/i){
 quest::say("Good!!  We have enough young warriors hunting in our woods. Your duty shall be to take this pack to the ocean and seek out sharks. Fill the bag with shark meat and combine it. I shall reward you with a fine piercing weapon."); 

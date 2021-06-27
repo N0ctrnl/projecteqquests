@@ -12,7 +12,7 @@ sub EVENT_SAY {
     }
     if ($RegalBandBathezid==1) { # we handed the Signet of Service yet
       if ($text=~/plan/i) {
-        quest::say("Alrighty, listen listen. Skargus used to be a low rankin' nogood. He made a fake story 'bout Gragbar who was the warlord and caused him much trouble with the chief. Gragbar was cast down, chief made Skargus the warlord now. Gragbar is very angry, would take back his position and kill Skargus if he get [evidence] of his treachery.");
+        quest::say("Alrighty, listen listen. Skargus used to be a low rankin' nogood. He made a fake story 'bout Gragbar who was the warlord and caused him much trouble with the chief. Gragbar was cast down, chief made Skargus the warlord now. Gragbar is very angry, would take back his position and kill Skargus if he get [" . quest::saylink("What evidence?",0,"evidence") . "] of his treachery.");
       }
       if ($text=~/evidence/i) {
         quest::emote("makes a terrible face, then spits on the ground before continuing.");
@@ -27,7 +27,7 @@ sub EVENT_ITEM{
   if ($faction<=2) {  # need to be warmly or better
     if (plugin::check_handin(\%itemcount,5728=>1)) { # Di'zok Signet of Service
       quest::emote("looks relieved when he sees your signet of service and eyes you with a bit more respect.");
-      quest::say("Good! They tell'd me to wait here for ya, can't say I like it but here I sits. It be good to be rid of Skargus though, so I be a happy one, oh yes. Want to know the [plan] then?");
+      quest::say("Good! They tell'd me to wait here for ya, can't say I like it but here I sits. It be good to be rid of Skargus though, so I be a happy one, oh yes. Want to know the [" . quest::saylink("What is the plan?",0,"plan") . "] then?");
       quest::summonitem(5728); # 5728  Di'zok Signet of Service
       quest::setglobal("RegalBandBathezid",1,5,"Y1");
     }

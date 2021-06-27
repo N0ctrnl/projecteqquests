@@ -4,19 +4,19 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Welcome to the treetops and the home of Faydark's Champions. We are the skilled rangers of the Faydarks. You are safe in Kelethin. but watch yourself upon the forest floor. I hear the [blue meanies] have been on the rise.");
+    quest::say("Welcome to the treetops and the home of Faydark's Champions. We are the skilled rangers of the Faydarks. You are safe in Kelethin. but watch yourself upon the forest floor. I hear the [" . quest::saylink("blue meanies") . "] have been on the rise.");
   }
   if($text=~/blue meanies/i) {
-    quest::say("That is a little name I have given the Crushbone orcs. It appears they have increased their numbers. The Emerald Warriors are charged with our defense against them. We rangers are to seek out the [orc saboteurs].");
+    quest::say("That is a little name I have given the Crushbone orcs. It appears they have increased their numbers. The Emerald Warriors are charged with our defense against them. We rangers are to seek out the [" . quest::saylink("orc saboteurs") . "].");
   }
   if($text=~/orc saboteurs/i) {
-    quest::say("As others move to battle the orc armies. we have word that the orc pawns have been sent into the woods to damage the great trees which support Kelethin. We shall employ the talents of our young rangers to halt their efforts. I currently seek those who will [hunt the orc pawns].");
+    quest::say("As others move to battle the orc armies. we have word that the orc pawns have been sent into the woods to damage the great trees which support Kelethin. We shall employ the talents of our young rangers to halt their efforts. I currently seek those who will [" . quest::saylink("I will hunt the orc pawns",0,"hunt the orc pawns") . "].");
   }
   if($text=~/hunt the orc pawns/i) {
     quest::say("Go to the forest floor and seek out the orc pawns. Within their ranks can sometimes be found orc hatchetmen. They carry orc hatchets which you must return and I shall reward you for every two orc hatchets and perhaps offer you a weapon in return. should we have any to spare at the time.");
   }
   if($text=~/crushbone allies/i) {
-    quest::say("It seems the orcs have allied themselves with the wicked Teir'Dal. We know of this through reports of a Teir'Dal presence within Crushbone. We must [intercept the Crushbone runners] and find a reason for their union.");
+    quest::say("It seems the orcs have allied themselves with the wicked Teir'Dal. We know of this through reports of a Teir'Dal presence within Crushbone. We must [" . quest::saylink("intercept the Crushbone runners") . "] and find a reason for their union.");
   }
   if($text=~/intercept the crushbone runners/i) {
     quest::say("Go to the Butcherblocks. You stand a greater chance of finding the runners there. I shall pay a bounty for all returned runner pouches.");
@@ -25,7 +25,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 12108 => 2)) { #Orc Hatchet x 2
-    quest::say("Fantastic work!! Your actions shall earn you the respect of all Fier'Dal!  Take this as a small bounty for your deed.  We have heard of [Crushbone allies] who wish our demise.");
+    quest::say("Fantastic work!! Your actions shall earn you the respect of all Fier'Dal!  Take this as a small bounty for your deed.  We have heard of [" . quest::saylink("Crushbone allies") . "] who wish our demise.");
     quest::summonitem(quest::ChooseRandom(5047,5048,7032)); #Tarnished Scimitar, Tarnished Bastard Sword, Cast-Iron Rapier
     my %cash = plugin::RandomCash(10,20); #1sp ~ 2sp
     quest::givecash($cash{copper},$cash{silver},0,0); #Random cash reward
