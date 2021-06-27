@@ -9,7 +9,7 @@ sub EVENT_SAY {
  }
  elsif($text=~/lost circle/i){
   # ROTWF [Part 2]
-  quest::say("Then we are one. The rebirth of our circle shall start with you. I have waited decades for your arrival. You should seek the living brothers within Tunaria. When you have earned your garb then you will be ready for the [true drape].");
+  quest::say("Then we are one. The rebirth of our circle shall start with you. I have waited decades for your arrival. You should seek the living brothers within Tunaria. When you have earned your garb then you will be ready for the [" . quest::saylink("true drape") . "].");
  }
  elsif($text=~/true drape/i){
   # ROTWF [Part 3]

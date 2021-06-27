@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Ahoy there. [sailor]!");
+		e.self:Say("Ahoy there. [" .. eq.say_link("sailor") .. "]!");
 	elseif(e.message:findi("not a sailor")) then
 		e.self:Say("What do you mean?! After all that time you spent sailing to Erudin you have to be a sailor by now.");
 	elseif(e.message:findi("sinnkin")) then

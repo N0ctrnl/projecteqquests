@@ -13,7 +13,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 10528})) then
-		e.self:Say("You must be another one from Vilissia. I will tell you what I tell all the others--you must help me [avenge] my [brother] before I will help you attain Tishan's Kilt.");
+		e.self:Say("You must be another one from Vilissia. I will tell you what I tell all the others - you must help me [" .. eq.say_link("I will help you avenge your brother",false,"avenge my brother") .. "] before I will help you attain Tishan's Kilt.");
 		e.other:SummonItem(18797); -- Item: Tattered Note
 		e.other:Ding();
 		e.other:AddEXP(500);

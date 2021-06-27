@@ -6,10 +6,10 @@ sub EVENT_SAY {
   quest::emote("'s body has scars all about it, looking as though beaten with whips. One wrist bares a unique looking bracer, the other is bare. 'Leave me be! I did not come up here because I wanted company.'");
  }
  elsif($text=~/tynnonium shackle/i){
-  quest::say("So it is the one that has freed me before! You seek the ways of Tynn I see. You must be on the true path of the monk to accomplish what is needed. The path will test the [three virtues] most important to becoming a true vessel for Cazic Thule's power.");
+  quest::say("So it is the one that has freed me before! You seek the ways of Tynn I see. You must be on the true path of the monk to accomplish what is needed. The path will test the [" . quest::saylink("three virtues") . "] most important to becoming a true vessel for Cazic Thule's power.");
  }
  elsif($text=~/three virtues/i){
-  quest::say("The three virtues are [patience], [agility], and [peace of mind]. Patience is important in knowing in when to strike your opponent, too soon and you may crushed, too late and your opportunity may pass. Agility is very important in showing your ability to avoid blows sent your way, and then returning what was sent to you. Without striking quickly you are no monk at all. Peace of mind will allow you to concentrate on the situation you are in. With it you can control your actions and make decisive strikes at critical times. Without peace of mind you may attack out of rage and will surely fall for your mind is clouded. You must complete these three trials to earn the shackle of the Grandmaster.");
+  quest::say("The three virtues are [" . quest::saylink("patience") . "], [" . quest::saylink("agility") . "], and [" . quest::saylink("peace of mind") . "]. Patience is important in knowing in when to strike your opponent, too soon and you may crushed, too late and your opportunity may pass. Agility is very important in showing your ability to avoid blows sent your way, and then returning what was sent to you. Without striking quickly you are no monk at all. Peace of mind will allow you to concentrate on the situation you are in. With it you can control your actions and make decisive strikes at critical times. Without peace of mind you may attack out of rage and will surely fall for your mind is clouded. You must complete these three trials to earn the shackle of the Grandmaster.");
  }
  elsif($text=~/patience/i){
   quest::say("Patience shall be tested by the one whom has the greatest patience. Seek Master Rinmark, and ask him of this trial.");

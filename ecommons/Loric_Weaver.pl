@@ -1,7 +1,7 @@
 sub EVENT_SAY {
   if(($ulevel >= 35) && ($ulevel <= 50)) {
     if($text=~/hail/i) {
-      quest::say("Oh, hello $name. Would you like to assist me in a [task]?");
+      quest::say("Oh, hello $name. Would you like to assist me in a [" . quest::saylink("task") . "]?");
     }
     if($text=~/task/i) {
       quest::say("Excellent! I was hoping you would be able to help me.");

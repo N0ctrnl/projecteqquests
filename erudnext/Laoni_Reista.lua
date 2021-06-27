@@ -1,9 +1,9 @@
 -- items: 13881
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Very good to make your acquaintance. " .. e.other:GetName() .. ". If you are a [new knight]. then let it be known. for I am seeking young knights of Deepwater.");
+		e.self:Say("Very good to make your acquaintance. " .. e.other:GetName() .. ". If you are a [" .. eq.say_link("new knight") .. "]. then let it be known. for I am seeking young knights of Deepwater.");
 	elseif(e.message:findi("new knight")) then
-		e.self:Say("You do seem a bit young. We shall have to test your mettle. Within this temple. you shall learn to swim as fast as the swordfish and attack with the bravery and skill of the shark. Are you willing to [assist with the cleansing of the ocean]?");
+		e.self:Say("You do seem a bit young. We shall have to test your mettle. Within this temple. you shall learn to swim as fast as the swordfish and attack with the bravery and skill of the shark. Are you willing to [" .. eq.say_link("assist with the cleansing of the ocean") .. "]?");
 	elseif(e.message:findi("assist with the cleansing of the ocean")) then
 		e.self:Say("Go to the waters near the harbor. We have heard of Qeynos' rogue guild attempting to smuggle our valuable Vasty Deep water from Odus by way of swimmers. We require proof of their involvement. It is said they often carry special coins. Return one of these coins to me."); 
 	end

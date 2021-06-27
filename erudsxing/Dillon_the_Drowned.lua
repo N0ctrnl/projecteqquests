@@ -25,7 +25,7 @@ end
 
 function event_signal(e)
 	if(e.signal == 0) then
-		e.self:Say("Again? Oh I don't know Srafen, I don't want to [bore] our company, even if it is an illusion.");
+		e.self:Say("Again? Oh I don't know Srafen, I don't want to [" .. eq.say_link("bore") .. "] our company, even if it is an illusion.");
 	elseif(e.signal == 1) then
 		e.self:Say("Whatever.");
 	elseif(e.signal == 2) then

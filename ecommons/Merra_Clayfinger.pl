@@ -3,10 +3,10 @@
 sub EVENT_SAY {
   if(($ulevel >= 20) && ($ulevel <= 30)) {
     if($text=~/hail/i) {
-      quest::say("Hello, $name. If you are not too busy, I may have a [task] or two for you...");
+      quest::say("Hello, $name. If you are not too busy, I may have a [" . quest::saylink("task") . "] or two for you...");
     }
     if($text=~/task/i) {
-      quest::say("Are you interested in [exploring the area] or would you like to help me look for something [more interesting]?");
+      quest::say("Are you interested in [" . quest::saylink("exploring the area") . "] or would you like to help me look for something [" . quest::saylink("more interesting") . "]?");
     }
     if($text=~/exploring the area/i) {
       quest::say("Excellent! I thought you might be the exploring kind...");

@@ -4,13 +4,13 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Good day, $name, is there something I can help you with? I am currently training young paladins the way of our house so if you are a [paladin] perhaps we can start you off on the right path.");
+    quest::say("Good day, $name, is there something I can help you with? I am currently training young paladins the way of our house so if you are a [" . quest::saylink("paladin") . "] perhaps we can start you off on the right path.");
   }
   if ($text=~/paladin/i) {
-    quest::say("All right then $name, lets see what you got. When you are ready to begin I will send you into the field to collect [various items].");
+    quest::say("All right then $name, lets see what you got. When you are ready to begin I will send you into the field to collect [" . quest::saylink("various items") . "].");
   }
   if ($text=~/various items/i) {
-    quest::say("There are numerous items that you will need to collect and combine in your kit. I will present you with the recipe for Sentinel [Helms], [Bracers], [Armguards], [Boots], [Greaves], [Gauntlets] and [Breastplates]. When you are ready to attempt a specific piece please let me know what piece you wish to [craft] and I will give you the necessary mold along with the recipe.");
+    quest::say("There are numerous items that you will need to collect and combine in your kit. I will present you with the recipe for Sentinel [" . quest::saylink("Helms") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Armguards") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Greaves") . "], [" . quest::saylink("Gauntlets") . "] and [" . quest::saylink("Breastplates") . "]. When you are ready to attempt a specific piece please let me know what piece you wish to [" . quest::saylink("craft") . "] and I will give you the necessary mold along with the recipe.");
     quest::summonitem(61093); # Item: Sentinels Assembly Kit
   }
   if ($text=~/helm/i) {
@@ -38,11 +38,11 @@ sub EVENT_SAY {
     quest::summonitem(38909); # Item: Mold for Erudian Gloves
   }
   if ($text=~/breastplate/i) {
-    quest::say("To create your breastplate material you will need to combine 5 Bricks of Crude Bronze, 1 Skunk Eye, 1 Large Briar Snake Skin, 1 Snake Fang, 1 Skeleton Tibia, and 1 Snake Bile in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Sentinel's Breastplate. Return to me for one [final favor] I have to ask of you after you have completed your breastplate.");
+    quest::say("To create your breastplate material you will need to combine 5 Bricks of Crude Bronze, 1 Skunk Eye, 1 Large Briar Snake Skin, 1 Snake Fang, 1 Skeleton Tibia, and 1 Snake Bile in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Sentinel's Breastplate. Return to me for one [" . quest::saylink("final favor") . "] I have to ask of you after you have completed your breastplate.");
     quest::summonitem(38912); # Item: Mold for Erudian Chestplates
   }
   if ($text=~/final favor/i) {
-    quest::say("Well you see we have been having quite a problem with poachers benefiting off of our wildlife and I think as Paladins it is our duty to see that it does not continue. If you would like to help I will have you collect some [specific items] along with the head of a poacher.");
+    quest::say("Well you see we have been having quite a problem with poachers benefiting off of our wildlife and I think as Paladins it is our duty to see that it does not continue. If you would like to help I will have you collect some [" . quest::saylink("specific items") . "] along with the head of a poacher.");
   }
   if ($text=~/specific items/i) {
     quest::say("Return to me with 1 Large Briar Snake Skin, 1 Giant Wood Spider Thorax, 1 Plague Rat Tail and 1 Poachers Head to claim your reward.");

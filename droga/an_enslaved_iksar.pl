@@ -6,19 +6,19 @@ sub EVENT_SAY {
   quest::emote("looks up at you. You can tell his spirit is broken. His scars speak of a severe beating.");
   }
  elsif($text=~/Vok Na Zov/i){ #Test of the Lord (Greenmist Quest 7/8)
-  quest::say("Forget them. I believe all six scrolls lie in the [Kaesora Library] and that is no safe place for any explorer. The scrolls are not readable by any livng person, but I came here in search of a machine which may be able to decipher them, the [Stupendous Contraption]. Should you return to Cabilis, see that the Arch Duke hears of the scrolls.");
+  quest::say("Forget them. I believe all six scrolls lie in the [" . quest::saylink("Kaesora Library") . "] and that is no safe place for any explorer. The scrolls are not readable by any livng person, but I came here in search of a machine which may be able to decipher them, the [" . quest::saylink("Stupendous Contraption") . "]. Should you return to Cabilis, see that the Arch Duke hears of the scrolls.");
   }
  elsif($text=~/kaesora library/i){ #Test of the Lord (Greenmist Quest 7/8)
-  quest::say("Oh!! You heard of the ancient library I discovered in Kaesora? I think the six scrolls of [Vok Na Zov] may lie there. I have not yet actually found the location of the library and it's very dangerous to lurk within the ruins of Kaesora. I would not venture there if I were you.");
+  quest::say("Oh!! You heard of the ancient library I discovered in Kaesora? I think the six scrolls of [" . quest::saylink("Vok Na Zov") . "] may lie there. I have not yet actually found the location of the library and it's very dangerous to lurk within the ruins of Kaesora. I would not venture there if I were you.");
   }
  elsif($text=~/stupendous contraption/i){ #Test of the Lord (Greenmist Quest 7/8)
-  quest::say("I have learned it was a machine tinkered by a legendary gnome. It has many uses. It lies in the slave pens of Droga. Perhaps it may be used to decipher the [Scrolls of Vok Na Zov]. I have leearned that it will not work without a [contraption needle]. Luckily I have found one in my journies.");
+  quest::say("I have learned it was a machine tinkered by a legendary gnome. It has many uses. It lies in the slave pens of Droga. Perhaps it may be used to decipher the [" . quest::saylink("Scrolls of Vok Na Zov") . "]. I have leearned that it will not work without a [" . quest::saylink("contraption needle") . "]. Luckily I have found one in my journies.");
   }
  elsif($text=~/contraption needle/i){ #Test of the Lord (Greenmist Quest 7/8)
-  quest::say("The contraption needle is a piece of the machine, the [Stupendous Contraption]. It won't operate without it and if you want it, you're going to have to bring me the [pen keys].");
+  quest::say("The contraption needle is a piece of the machine, the [" . quest::saylink("Stupendous Contraption") . "]. It won't operate without it and if you want it, you're going to have to bring me the [" . quest::saylink("pen keys") . "].");
   }
  elsif($text=~/pen keys/i){ #Test of the Lord (Greenmist Quest 7/8)
-  quest::say("Pen keys!! I need the pen keys to get out of here! Find the ones who hold these keys. Bring me the key to pen number 1 and both keys to the pen gates. Do so and I shall give you the [contraption needle].");
+  quest::say("Pen keys!! I need the pen keys to get out of here! Find the ones who hold these keys. Bring me the key to pen number 1 and both keys to the pen gates. Do so and I shall give you the [" . quest::saylink("contraption needle") . "].");
   }
 }
 

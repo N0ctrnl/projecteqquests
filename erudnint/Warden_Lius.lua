@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, citizen! This is no place for you. Make sure you keep it that way. We do not need any more [hollow men].");
+		e.self:Say("Hail, citizen! This is no place for you. Make sure you keep it that way. We do not need any more [" .. eq.say_link("hollow men") .. "].");
 	elseif(e.message:findi("hollow men")) then
 		e.self:Say("There is only one sentence in Erudin, death!! And death by purging is the most common. The insides of the criminal are literally pulled out chunk by chunk through the mouth. Then the hollow man is set adrift to float the seas of Erud's Crossing, his body cleansed of all anarchy.");
 	elseif(e.message:findi("heretic's remain")) then

@@ -28,7 +28,7 @@ sub EVENT_ITEM
 	# Check for "A Note (Note To Altunic)".
 	if(plugin::check_handin(\%itemcount, 18896 => 1))
 	{
-		quest::say("You are the one they have sent? A squire?!! I hope you can help me. I gather items strewn upon the grounds of the Commonlands. I sell them at good prices. Lately, I have been terrorized by a human rogue named Narl. He will no doubt appear at my [house] soon. Bring his head to me.");
+		quest::say("You are the one they have sent? A squire?!! I hope you can help me. I gather items strewn upon the grounds of the Commonlands. I sell them at good prices. Lately, I have been terrorized by a human rogue named Narl. He will no doubt appear at my [" . quest::saylink("house") . "] soon. Bring his head to me.");
 	}
 
 	if(plugin::check_handin(\%itemcount, 13867 => 1))
@@ -47,7 +47,7 @@ sub EVENT_ITEM
 
 	if(plugin::check_handin(\%itemcount, 1004 => 1))
 	{
-		quest::say("Thank you. You are very noble for a squire. I can see you becoming a very valuable asset to the Hall of Truth. Take this token. Tell Merko that you have [earned the Token of Generosity].");
+		quest::say("Thank you. You are very noble for a squire. I can see you becoming a very valuable asset to the Hall of Truth. Take this token. Tell Merko that you have [" . quest::saylink("earned the Token of Generosity") . "].");
 
 		# Give player the "Token of Generosity".
 		quest::summonitem("13865");

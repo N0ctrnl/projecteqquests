@@ -7,7 +7,7 @@ function event_say(e)
 	if (e.message:findi("hail")) then
 		if (rescue == 0) then
 			e.self:Emote("whispers something almost inaudible to " .. e.other:GetName() .. ".");
-			e.self:Emote("whispers, 'Oh thank heavens! Did Kintok send you?! I thought he might. I had gone to get some supplies for him, but our ship got attacked, and I was taken prisoner by these zombie guards here. I've been here for more days than I can count. Would you [help me escape]?");
+			e.self:Emote("whispers, 'Oh thank heavens! Did Kintok send you?! I thought he might. I had gone to get some supplies for him, but our ship got attacked, and I was taken prisoner by these zombie guards here. I've been here for more days than I can count. Would you [" .. eq.say_link("I will help you escape",false,"help me escape") .. "]?");
 		elseif (rescue == 1) then
 			e.self:Say("I must return to the docks, I am afraid that they may still be after us, at least if we are near the docks, the Kerran will help us out.");
 		elseif (rescue == 2) then
@@ -19,7 +19,7 @@ function event_say(e)
 	elseif (e.message:findi("help me escape")) then
 		if (rescue == 0) then
 			e.self:Emote("whispers something almost inaudible to " .. e.other:GetName() .. ".");
-			e.self:Emote("whispers, 'You are a true hero. I fear that if we try and escape, these zombies may attack us, and perhaps even kill us . . I sure hope you are [prepared for an attack]. If we make it out of here alive, return me to the docks, so that I may be able to gather my thoughts, and composure. I believe I will need to return to Erudin and replace the supplies I lost, but lets not think of that now, lets get out of here first! If we make it to the docks, speak with me again, and I will figure out what it is that I must do.'");
+			e.self:Emote("whispers, 'You are a true hero. I fear that if we try and escape, these zombies may attack us, and perhaps even kill us . . I sure hope you are [" .. eq.say_link("prepared for an attack") .. "]. If we make it out of here alive, return me to the docks, so that I may be able to gather my thoughts, and composure. I believe I will need to return to Erudin and replace the supplies I lost, but lets not think of that now, lets get out of here first! If we make it to the docks, speak with me again, and I will figure out what it is that I must do.'");
 		elseif (rescue == 1) then
 			e.self:Say("I must return to the docks, I am afraid that they may still be after us, at least if we are near the docks, the Kerran will help us out.");
 		end

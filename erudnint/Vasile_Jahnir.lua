@@ -4,7 +4,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings!  You seek knowledge of our ways.  You shall find knowledge and you shall offer knowledge you have been taught.  What is the power of the [Gatecallers]?");
+		e.self:Say("Greetings!  You seek knowledge of our ways.  You shall find knowledge and you shall offer knowledge you have been taught.  What is the power of the [" .. eq.say_link("Gatecallers") .. "]?");
 	elseif(e.message:findi("gatecaller")) then
 		e.self:Say("Yes. We are the true summoners of Norrath. We are the power supreme. You will learn more and we shall test you. You will go forth and learn the art of summoning. Let your first test be to master the summoning of the dagger and of food. Return to me two summoned daggers and two of the food source you learn to call forth. Do so, and I shall give you the gloves of the Gatecaller.");
 	elseif(e.message:findi("slight problem")) then
@@ -17,7 +17,7 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 13078,item2 = 13078,item3 = 7305,item4 = 7305})) then -- The Power of the Gatecallers
 		e.other:SummonItem(12209); -- Item: Gloves of the Gatecaller
-		e.self:Say("You have mastered these spells quickly. You shall now wear the gloves of the Gatecaller. Cumbersome they may feel, but they protect the hands of a young magician. In your young days of magic they will protect you from harm. They are not valued much by merchants, but they are prized by other circles. Nevertheless, we offer them only to our young Gatecallers. You may now be of assistance with a [slight problem].");
+		e.self:Say("You have mastered these spells quickly. You shall now wear the gloves of the Gatecaller. Cumbersome they may feel, but they protect the hands of a young magician. In your young days of magic they will protect you from harm. They are not valued much by merchants, but they are prized by other circles. Nevertheless, we offer them only to our young Gatecallers. You may now be of assistance with a [" .. eq.say_link("slight problem") .. "].");
 		e.other:Ding();
 		e.other:Faction(254,10,0); --faction with Gate Callers increased
 		e.other:Faction(266,10,0); --faction with High Council of Erudin increased

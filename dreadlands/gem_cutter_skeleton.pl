@@ -30,7 +30,7 @@ sub EVENT_SAY {
     quest::settimer("distracted",2);
   }
   if($text=~/green gem/i){
-    quest::say("The greenest of gems I seek! Jade too brittle, emerald too hard, but [dufrenite]! Ahh, now there is a gem amongst gems.");
+    quest::say("The greenest of gems I seek! Jade too brittle, emerald too hard, but [" . quest::saylink("dufrenite") . "]! Ahh, now there is a gem amongst gems.");
   }
   if($text=~/dufrenite/i){
     quest::say("Yes, dufrenite! Find me a dufrenite to replace the one you made me break. Now go!");
@@ -52,7 +52,7 @@ sub EVENT_ITEM {
 sub EVENT_TIMER {
   if ($timer eq "distracted") {
     quest::doanim(20);
-    quest::say("Blast it! Distracted me you have! Now I need a new [green gem]!");
+    quest::say("Blast it! Distracted me you have! Now I need a new [" . quest::saylink("green gem") . "]!");
     quest::stoptimer("distracted");
   }
   if ($timer eq "cutting") {

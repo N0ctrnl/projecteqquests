@@ -10,7 +10,7 @@ sub EVENT_SPAWN {
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("The bloody Kromrif ambushed me! I escaped, but I am near death. They'll be tracking me down to finish me off at any moment. Without [help], I'm as good as dead.");
+    quest::say("The bloody Kromrif ambushed me! I escaped, but I am near death. They'll be tracking me down to finish me off at any moment. Without [" . quest::saylink("help") . "], I'm as good as dead.");
   }
   if ($text=~/help/i && $flag == 0) {
     $flag = 1;

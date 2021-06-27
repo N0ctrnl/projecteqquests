@@ -4,17 +4,17 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Hello, $name, are you new to this house? I do not believe we have ever met before. Allow me to introduce myself, I am Alimaja Shanthun High Priest of Erudin. If you are a [cleric] I believe I might be able to help you.");
+    quest::say("Hello, $name, are you new to this house? I do not believe we have ever met before. Allow me to introduce myself, I am Alimaja Shanthun High Priest of Erudin. If you are a [" . quest::saylink("cleric") . "] I believe I might be able to help you.");
   }
   if ($text=~/cleric/i) {
-    quest::say("This is great news, we have been awfully short on new talent lately and I am glad to see eager ones like yourself. All of our clerics must first go through a series of training exercises before they can truly be released into Norrath with our blessing. If you are [interested in crafting your own armor] that will result from these exercises I can get you started.");
+    quest::say("This is great news, we have been awfully short on new talent lately and I am glad to see eager ones like yourself. All of our clerics must first go through a series of training exercises before they can truly be released into Norrath with our blessing. If you are [" . quest::saylink("I am interested in crafting my own armor",0,"interested in crafting your own armor") . "] that will result from these exercises I can get you started.");
   }
   if ($text=~/interested in crafting my own armor/i) {
-    quest::say("Fantastic, $name, please take this Assembly Kit. You will use this kit to assemble your armor materials but first there are many [various items] you will need to collect.");
+    quest::say("Fantastic, $name, please take this Assembly Kit. You will use this kit to assemble your armor materials but first there are many [" . quest::saylink("various items") . "] you will need to collect.");
     quest::summonitem(61092); # Item: Divine Protectors Assembly Kit
   }
   if ($text=~/various items/i) {
-    quest::say("The many items that you need to locate can be found out in the forest or here in town. When you are ready to attempt a specific piece please let me know what piece you wish to [craft] and I will give you the necessary mold along with the recipe. I have the recipe for Divine Protector [Helms], [Bracers], [Armguards], [Boots], [Greaves], [Gauntlets] and [Breastplates].");
+    quest::say("The many items that you need to locate can be found out in the forest or here in town. When you are ready to attempt a specific piece please let me know what piece you wish to [" . quest::saylink("craft") . "] and I will give you the necessary mold along with the recipe. I have the recipe for Divine Protector [" . quest::saylink("Helms") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Armguards") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Greaves") . "], [" . quest::saylink("Gauntlets") . "] and [" . quest::saylink("Breastplates") . "].");
   }
   if ($text=~/helm/i) {
     quest::say("To create your helm material you will need to combine 2 Bricks of Crude Bronze, 1 Rat Tooth, 1 Fire Beetle Eye and 1 Water Flask in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Divine Protector's Helm.");
@@ -41,11 +41,11 @@ sub EVENT_SAY {
     quest::summonitem(38909); # Item: Mold for Erudian Gloves
   }
   if ($text=~/breastplate/i) {
-    quest::say("To create your breastplate material you will need to combine 5 Bricks of Crude Bronze, 1 Giant Wood Spider Thorax, 1 Spider Venom, 1 Large Briar Snake Skin, 1 Skeleton Tibia, 1 Skunk Tail in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Divine Protector's Breastplate. Return to me for one [final task] after you have completed your breastplate.");
+    quest::say("To create your breastplate material you will need to combine 5 Bricks of Crude Bronze, 1 Giant Wood Spider Thorax, 1 Spider Venom, 1 Large Briar Snake Skin, 1 Skeleton Tibia, 1 Skunk Tail in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Divine Protector's Breastplate. Return to me for one [" . quest::saylink("final task") . "] after you have completed your breastplate.");
     quest::summonitem(38912); # Item: Mold for Erudian Chestplates
   }
   if ($text=~/final task/i) {
-    quest::say("We have been seeking someone to carry a weapon that we wish to provide all new clerics with. I do not trust simply anyone to have the first one but you have shown to me that you are willing to assist our house. If you collect a few [specific things] I will present you with the magical staff that I speak of.");
+    quest::say("We have been seeking someone to carry a weapon that we wish to provide all new clerics with. I do not trust simply anyone to have the first one but you have shown to me that you are willing to assist our house. If you collect a few [" . quest::saylink("specific things") . "] I will present you with the magical staff that I speak of.");
   }
   if ($text=~/specific things/i) {
     quest::say("I seek 1 Twilight Bloom, 1 Poachers Head, 1 Plague Rat Tail and 1 Large Fire Beetle Sternite. Bring me these items as soon as possible.");
