@@ -7,7 +7,7 @@
 
 sub EVENT_SAY {
   if($text=~/Hail/i){
-    quest::say("Hail. adventurer!! Stand tall and fight for the forest folk and all good races of Norrath. We shall claim this land for the kingdom of Thex! My warriors shall not fail. Already we patrol deepin the wilds of Kunark. We welcome all mercenaries and urge adventurers to [join the defense of the outpost].");
+    quest::say("Hail. adventurer!! Stand tall and fight for the forest folk and all good races of Norrath. We shall claim this land for the kingdom of Thex! My warriors shall not fail. Already we patrol deepin the wilds of Kunark. We welcome all mercenaries and urge adventurers to [" . quest::saylink("I will join the defense of the outpost",0,"join the defense of the outpost") . "].");
   }
   if($text=~/join the defense/i){
     quest::say("I salute you!! Join the hunt. Reports from the front line indicate a rise in the drolvarg population. Abandon your fear and slay these beasts for the greater good. Already, they have taken far too many lives, even my sibling's!! I shall pay you your wages upon the return of four drolvarg teeth.");

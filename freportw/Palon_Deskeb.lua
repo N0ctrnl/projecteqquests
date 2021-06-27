@@ -1,9 +1,9 @@
 -- items: 13861, 13862, 13002, 13007
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Pleased to meet you. %s. Have you seen how clear the water is underneath the Academy? All sorts of life could flourish there. What a shame there are no [Marr Minnows] there.",e.other:GetName()));
+		e.self:Say(string.format("Pleased to meet you. %s. Have you seen how clear the water is underneath the Academy? All sorts of life could flourish there. What a shame there are no [" .. eq.say_link("Marr Minnows") .. "] there.",e.other:GetName()));
 	elseif(e.message:findi("marr minnow")) then
-		e.self:Say("The Marr Minnow swims in the pond near the Temple of Marr. I wish I had one. Not a dead one. A live one. I need someone to [get the minnow].");
+		e.self:Say("The Marr Minnow swims in the pond near the Temple of Marr. I wish I had one. Not a dead one. A live one. I need someone to [" .. eq.say_link("get the minnow") .. "].");
 	elseif(e.message:findi("get the minnow")) then
 		e.self:Say("Please try. Here you are. Take this jar. Offer the jar to the minnows. Maybe they will swim into it.");
 		e.other:SummonItem(13861); -- Item: Jar of Liquid

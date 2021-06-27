@@ -13,16 +13,16 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail noble, " .. e.other:GetName() .. "!  Can you be of [service to the Clerics of Tunare] or are you not from our order?");
+		e.self:Say("Hail noble, " .. e.other:GetName() .. "!  Can you be of [" .. eq.say_link("services to the Clerics of Tunare") .. "] or are you not from our order?");
 	elseif(e.message:findi("trades")) then
-		e.self:Say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
+		e.self:Say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [" .. eq.say_link("second book") .. "], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
 		e.other:SummonItem(51121); -- Item: Tradeskill Basics : Volume I
 	elseif(e.message:findi("second book")) then
 		e.self:Say("Here is the second volume of the book you requested, may it serve you well!");
 		e.other:SummonItem(51122); -- Item: Tradeskill Basics : Volume II
 	elseif(e.other:GetFaction(e.self) < 5) then
 		if(e.message:findi("service to the clerics of tunare")) then
-			e.self:Say("That is good. Prove yourself, then.  Are you [new to Felwithe] or have I been conversing with a [veteran of the good fight]?");
+			e.self:Say("That is good. Prove yourself, then.  Are you [" .. eq.say_link("I am new to Felwithe",false,"new to Felwithe") .. "] or have I been conversing with a [" .. eq.say_link("I am a veteran of the good fight",false,"veteran of the good fight") .. "]?");
 		elseif(e.message:findi("new to felwithe")) then
 			e.self:Say("Then stand at attention when I speak.  I want you to venture to Kelethin and seek out Tandan Nybright.  He is an old member of ours.  He had some hardships and he fell from Tunare's grace, yet he is still a member of our family.  He will be the one who reeks of elven wine.  Greet him by name.  We are worried for him.");
 		elseif(e.message:findi("veteran of the good fight")) then
@@ -39,7 +39,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 18781})) then -- Tattered Note
-		e.self:Say("Greetings. young paladin!  I am Master Tynkale of the Clerics of Tunare.  Here. we shall teach and train you in the skills needed to defeat our evil and diseased enemies.  Take this, our guild tunic - it will help protect you.  Once you are ready to begin your training please make sure that you see Seria Woodwind, she can assist you in experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.");
+		e.self:Say("Greetings. young paladin!  I am Master Tynkale of the Clerics of Tunare.  Here. we shall teach and train you in the skills needed to defeat our evil and diseased enemies.  Take this, our guild tunic - it will help protect you.  Once you are ready to begin your training please make sure that you see Seria Woodwind, she can assist you in experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [" .. eq.say_link("trades") .. "] you will have available to you.");
 		e.other:SummonItem(13591); -- Used Gold Training Tunic*
 		e.other:Ding();
 		e.other:Faction(226,100,0);  --Clerics of Tunare

@@ -1,18 +1,18 @@
 -- items: 18167, 18156, 18165, 18164, 18166
 function event_say(e) 
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hail. " .. e.other:GetName() .. " - Are you [interested] in helping the League of Antonican Bards by delivering some [mail]?");
+		e.self:Say("Hail. " .. e.other:GetName() .. " - Are you [" .. eq.say_link("I am interested",false,"interested") .. "] in helping the League of Antonican Bards by delivering some [" .. eq.say_link("what mail",false,"mail") .. "]?");
 	elseif(e.message:findi("what mail")) then
-		e.self:Say("The League of Antonican Bards has a courier system made up of travelers and adventurers.  We pay good gold to anyone who will take messages from bards such as myself to one of our more distant offices.  Are you [interested]?");
+		e.self:Say("The League of Antonican Bards has a courier system made up of travelers and adventurers.  We pay good gold to anyone who will take messages from bards such as myself to one of our more distant offices.  Are you [" .. eq.say_link("I am interested",false,"interested") .. "]?");
 	elseif(e.message:findi("i am interested")) then
-		e.self:Say("I have messages that need to go to Highpass, Kelethin, and Qeynos.  Will you [deliver] mail to [Kelethin], [Highpass], or [Qeynos] for me?");
-	elseif(e.message:findi("deliver to kelethin")) then
+		e.self:Say("I have messages that need to go to Highpass, Kelethin, and Qeynos.  Will you deliver mail to [" .. eq.say_link("I will deliver mail to Kelethin",false,"Kelethin") .. "], [" .. eq.say_link("I will deliver mail to Highpass",false,"Highpass") .. "], or [" .. eq.say_link("I will deliver mail to Qeynos",false,"Qeynos") .. "] for me?");
+	elseif(e.message:findi("deliver mail to kelethin")) then
 		e.self:Say("Take this pouch to Idia in Kelethin.  You can find her at the bard guild hall.  I am sure she will compensate you for your troubles.");
 		e.other:SummonItem(18167); -- Item: Pouch of Mail (Kelethin)
-	elseif(e.message:findi("deliver to highpass")) then
+	elseif(e.message:findi("deliver mail to highpass")) then
 		e.self:Say("Take this pouch to Lislia Goldtune in Highpass.  You can find her at the entrance to HighKeep.  I am sure she will compensate you for your troubles."); 
 		e.other:SummonItem(18156); -- Item: Pouch of Mail (Highpass)
-	elseif(e.message:findi("deliver to qeynos")) then
+	elseif(e.message:findi("deliver mail to qeynos")) then
 		e.self:Say("Take this pouch to Eve Marsinger in Qeynos.  You can find her at the bard guild hall.  I am sure she will compensate you for your troubles.");
 		e.other:SummonItem(18165); -- Item: Pouch of Mail (Qeynos)
 	end

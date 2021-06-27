@@ -11,7 +11,7 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Do you [know fear]?");
+		e.self:Say("Do you [" .. eq.say_link("I know fear",false,"know fear") .. "]?");
 	elseif(e.message:findi("know fear")) then
 		e.self:Say("That's great!");
 	elseif(e.message:findi("know no fear")) then

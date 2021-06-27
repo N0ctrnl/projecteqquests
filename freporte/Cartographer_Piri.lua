@@ -1,11 +1,11 @@
 -- items: 17710, 63005, 63048
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, traveler! Would you have a moment? I'm in need of some assistance. [yes]");
+		e.self:Say("Hail, traveler! Would you have a moment? I'm in need of some assistance. [" .. eq.say_link("yes") .. "]");
 	elseif(e.message:findi("yes")) then
-		e.self:Say("Thank you! I'll make it worth your while. I recently discovered the remains of an odd little map that may detail the distant Gulf of Gunthak. The map itself, however, is in a horrible state... a suspiciously horrible state if you ask me. Much of it is [missing].");
+		e.self:Say("Thank you! I'll make it worth your while. I recently discovered the remains of an odd little map that may detail the distant Gulf of Gunthak. The map itself, however, is in a horrible state... a suspiciously horrible state if you ask me. Much of it is [" .. eq.say_link("missing") .. "].");
 	elseif(e.message:findi("missing")) then
-		e.self:Say("The pirates of Broken Skull Rock have purposefully destroyed any accurate maps to protect the secrecy of their base. Three key parts are damaged. The compass notation, the legend and the coordinate label are all gone. Take this Cartography Binder. Use it to [collect] the fragments.");
+		e.self:Say("The pirates of Broken Skull Rock have purposefully destroyed any accurate maps to protect the secrecy of their base. Three key parts are damaged. The compass notation, the legend and the coordinate label are all gone. Take this Cartography Binder. Use it to [" .. eq.say_link("collect") .. "] the fragments.");
 		e.other:SummonItem(17710); -- Cartography Binder
 	elseif(e.message:findi("collect")) then
 		e.self:Say("No doubt the pirates will have some of the fragments. Search Broken Skull Rock, paying careful attention to Gunthak and Dulak Harbor. An accurate map must be made. It is the first step in breaking the pirates' hold on the region. Good luck. The three pieces needed are A Coordinate Label, A Compass Notation, and A Map Legend.");

@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings. I would love to chat with you, but I just realized something.. I do not waste time with whelps.");
 	elseif(e.message:findi("lens")) then
-		e.self:Say("So you seek the Spare Lens. Yes. I have it. There are only two ways you can obtain it, [fight] the great Zenita or [play a game of chance].");
+		e.self:Say("So you seek the Spare Lens. Yes. I have it. There are only two ways you can obtain it, [" .. eq.say_link("fight") .. "] the great Zenita or [" .. eq.say_link("play a game of chance") .. "].");
 	elseif(e.message:findi("play a game of chance")) then
 		e.self:Say("Great. It is rather simple. I have five cards and only one is King Naythox. Find it. In order to get one card all you need to do is buy me a bottle of Innoruuks Kiss of Death from the barkeep in Chops N Hops. One bottle for one card. Return the King Naythox card to me and you shall get the Spare Lens.");
 	elseif(e.message:findi("fight")) then

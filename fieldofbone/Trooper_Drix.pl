@@ -4,7 +4,7 @@ sub EVENT_SAY {
     quest::say("Can't you see I am busy on patrol!");
   }
   if ($text=~/calling/i) {
-    quest::say("I am the leading authority on restoring and deciphering hidden messages. I can probably make out the message if you can bring me back some [items] I commonly use.");
+    quest::say("I am the leading authority on restoring and deciphering hidden messages. I can probably make out the message if you can bring me back some [" . quest::saylink("items") . "] I commonly use.");
   }
   if ($text=~/what items/i) {
     quest::say("I will need your message, a frost crystal, a sarnak war braid, and some silver oxide. Bring these items back to me and be quick about it.");
@@ -15,7 +15,7 @@ sub EVENT_SAY {
   
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 48006 =>1 )) {
-    quest::say("Ah, I see you know my true [calling].");
+    quest::say("Ah, I see you know my true [" . quest::saylink("calling") . "].");
   }
   if (plugin::check_handin(\%itemcount, 48012 =>1 )) {
     quest::say("Let me see now.");

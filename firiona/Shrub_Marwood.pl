@@ -4,7 +4,7 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::emote("brushes pollen off of his tunic. 'Aachoo!! Oh!! Hello. Please look around. Unless you are a [druid looking for work].'");
+    quest::emote("brushes pollen off of his tunic. 'Aachoo!! Oh!! Hello. Please look around. Unless you are a [" . quest::saylink("I am a druid looking for work",0,"druid looking for work") . "].'");
   }
   if ($text=~/druid looking for work/i) {
     quest::say("Good. I need a stout adventurer to go to the wilds and find me a few items. I need some tump stumps - one Kromdul and one Kromdek type. I also need a mantrap root. Get me those three things and I will give you this handy shillelagh I found in the forest.");
@@ -16,7 +16,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 12960 => 1, 12955 => 1, 12958 => 1)) {
-    quest::emote("tosses the mantrap root out the window.. SPLASH!! 'I made a mistake. I didn't need that one. Here is the shillelagh I told you about. I found it in some burned out woods far from here. I cleaned it up and found it had a spark of mana so I had it enchanted with a few charges of my spell, [Fertile Crop]. Hope you like it.'");
+    quest::emote("tosses the mantrap root out the window.. SPLASH!! 'I made a mistake. I didn't need that one. Here is the shillelagh I told you about. I found it in some burned out woods far from here. I cleaned it up and found it had a spark of mana so I had it enchanted with a few charges of my spell, [" . quest::saylink("Fertile Crop") . "]. Hope you like it.'");
     quest::summonitem(12953); # Item: Dark Oak Shillelagh
     quest::exp(25000);
     quest::faction(248,10); #inhabitants of firiona

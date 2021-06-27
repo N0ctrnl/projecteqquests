@@ -3,7 +3,7 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings. Please look through my fine wares. I have spent my whole life practicing my skills in tailoring. I do my best to compete with the other local merchants, but I have yet to make A profit. I pray to Tunare that my [Banded Orc Vests] will finally bring me A few extra coins.");
+		e.self:Say("Greetings. Please look through my fine wares. I have spent my whole life practicing my skills in tailoring. I do my best to compete with the other local merchants, but I have yet to make A profit. I pray to Tunare that my [" .. eq.say_link("Banded Orc Vests") .. "] will finally bring me A few extra coins.");
 	elseif(e.message:findi("Banded Orc Vests")) then
 		if(fac < 6) then
 			e.self:Say("Glad you are interested! I can create A leather vest I call A Banded Orc Vest. It will aid you in repelling any disease and offers quite A bit of protection in battle. I will need some materials. For A Deathfist Banded Orc Vest, I require two Deathfist Shoulderpads worn by the Clan Deathfist, one Deathfist Slashed Belt, and ten gold coins. For A Crushbone Banded Orc Vest, I require two Crushbone Shoulderpads worn by the Clan Crushbone, one Crushbone Belt, and ten gold coins.");

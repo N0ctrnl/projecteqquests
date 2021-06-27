@@ -3,9 +3,9 @@ function event_say(e)
 	local qglobals = eq.get_qglobals();
 	
 	if(e.message:findi("hail")) then
-		e.self:Say("Have you come to [help]? If not, be gone! I will not have my time wasted.");
+		e.self:Say("Have you come to [" .. eq.say_link("I have come to help",false,"help") .. "]? If not, be gone! I will not have my time wasted.");
 	elseif(e.message:findi("help")) then
-		e.self:Say("Recently rumors have surfaced that a new race, the Luggalds, walks the land. I suspect that some evil force is involved in their appearance. Are you [willing] to risk unknown dangers to help me find out?");
+		e.self:Say("Recently rumors have surfaced that a new race, the Luggalds, walks the land. I suspect that some evil force is involved in their appearance. Are you [" .. eq.say_link("I am willing",false,"willing") .. "] to risk unknown dangers to help me find out?");
 	elseif(e.message:findi("willing")) then
 		e.self:Say("Good. I have not been able to confirm the existence of these beings. I will need definite proof if the rest of the members of the Academy are to believe me. Take this Warded Satchel and retrieve three examples of Luggald Flesh.");
 		e.other:SummonItem(17590); -- Warded Satchel
@@ -22,7 +22,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if(item_lib.check_turn_in(e.trade, {item1 = 63009})) then
-		e.self:Say("Very good. This will no doubt convince the others. However, we don't have time to wait for their consensus. Deep in the uncovered Crypt of Nadox the Luggalds seem to be at work. This can mean nothing good for the mortal world. You must provide further [aid].");
+		e.self:Say("Very good. This will no doubt convince the others. However, we don't have time to wait for their consensus. Deep in the uncovered Crypt of Nadox the Luggalds seem to be at work. This can mean nothing good for the mortal world. You must provide further [" .. eq.say_link("What further aid",false,"aid") .. "].");
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 63010})) then
 		e.self:Say("Alas, it all becomes clear! The Luggalds seek to spread their vile race. I had received word of a dark elf performing arcane rites on the shores of Toxxulia Forest. Now I know she must be attempting to summon other Luggalds. She is expecting an agent of the enemy. Talk with her. Then deal with her and any evil she creates.");
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 63015})) then

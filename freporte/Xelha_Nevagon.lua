@@ -1,7 +1,7 @@
 -- items: 13099, 12247, 10307, 15338, 13073, 13927, 15331
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("A new recruit to our cause.  Just what I have been waiting for!  How would you like to serve the great Xelha Nevagon?  I need an apprentice necromancer to [assist the great Xelha].");
+		e.self:Say("A new recruit to our cause.  Just what I have been waiting for!  How would you like to serve the great Xelha Nevagon?  I need an apprentice necromancer to [" .. eq.say_link("assist the great Xelha") .. "].");
 	elseif(e.message:findi("assist the great xelha")) then
 		e.self:Say("Fantastic.  Stick with me and you shall ascend in our ranks quickly.  I am in need of some components for new spells.  Will you collect them for me?  I shall need four each of the following - fire beetle eyes. bone chips and spiderling silk.  Fetch these items for me at once. Well..? Did not you hear the great Xelha? Begone!");
 	end

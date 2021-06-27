@@ -1,11 +1,11 @@
 -- items: 13031, 13030
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello. It is always good to meet someone new. I am Lady Shae of the House of Dumas. And what [house] are you from?");
+		e.self:Say("Hello. It is always good to meet someone new. I am Lady Shae of the House of Dumas. And what [" .. eq.say_link("I am from no house",false,"house") .. "] are you from?");
 	elseif(e.message:findi("no house")) then
 		e.self:Say("Good. I care not to hang around any snobs this evening. Would you be so kind as to buy me some wine?");
 	elseif(e.message:findi("steel warriors sent me")) then
-		e.self:Say("Thank you for checking into this matter. I told the Militia, but they just ignored me. It appears the dark elves keep coming in leaving mail for [Shintl] Lowbrew. Before I tell you more could you please buy me A white wine please.");
+		e.self:Say("Thank you for checking into this matter. I told the Militia, but they just ignored me. It appears the dark elves keep coming in leaving mail for [" .. eq.say_link("Shintl") .. "] Lowbrew. Before I tell you more could you please buy me A white wine please.");
 	elseif(e.message:findi("shintl")) then
 		e.self:Say("Oh, please!!  Do not mention that horrid little person!  My stay here has turned into a nightmare because of her.  She gets mail delivered to her room every so often by dark elves, of all things.  I cannot stand the Teir'Dal!  I wonder what is in that mail.  If I just had her room key I could walk right up to the innkeeper and say, 'Mail for room two please.' That is all it would take.  But enough about her.  Let's talk about you buying me some drinks.");
 	elseif(e.message:findi("house of pancakes")) then
@@ -46,7 +46,7 @@ function event_trade(e)
 	end
 	
 	if(morewine == 1) then
-		e.self:Say("Oh my.. You are so kind. I can not tell you the last time I had so much fine wine. Well, there was the time Antonius Bayle told me he no longer had the time for a committed relationship. Mister big ruler of the world. Make it to the top and find someone younger. I know his plan. I hate him. I will never trust another human again. After all that, he goes and asks me to hold on to this list for him. Well I am glad it was taken from me by that [Dyllin]. Antonius Bayle has no ties to me any more!! Good riddance! Oooooh! I love him.");
+		e.self:Say("Oh my.. You are so kind. I can not tell you the last time I had so much fine wine. Well, there was the time Antonius Bayle told me he no longer had the time for a committed relationship. Mister big ruler of the world. Make it to the top and find someone younger. I know his plan. I hate him. I will never trust another human again. After all that, he goes and asks me to hold on to this list for him. Well I am glad it was taken from me by that [" .. eq.say_link("Dyllin") .. "]. Antonius Bayle has no ties to me any more!! Good riddance! Oooooh! I love him.");
 		e.other:Ding();
 		e.other:Faction(156,2,0); -- Faction: Fel Guard
 		e.other:AddEXP(165);

@@ -1,7 +1,7 @@
 # items: 12650, 18213, 17996, 12668, 12657
 sub EVENT_SAY {
   if($text=~/hail/i){
-   quest::say("There is little time for talk. There are plenty of [tiny invaders]. Do your part and exterminate as many as you can. All of Cabilis shall look favorably upon you in the long run.");
+   quest::say("There is little time for talk. There are plenty of [" . quest::saylink("tiny invaders") . "]. Do your part and exterminate as many as you can. All of Cabilis shall look favorably upon you in the long run.");
   }
   #Scorpion Pincers (START)
   if($text=~/tiny invaders/i){

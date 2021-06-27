@@ -2,11 +2,11 @@
 sub EVENT_SAY {
   if($text=~/hail/i){
    quest::emote("wave's her hand's as if to cast a spell.");
-   quest::say("Greeting's!! I am the Luminare of Firiona. By decree of his royal highness, King Thex, I am here to research spell's and artifact's. I have much to do. I welcome any enchanter who offer's to [assist] the great Luminare.");
+   quest::say("Greeting's!! I am the Luminare of Firiona. By decree of his royal highness, King Thex, I am here to research spell's and artifact's. I have much to do. I welcome any enchanter who offer's to [" . quest::saylink("assist") . "] the great Luminare.");
   }
   if($text=~/assist/i){
    #Illusion Iksar (START)
-   quest::say("And great I am, indeed!! Alas, not great enough to be everywhere at once. I would gladly reward you if you would [collect] components for me.");
+   quest::say("And great I am, indeed!! Alas, not great enough to be everywhere at once. I would gladly reward you if you would [" . quest::saylink("collect") . "] components for me.");
   }
   if($text=~/collect/i){
    #Illusion Iksar

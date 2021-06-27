@@ -1,7 +1,7 @@
 -- items: 31493, 31495
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("I am sorry, young one, but I am too burdened by my own [troubles] to help you now. Please seek another of the faith to ease your soul.");
+		e.self:Say("I am sorry, young one, but I am too burdened by my own [" .. eq.say_link("trouble") .. "] to help you now. Please seek another of the faith to ease your soul.");
 	elseif(e.message:findi("trouble")) then
 		e.self:Say("My son Ariam, a paladin of this fair city, has been missing for many years. Now, after remaining hopeful for so long, I have given up and it has broken my heart and soul. If I could but hear news to know of his fate, then I could find comfort again. Until then, I am no good to others. I am sorry.");
 	end

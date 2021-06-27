@@ -18,13 +18,13 @@ function event_say(e)
 		e.self:Say("Greetings. I am Puab Closk, Master of the Ashen Order.  Our home is your home, friend. Feel free to stay as long as you like.  Learn our ways as many have done in the past.  To fight like the tiger and strike like the cobra are your goals.");
 	elseif(fac < 4) then
 		if(e.message:findi("treant fists")) then
-			e.self:Say("You desire the treant fists?  I have them and I will offer them to any [skilled monk of the Ashen House].");
+			e.self:Say("You desire the treant fists?  I have them and I will offer them to any [" .. eq.say_link("I am a skilled monk of the Ashen House",false,"skilled monk of the Ashen House") .. "].");
 		elseif(e.message:findi("who is clawfist ")) then
 			e.self:Say("Clawfist is a Kerran, a catman. He braved the dangers of Norrath to reach the Ashen Order. He sought knowledge of our disiples. He learned well.");
 		elseif(e.message:findi("where is clawfist")) then
 			e.self:Say("Clawfist has been banished by the Kerrans of Odus. Where they have sent him I am unsure.");
 		elseif(e.message:findi("skilled monk of the Ashen House")) then
-			e.self:Say("Then you shall aid our family. My former pupil [Clawfist] has been banished by his people. You will go to him and hand him this token as proof of your origin. He shall be expecting you.");
+			e.self:Say("Then you shall aid our family. My former pupil [" .. eq.say_link("Who is clawfist",false,"Clawfist") .. "] has been banished by his people. You will go to him and hand him this token as proof of your origin. He shall be expecting you.");
 			e.other:SummonItem(12369); -- Puab's Token
 		end
 	end

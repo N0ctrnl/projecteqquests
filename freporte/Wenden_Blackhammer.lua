@@ -4,7 +4,7 @@ function event_say(e)
 		if(e.message:findi("hail")) then
 			e.self:Say("What do you need?  Be specific. I'm busy right now!");
 		elseif(e.message:findi("hilt")) then
-			e.self:Say("What is it you need to be knowing about hilts?  Do you need one made or [repaired]?");
+			e.self:Say("What is it you need to be knowing about hilts?  Do you need one made or [" .. eq.say_link("repaired") .. "]?");
 		elseif(e.message:findi("repaired")) then
 			e.self:Say("Well, tell me the name of the hilt you need repaired and I'll see what I can do.");
 		elseif(e.message:findi("unjeweled dragon head hilt")) then

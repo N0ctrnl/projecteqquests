@@ -4,7 +4,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Stand at attention!!  I am General Jyleel. of the Koada'Vie. defenders of Felwithe.  Do you [" .. eq.say_link("follow Tunare") .. "]. the Mother of All. or do you still [" .. eq.say_link("seek my enlightenment",false,"seek your enlightenment") .. "]?");
 	elseif(e.message:findi("follow Tunar")) then
-		e.self:Say("Then you are wise indeed.  Would you like to [assist the defenders] in our conflicts or have you other business to attend to?");
+		e.self:Say("Then you are wise indeed.  Would you like to [" . quest::saylink("assist the defenders") . "] in our conflicts or have you other business to attend to?");
 	elseif(e.message:findi("seek my enlightenment")) then
 		e.self:Say("Then seek it within these walls.  We welcome all fine upstanding Koada'Dal.");
 	elseif(e.message:findi("assist the defenders")) then

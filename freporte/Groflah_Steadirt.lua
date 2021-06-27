@@ -1,9 +1,9 @@
 -- items: 18818, 12114
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Greetings, %s! Join in the [celebration]! Have a few drinks. Alas, there are no [Tumpy Tonics].",e.other:GetName()));
+		e.self:Say(string.format("Greetings, %s! Join in the [" .. eq.say_link("celebration") .. "]! Have a few drinks. Alas, there are no [" .. eq.say_link("Tumpy Tonics") .. "].",e.other:GetName()));
 	elseif(e.message:findi("ariska")) then
-		e.self:Say("Ariska Zimel was my best friend. He and I learned our knowledge of metal from such places as Halas and Kaladim. When he disappeared, it seemed to involve foul play. He must be alive somewhere in the city. I pray this is not the work of [Pietro Zarn].");
+		e.self:Say("Ariska Zimel was my best friend. He and I learned our knowledge of metal from such places as Halas and Kaladim. When he disappeared, it seemed to involve foul play. He must be alive somewhere in the city. I pray this is not the work of [" .. eq.say_link("Pietro Zarn") .. "].");
 	elseif(e.message:findi("pietro zarn")) then
 		e.self:Say("While we were traveling through the Lavastorm Mountains, we happened upon a caravan. They wore emblems in honor of the evil god, Innoruuk. They did not see us, but we saw them. And most importantly of all, Ariska saw the apparent leader's sword. It was glowing with great energy. Suddenly, the evil knights were in a battle. The knights gave chase, leaving their camp unattended. The knight who owned the sword left it behind, opting to fight with another, leading me to believe it was not his to begin with. It was at this point that Ariska ran down and grabbed the sword. A few weeks later, we were to learn that the knight was a powerful man by the name of Pietro Zarn and that he was looking for a sword stolen from him. He called it .. Soulfire. I believe Zarn must have finally found Ariska.");
 	elseif(e.message:findi("tumpy tonics")) then

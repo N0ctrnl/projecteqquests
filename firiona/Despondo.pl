@@ -13,16 +13,16 @@ sub EVENT_SAY {
     quest::emote("looks a bit troubled. 'Welcome, Welcome adventurer, I am the wizard tutor Despondo, although few need tutorage around here. It would seem that this is no place for a student of any sorts. The lands of Kunark are quite deadly.'");
   }
   elsif ($text=~/wrong/i) { 
-    quest::say("I was bound to this post by General Veredeth. I came to find the lost souls of my friends, but am needed here. I must find a fellow wizard to [rescue their souls].");
+    quest::say("I was bound to this post by General Veredeth. I came to find the lost souls of my friends, but am needed here. I must find a fellow wizard to [" . quest::saylink("rescue their souls") . "].");
   }
   elsif ($text=~/rescue their souls/i) {
-    quest::say("You will need the [three bottles of entrapment]. If you can find their remains in Kunark then you will give the bottle to the body and the soul shall enter. Return all three bottles and I shall give you the wizard spell [Brain Bite].");
+    quest::say("You will need the [" . quest::saylink("three bottles of entrapment") . "]. If you can find their remains in Kunark then you will give the bottle to the body and the soul shall enter. Return all three bottles and I shall give you the wizard spell [" . quest::saylink("Brain Bite") . "].");
   }
   elsif ($text=~/three bottles of entrapment/i) {
     quest::say("I will need three gems to prepare the bottles. I am afraid I left my currency within the Freeport Vault. You will have to get the gems I need: a peridot, an onyx and a star rose quartz then I will give you the bottles.");
   }
   elsif ($text=~/brain bite/i) {
-    quest::say("Brain Bite is a concussion spell created by my former friends whose souls are now lost to Kunark. The blow to the inner brain of an enraged foe may just cause the loss of memory and lower their rage. If you want a copy you have to [rescue their souls].");
+    quest::say("Brain Bite is a concussion spell created by my former friends whose souls are now lost to Kunark. The blow to the inner brain of an enraged foe may just cause the loss of memory and lower their rage. If you want a copy you have to [" . quest::saylink("Where are their souls?",0,"rescue their souls") . "].");
   }
   elsif ($text=~/where are their souls/i) {
     quest::say("I have had visions of their sourroundings. Hampton is in a forest of trees which rain oranges. Ryla fell within a great fortress of armored dog men. Mardon met his fate high in a palace above the jungle leaves.");

@@ -1,7 +1,7 @@
 -- items: 13885, 12264, 12265, 12261, 12262, 12263, 12266, 14350, 16568
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings and welcome to Hallard's!  You will find many aged weapons begging you to shine them up and make them great once more.  We will gladly pay you top dollar for any rusty weapons you may have found littering the Commonlands.  I have a [special offer] for those who have obtained orc pawn picks.");
+		e.self:Say("Greetings and welcome to Hallard's!  You will find many aged weapons begging you to shine them up and make them great once more.  We will gladly pay you top dollar for any rusty weapons you may have found littering the Commonlands.  I have a [" .. eq.say_link("special offer") .. "] for those who have obtained orc pawn picks.");
 	elseif(e.message:findi("special offer")) then
 		e.self:Say("I will pay some silver pieces for every four orc pawn picks returned to me.  I shall also throw in a ticket to the Highpass Hold lottery.  It could be a winner!!");
 	end

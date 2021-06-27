@@ -13,21 +13,21 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail and welcome.  I am sure you have much to do, but could I ask a [favor] of you?");
+		e.self:Say("Hail and welcome.  I am sure you have much to do, but could I ask a [" .. eq.say_link("What favor?",false,"favor") .. "] of you?");
 	elseif(e.message:findi("favor")) then
 		e.self:Say("Oh, um, on second thought, never mind.  I should really just do it myself.  Thank you anyway."); 
 	elseif(e.message:findi("enchanted bow")) then
-  		e.self:Say("Alas... Another ranger in search of the [Rain Caller]. She is no more");
+  		e.self:Say("Alas... Another ranger in search of the [" .. eq.say_link("Rain Caller") .. "]. She is no more");
 	elseif(e.message:findi("rain caller")) then
-  		e.self:Say("Rain Caller is the name we give each Trueshot longbow once it is enchanted. Unfortunately, I am unable to enchant them any longer. One of the components is no longer available. Someone would have to strike a [deal with the fairie folk]. Once I have that and the [remaining components] I can create the Rain Caller, a ranger's bow");
+  		e.self:Say("Rain Caller is the name we give each Trueshot longbow once it is enchanted. Unfortunately, I am unable to enchant them any longer. One of the components is no longer available. Someone would have to strike a [" .. eq.say_link("deal with the fairie folk") .. "]. Once I have that and the [" .. eq.say_link("remaining components") .. "] I can create the Rain Caller, a ranger's bow");
 	elseif(e.message:findi("fairie folk")) then
-  		e.self:Say("The fairie princess, Joleena, used to have a metal gnome deliver [fairie gold dust] to the Keepers every month. She has stopped this and now refuses to offer it to any nation of Faydwer. What she is angry about, we do not know.");
+  		e.self:Say("The fairie princess, Joleena, used to have a metal gnome deliver [" .. eq.say_link("fairie gold dust") .. "] to the Keepers every month. She has stopped this and now refuses to offer it to any nation of Faydwer. What she is angry about, we do not know.");
 	elseif(e.message:findi("gold dust")) then
  	 	e.self:Say("Fairie gold dust is an enchanted powder which only a fairie princess can create.");
 	elseif(e.message:findi("remaining component")) then
-  		e.self:Say("The remaining components are the Trueshot longbow and a treant heart. There will also be the guild donation in the amount of 3000 gold coins. These and the [fairie gold dust] will merit a ranger the Rain Caller enchanted bow.");
+  		e.self:Say("The remaining components are the Trueshot longbow and a treant heart. There will also be the guild donation in the amount of 3000 gold coins. These and the [" .. eq.say_link("fairie gold dust") .. "] will merit a ranger the Rain Caller enchanted bow.");
 	elseif(e.message:findi("trades")) then
-		e.self:Say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
+		e.self:Say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [" .. eq.say_link("second book") .. "], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
 		e.other:SummonItem(51121); -- Item: Tradeskill Basics : Volume I
 	elseif(e.message:findi("second book")) then
 		e.self:Say("Here is the second volume of the book you requested, may it serve you well!");
@@ -39,7 +39,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 18778})) then -- Enrollment Letter
-		e.self:Say("Greetings and welcome aboard!  My name's Kinool. Master Enchanter of the Keepers of the Art.  Here is your guild tunic. Make us proud, young pupil! Once you are ready to begin your training please make sure that you see Yuin Starchaser, he can assist you in developing your hunting and gathering skills. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.");
+		e.self:Say("Greetings and welcome aboard!  My name's Kinool. Master Enchanter of the Keepers of the Art.  Here is your guild tunic. Make us proud, young pupil! Once you are ready to begin your training please make sure that you see Yuin Starchaser, he can assist you in developing your hunting and gathering skills. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [" .. eq.say_link("trades") .. "] you will have available to you.");
 		e.other:SummonItem(13593); -- Torn Training Robe*
 		e.other:Ding();
 		e.other:Faction(275,100,0); -- Keepers of the Art

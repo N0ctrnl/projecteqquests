@@ -10,13 +10,13 @@ sub EVENT_SPAWN {
 sub EVENT_SAY { 
   if ($text=~/hail/i) {
     quest::emote("awakens from a quick shuteye.");
-    quest::say("Yawn.. Oh!! Hello. Don't mind the rusty old tin can. Sir Hobble is on a [quest] of sorts. I tell you, I would leave if he did not pay good wages to carry his equipment.");
+    quest::say("Yawn.. Oh!! Hello. Don't mind the rusty old tin can. Sir Hobble is on a [" . quest::saylink("quest") . "] of sorts. I tell you, I would leave if he did not pay good wages to carry his equipment.");
   }
   if ($text=~/quest/i) {
-    quest::say("Sir Hobble is searching for [three special dragons]. For all I know they are not even dragons. He can't see or hear very well. He still thinks I am the only troll squire around.");
+    quest::say("Sir Hobble is searching for [" . quest::saylink("three special dragons") . "]. For all I know they are not even dragons. He can't see or hear very well. He still thinks I am the only troll squire around.");
   }
   if ($text=~/three special dragons/i) {
-    quest::say("Apparently he is after three dragons which are supposedly named Azdalin, Gylton, and Xyfl. He will not rest until he holds their scales. I wish you could [find the dragons].");
+    quest::say("Apparently he is after three dragons which are supposedly named Azdalin, Gylton, and Xyfl. He will not rest until he holds their scales. I wish you could [" . quest::saylink("find the dragons") . "].");
   }
   if ($text=~/find the dragons/i) {
     quest::say("If you bring me the three scales I will be able to place them upon the next three victims of Sir Hobble. Then we can part from this accursed isle. He would never know the difference. Do this and I will give you a warrior weapon out of the old knight's armory.");

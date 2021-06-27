@@ -7,7 +7,7 @@ sub EVENT_SAY
 if($text=~/Hail/i)
 	{
 	quest::me("You feel the spirits rage being released...");
-	quest::say(". . . [return]");
+	quest::say(". . . [" . quest::saylink("return") . "]");
 	}
 {
 if($text=~/return/i)

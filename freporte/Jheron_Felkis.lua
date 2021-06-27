@@ -1,7 +1,7 @@
 -- items: 18508, 18510
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Ah, greetings, traveler! Settled into one of these rooms, have you? Well, this room is mine, so get out! Hey, wait! You aren't here to deliver a [shipment of books] to me, are you?");
+		e.self:Say("Ah, greetings, traveler! Settled into one of these rooms, have you? Well, this room is mine, so get out! Hey, wait! You aren't here to deliver a [" .. eq.say_link("shipment of books") .. "] to me, are you?");
 	elseif(e.message:findi("shipment of book")) then
 		e.self:Say("Oh, I typically receive monthly shipments of books from Umvera Dekash. I hear he has recently been promoted to senior librarian in Erudin. What a vaulted position! I could only aspire. I'm not going to be binding books forever, you know!");
 	end
