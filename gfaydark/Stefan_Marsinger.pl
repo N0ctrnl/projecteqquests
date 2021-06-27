@@ -35,7 +35,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 10037 => 1, 54044 => 1, 16537 => 1)) { #caster 1
     quest::summonitem(54036); #gem of sorcery
-    quest::emote("inspects the items closely before transforming them into a small glimmering jewel. 'That should help a bit. My studies are coming along rather well, although it is still far too early to decipher what is going on for certain. Do you wish to venture further into the plane and do some more [" . quest::saylink("What work?"0,"work") . "] for me?");
+    quest::emote("inspects the items closely before transforming them into a small glimmering jewel. 'That should help a bit. My studies are coming along rather well, although it is still far too early to decipher what is going on for certain. Do you wish to venture further into the plane and do some more [" . quest::saylink("What work?",0,"work") . "] for me?");
     quest::exp(60000);
   }
   if (plugin::check_handin(\%itemcount, 54036 => 1, 54045 => 1, 54046 => 1)) { #caster 2

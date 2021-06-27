@@ -8,11 +8,11 @@ function event_say(e)
     local pfaction = e.other:GetFaction(e.self);
 
 	if(e.message:findi("hail")) then
-		e.self:Say("You dare speak to Master Treskar!! You be [sent by Hukulk] or you be hurtin'!! Me have no time to waste with ugly one like you!!");
+		e.self:Say("You dare speak to Master Treskar!! You be [" .. eq.say_link("I was sent ty Hukulk",false,"sent by Hukulk") .. "] or you be hurtin'!! Me have no time to waste with ugly one like you!!");
 	elseif(pfaction > 4) then
 		reject(e, pfaction);
 	elseif(e.message:findi("sent by hukulk")) then
-		e.self:Say("Ha!! Hukulk accept puny troll now?!! Ha!! You join us and you join fight. Nightkeep enemy is " .. e.other:GetName() .. " enemy!! You help smash [other weak shadowknights]. Them weak. We true power!! You bash good and maybe you do [secret mission] for Treskar.");
+		e.self:Say("Ha!! Hukulk accept puny troll now?!! Ha!! You join us and you join fight. Nightkeep enemy is " .. e.other:GetName() .. " enemy!! You help smash [" .. eq.say_link("What other weak Shadowknights?",false,"other weak shadowknights") .. "]. Them weak. We true power!! You bash good and maybe you do [" .. eq.say_link("What secret mission?",false,"secret mission") .. "] for Treskar.");
 	elseif(e.message:findi("other weak shadowknights")) then
 		e.self:Say("Other shadowknights is ogre shadowknights!  They name is Greenbloods.  They no match for Nightkeep!  We tear arms from ogre bodies.  You not as powerful as Treskar so you smash young Greenbloods.  You hunt YOUNG members of Greenblood shadowknights.  You bring me black shadow tunic and me share treasures from Nightkeep vault with puny " .. e.other:GetName() .. ". Go!");
 	elseif(e.message:findi("secret mission")) then
@@ -37,7 +37,7 @@ function event_trade(e)
 		e.other:Faction(222,-3,0); 	-- Green Blood Knights (Ogre SK)
 		e.other:AddEXP(10000); 		-- Appropriate for ~level 10?
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 12199,item2 = 12199,item3 = 12199, gold = 2})) then
-		e.self:Say("Hmm... You do good job. You surprise Treskar. Maybe you good after all. Maybe Treskar give you [secret mission]. Maybe not.");
+		e.self:Say("Hmm... You do good job. You surprise Treskar. Maybe you good after all. Maybe Treskar give you [" .. eq.say_link("What secret mission?",false,"secret mission") .. "]. Maybe not.");
 		e.other:SummonItem(5020); -- Item: Rusty Battle Axe
 		e.other:Ding();
 		-- Need correct faction hits:

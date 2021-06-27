@@ -3,7 +3,7 @@ function event_say(e)
 	local pfaction = e.other:GetFaction(e.self);
 
 	if(e.message:findi("hail")) then
-		e.self:Say("Whats you wants!!  Me great master of da bashers.  Me tinks yooz must be lookin' fer trainin'.  Yooz looks like a weaklin'.  Me train yooz and yooz helps me get fatter.  Well!!  Are yooz gonna [helps Hergor get fatter]?!!");
+		e.self:Say("Whats you wants!!  Me great master of da bashers.  Me tinks yooz must be lookin' fer trainin'.  Yooz looks like a weaklin'.  Me train yooz and yooz helps me get fatter.  Well!!  Are yooz gonna [" .. eq.say_link("helps Hergor get fatter") .. "]?!!");
 	elseif(pfaction > 5) then
 		e.self:Say("Me smell death coming your way!  Da bashers no like you. Hey!  Me am basher!");
 	elseif(pfaction > 4) then

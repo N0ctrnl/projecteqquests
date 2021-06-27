@@ -5,7 +5,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Away from carver Cagrek you get!  Me's a busy troll.  Must punish enmees of Grobb and feeds trolls a plenty.  Trolls complain meats no good.  Dey says dey hears ogres have special meat which taste better den pris'ners of Grobb.  Do you knows name of meat?  What kinda [meat] dat be?  Tell me!");
+		e.self:Say("Away from carver Cagrek you get!  Me's a busy troll.  Must punish enmees of Grobb and feeds trolls a plenty.  Trolls complain meats no good.  Dey says dey hears ogres have special meat which taste better den pris'ners of Grobb.  Do you knows name of meat?  What kinda [" .. eq.say_link("This is hehe meat",false,"meat") .. "] dat be?  Tell me!");
 	elseif(e.message:findi("hehe meat")) then
 		e.self:Say("HEHE meat!! What dat stand for? Mes need some of dis HEHE meat!! Gos and get me some. Cagrek not just want some. Cagrek want more dan twenny!! Cagrek want three HEHE meat and mes want HEHE recipe. You get and me makes " .. e.other:GetName() .. " honeraree carver. Me gives you Grobb Cleaver. It cuts skins like dey butter!!");
 	elseif(e.message:findi("oven mittens")) then

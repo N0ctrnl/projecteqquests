@@ -29,7 +29,7 @@ function event_say(e)
 	elseif(e.message:findi("make deal with Hukulk")) then
 		e.self:Say("Yooz smart!!  Yooz go and walks to dark elf city.  Yooz finds one whos make Lynuga breaks up with Hukulk!  Maybe first yooz find Lynuga.  Find who she visits in dark elf city!!  Den yooz go and top off him head!!  Bash Lynuga too, if she no give me back [" .. eq.say_link("happy love bracer",false,"happy love bracer") .. "]!!  Me want head of dat home wrecker an' me happy love bracers, den me give yooz helm of Hukulk.");
 	elseif(e.message:findi("happy love bracer")) then
-		e.self:Say("Happy love bracers are mines!!  Me make dem for Lynuga.  Dey all shiny and green like da forests me see in adventures when me young.  Dey make Hukulk all warm and happy.  Den me give to Lynuga and.. and <sob>.. and.. AND LYNUGA RIP OUT HUKULK HEART!!  Yooz makes Lynuga give back [happy love bracers]!!");
+		e.self:Say("Happy love bracers are mines!!  Me make dem for Lynuga.  Dey all shiny and green like da forests me see in adventures when me young.  Dey make Hukulk all warm and happy.  Den me give to Lynuga and.. and <sob>.. and.. AND LYNUGA RIP OUT HUKULK HEART!!  Yooz makes Lynuga give back [" .. eq.say_link("happy love bracers") .. "]!!");
 	end
 end
 

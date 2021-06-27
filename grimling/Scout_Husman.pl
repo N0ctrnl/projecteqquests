@@ -31,7 +31,7 @@ sub EVENT_SAY {
 sub EVENT_TIMER {
 if($timer eq "husman") {
   if($x == -1234) {
-    quest::say("We have arrived at the second camp to the direct North of our outpost. It is up to you to clear the camp of these bothersome Grimlings so we can help to push them back into those desolate mines. Our reports suggest that they have powerful shaman who may try to stop you with spirits of the land. Do not let them consume you with their shamanistic ways, and instead focus on the rest of the Grimlings in the camp. When you are [ready to begin], let me know and I will let you loose to rid this camp of it's foul denizens.");
+    quest::say("We have arrived at the second camp to the direct North of our outpost. It is up to you to clear the camp of these bothersome Grimlings so we can help to push them back into those desolate mines. Our reports suggest that they have powerful shaman who may try to stop you with spirits of the land. Do not let them consume you with their shamanistic ways, and instead focus on the rest of the Grimlings in the camp. When you are [" . quest::saylink("I am ready to begin",0,"ready to begin") . "], let me know and I will let you loose to rid this camp of it's foul denizens.");
     quest::stoptimer("husman");
   }
  }

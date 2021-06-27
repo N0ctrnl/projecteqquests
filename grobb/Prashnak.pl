@@ -11,15 +11,15 @@
 sub EVENT_SAY {
 
    if ($text=~/Hail/i) {
-      quest::say("Hullo $name, who yoo be? You need be a [Shaman] or me not talk to yoo");
+      quest::say("Hullo $name, who yoo be? You need be a [" . quest::saylink("I am a shaman",0,"Shaman") . "] or me not talk to yoo");
    }
 
    if ($text=~/i am a shaman/i) {
-      quest::say("You is Shaman? Well me is too so I can give yoo some tings to do if yoo want to make yer own [armor]");
+      quest::say("You is Shaman? Well me is too so I can give yoo some tings to do if yoo want to make yer own [" . quest::saylink("What armor?",0,"armor") . "]");
    }
 
    if ($text=~/what armor/i) {
-      quest::say("Me can tell yoo where to get tings to craft yer own armor. Yoo den take dese tings with dis armor kit and combine dem. When you have yer armor material take it too da forge and with da pattern I give yoo to make yer armor. I can give yoo recipe fer [Coif], [Bracers], [Sleeves], [Boots], [Legplates], [Gauntlets] and [Tunics]. When yoo ready yoo tell me whut piece you [want to craft]");
+      quest::say("Me can tell yoo where to get tings to craft yer own armor. Yoo den take dese tings with dis armor kit and combine dem. When you have yer armor material take it too da forge and with da pattern I give yoo to make yer armor. I can give yoo recipe fer [" . quest::saylink("Coif") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Legplates") . "], [" . quest::saylink("Gauntlets") . "] and [" . quest::saylink("Tunics") . "]. When yoo ready yoo tell me whut piece you want to craft");
    quest::summonitem(61095); # Spiritcharmers Assembly Kit
    }
 
@@ -54,7 +54,7 @@ sub EVENT_SAY {
    }
 
    if ($text=~/want to craft tunic/i) {
-      quest::say("I'm happy to see that yer training is coming along so well $name. I have no doubt in my mind that yoo are ready to craft yer Tunic. Go collect 5 Bricks of Crude Bronze, 1 Garter Snake Tongue, 1 Ruined Bear Pelt, 1 Calcified Ulna, 1 Giant Snake Fang and 1 Calcified Foot Bones. Come back after yoo are finished, I have a [job] for yoo.");
+      quest::say("I'm happy to see that yer training is coming along so well $name. I have no doubt in my mind that yoo are ready to craft yer Tunic. Go collect 5 Bricks of Crude Bronze, 1 Garter Snake Tongue, 1 Ruined Bear Pelt, 1 Calcified Ulna, 1 Giant Snake Fang and 1 Calcified Foot Bones. Come back after yoo are finished, I have a [" . quest::saylink("What job?",0,"job") . "] for yoo.");
    quest::summonitem(22677); # An Enchanted Tunic Pattern
    }
 

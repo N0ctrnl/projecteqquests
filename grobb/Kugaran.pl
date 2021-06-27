@@ -1,20 +1,20 @@
 # items: 61096, 22610, 22611, 22613, 22612, 22614, 22615, 22616, 19578, 10299, 22601, 61101
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Whut yoo want from Kugaran! Unless yoo [Shadowknight] yoo leave me alone.");
+    quest::say("Whut yoo want from Kugaran! Unless yoo [" . quest::saylink("I am a Shadowknight",false,"Shadowknight") . "] yoo leave me alone.");
   }
   
   if ($text=~/shadowknight/i) {
-    quest::say("I don't know if I should trust yoo but I suppose I can let yoo prove yerself. If yoo are [interested] in helping me wit gadaring some tings and [creating yer own armor] yoo let Kugaran know.");
+    quest::say("I don't know if I should trust yoo but I suppose I can let yoo prove yerself. If yoo are [" . quest::saylink("I am interested",0,"interested") . "] in helping me wit gadaring some tings and [" . quest::saylink("Creating my own armor",0,"creating yer own armor") . "] yoo let Kugaran know.");
   }
   
   if ($text=~/creating my own armor/i) {
-    quest::say("Well den I guess we get started. Dere isn't much to tell besides dat yoo will have to go out and collect [various items] fer yer armor materials. First tings first go ahead and take yer assembly kit now, it is in here dat yoo will put da items yoo collect to make yer armor material. Once yoo have da material yoo can use it wit da right mold I gib yoo to make yer armor.");
+    quest::say("Well den I guess we get started. Dere isn't much to tell besides dat yoo will have to go out and collect [" . quest::saylink("What various items?",0,"various items") . "] fer yer armor materials. First tings first go ahead and take yer assembly kit now, it is in here dat yoo will put da items yoo collect to make yer armor material. Once yoo have da material yoo can use it wit da right mold I gib yoo to make yer armor.");
     quest::summonitem(61096); # Item: Dark Bashers Armor Assembly Kit
   }
   
   if ($text=~/various items/i) {
-    quest::say("Dere are lots of tings yoo will need. Once yoo are ready I can gib yoo da mold fer Dark Basher's [Helms], [Bracers], [Armguards], [Boots], [Greaves], [Gauntlets] and [Breastplates]. When yoo are ready to make a piece yoo tell me which piece you [wish to craft] and I gib yoo da right mold.");
+    quest::say("Dere are lots of tings yoo will need. Once yoo are ready I can gib yoo da mold fer Dark Basher's [" . quest::saylink("Helms") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Armguards") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Greaves") . "], [" . quest::saylink("Gauntlets") . "] and [" . quest::saylink("Breastplates") . "]. When yoo are ready to make a piece yoo tell me which piece you wish to craft and I gib yoo da right mold.");
   }
   
   if ($text=~/helm/i) {
@@ -48,12 +48,12 @@ sub EVENT_SAY {
   }
   
   if ($text=~/breastplate/i) {
-    quest::say("To create yer breastplate material yoo will need to combine 1 Lightstone, 1 Pristine Giant Scarab Carapace, 1 Desert Tarantula Chitin, 1 Deathfist Slashed Belt, and 2 Small Bricks of Ore in yer assembly kit. Once yoo have created da proper material take it to a forge along with this mold to fashion yer very own Dark Basher's Breastplate. Return to me for one [final task] I have to ask of yoo after yoo have completed yer breastplate.");
+    quest::say("To create yer breastplate material yoo will need to combine 1 Lightstone, 1 Pristine Giant Scarab Carapace, 1 Desert Tarantula Chitin, 1 Deathfist Slashed Belt, and 2 Small Bricks of Ore in yer assembly kit. Once yoo have created da proper material take it to a forge along with this mold to fashion yer very own Dark Basher's Breastplate. Return to me for one [" . quest::saylink("What final task?",0,"final task") . "] I have to ask of yoo after yoo have completed yer breastplate.");
     quest::summonitem(22616); # Item: Enchanted Breastplate Mold
   }
   
   if ($text=~/final task/i) {
-    quest::say("Da task is to get me a few [important items] that I need for me studies. If yoo go get dem I give you nice shiny ting.");
+    quest::say("Da task is to get me a few [" . quest::saylink("What important items?",0,"important items") . "] that I need for me studies. If yoo go get dem I give you nice shiny ting.");
   }
   
   if ($text=~/important items/i) {

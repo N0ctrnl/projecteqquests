@@ -1,6 +1,6 @@
 sub EVENT_SAY { 
 if ($text=~/Hail/i && $signal == 801){
-quest::say("Greetings, $name. I'm troubled that we have not yet been able to fully clear out the remaining Grimlings from the camps they still hold, I know [which camps] we have to assault to proceed, and it'll be just a matter of time before we can move forth with our plans.");
+quest::say("Greetings, $name. I'm troubled that we have not yet been able to fully clear out the remaining Grimlings from the camps they still hold, I know [" . quest::saylink("which camps") . "] we have to assault to proceed, and it'll be just a matter of time before we can move forth with our plans.");
 }
 if ($text=~/which camps/i && $signal == 802){
 quest::say("My scouts report the following to me. . .");

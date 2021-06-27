@@ -1,10 +1,10 @@
 # items: 55164, 55172, 55173, 55174, 55175, 55176, 55177, 55178, 51038, 13372, 55186
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Hi dere, yuz look like a warrior dat cud use some decent armor, is you a [warrior]?");
+    quest::say("Hi dere, yuz look like a warrior dat cud use some decent armor, is you a [" . quest::saylink("I am a warrior",0,"warrior") . "]?");
   }
   if ($text=~/warrior/i) {
-    quest::say("Dat's good, mez wudn't want to give out da sekrets of da warriors to sumone not of da clan. Dere is tons of itemz dat yuz will need to gather to craft yur armor, most of dem kan be found in da forest of Nektulos. I kan teech yuz to craft a [Helm], [Bracers], [Armguards], [Boots], [Greaves], [Gauntlets], and a [Breastplate]. Take dis kit to help make yer armor.");
+    quest::say("Dat's good, mez wudn't want to give out da sekrets of da warriors to sumone not of da clan. Dere is tons of itemz dat yuz will need to gather to craft yur armor, most of dem kan be found in da forest of Nektulos. I kan teech yuz to craft a [" . quest::saylink("Helm") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Armguards") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Greaves") . "], [" . quest::saylink("Gauntlets") . "] and a [" . quest::saylink("Breastplate") . "]. Take dis kit to help make yer armor.");
     quest::summonitem(55164); # Item: Da Basher Armor Assembly Kit
   }
   if ($text=~/helm/i) {
@@ -32,7 +32,7 @@ sub EVENT_SAY {
     quest::summonitem(55177); # Item: Da Basher Gauntlets Mold
   }
   if ($text=~/breastplate/i) {
-    quest::say("Dis be hardest part to make. You need to find some Pristine Moccasin Scales, Burly Kobold Ears, a Pristine Bull Alligator Hide, and some Moccasin Poison. If you finds dese items, combine dem in yer kit and den take Da Basher Breastplate Material to da forge with dis mold. After you make yer breastplate, you can [help] me wit sumting.");
+    quest::say("Dis be hardest part to make. You need to find some Pristine Moccasin Scales, Burly Kobold Ears, a Pristine Bull Alligator Hide, and some Moccasin Poison. If you finds dese items, combine dem in yer kit and den take Da Basher Breastplate Material to da forge with dis mold. After you make yer breastplate, you can [" . quest::saylink("I will help",0,"help") . "] me wit sumting.");
     quest::summonitem(55178); # Item: Da Basher Breastplate Mold
   }
   if ($text=~/help/i) {

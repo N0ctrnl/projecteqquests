@@ -7,13 +7,13 @@ sub EVENT_SPAWN {
 
 sub EVENT_ENTER {
   if(plugin::check_hasitem($client, 36002)) { 
-		$client->Message(15,"As your eyes adjust to the darkness, a large troll in front of you. As he speaks, flecks of spittle fly from his mouth. 'Anuder one that tinks he be strong? Me Daboo, you new master! Me teach you to fight like animal! Give note to me and we start! Oh, and don't ferget to ask me about dat [tome] in yer inventory!'");
+		$client->Message(15,"As your eyes adjust to the darkness, a large troll in front of you. As he speaks, flecks of spittle fly from his mouth. 'Anuder one that tinks he be strong? Me Daboo, you new master! Me teach you to fight like animal! Give note to me and we start! Oh, and don't ferget to ask me about dat [" . quest::saylink("What tome?",0,"tome") . "] in yer inventory!'");
   }
 }
 
 sub EVENT_SAY {
 	if($text =~ /hail/i) {
-		quest::say("You want join us?  Read dat note you have and den give to me.  I decide if you be strong enough to join us.  Umm...sumting else I supposed to tell you...Oh ya!  Ask me dat [tome] you have there in yer inventory.");
+		quest::say("You want join us?  Read dat note you have and den give to me.  I decide if you be strong enough to join us.  Umm...sumting else I supposed to tell you...Oh ya!  Ask me dat [" . quest::saylink("What tome?",0,"tome") . "] you have there in yer inventory.");
 	}
 	if($text =~/tome/i) {
 		my $Indent = plugin::PWIndent();
