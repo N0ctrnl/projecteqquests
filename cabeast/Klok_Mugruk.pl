@@ -3,16 +3,16 @@
 
 sub EVENT_SAY { 
   if($text=~/Hail/i){
-    quest::say("Welcome to my shop, sss. Only the finessst I have. I make for you jussst as I make for the emperor's harem. Many [bristle silk] garmentsss do they need. Ssss.. Lucky man, the emperor isss.");
+    quest::say("Welcome to my shop, sss. Only the finessst I have. I make for you jussst as I make for the emperor's harem. Many [" . quest::saylink("bristle silk") . "] garmentsss do they need. Ssss.. Lucky man, the emperor isss.");
   }
   if($text=~/bristle silk/i){
-    quest::say("What is bristle silk?!! Huh? Where have you been living? Under the rocksss.. Nahh. I sssee. You are a broodling from the common ssstock. You could never afford bristle silk nor the affectionss of those who drape themselves with it. Still, commons have much ssservice to offer. Maybe you would like to earn some [curscale armor]. Hmm?");
+    quest::say("What is bristle silk?!! Huh? Where have you been living? Under the rocksss.. Nahh. I sssee. You are a broodling from the common ssstock. You could never afford bristle silk nor the affectionss of those who drape themselves with it. Still, commons have much ssservice to offer. Maybe you would like to earn some [" . quest::saylink("curscale armor") . "]. Hmm?");
   }
   if($text=~/curscale armor/i){
-    quest::say("Curscale armor? I make thisss crude armor from the broodlings of the scaled wolves. I use the ssskins of the pupsss and cubs. Those ssskins are ssstill young and thin and are bessst for the young adventurers. I sssupply them to the Legion of Cabilisss, but for a [small service] I shall make them available to you.");
+    quest::say("Curscale armor? I make thisss crude armor from the broodlings of the scaled wolves. I use the ssskins of the pupsss and cubs. Those ssskins are ssstill young and thin and are bessst for the young adventurers. I sssupply them to the Legion of Cabilisss, but for a [" . quest::saylink("small service") . "] I shall make them available to you.");
   }
   if($text=~/^small service$/i){
-    quest::say("I am in need of pup and cub scaled wolf skins to create more [curscale armor]. Many Legionnaires have died in battle. The Baron demands more sssuits. I mussst have more ssskins or it is MY HIDE!! I shall reward pieces of the curscale armor to any who [perform a small service].");
+    quest::say("I am in need of pup and cub scaled wolf skins to create more [" . quest::saylink("curscale armor") . "]. Many Legionnaires have died in battle. The Baron demands more sssuits. I mussst have more ssskins or it is MY HIDE!! I shall reward pieces of the curscale armor to any who [" . quest::saylink("perform a small service") . "].");
   }
   #Gives the empty curscale pack.
   if($text=~/perform a small service/i){
@@ -24,7 +24,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   #Accepts combined curscale pack.
   if(plugin::check_handin(\%itemcount,12655=>1)) {
-    quest::say("You are a good servant and a fine citizen. I have this piece of curscale armor available, but if it is not enough then perhaps I shall have another piece available if you were to [perform the small service] again.");
+    quest::say("You are a good servant and a fine citizen. I have this piece of curscale armor available, but if it is not enough then perhaps I shall have another piece available if you were to [" . quest::saylink("perform a small service") . "] again.");
     @randomGivenItems = (4270,4271,4272,4273,4274,4275,4276,4277,4279,4280,4281);
     my $itemGiven = $randomGivenItems[int(rand(scalar @randomGivenItems))];
     @randomGivenCopper = (1,2,3,4,5,6,7,8,9);

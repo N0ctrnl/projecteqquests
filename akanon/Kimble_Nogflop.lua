@@ -19,7 +19,7 @@ function event_trade(e)
 	local fac = e.other:GetFaction(e.self);
 	if (item_lib.check_turn_in(e.trade, {item1 = 13945})) then	-- Item: Flask of Nitrates
 		if(fac <= 5) then	-- Indifferent or better
-			e.self:Say("The flask of nitrates I sent for!! As was the deal, here is my [Regurgitonic]. Give it to whoever may need it and they will surely cough up whatever may be inside them with no harm to them whatsoever.");
+			e.self:Say("The flask of nitrates I sent for!! As was the deal, here is my [" .. eq.say_link("Regurgitonic") .. "]. Give it to whoever may need it and they will surely cough up whatever may be inside them with no harm to them whatsoever.");
 			e.other:SummonItem(12140); -- Item: Regurgitonic
 			e.other:Ding();
 			e.other:Faction(255,10,0); -- Faction: Gem Choppers

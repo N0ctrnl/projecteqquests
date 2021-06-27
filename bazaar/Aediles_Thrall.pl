@@ -60,26 +60,26 @@ sub EVENT_SAY {
       if(($ulevel >= $firstbotlevel) && ($qglobals{bot_spawn_limit} <= 0)) {
          quest::settimer("face", 25);
          if($text=~/Hail/i) {
-            quest::say("Hey der youngster.  Lookin' fer a bit o' [help] with yer adventurin'?");
+            quest::say("Hey der youngster.  Lookin' fer a bit o' [" . quest::saylink("help") . "] with yer adventurin'?");
          }
          if($text=~/Help/i) {
             quest::emote("looks around the room and pauses a few seconds");
-            quest::say("Well, I kin sell ye a [product] ye can't find no place else.");
+            quest::say("Well, I kin sell ye a [" . quest::saylink("product") . "] ye can't find no place else.");
          }
          if($text=~/Product/i) {
             quest::emote("looks around the room again");
-            quest::say("Shhh, i'm involved in wut I like ta call A.I.D., I kin [AID] ye in yer adventurin'");
+            quest::say("Shhh, i'm involved in wut I like ta call A.I.D., I kin [" . quest::saylink("AID") . "] ye in yer adventurin'");
          }
          if($text=~/AID/i) {
             quest::emote("looks around the room again");
-            quest::say("It be 'Acquired Individuals Delivery' and it means I kin supply ye with [Individuals].");
+            quest::say("It be 'Acquired Individuals Delivery' and it means I kin supply ye with [" . quest::saylink("Individuals") . "].");
          }
          if($text=~/Individuals/i) {
             quest::emote("looks around the room again");
-            quest::say("Shhh, not too loud... I kin deliver ye an Individual if yer [interested]?");
+            quest::say("Shhh, not too loud... I kin deliver ye an Individual if yer [" . quest::saylink("interested") . "]?");
          }
          if($text=~/Interested/i) {
-            quest::say("Let me tell ye, keepin' up a supply o' Individuals can be a costly endeavor and so's I kin feed 'em I need ye ta be collectin' up sum [supplies] fer me.");
+            quest::say("Let me tell ye, keepin' up a supply o' Individuals can be a costly endeavor and so's I kin feed 'em I need ye ta be collectin' up sum [" . quest::saylink("supplies") . "] fer me.");
          }
          if($text=~/Supplies/i) {
             quest::say("The Individual will cost ye $firstbotcost platinum pieces an' 4 o' dem Fish Rolls.");
@@ -87,7 +87,7 @@ sub EVENT_SAY {
       }
       elsif(($ulevel >= $secondbotlevel) && ($qglobals{bot_spawn_limit} <= 1)) {
          if($text=~/Hail/i) {
-            quest::say("Ahh, a returnin' customer. Are ye [interested] in another Individual?");
+            quest::say("Ahh, a returnin' customer. Are ye [" . quest::saylink("interested") . "] in another Individual?");
          }
          if($text=~/Interested/i) {
             quest::emote("looks around the room");
@@ -96,7 +96,7 @@ sub EVENT_SAY {
       }
       elsif(($ulevel >= $thirdbotlevel) && ($qglobals{bot_spawn_limit} <= 2)) {
          if($text=~/Hail/i) {
-            quest::say("Ahh, a returnin' customer. Are ye [interested] in another Individual?");
+            quest::say("Ahh, a returnin' customer. Are ye [" . quest::saylink("interested") . "] in another Individual?");
          }
          if($text=~/Interested/i) {
             quest::emote("looks around the room");
@@ -105,7 +105,7 @@ sub EVENT_SAY {
       }
       elsif(($ulevel >= $fourthbotlevel) && ($qglobals{bot_spawn_limit} <= 3)) {
          if($text=~/Hail/i) {
-            quest::say("Ahh, a returnin' customer. Are ye [interested] in another Individual?");
+            quest::say("Ahh, a returnin' customer. Are ye [" . quest::saylink("interested") . "] in another Individual?");
          }
          if($text=~/Interested/i) {
             quest::emote("looks around the room");
@@ -114,7 +114,7 @@ sub EVENT_SAY {
       }
       elsif(($ulevel >= $fifthbotlevel) && ($qglobals{bot_spawn_limit} <= 4)) {
          if($text=~/Hail/i) {
-            quest::say("Ahh, a returnin' customer. Are ye [interested] in another Individual?");
+            quest::say("Ahh, a returnin' customer. Are ye [" . quest::saylink("interested") . "] in another Individual?");
          }
          if($text=~/Interested/i) {
             quest::emote("looks around the room");
@@ -123,7 +123,7 @@ sub EVENT_SAY {
       }
       elsif(($ulevel >= $nextbotlevel) && ($qglobals{bot_spawn_limit} <= 5)) {
          if($text=~/Hail/i) {
-            quest::say("Ahh, a returnin' customer. Are ye [interested] in another Individual?");
+            quest::say("Ahh, a returnin' customer. Are ye [" . quest::saylink("interested") . "] in another Individual?");
          }
          if($text=~/Interested/i) {
             quest::emote("looks around the room");
@@ -132,7 +132,7 @@ sub EVENT_SAY {
       }
       elsif(($ulevel >= $nextbotlevel) && ($qglobals{bot_spawn_limit} >= 6)) {
          if($text=~/Hail/i) {
-            quest::say("Ahh, a returnin' customer. Are ye [interested] in another Individual?");
+            quest::say("Ahh, a returnin' customer. Are ye [" . quest::saylink("interested") . "] in another Individual?");
          }
          if($text=~/Interested/i) {
             quest::emote("looks around the room");

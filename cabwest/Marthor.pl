@@ -19,7 +19,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
  if (plugin::check_handin(\%itemcount, 8348 => 4)){
-  quest::say("Ha! How did you know my favorite drink? Master Rinmark told you? That crazy old monk spends his days sitting on that mountain in Timorous Deep doesn't he? And they call me a drunkard! Anyhow, I bet he told you about the Whistling Fists. I have never seen them myself, and have only heard legend passed down by [Master Tynn].");
+  quest::say("Ha! How did you know my favorite drink? Master Rinmark told you? That crazy old monk spends his days sitting on that mountain in Timorous Deep doesn't he? And they call me a drunkard! Anyhow, I bet he told you about the Whistling Fists. I have never seen them myself, and have only heard legend passed down by [" . quest::saylink("Master Tynn") . "].");
   quest::ding();
   quest::settimer("Brew",300);
   $Brew = 1;

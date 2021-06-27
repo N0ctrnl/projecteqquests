@@ -1,14 +1,14 @@
 # items: 17024, 12848, 12420, 4262, 4263, 55978, 4264, 12853, 12852, 4265
 sub EVENT_SAY {   
   if($text=~/hail/i) {
-    quest::say("Quite busy!! Quite busy!! Things must be done. [New components] to be collected!!");
+    quest::say("Quite busy!! Quite busy!! Things must be done. [" . quest::saylink("New components") . "] to be collected!!");
   }
   if($text=~/hail/i && plugin::check_hasitem($client, 4246)) {
     quest::say("So you are expecting to earn your way to rank of revenant, eh? You shall when I have the base and stem of the candle your occultist skullcap.");
   }
   if($text=~/New components/i) {
     quest::say("Yes, yes!! I will need components from beyond the gates. I must
-find an [apprentice of the third rank].");
+find an [" . quest::saylink("apprentice of the third rank") . "].");
   }
   if($text=~/apprentice of the third rank/i) {
     quest::say("If you truly be an apprentice of the third circle, then there is a Dark Binder skullcap to be earned. Take this sack and fill it with a creeper cabbage, a heartsting telson with venom, brutling choppers and a scalebone femur. When they are combined within the sack, you may return it to me with your third rank skullcap and and we shall bid farewell to the title, apprentice.");
@@ -26,7 +26,7 @@ Sarnaks. The foot has been stolen by Gripe, in East Cabilis.");
 }
 sub EVENT_ITEM { 
   if(plugin::check_handin(\%itemcount, 12420 => 1, 4262 => 1)) { #full component sack, apprentice skullcap - 3rd rank
-    quest::say("Well done, here's your fourth rank skull cap. You can now start your [true mission].");
+    quest::say("Well done, here's your fourth rank skull cap. You can now start your [" . quest::saylink("true mission") . "].");
     quest::exp(200);
     quest::summonitem(4263); #dark binder skullcap
     quest::faction(441,20); # Faction: Legion of Cabilis
@@ -34,7 +34,7 @@ sub EVENT_ITEM {
   }
   if(plugin::check_handin(\%itemcount, 55978 => 1, 4263 => 1)) { #a journal and dark binder skullcap
     quest::say("Well done, here's your fifth rank skull cap. You can now track
-down the [Kor Sha Candlestick].");
+down the [" . quest::saylink("Kor Sha Candlestick") . "].");
     quest::exp(200);
     quest::summonitem(4264); #occultist skullcap
     quest::faction(441,20); # Faction: Legion of Cabilis
@@ -44,7 +44,7 @@ down the [Kor Sha Candlestick].");
 #Stem of Candlestick, Foot of Candlestick, occultist skullcap
     quest::emote("grabs the candle parts and puts them in an odd pouch, then
 takes your cap which disintegrates in his palm. He hands you another cap.");
-    quest::say("Welcome, Revenant $name. You have done well. The Harbinger awaits you. He seeks a [new revenant].");
+    quest::say("Welcome, Revenant $name. You have done well. The Harbinger awaits you. He seeks a [" . quest::saylink("new revanent") . "].");
     quest::exp(200);
     quest::summonitem(4265); #Revenant Skullcap
     quest::faction(441,20); # Faction: Legion of Cabilis

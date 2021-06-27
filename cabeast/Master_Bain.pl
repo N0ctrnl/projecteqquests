@@ -1,16 +1,16 @@
 # items: 17998, 18468, 22923, 7881, 18467, 22922, 12688, 4350, 4351, 4352, 4353, 4354, 4355, 4356, 4357, 4358, 4359
 sub EVENT_SAY { 
  if($text=~/Hail/i){
-  quest::say("Welcome.  Who has [sent] you to me?");
+  quest::say("Welcome.  Who has [" . quest::saylink("sent") . "] you to me?");
  }
  if($text=~/Grand Master Glox/i){
-  quest::say("So Grand Master Glox has sent you?  You must be new to the court.  We are of the Swifttail caste as are you.  Under the guidance of masters such as I. you will forge your body into a weapon of pure destruction.  Do not bother the Grand Master.  he is in constant meditation and is bothered with only the most paramount of concerns.  Are you [ready to train]?");
+  quest::say("So Grand Master Glox has sent you?  You must be new to the court.  We are of the Swifttail caste as are you.  Under the guidance of masters such as I. you will forge your body into a weapon of pure destruction.  Do not bother the Grand Master.  he is in constant meditation and is bothered with only the most paramount of concerns.  Are you [" . quest::saylink("ready to train") . "]?");
  }
  if($text=~/ready to train/i){
-  quest::say("Then I can offer training in the martial arts as well as other skills.  Please remember to obtain knowledge from our court chronicler.  You shall also begin to aid your brothers and sisters with [menial tasks].  All begin upon the rung of dust and all have done these tasks in order to climb to the next rung.");
+  quest::say("Then I can offer training in the martial arts as well as other skills.  Please remember to obtain knowledge from our court chronicler.  You shall also begin to aid your brothers and sisters with [" . quest::saylink("menial tasks") . "].  All begin upon the rung of dust and all have done these tasks in order to climb to the next rung.");
  }
  if($text=~/menial tasks/i){
-  quest::say("We have a few menial tasks we require our young members to perform.  Young members must [tailor training bags] for our court.");
+  quest::say("We have a few menial tasks we require our young members to perform.  Young members must [" . quest::saylink("tailor training bags") . "] for our court.");
  }
  if($text=~/tailor training bags/i){
   quest::say("Then take this leech husk pouch and fill it with the obvious.  Once done. combine the skins and take the full leech husk pouch to a local tailor by the name of Klok Mugruk.  He is the one who cleans and toughens the husks for us. He shall hand you a ready-made training bag husk.  He will instruct you further.");

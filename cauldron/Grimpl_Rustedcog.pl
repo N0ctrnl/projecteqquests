@@ -13,7 +13,7 @@ if($text=~/Hail/i) {
 }
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 67003 =>1 )) {
-    quest::say("Ah, you want some Viscous Venom, eh? Well I just used my last little bit to settle a score with an old gambling buddy. If you really want some you'll have to get it from good Ol' [Jagged Fang]!");
+    quest::say("Ah, you want some Viscous Venom, eh? Well I just used my last little bit to settle a score with an old gambling buddy. If you really want some you'll have to get it from good Ol' [" . quest::saylink("Jagged Fang") . "]!");
   }
   if (plugin::check_handin(\%itemcount, 67005 =>1 )) {
     quest::say("Heh, I thought I would never see you again. Guess Ol' Jagged Fang wasn't as tough as I heard. Anyway here are your scales back and a note to my friend Saeko. She should be able to help you. You can normally find her wandering around the Southern Desert.");

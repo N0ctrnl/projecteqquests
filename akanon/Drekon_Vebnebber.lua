@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if (item_lib.check_turn_in(e.trade, {item1 = 18837})) then
-		e.self:Say("Why, thank you. Hey!! This log indicates some messy business is going on at the scrapyard. Something happened to a group of gnomes. They never came out!! Go check out the scrapyard! I believe the rumors of [Red 5] are true.");
+		e.self:Say("Why, thank you. Hey!! This log indicates some messy business is going on at the scrapyard. Something happened to a group of gnomes. They never came out!! Go check out the scrapyard! I believe the rumors of [" .. eq.say_link("Red 5") .. "] are true.");
 		e.other:Faction(255,5); -- Faction: Gem Choppers
 		e.other:Faction(288,1); -- Faction: Merchants of Ak`Anon
 		e.other:Faction(333,1); -- Faction: King Ak`Anon

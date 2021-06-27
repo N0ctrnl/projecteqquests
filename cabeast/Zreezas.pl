@@ -4,7 +4,7 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Sorry, I am busy trying to track down a traitor planning on overthrowing the Patriarchs. Unless you are [willing to help], I will have to send you on your way.");
+    quest::say("Sorry, I am busy trying to track down a traitor planning on overthrowing the Patriarchs. Unless you are [" . quest::saylink("I am willing to help",0,"willing to help") . "], I will have to send you on your way.");
   }
   if($text=~/help/i) {
     quest::say("Clues have lead me to believe that some corrupt individuals are working in the City of Mist and Kaesora. I have been searching in spiritual areas for clues to this traitor's name. Return to me any information which may help in my investigation.");

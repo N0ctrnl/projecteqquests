@@ -7,7 +7,7 @@ function event_say(e)
 		if(e.message:findi("hail")) then
 			e.self:Say("Ahh!! A conversationalist. How good to meet you, " .. e.other:GetCleanName() .. ". Yes. I have heard of you. Go ahead and ask for that which has brought you to my tower and emboldened you to slay my weaker minions.");
 		elseif(e.message:findi("sisters of scale")) then
-			e.self:Say("What a coincidence! I, too, seek a skull. Perhaps you might help me [obtain the skull]. Perhaps then you shall have the skull you desire.");
+			e.self:Say("What a coincidence! I, too, seek a skull. Perhaps you might help me [" .. eq.say_link("obtain the skull") .. "]. Perhaps then you shall have the skull you desire.");
 		elseif(e.message:findi("obtain the skull")) then
 			e.self:Say("I am sure you would not mind removing the head of a scaled mystic. I hope not. There is an old Iksar who once called me slave. Now he shall adorn my wall, mounted on a fine plaque. His name is Digalis. Find him. Do not return until your task is complete.");
 		end

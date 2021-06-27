@@ -1,10 +1,10 @@
 # items: 13087
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Hi. How are you? The fish are biting pretty good. That is what Skipynn tells me. I sure wish I had a different [job]. If I did, I could fish all day long.");
+    quest::say("Hi. How are you? The fish are biting pretty good. That is what Skipynn tells me. I sure wish I had a different [" . quest::saylink("job") . "]. If I did, I could fish all day long.");
   }
   if ($text=~/job/i) {
-    quest::say("I am a messenger for [Antonius Bayle], ruler of the great city of [Qeynos].");
+    quest::say("I am a messenger for [" . quest::saylink("Antonius Bayle") . "], ruler of the great city of [" . quest::saylink("Qeynos") . "].");
   }
   if ($text=~/qeynos/i) {
     quest::say("Huh?! Have you been living in a cave? The great city of Qeynos is the mightiest nation in Antonica! You'd best journey toward the west and visit the city whose influence stretches beyond the horizons.");

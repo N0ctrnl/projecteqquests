@@ -1,6 +1,6 @@
 sub EVENT_SAY {
  if($text=~/hail/i){
-  quest::say("Might you be an [apprentice] or a [guide]?' Llara then grins evilly...");
+  quest::say("Might you be an [" . quest::saylink("apprentice") . "] or a [" . quest::saylink("guide") . "]?' Llara then grins evilly...");
  }
  elsif($text=~/apprentice/i){
   quest::say("Welcome to the Guide Program, $name. I am sure you will enjoy your time here. Do not worry about being only an apprentice right now, I'm sure that in time you will be ready for promotion. This is truly the best place to be in the world. Good luck to you, $name!");

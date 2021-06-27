@@ -1,7 +1,7 @@
 -- items: 13260, 14032, 18955, 12366
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("You seek Cinium Darkblade, do you? Find me you have. Often I am here. To test my [Wasp Poison], yes. Less Aqua Gobs there now are. Ha!! A true rogue am I with no leader or guild. Just the wind and shadows and much treasure to be had.");
+		e.self:Say("You seek Cinium Darkblade, do you? Find me you have. Often I am here. To test my [" .. eq.say_link("Wasp Poison") .. "], yes. Less Aqua Gobs there now are. Ha!! A true rogue am I with no leader or guild. Just the wind and shadows and much treasure to be had.");
 	elseif(e.message:findi("wasp poison")) then
 		e.self:Say("Giant Wasp Venom made from the Giant Wasp Venom Sacs. An interest in poison we share? Need the insect venom you do. It comes not cheap.  My time is precious, my talent supreme.. 30 Gold is my price and also provide me with three Giant Wasp Venom Sacs.");
 	elseif(e.message:findi("who once owned it")) then
@@ -19,7 +19,7 @@ function event_trade(e)
 		e.other:SummonItem(14032); -- Item: Regalis Poison
 		e.other:Ding();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18955})) then
-		e.self:Say("So Lon has sworn allegiance to a temple. What a fool, but he is a skilled fool. My word is my bond and if he asks for the gem, then so be it. Unfortunately I traded it for a much-needed axe. It was in the middle of a dungeon and... well, that is a long story. If you want to get the gem, take this axe back to the [one who once owned it].");
+		e.self:Say("So Lon has sworn allegiance to a temple. What a fool, but he is a skilled fool. My word is my bond and if he asks for the gem, then so be it. Unfortunately I traded it for a much-needed axe. It was in the middle of a dungeon and... well, that is a long story. If you want to get the gem, take this axe back to the [" .. eq.say_link("one who once owned it") .. "].");
 		e.other:SummonItem(12366); -- Item: Never Stop Chopping
 		e.other:Ding();
 	end

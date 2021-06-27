@@ -26,7 +26,7 @@ sub EVENT_SAY
 	
 	if($text=~/beast fights/i && $handin == 1)
 		{
-		quest::say("Da only way to learn is to fight. It called Praklion of the Cauldron or sometin. Me hear it live here very long time, but rarely come out. It feed at weird times. Course, dat when it most mad. McArik found it traveling through deep craggy lands. Dat is how he decided it was good beast to test his ability to beat a baddy dat had some [sense of strategy]. It even took him long time to defeat it.");
+		quest::say("Da only way to learn is to fight. It called Praklion of the Cauldron or sometin. Me hear it live here very long time, but rarely come out. It feed at weird times. Course, dat when it most mad. McArik found it traveling through deep craggy lands. Dat is how he decided it was good beast to test his ability to beat a baddy dat had some [" . quest::saylink("sense of strategy") . "]. It even took him long time to defeat it.");
 		}
 	
 	if($text=~/sense of strategy/i)
@@ -46,7 +46,7 @@ sub EVENT_ITEM
 	
 	if(plugin::check_handin(\%itemcount, 60199 => 1))
 		{
-		quest::say("Me hopes you can hold your breath, $name. Me make sure to stock up before makin' dat long swim. Pesky goblins all over. Treanik must tell dat dere is much more dan pests here to taunt da likes of us. Dere be a beast down dere dat me not killed yet. Me much younger dan you, but me learn how dat [beast fights] -- it smarter dan da average creature, you know. Don't be fooled.");
+		quest::say("Me hopes you can hold your breath, $name. Me make sure to stock up before makin' dat long swim. Pesky goblins all over. Treanik must tell dat dere is much more dan pests here to taunt da likes of us. Dere be a beast down dere dat me not killed yet. Me much younger dan you, but me learn how dat [" . quest::saylink("beast fights") . "] -- it smarter dan da average creature, you know. Don't be fooled.");
 		$handin=1;
 		quest::settimer(1,600);
 		}

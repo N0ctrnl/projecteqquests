@@ -9,7 +9,7 @@ sub EVENT_SAY {
     quest::say("The Memory of Sebilis. Kept within my personal chambers. They have been taken. Taken by some croakin' Forsaken no doubt!! You have been sent to me because you show excellent prowess. Find my Memory and bring it to me with your footman's pike.");
   }
   if ($text =~ /brave trooper of the empire/i) {
-    quest::say("So you are a trooper? Word of your deeds has been spreading through the legion. If you truly wield the pike of a trooper, then go and serve the garrisons of swamp, lake and woods. Report to the Warlord and tell him you are a [trooper reporting for duty]. Their recommendations and your trooper pike shall earn you the rank of legionnaire.");
+    quest::say("So you are a trooper? Word of your deeds has been spreading through the legion. If you truly wield the pike of a trooper, then go and serve the garrisons of swamp, lake and woods. Report to the Warlord and tell him you are a [" . quest::saylink("trooper reporting for duty") . "]. Their recommendations and your trooper pike shall earn you the rank of legionnaire.");
   }
 }
 
@@ -32,8 +32,8 @@ sub EVENT_ITEM {
   }
   if (plugin::check_handin(\%itemcount, 12899 => 1, 12898 => 1, 12896 => 1, 5132 => 1)) {
     quest::emote("gulps down a wad of phlegm.");
-    quest::say("My memory has returned! Boneripper! You are no footman. I grant you the rank of soldier. Go and forge your weapon. Do not return to me until you become a [brave trooper of the empire].");
-    quest::say("Find Drill Master Kyg to help you in this task? [Footman Moglok] needs help.");    #not live text, link to 4th pike beginning
+    quest::say("My memory has returned! Boneripper! You are no footman. I grant you the rank of soldier. Go and forge your weapon. Do not return to me until you become a [" . quest::saylink("brave trooper of the empire") . "].");
+    quest::say("Find Drill Master Kyg to help you in this task? [" . quest::saylink("Footman Moglok") . "] needs help.");    #not live text, link to 4th pike beginning
     quest::summonitem(12476); # Item: Soldier Head Plans
     quest::faction(440,2); # Faction: Cabilis Residents
     quest::faction(441,2); # Faction: Legion of Cabilis
@@ -45,7 +45,7 @@ sub EVENT_ITEM {
   }
   if (plugin::check_handin(\%itemcount, 18073 => 1, 18072 => 1, 18074 => 1, 5134 => 1)) {
    quest::emote("takes away your pike and hands you plans not for a pike head, but for the crown of another polearm.");
-   quest::say("It is time to wield the weapon of a [true warrior of the legion]. You have done well, Legionnaire $name!");
+   quest::say("It is time to wield the weapon of a [" . quest::saylink("true warrior of the legion") . "]. You have done well, Legionnaire $name!");
    quest::summonitem(12478); # Item: Legionnaire Crown Plans
    quest::faction( 440,2); # Faction: Cabilis Residents
    quest::faction( 441,2); # Faction: Legion of Cabilis

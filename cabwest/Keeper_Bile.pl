@@ -1,7 +1,7 @@
 # items: 12739, 12659, 12426
 sub EVENT_SAY {
    if($text=~/hail/i)   {
-	quest::say("Greetings $name. Lately the creatures of Lake of Ill Omen have be causing problems for us. Are you [interested] in helping me reduce the threat from this creatures?");
+	quest::say("Greetings $name. Lately the creatures of Lake of Ill Omen have be causing problems for us. Are you [" . quest::saylink("interested") . "] in helping me reduce the threat from this creatures?");
    }
    if($text=~/interested/i)   {
 	quest::say("Good. Bring me a Brittle Iksar Skull, a Sabertooth Cub Canine, and a Large Scorpion Pincer. And i shall reward you with a spell.");

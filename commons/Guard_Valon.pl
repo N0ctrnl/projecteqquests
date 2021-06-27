@@ -1,10 +1,10 @@
 # items: 17975, 13885, 12273, 12272
 sub EVENT_SAY {
 	if ($text=~/hail/i) {
-		quest::say("Greetings, traveler! If you wish to walk upon the road to Freeport, you will pay the toll of two silver pieces. And you should. It is not safe to stray from the pathway. There are many [dangers in the Commonlands].");
+		quest::say("Greetings, traveler! If you wish to walk upon the road to Freeport, you will pay the toll of two silver pieces. And you should. It is not safe to stray from the pathway. There are many [" . quest::saylink("dangers in the Commonlands") . "].");
 	}
 	elsif ($text=~/dangers in the commonlands/i) {
-		quest::say("The orcs have been a nuisance of late. Many travelers have perished at the hands of the orc pawns. Would you like to [assist the Freeport Militia] in ridding the lands of the orcs?");
+		quest::say("The orcs have been a nuisance of late. Many travelers have perished at the hands of the orc pawns. Would you like to [" . quest::saylink("assist the Freeport Militia") . "] in ridding the lands of the orcs?");
 	}
 	elsif ($text=~/assist the freeport militia/i) {
 		quest::say("Sir Lucan would be proud!! Patrol the Commonlands and watch for any orc pawns. Should you find any orc pawn picks on them, I will pay you for every four you return to me. Be off, then! For the glory of Freeport!!");
@@ -25,7 +25,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
 	#:: Match four 13885 - Orc Pawn Pick
 	if (plugin::takeItems(13885 => 4)) {
-		quest::say("You have done well. Keep up the good work and we may trust you to [hunt dervish cutthroats] which in turn will allow you to join the Reserve Freeport Militia.");
+		quest::say("You have done well. Keep up the good work and we may trust you to [" . quest::saylink("hunt dervish cutthroats") . "] which in turn will allow you to join the Reserve Freeport Militia.");
 		#:: Ding!
 		quest::ding();
 		#:: Set factions

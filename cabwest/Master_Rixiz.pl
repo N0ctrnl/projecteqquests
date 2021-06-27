@@ -1,13 +1,13 @@
 # items: 17023, 12411, 4261, 4262, 14794, 14810, 10033, 14813
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("You are on the grounds of the Brood of Kotiz. If you do not belong, you must leave at once. There shall be no [third rank skullcap] for you.");  
+    quest::say("You are on the grounds of the Brood of Kotiz. If you do not belong, you must leave at once. There shall be no [" . quest::saylink("third rank skullcap") . "] for you.");  
   }
   if ($text=~/third rank skullcap/i) {
-    quest::say("I offer the third rank apprentice skullcap to those who wear the second. If that is you, then you will do the [bidding of the tower].");
+    quest::say("I offer the third rank apprentice skullcap to those who wear the second. If that is you, then you will do the [" . quest::saylink("bidding of the tower") . "].");
   }
   if ($text=~/bidding of the tower/i) {
-    quest::say("Take this glass canopic. Within it you shall place a brain for me. The brain I seek is that of a sarnak crypt raider. Any shall do. The ones we seek should be near the Lake of Ill Omen. When you obtain the brain, you must quickly put it into the glass canopic with [embalming fluid]. When these are combined, the canopic shall seal and if you return it to me with your second rank skullcap, I shall hand you the next and final skullcap."); 
+    quest::say("Take this glass canopic. Within it you shall place a brain for me. The brain I seek is that of a sarnak crypt raider. Any shall do. The ones we seek should be near the Lake of Ill Omen. When you obtain the brain, you must quickly put it into the glass canopic with [" . quest::saylink("embalming fluid") . "]. When these are combined, the canopic shall seal and if you return it to me with your second rank skullcap, I shall hand you the next and final skullcap."); 
     quest::summonitem(17023); # Item: Brood Canopic
     quest::say("You shall get no skullcap until I have the preserved raider brain and your second circle apprentice skullcap.");
   }

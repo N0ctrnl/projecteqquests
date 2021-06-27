@@ -1,7 +1,7 @@
 -- items: 65192
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello, " .. e.other:GetName() .. ". Feel free to browse my wares. Unless you are looking to make a special Oxidized robe. If so, just let me know that you want a [robe pattern]."); -- Still need real text
+		e.self:Say("Hello, " .. e.other:GetName() .. ". Feel free to browse my wares. Unless you are looking to make a special Oxidized robe. If so, just let me know that you want a [" .. eq.say_link("robe pattern") .. "]."); -- Still need real text
 	elseif(e.message:findi("robe pattern")) then
 		if(e.other:Race() == "Gnome") then
 			e.self:Say("Very well. Take this pattern, and good luck to you Gnome."); -- Still need real text

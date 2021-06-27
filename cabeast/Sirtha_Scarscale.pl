@@ -3,13 +3,13 @@
 
 sub EVENT_SAY {
   if($text=~/Hail/i){
-    quest::emote("eyes you intently. 'So, yet another hatchling approaches us. I am known as Sirtha and that is Sarth. We are of [Rile's] children. Who do you call your father, broodling?'");
+    quest::emote("eyes you intently. 'So, yet another hatchling approaches us. I am known as Sirtha and that is Sarth. We are of [" . quest::saylink("Rile's") . "] children. Who do you call your father, broodling?'");
   }
   if($text=~/Rile/i){
-    quest::say("Very good. We are smiths for the Crusaders of the Greenmist and I shall make [armor] for you, provided you prove your worth. Fail these simple tasks, and you shall not be worthy to bear the title of crusader!");
+    quest::say("Very good. We are smiths for the Crusaders of the Greenmist and I shall make [" . quest::saylink("armor") . "] for you, provided you prove your worth. Fail these simple tasks, and you shall not be worthy to bear the title of crusader!");
   }
   if($text=~/armor/i){
-    quest::say("I will make [helms], [gauntlets], [boots], and [vambraces]. My broodmate shall make the bracers, greaves, masks, and breastplate.");
+    quest::say("I will make [" . quest::saylink("helms") . "], [" . quest::saylink("gauntlets") . "], [" . quest::saylink("boots") . "], and [" . quest::saylink("vambraces") . "]. My broodmate shall make the bracers, greaves, masks, and breastplate.");
   }
   if($text=~/helm/i){
     quest::say("The sarnak are a mockery of the Iksar. They are nothing more than beasts fit only to do our bidding! I require you to bring me the sword of one of their Order of Knights and the head of a sarnak berserker. These beasts have been attacking our patrols of late. I also require a stone called a ruby and a banded helm. Do this and I shall make a helm for you.");

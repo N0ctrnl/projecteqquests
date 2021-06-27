@@ -15,7 +15,7 @@ sub EVENT_SAY {
   }
   elsif($text=~/shackle of rock/i){
    quest::emote("strikes within inches of your snout with amazing speed.");
-   quest::say("The Shackle of Rock is your interest? Then learn well our ways and prepare yourself. If the stone embraces your wrist, you are ready indeed. To complete the second rung you must find for me the [Fists of Talon].");
+   quest::say("The Shackle of Rock is your interest? Then learn well our ways and prepare yourself. If the stone embraces your wrist, you are ready indeed. To complete the second rung you must find for me the [" . quest::saylink("Fists of Talon") . "].");
   }
   elsif($text=~/fists of talon/i){
    quest::emote("points to the Court Chronicler.");
@@ -32,7 +32,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
  if(plugin::check_handin(\%itemcount, 12797 => 1, 12798 => 1, 12799 => 1)){
-  quest::emote("removes a crudley hewn shackle. 'This is yours. It is one of the keys to the third rung. I see that you are truely a great monk and have studied your disciplines well. I have need of one as you. I have heard of [troubles with an outlander].'");
+  quest::emote("removes a crudley hewn shackle. 'This is yours. It is one of the keys to the third rung. I see that you are truely a great monk and have studied your disciplines well. I have need of one as you. I have heard of [" . quest::saylink("troubles with an outlander") . "].'");
   quest::summonitem(4193); # Item: Shackle of Rock
   quest::exp(20000);
   quest::ding();
@@ -41,7 +41,7 @@ sub EVENT_ITEM {
   quest::givecash(0,0,1,0);
   }
  elsif(plugin::check_handin(\%itemcount, 12821 => 1, 4192 => 1, 4193 => 1)){
-  quest::say("Very good!! Here is your Shackle of Copper. The Emperor shall be pleased that I, Mistress Niska, have slain the outlander. Do you have some time? I need someone to be my [personal courier]. Will you?");
+  quest::say("Very good!! Here is your Shackle of Copper. The Emperor shall be pleased that I, Mistress Niska, have slain the outlander. Do you have some time? I need someone to be my [" . quest::saylink("personal courier") . "]. Will you?");
   quest::summonitem(4194); # Item: Shackle of Copper
   quest::exp(40000);
   quest::ding();

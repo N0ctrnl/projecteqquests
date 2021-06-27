@@ -1,7 +1,7 @@
 # items: 62098, 62099, 62205
 sub EVENT_SAY {
   if ($text=~/hail/i) {#need correct text
-    quest::say("Hello traveler.  Now that I have been freed, I seek [revenge] on those who help me captive, but I am yet to weak to do it myself, so I will need your help.");
+    quest::say("Hello traveler.  Now that I have been freed, I seek [" . quest::saylink("revenge") . "] on those who help me captive, but I am yet to weak to do it myself, so I will need your help.");
   }
   if ($text=~/revenge/i) {
     quest::say("Bring me a Fetish of Ice Mastery from the goblin ice masters in the Temple of Droga, as well as Cialin's Ice Staff.  I will reward you if you can help me.");

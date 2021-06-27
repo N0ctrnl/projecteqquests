@@ -1,13 +1,13 @@
 # items: 17997, 12915, 12917, 12918, 12919, 12920, 12921, 12673, 12674
 sub EVENT_SAY {
 	if($text=~/Hail/i){
-		quest::say("Yes. yes!!  What do I have here?!!  Another [new recruit]?  If so. then speak up!  If not. then leave and do not waste my time nor risk your life.  I also seek a [legion soldier] if you be one.");
+		quest::say("Yes. yes!!  What do I have here?!!  Another [" . quest::saylink("new recruit") . "]?  If so. then speak up!  If not. then leave and do not waste my time nor risk your life.  I also seek a [" . quest::saylink("legion soldier") . "] if you be one.");
 	}
 	if((($text=~/new recruit/i) || ($text=~/legion soldier/i) || ($text=~/ready for my task/i)) && ($faction > 4)) {
 		quest::say("No Iksar resident will have anything to do with you!!");
 	}
 	if(($text=~/new recruit/i) && ($faction < 5)) {
-		quest::say("Yes.  You have the look of the Partisan.  I trust you have begun your blacksmith training.  If not. then do so.  Also. you should read all the books available to you in Fortress Talishan.  We are not dimwitted broodlings here.  You shall need the knowledge soon. That. or a coffin.  Ha!!  Here is your task. are you [ready for your task]?");
+		quest::say("Yes.  You have the look of the Partisan.  I trust you have begun your blacksmith training.  If not. then do so.  Also. you should read all the books available to you in Fortress Talishan.  We are not dimwitted broodlings here.  You shall need the knowledge soon. That. or a coffin.  Ha!!  Here is your task. are you [" . quest::saylink("I am ready for my task",0,"ready for your task") . "]?");
 	}
 	if(($text=~/legion soldier/i) && ($faction < 5)) {
 		quest::say("Good news to my ears!!  I seek to prove to the War Baron that the infamous forsaken band of thieves who call themselves Marrtail's Marauders are operating within earshot of our city.  You must bring me proof that you encountered no fewer than four of these thieves.  Do so and I shall offer you an armor item unavailable to most.");

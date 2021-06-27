@@ -13,10 +13,10 @@ sub EVENT_ENTER {
  
 sub EVENT_SAY {
 	if($text =~ /hail/i) {
-		quest::say("Greetings. I only train those who follow the path of the Patriarchs of Cabilis and have yet to develop their [powers] over the beasts of the wild, or maybe you are trained and are here to [help aid in our cause]?");
+		quest::say("Greetings. I only train those who follow the path of the Patriarchs of Cabilis and have yet to develop their [" . quest::saylink("powers") . "] over the beasts of the wild, or maybe you are trained and are here to [" . quest::saylink("help aid in our cause") . "]?");
 	}
 	if($text =~ /powers/i) { #Armor of the Patriarch Quest
-		quest::say("Good. In order to develop your powers over the beasts of the wild, you must complete several [tests] which will prove your loyalty to our cause. ");
+		quest::say("Good. In order to develop your powers over the beasts of the wild, you must complete several [" . quest::saylink("tests") . "] which will prove your loyalty to our cause. ");
 	}
 	if($text =~ /tests/i) { #Armor of the Patriarch Quest (part 1 - Patriarch's Bracer)
 		quest::say("In order to develop your powers you will need to collect various items which will serve to me as proof of your continued training. When you return the items to me, I will reward you with a piece of armor to help protect you from the dangers found outside our city walls. Go now and bring me four leech husks as proof of growing powers. ");
@@ -76,7 +76,7 @@ sub EVENT_ITEM {
 		quest::faction(441,10); # Faction: Legion of Cabilis
 	}
 	elsif (plugin::check_handin(\%itemcount, 18848 => 1)) { #A tattered note
-		quest::say("The Hierophants have sensed that your spirit is strong with obedience inspiring fear! You must learn to harness your [powers] over the scaled wolves! Wear this tunic so that the Legion of Cabilis will recognize you as a Scaled Spiritist."); #Proper text still needed
+		quest::say("The Hierophants have sensed that your spirit is strong with obedience inspiring fear! You must learn to harness your [" . quest::saylink("powers") . "] over the scaled wolves! Wear this tunic so that the Legion of Cabilis will recognize you as a Scaled Spiritist."); #Proper text still needed
 		quest::summonitem(13577); #Dusty Green Tunic
 		quest::ding();
 		quest::faction(445,15); #Scaled Mystics

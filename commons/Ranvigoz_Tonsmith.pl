@@ -5,7 +5,7 @@
 sub EVENT_SAY {
   if ($faction <= 5) {
     if ($text=~/hail/i) {
-      quest::say("Hail! I am Ranvigoz Tonsmith. My brother Timtok and I are some of the finest smiths this side of Kaladim. If you are interested we will happily [resize] your [Crafted Armor] down to a more manageable size.");
+      quest::say("Hail! I am Ranvigoz Tonsmith. My brother Timtok and I are some of the finest smiths this side of Kaladim. If you are interested we will happily [" . quest::saylink("resize") . "] your [" . quest::saylink("Crafted Armor") . "] down to a more manageable size.");
     }
     if ($text=~/resize/i) {
       quest::say("I will resize Crafted Bracers, Greaves, a Pauldron or a Breastplate. My brother will resize Crafted Gauntlets, a Vambrace, a Helm or Boots. Just give me the armor and I will resize it for you.");

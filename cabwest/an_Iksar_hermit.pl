@@ -1,10 +1,10 @@
 # items: 17195, 12886, 4266, 4267
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("I am looking for a [great sorcerer]. Are you such a person?");
+    quest::say("I am looking for a [" . quest::saylink("great sorcerer") . "]. Are you such a person?");
   }
   elsif (($text=~/great sorcerer/i) && plugin::check_hasitem($client, 4266) && ($ulevel => 35)) {
-    quest::say("Are we now? Well then take this. See if you can finish this project that I started so many years ago. It still requires a [whip], a [tassel], and a [lock]. Go and find these items and return to me with what you have already learned and I shall reward you.");
+    quest::say("Are we now? Well then take this. See if you can finish this project that I started so many years ago. It still requires a [" . quest::saylink("whip") . "], a [" . quest::saylink("tassel") . "], and a [" . quest::saylink("lock") . "]. Go and find these items and return to me with what you have already learned and I shall reward you.");
     quest::summonitem(17195); # Item: Flaxen Hilt
   }
   elsif ($text=~/whip/i) {

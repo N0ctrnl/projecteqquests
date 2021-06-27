@@ -1,19 +1,19 @@
 # items: 12408, 4260, 18208, 4261, 14793, 14811, 10032, 14831
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("What is it you seek within the tower ? Could it be that you are a new apprentice ? If so, you are required to don the [apprentice skullcap]");  
+    quest::say("What is it you seek within the tower ? Could it be that you are a new apprentice ? If so, you are required to don the [" . quest::saylink("apprentice skullcap") . "]");  
   }
   if ($text=~/apprentice/i){
-    quest::say("All new members of the Brood of Kotiz are required to don the [apprentice skullcap]. To earn one, a new apprentice is required to fetch four brains for further experiments. Not just any four brains, mind you, but the brains of [sarnak] hatchlings.");
+    quest::say("All new members of the Brood of Kotiz are required to don the [" . quest::saylink("apprentice skullcap") . "]. To earn one, a new apprentice is required to fetch four brains for further experiments. Not just any four brains, mind you, but the brains of [" . quest::saylink("sarnak") . "] hatchlings.");
   } 
   if ($text=~/sarnak/i) {
     quest::say("Sarnak ? Do not speak loudly, that name. If you seek information on the sarnak, read the tome of this tower. The tower librarian should be found within.");  
   }
   if ($text=~/second rank skullcap/i) {
-    quest::say("Looking for the second rank skullcap ? Look no further, but be prepared to earn it. I seek a [faded tapestry]. Now, too, so do you.");
+    quest::say("Looking for the second rank skullcap ? Look no further, but be prepared to earn it. I seek a [" . quest::saylink("faded tapestry") . "]. Now, too, so do you.");
   }
   if ($text=~/faded tapestry/i) {
-    quest::say("I have heard reports of such a thing found upon Sarnak hatchlings. They must have scampered from the safety of their dwelling with their master's property. I would like to see this tapestry, but only when it has been mended. I need find a necromancer who is [adept at tailoring]."); 
+    quest::say("I have heard reports of such a thing found upon Sarnak hatchlings. They must have scampered from the safety of their dwelling with their master's property. I would like to see this tapestry, but only when it has been mended. I need find a necromancer who is [" . quest::saylink("adept at tailoring") . "]."); 
   }
   if ($text=~/adept at tailoring/i) {
     quest::say("If you are a member of the Brood and wish to assist you may seek out this tapestry. Find the Torn and Ripped pieces and take them both to a sewing kit. Return with the mended tapestry and your first rank skullcap and I shall see that you are rewarded with coin and a second rank skullcap");
@@ -24,7 +24,7 @@ sub EVENT_SAY {
 # mended tapestry + necro skull cap1, raises brood of kotiz and legions of cabilis
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 12408 => 4)) { 
-    quest::say("Good work, my young apprentice. You will make a fine addition to our ranks. Here is your first apprentice skullcap. Wear it as a sign of our circle. Do not lose it. Someday you shall wear a necromancer skullcap, but next shall come the [second rank skullcap]."); 
+    quest::say("Good work, my young apprentice. You will make a fine addition to our ranks. Here is your first apprentice skullcap. Wear it as a sign of our circle. Do not lose it. Someday you shall wear a necromancer skullcap, but next shall come the [" . quest::saylink("second rank skullcap") . "]."); 
     quest::exp(100); 
     quest::faction(441,20); # Faction: Legion of Cabilis
     quest::faction(443,20); # Faction: Brood of Kotiz

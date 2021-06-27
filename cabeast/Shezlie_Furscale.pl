@@ -1,13 +1,13 @@
 # items: 3056, 10032, 14777, 14778, 4989, 3062, 10035, 14773, 14774, 4985, 3063, 10033, 14775, 14776, 4987, 3053, 10034, 14771, 14772, 4990
 sub EVENT_SAY { 
   if($text=~/Hail/i){
-    quest::say("Be careful around here. $name. Injured broodlings are no use to anyone. Many of these structures are yet unstable and could fall at any time. If you're a mystic, I can teach you how to [protect] yourself.");
+    quest::say("Be careful around here. $name. Injured broodlings are no use to anyone. Many of these structures are yet unstable and could fall at any time. If you're a mystic, I can teach you how to [" . quest::saylink("protect") . "] yourself.");
   }
   if($text=~/protect/i) {
-    quest::say("Yes indeed. As a broodling, you will need some protection to avoid any... unfortunate accidents. Should you wish, I can fashion some [armor] for you from some basic components. Provided you risk your life gathering them for me first.");
+    quest::say("Yes indeed. As a broodling, you will need some protection to avoid any... unfortunate accidents. Should you wish, I can fashion some [" . quest::saylink("armor") . "] for you from some basic components. Provided you risk your life gathering them for me first.");
   }
   if($text=~/armor/i) {
-    quest::say("Armor, indeed. I can fashion protection for your [chest], [hands], [legs], or [head].");
+    quest::say("Armor, indeed. I can fashion protection for your [" . quest::saylink("chest") . "], [" . quest::saylink("hands") . "], [" . quest::saylink("legs") . "], or [" . quest::saylink("head") . "].");
   }
   if($text=~/chest/i) {
     quest::say("To make a breastplate for you, you will have to bring me some banded mail, a star ruby, some watchman's spectacles, and some nectar of isolation. Now hurry back.");

@@ -9,11 +9,11 @@ sub EVENT_SAY
 	}
 	
 	if ($text=~/ceremony/i) {
-		quest::say("The time for the tainting of the blade draws near. All new initiates of the Shai`din must take place in this. If you do not [pledge allegiance to Shai`din] then I would suggest leaving now while you still have your head.");
+		quest::say("The time for the tainting of the blade draws near. All new initiates of the Shai`din must take place in this. If you do not [" . quest::saylink("pledge allegiance to Shai`din") . "] then I would suggest leaving now while you still have your head.");
 	}
 	
 	if ($text=~/pledge allegiance/i) {
-		quest::say("You support our cause and rituals do you $name? I cannot say I am not surprised, I do not usually come across a mortal with the same intentions as yourself. As a matter of fact this is the first time. Regardless, I think that you wish to assist us and I am willing to give you a chance. Do you [agree to collect the necessary items] to forge your own Shai`din ceremonial blade?");
+		quest::say("You support our cause and rituals do you $name? I cannot say I am not surprised, I do not usually come across a mortal with the same intentions as yourself. As a matter of fact this is the first time. Regardless, I think that you wish to assist us and I am willing to give you a chance. Do you [" . quest::saylink("agree to collect the necessary items") . "] to forge your own Shai`din ceremonial blade?");
 	}
 	
 	if ($text=~/agree to collect the necessary items/i) {

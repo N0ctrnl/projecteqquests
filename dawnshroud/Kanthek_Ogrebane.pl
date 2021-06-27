@@ -1,18 +1,18 @@
 sub EVENT_SAY { 
 if($text=~/Hail/i){
-quest::say("Hello there $name. Welcome my friend! Please sit and rest yourself. There are many [predators] around. I suggest yourest a bit before continuing your journey.'");
+quest::say("Hello there $name. Welcome my friend! Please sit and rest yourself. There are many [" . quest::saylink("predators") . "] around. I suggest yourest a bit before continuing your journey.'");
 }
 if($text=~/what predators/i){
-quest::say("Just take a look around and see what's around you. There's [galorians]. [lightcrawlers]. [zelniaks]. and [rockhoppers] everywhere. They usually let us be. but I've seen 'em kill. It's not something you want to see.'");
+quest::say("Just take a look around and see what's around you. There's [" . quest::saylink("galorians") . "], [" . quest::saylink("lightcrawlers") . "], [" . quest::saylink("zelniaks") . "], and [" . quest::saylink("rockhoppers") . "] everywhere. They usually let us be. but I've seen 'em kill. It's not something you want to see.'");
 }
 if($text=~/what galorians/i){
 quest::say("It's been a while since I've seen the Tribal Council. but they have been known to show up unexpectedly. I'm sure if you find Glenda Melonfus. she'll be able to tell you more about them'");
 }
 if($text=~/what lightcrawlers/i){
-quest::say("Lightcrawlers are the biggest bugs I've ever seen. I've heard of bigger. but I've never seen 'em myself. If you're interested in getting some [armor] made out of their shells let me know and I'll see  if we can work something out.'");
+quest::say("Lightcrawlers are the biggest bugs I've ever seen. I've heard of bigger. but I've never seen 'em myself. If you're interested in getting some [" . quest::saylink("armor") . "] made out of their shells let me know and I'll see  if we can work something out.'");
 }
 if($text=~/what armor/i){
-quest::say("My cousin can make you some armor. but it'll cost ya. What exactly are you looking for? You looking for a [breastplate]. [greaves]. [helm]. [bracers]. [arms]? You tell me and I'll see what I can do. The only problem is I only have enough material to make a small set. So you might not be able to fit in 'em.'");
+quest::say("My cousin can make you some armor. but it'll cost ya. What exactly are you looking for? You looking for a [" . quest::saylink("breastplate") . "], [" . quest::saylink("greaves") . "], [" . quest::saylink("helm") . "], [" . quest::saylink("bracers") . "], [" . quest::saylink("arms") . "]? You tell me and I'll see what I can do. The only problem is I only have enough material to make a small set. So you might not be able to fit in 'em.'");
 }
 if($text=~/what breastplate/i){
 quest::say("Faber Rugon can make a fine breastplate for you. but it'll require two Pristine Lightcrawler Shells.'");

@@ -1,16 +1,16 @@
 # items: 17025, 12442, 12443
 sub EVENT_SAY { 
 if($text=~/Hail/i){
-quest::say("Greetings. friend.  I have many fine herbs for sale.  My prices are reasonable for I am not governed by the [Haggle Baron].  If you fancy yourself an adventurer. I would like to hire you for a [simple mission].");
+quest::say("Greetings. friend.  I have many fine herbs for sale.  My prices are reasonable for I am not governed by the [" . quest::saylink("Haggle Baron") . "].  If you fancy yourself an adventurer. I would like to hire you for a [" . quest::saylink("simple mission") . "].");
 }
 if($text=~/haggle baron/i){
 quest::say("Haggle Baron Klok Dun Ree is the current Haggle Baron. It is written in the law that all services shall be governed by the Haggle Baron. To do business outside of the law is forbidden, but the merchants of the Tower of Death are exempt from this rule. Klok will not test the temper of the Harbinger and Baron Eator will not upset his most powerful ally.");
 }
 if($text=~/simple mission/i){
-quest::say("I actually have a few items I am presently low on.  I would appreciate some assistance to [collect fern flowers] or maybe you are an alchemist who can [gather bone chips].");
+quest::say("I actually have a few items I am presently low on.  I would appreciate some assistance to [" . quest::saylink("collect fern flowers") . "] or maybe you are an alchemist who can [" . quest::saylink("gather bone chips") . "].");
 }
 if($text=~/fern flowers/i){
-quest::say("I have run low on fern flowers and must have more of them.  Take this [flower pouch].  Outside the city can be found carnivorous plants and a strain of them buds the flower in question.  Collect enough of these flowers to fill and combine the pouch and I shall reward you.");
+quest::say("I have run low on fern flowers and must have more of them.  Take this [" . quest::saylink("flower pouch") . "].  Outside the city can be found carnivorous plants and a strain of them buds the flower in question.  Collect enough of these flowers to fill and combine the pouch and I shall reward you.");
 quest::summonitem(17025); # Item: Fern Flower Pouch
 }
 if($text=~/bone chips/i){

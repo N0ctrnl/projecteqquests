@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("If you would like to adjust the offensive difficulty level of this npc, let me know if you would like a [low], [medium], or [hard] difficulty. Perhaps you would like to [add flurry], [remove flurry], [add rampage], [remove rampage], [add ae rampage], [remove ae rampage], [hit slower], [hit faster], [mitigate more slow], or [mitigate less slow]. You may also [repop] me to reset my settings.");
+		e.self:Say("If you would like to adjust the offensive difficulty level of this npc, let me know if you would like a [" .. eq.say_link("low") .. "], [" .. eq.say_link("medium") .. "], or [" .. eq.say_link("hard") .. "] difficulty. Perhaps you would like to [" .. eq.say_link("add flurry") .. "], [" .. eq.say_link("remove flurry") .. "], [" .. eq.say_link("add rampage") .. "], [" .. eq.say_link("remove rampage") .. "], [" .. eq.say_link("add ae rampage") .. "], [" .. eq.say_link("remove ae rampage") .. "], [" .. eq.say_link("hit slower") .. "], [" .. eq.say_link("hit faster") .. "], [" .. eq.say_link("mitigate more slow") .. "], or [" .. eq.say_link("mitigate less slow") .. "]. You may also [" .. eq.say_link("repop") .. "] me to reset my settings.");
 	elseif(e.message:findi("low")) then
     e.self:ModifyNPCStat("accuracy", "100");
     e.self:ModifyNPCStat("atk", "200");

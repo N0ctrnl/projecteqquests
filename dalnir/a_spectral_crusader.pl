@@ -8,7 +8,7 @@ sub EVENT_SAY {
   quest::emote("swipes his hand toward his own head in a chopping motion. 'Stuck between crypt and dust.'");
   }
  elsif($text=~/visceral dagger/i){ #Test of the Hero (Greenmist Quest 6/8)
-  quest::say("Shattered!! Three within the crypt. A master must go. To the [grand forge] they must go. Three become one with the spirit hammer.");
+  quest::say("Shattered!! Three within the crypt. A master must go. To the [" . quest::saylink("grand forge") . "] they must go. Three become one with the spirit hammer.");
   }
  elsif($text=~/grand forge/i){ #Test of the Hero (Greenmist Quest 6/8)
   quest::emote("points to the ground. 'Beyond the doors lies a forge unlike any other.'");

@@ -10,7 +10,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 4757})) then -- Hardams Box of Goods
-		e.self:Say("Ah Hardam sent you eh. Fair enough then, please let him know I will get to selling these goods as soon as possible and please let him know that the helm will be done soon. All I need is a certain [piece].");
+		e.self:Say("Ah Hardam sent you eh. Fair enough then, please let him know I will get to selling these goods as soon as possible and please let him know that the helm will be done soon. All I need is a certain [" .. eq.say_link("piece") .. "].");
 		e.other:Faction(1512,1); -- House of Stout
 		e.other:Faction(1508,1); -- Traders of the Haven
 		e.other:AddEXP(50);

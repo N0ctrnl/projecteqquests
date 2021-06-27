@@ -5,7 +5,7 @@ sub EVENT_SAY {
   }
   elsif($text=~/i need thinly sliced froglok/i){
   # Catfish Croak Sandwich [Part 5]
-    quest::say("I can provide thin sliced froglok meat, or rather, I used to. First I need to [sharpen the dull cutting disk].");
+    quest::say("I can provide thin sliced froglok meat, or rather, I used to. First I need to [" . quest::saylink("sharpen the dull cutting disk") . "].");
   }
   elsif($text=~/sharpen.*disk/i){
   # Catfish Croak Sandwich [Part 6]

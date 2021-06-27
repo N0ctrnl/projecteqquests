@@ -3,7 +3,7 @@
 
 sub EVENT_SAY {
   if($text =~ /Hail/i) {
-    quest::say("He.. Hello. Wou.. would you like to buy something? Be quick or [Kizdean] will return!");
+    quest::say("He.. Hello. Wou.. would you like to buy something? Be quick or [" . quest::saylink("Kizdean") . "] will return!");
   }
   if($text =~ /Kizdean/i) {
     quest::say("Sshhh..Please..save me. Get..rid..of..him.");

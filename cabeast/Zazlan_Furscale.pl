@@ -3,13 +3,13 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Greetings, youngling. Are you here seeking wisdom or are you here to [work]?");
+    quest::say("Greetings, youngling. Are you here seeking wisdom or are you here to [" . quest::saylink("work") . "]?");
   }
   if($text=~/work/i) {
-    quest::say("Ah! Excellent! Than you shall acquire wisdom THROUGH work! As a mystic, you will need to learn [arts of creation], and you can learn that by watching me work.");
+    quest::say("Ah! Excellent! Than you shall acquire wisdom THROUGH work! As a mystic, you will need to learn [" . quest::saylink("arts of creation") . "], and you can learn that by watching me work.");
   }
   if($text=~/arts of creation/i) {
-    quest::say("Yes yes... the arts of creation. You'll need to do some leg work in the fields to gather the materials for me to show you how to create [boots], [bracers], a [cloak], or [vambraces].");
+    quest::say("Yes yes... the arts of creation. You'll need to do some leg work in the fields to gather the materials for me to show you how to create [" . quest::saylink("boots") . "], [" . quest::saylink("bracers") . "], a [" . quest::saylink("cloak") . "], or [" . quest::saylink("vambraces") . "].");
   }
   if($text=~/boots/i) {
     quest::say("I'll need you to bring me some banded boots, a fire emerald, some spirit caller beads, and a rhino hoof. Come back to me when you have all the components and then give them to me, then I'll show you how to make boots.");

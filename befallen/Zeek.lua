@@ -1,7 +1,7 @@
 -- items: 18651, 18652, 18653, 18654, 13984
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Ah, so many dead to destroy, so little time. What is it you want? You seek the [potions] perhaps?");
+		e.self:Say("Ah, so many dead to destroy, so little time. What is it you want? You seek the [" .. eq.say_link("potions") .. "] perhaps?");
 	elseif(e.message:findi("potions")) then
 		e.self:Say("Give me the four clues.");
 	end

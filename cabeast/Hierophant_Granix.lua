@@ -28,7 +28,7 @@ function event_trade(e)
 		end
 		--Turn in full ornate skull case and cudgle of the heirphant
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 30988, item2 = 5146})) then
-		e.self:Say("You have done well " .. e.other:GetCleanName() .. ". Perhaps you can help clear these troubling dreams from my tired aging mind. Commune with the spirits of our Ancestors and learn from them. Never forget that the ultimate power comes from knowledge. The ancients are privy to much knowledge that mortals will never see. Should you be granted enlightenment from our ancestors, share your knowledge with me so that we may use this knowledge for the benefit of our brethren. I will continue to study the [dreams] that [cloud] my mind.");
+		e.self:Say("You have done well " .. e.other:GetCleanName() .. ". Perhaps you can help clear these troubling dreams from my tired aging mind. Commune with the spirits of our Ancestors and learn from them. Never forget that the ultimate power comes from knowledge. The ancients are privy to much knowledge that mortals will never see. Should you be granted enlightenment from our ancestors, share your knowledge with me so that we may use this knowledge for the benefit of our brethren. I will continue to study the [" .. eq.say_link("dreams") .. "] that [" .. eq.say_link("cloud") .. "] my mind.");
 		e.other:QuestReward(e.self,0,0,0,0,5148);	--SkyIron Cudgel of the Arisen
 	end
 	item_lib.return_items(e.self, e.other, e.trade)	--return items if not the ones required

@@ -4,13 +4,13 @@
 
 sub EVENT_SAY {
   if($text=~/Hail/i) {
-    quest::emote("hisses at you loudly. 'So, you bear the [mantle of a crusader], yes?  I am known as Sarth and shall reward you, provided you prove your worthiness to our cause, child of Rile.'");
+    quest::emote("hisses at you loudly. 'So, you bear the [" . quest::saylink("mantle of a crusader") . "], yes?  I am known as Sarth and shall reward you, provided you prove your worthiness to our cause, child of Rile.'");
   }
   if($text=~/mantle of a crusader/i){
-    quest::say("We shall see if you are worthy of that. I shall make [armor] for you, to aid you in your service to our Father. I specialize in the forging of [bracers], [greaves], [masks], and [breastplates]. Sirtha makes the other items of armor. Take care when you address her, hatchling. It would not be the first time a hatchling has left here with scars.");
+    quest::say("We shall see if you are worthy of that. I shall make [" . quest::saylink("armor") . "] for you, to aid you in your service to our Father. I specialize in the forging of [" . quest::saylink("bracers") . "], [" . quest::saylink("greaves") . "], [" . quest::saylink("masks") . "], and [" . quest::saylink("breastplates") . "]. Sirtha makes the other items of armor. Take care when you address her, hatchling. It would not be the first time a hatchling has left here with scars.");
   }
   if($text=~/armor/i){
-    quest::say("Yes, I shall make [armor] for you, to aid you in your service to our Father. I specialize in the forging of [bracers], [greaves], [masks], and [breastplates]. Sirtha makes the other items of armor. Take care when you address her, hatchling.  It would not be the first time a hatchling has left here with scars.");
+    quest::say("Yes, I shall make [" . quest::saylink("armor") . "] for you, to aid you in your service to our Father. I specialize in the forging of [" . quest::saylink("bracers") . "], [" . quest::saylink("greaves") . "], [" . quest::saylink("masks") . "], and [" . quest::saylink("breastplates") . "]. Sirtha makes the other items of armor. Take care when you address her, hatchling.  It would not be the first time a hatchling has left here with scars.");
   }
   if($text=~/bracers/i){
     quest::say("Have you ever seen Bloodgills? I hear they will devour a broodling in seconds and that their scales are tough as iron. Bring me some of these scales, a banded bracer, and a sapphire as blue as the sky. Only then will I give the bracer to you, broodling.");

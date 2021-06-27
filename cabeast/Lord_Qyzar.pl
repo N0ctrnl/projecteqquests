@@ -6,13 +6,13 @@ sub EVENT_SAY {
   quest::emote("looks upon you with a sneer. 'What is the year of our birth and who was our Father?'");
   }
  elsif($text=~/the year is 371 AG and our father is Rile/i){ #Test of the Zealot (Greenmist Quest 4/8)
-  quest::say("You are a student of our ways? I would hope so. I seek a knight in search of a way to prove his allegiance and a way to earn his [zealot khukri].");
+  quest::say("You are a student of our ways? I would hope so. I seek a knight in search of a way to prove his allegiance and a way to earn his [" . quest::saylink("zealot khukri") . "].");
   }
  elsif($text=~/zealot khukri/i){ #Test of the Zealot (Greenmist Quest 4/8)
-  quest::say("In search of a zealot khukri? I have heard much of your deeds to aid us. I offer it to you in exchange for your service. I have dispatched a knight named Grizzle to seek out the Kromdul fortress called Chalp. He was to secretly map Chalp and return with a [Chalp diagram]. He has yet to return. Perhaps you can [rescue Grizzle].");
+  quest::say("In search of a zealot khukri? I have heard much of your deeds to aid us. I offer it to you in exchange for your service. I have dispatched a knight named Grizzle to seek out the Kromdul fortress called Chalp. He was to secretly map Chalp and return with a [" . quest::saylink("chalp diagram") . "]. He has yet to return. Perhaps you can [" . quest::saylink("rescue Grizzle") . "].");
   }
  elsif($text=~/chalp diagram/i){ #Test of the Zealot (Greenmist Quest 4/8)
-  quest::emote("grimaces in pure disgust. 'I have been awaiting the Chalp diagram from a knight named Grizzle, but alas, he has proven himself weak. He has been taken prisoner by one of the Kromdul of Chalp. If only there were another knight I could send to [rescue Grizzle] and return the Chalp diagram...'");
+  quest::emote("grimaces in pure disgust. 'I have been awaiting the Chalp diagram from a knight named Grizzle, but alas, he has proven himself weak. He has been taken prisoner by one of the Kromdul of Chalp. If only there were another knight I could send to [" . quest::saylink("rescue Grizzle") . "] and return the Chalp diagram...'");
   }
  elsif($text=~/rescue grizzle/i){ #Test of the Zealot (Greenmist Quest 4/8)
   quest::say("If you can find the knight in Chalp and have him hand you the Chalp diagram, you shall become a zealot and wield a zealot khukri. All I need are the Chalp diagram and your knight khukri.");
@@ -28,7 +28,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
  if(plugin::check_handin(\%itemcount, 12496 => 1, 5123 => 1)) { #Test of the Zealot (Greenmist Quest 4/8)
-  quest::say("At last!! The Chalp diagram. I shall see that the emperor gets this at once. You have proven yourself more than just a mere knight, you are a zealot. Being new to the temple we have need of you in a [matter of betrayal].");
+  quest::say("At last!! The Chalp diagram. I shall see that the emperor gets this at once. You have proven yourself more than just a mere knight, you are a zealot. Being new to the temple we have need of you in a [" . quest::saylink("matter of betrayal") . "].");
   quest::summonitem(5124); #Zealot's Khukri
   quest::givecash("0","0","6","1"); 
   quest::exp(1600);
@@ -37,7 +37,7 @@ sub EVENT_ITEM {
   quest::faction(441,10); # Faction: Legion of Cabilis
  }
  elsif(plugin::check_handin(\%itemcount, 1729 => 1, 1730 => 1, 5124 => 1)) { #Test of Betrayal (Greenmist Quest 5/8)
-  quest::say("Congratulations! You are now a true crusader, but there is no time for celebration. We have lost two of our operatives. Crusaders Golin and Fodcod were dispatched to seek out an ancient artifact, the [visceral dagger]. Where they have gone, I do not know. They have been gone far too long. Find them and return the dagger to me with your crusader khukri and you shall be a hero.");
+  quest::say("Congratulations! You are now a true crusader, but there is no time for celebration. We have lost two of our operatives. Crusaders Golin and Fodcod were dispatched to seek out an ancient artifact, the [" . quest::saylink("visceral dagger") . "]. Where they have gone, I do not know. They have been gone far too long. Find them and return the dagger to me with your crusader khukri and you shall be a hero.");
   quest::summonitem(5125); #Crusader's Khukri
   quest::givecash("0","0","0","1"); 
   quest::exp(2000);

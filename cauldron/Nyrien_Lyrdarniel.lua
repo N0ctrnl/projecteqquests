@@ -6,7 +6,7 @@ function event_say(e)
 			e.self:Say("Greetings, my friend! You may rest here if you like. There are many dangers in this land. May Tunare watch over you when you depart our camp.");
 			eq.signal(70007,5); -- NPC: Ghilanbiddle_Nylwadil
 		elseif(e.message:findi("healed")) then
-			e.self:Say("I see. Then sit and rest a while. I must conserve my strength for our own interests. When you are ready to leave, go and ask Sigan to [escort you to the pass]. There, you can leave this dangerous land.");
+			e.self:Say("I see. Then sit and rest a while. I must conserve my strength for our own interests. When you are ready to leave, go and ask Sigan to [" .. eq.say_link("escort you to the pass") .. "]. There, you can leave this dangerous land.");
 		end
 	else
 		e.self:Say("You have some nerve to approach a loyal member of the Paladins of Tunare! Run, while you can!");

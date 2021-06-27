@@ -31,14 +31,14 @@ function event_say(e)
 		e.other:SummonItem(19635); -- Item: Crude Vambrace Mold
 		e.other:Ding();
 	elseif (e.message:findi("hail")) then
-		e.self:Say("Hail " .. e.other:GetCleanName() .. "! You must be one of Garret's new knights. Garret has asked me to help get you outfitted in a suit of armor to protect you from the weapons of our foes. I have assembled a kit for you that will allow you to construct the armor pieces once you have gathered the necessary components. The required components vary according to which piece of Plague Knight Armor you are planning on assembling. Do you wish to craft a [plague knight helm], a [plague knight bracer], [plague knight gauntlets], [plague knight boots], [plague knight vambraces], [plague knight greaves], or a [plague knight breastplate].");
+		e.self:Say("Hail " .. e.other:GetCleanName() .. "! You must be one of Garret's new knights. Garret has asked me to help get you outfitted in a suit of armor to protect you from the weapons of our foes. I have assembled a kit for you that will allow you to construct the armor pieces once you have gathered the necessary components. The required components vary according to which piece of Plague Knight Armor you are planning on assembling. Do you wish to craft a [" .. eq.say_link("plague knight helm") .. "], a [" .. eq.say_link("plague knight bracer") .. "], [" .. eq.say_link("plague knight gauntlets") .. "], [" .. eq.say_link("plague knight boots") .. "], [" .. eq.say_link("plague knight vambraces") .. "], [" .. eq.say_link("plague knight greaves") .. "], or a [" .. eq.say_link("plague knight breastplate") .. "].");
 	end
 end
 
 function event_trade(e)
 	local item_lib = require("items");
 	if (item_lib.check_turn_in(e.trade, {item1 = 10987})) then
-		e.self:Say("Hail " .. e.other:GetName() .. "! You must be one of Garret's new knights. Garret has asked me to help get you outfitted in a suit of armor to protect you from the weapons of our foes. I have assembled a kit for you that will allow you to construct the armor pieces once you have gathered the necessary components. The required components vary according to which piece of Plague Knight Armor you are planning on assembling. Do you wish to craft a [plague knight helm], a [plague knight bracer], [plague knight gauntlets], [plague knight boots], [plague knight vambraces], [plague knight greaves], or a [plague knight breastplate].");
+		e.self:Say("Hail " .. e.other:GetCleanName() .. "! You must be one of Garret's new knights. Garret has asked me to help get you outfitted in a suit of armor to protect you from the weapons of our foes. I have assembled a kit for you that will allow you to construct the armor pieces once you have gathered the necessary components. The required components vary according to which piece of Plague Knight Armor you are planning on assembling. Do you wish to craft a [" .. eq.say_link("plague knight helm") .. "], a [" .. eq.say_link("plague knight bracer") .. "], [" .. eq.say_link("plague knight gauntlets") .. "], [" .. eq.say_link("plague knight boots") .. "], [" .. eq.say_link("plague knight vambraces") .. "], [" .. eq.say_link("plague knight greaves") .. "], or a [" .. eq.say_link("plague knight breastplate") .. "].");
 		e.other:SummonItem(17124); -- Item: Mail Assembly Kit
 		e.other:Ding();
 	end

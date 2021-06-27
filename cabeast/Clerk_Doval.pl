@@ -1,13 +1,13 @@
 # items: 18240, 18250, 12460, 12461
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::emote("takes a sip of lager and looks up at you. 'Ahh! An adventurer of sorts? Looking for work, are we? If you have the time, I might have a bit of a [proposition] for you.'");
+    quest::emote("takes a sip of lager and looks up at you. 'Ahh! An adventurer of sorts? Looking for work, are we? If you have the time, I might have a bit of a [" . quest::saylink("proposition") . "] for you.'");
   }
   if ($text=~/proposition/i) {
-    quest::say("I was sent by the Legion to deliver a restraining order to a few of the troopers. They have been ordered to stay away from the tavern. They have spent too much time drinking and not enough training. I am to have them initial the restraint order list, but my feet are killing me. Perhaps you could [deliver the restraining order]?");
+    quest::say("I was sent by the Legion to deliver a restraining order to a few of the troopers. They have been ordered to stay away from the tavern. They have spent too much time drinking and not enough training. I am to have them initial the restraint order list, but my feet are killing me. Perhaps you could [" . quest::saylink("I will deliver the restraining order",false,"deliver the restraining order") . "]?");
   }
   if ($text=~/restraining order/i) {
-    quest::say("Here is the restraint order. Go to the troopers and ask them to [sign the restraining order]. Also, make sure to have them sign it in alphabetical order. I am a very big stickler about this. The troopers' names are as follows; Ozlot, Ogmire, Nish Nish, Frogzin, Gummin, Inkin, Roklon, Taer, Fryp and Selbat. When all is done, I shall pay you.");
+    quest::say("Here is the restraint order. Go to the troopers and ask them to [" . quest::saylink("sign the restraining order") . "]. Also, make sure to have them sign it in alphabetical order. I am a very big stickler about this. The troopers' names are as follows; Ozlot, Ogmire, Nish Nish, Frogzin, Gummin, Inkin, Roklon, Taer, Fryp and Selbat. When all is done, I shall pay you.");
     quest::summonitem(18240); #Legion Order (0 signed)
   }
 }

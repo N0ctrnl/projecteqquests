@@ -3,7 +3,7 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Get a load of my sister over yonder. She doesn't know when to give up the swashbuckling. Idiocy is more like it. She's not the only one around here with some [tasks] that need... well, tasking. You might say I'm a taskmaster, only without the whip. I'm not sure how to even use a whip though, so maybe it's for the best.");
+    quest::say("Get a load of my sister over yonder. She doesn't know when to give up the swashbuckling. Idiocy is more like it. She's not the only one around here with some [" . quest::saylink("tasks") . "] that need... well, tasking. You might say I'm a taskmaster, only without the whip. I'm not sure how to even use a whip though, so maybe it's for the best.");
   }
   if($text=~/tasks/i) {
     if($ulevel >= 12) {
