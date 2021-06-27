@@ -7,7 +7,7 @@ function event_say(e)
 end
 
 function event_spawn(e)				-- Monk Epic 1.0
-	e.self:Say("Im ready when you are. Tell me when you are [prepared].");
+	e.self:Say("Im ready when you are. Tell me when you are [" .. eq.say_link("I am prepared",false,"prepared") .. "].");
 end
 
 function event_death_complete(e)	-- Monk Epic 1.0

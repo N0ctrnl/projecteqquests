@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, " .. e.other:GetName() .. ". This is my domain and I hope you have a peaceful stay. That is, unless the [lunatic sent you].");
+		e.self:Say("Greetings, " .. e.other:GetName() .. ". This is my domain and I hope you have a peaceful stay. That is, unless the [" .. eq.say_link("The lunatic sent me",false,"lunatic sent you") .. "].");
 	elseif(e.message:findi("lunatic sent me")) then
-		e.self:Say("Oh, I see. I suppose you [want these cursed markers] that lunatic made me hold?");
+		e.self:Say("Oh, I see. I suppose you [" .. eq.say_link("I want the cursed markers",false,"want these cursed markers") .. "] that lunatic made me hold?");
 	elseif(e.message:findi("cursed markers")) then
-		e.self:Say("I am afraid that I can not just give them away. The lunatic had them cursed. They make me do [strange things]");
+		e.self:Say("I am afraid that I can not just give them away. The lunatic had them cursed. They make me do [" .. eq.say_link("What strange things?", false, "strange things") .. "]");
 	elseif(e.message:findi("strange things")) then
 		e.self:Say("Like ATTACK you!");
 		eq.attack(e.other:GetName());

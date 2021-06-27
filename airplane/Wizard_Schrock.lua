@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, " .. e.other:GetName() .. ". Do you believe that you are a [great Wizard]?");
+		e.self:Say("Greetings, " .. e.other:GetName() .. ". Do you believe that you are a [" .. eq.say_link("great Wizard") .. "]?");
 	elseif(e.message:findi("great wizard")) then
 		e.self:Say("I will not take your word for it! You must prove your greatness to my apprentices. Do you wish to be tested by Neasin or by Abec?");
 	elseif((e.message:findi("Neasin")) and (e.other:Class() == "Wizard")) then

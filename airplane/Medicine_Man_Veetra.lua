@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Good day to you, " .. e.other:GetName() .. ". Are you a shaman of [much experience]?");
+		e.self:Say("Good day to you, " .. e.other:GetName() .. ". Are you a shaman of [" .. eq.say_link("I am a shaman of much experience",false,"much experience") .. "]?");
 	elseif(e.message:findi("much experience")) then
 		e.self:Say("Then welcome to the tests of the medicine man. I have two tomes, each tells of a shaman of great accomplishment. They are Gina MacStargan and Ooga. Simply tell me the name of the shaman you want to be tested by.");
 	elseif((e.message:findi("Gina MacStargan")) and (e.other:Class() == "Shaman")) then

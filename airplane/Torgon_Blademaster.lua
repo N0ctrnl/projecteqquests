@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, " .. e.other:GetName() .. ". Are you a [true warrior]?");
+		e.self:Say("Greetings, " .. e.other:GetName() .. ". Are you a [" .. eq.say_link("true warrior") .. "]?");
 	elseif(e.message:findi("true warrior")) then
 		e.self:Say("Then you shall be tested as one. Choose. Do you wish to be tested by Falorn or Ogog?");
 	elseif((e.message:findi("falorn")) and (e.other:Class() == "Warrior")) then
