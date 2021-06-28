@@ -47,7 +47,7 @@ if($text=~/I need a Mammoth Hide Parchment/i)
     quest::summonitem(55162); # Item: White Rose Tunic Pattern
   }
   if ($text=~/job/i) {
-    quest::say("The Gnolls of Blackburrow have long been a thorn in our side. If you could venture to Blackburrow and kill some of these gnolls and then bring me [" . quest::saylink("What proof?",0"proof") . "] of your victory, I could part with a nice dagger I have.");
+    quest::say("The Gnolls of Blackburrow have long been a thorn in our side. If you could venture to Blackburrow and kill some of these gnolls and then bring me [" . quest::saylink("What proof?",0,"proof") . "] of your victory, I could part with a nice dagger I have.");
   }
   if ($text=~/proof/i) {
     quest::say("Bring me one Gnoll Ulna, one Gnoll Pelvis, one Severed Gnoll Foot, and one High Quality Gnoll Fur. Do so and you shall be rewarded. Good luck to you, $name.");

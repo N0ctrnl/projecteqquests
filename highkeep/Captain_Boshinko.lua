@@ -7,7 +7,7 @@ function event_say(e)
 	elseif(e.message:findi("bounty hunter you requested")) then
 		e.self:Say("It is about time.  I have been waiting for you for ages!  Your [" .. eq.say_link("What reputation?",false,"reputation") .. "] precedes you.");
 	elseif(e.message:findi("reputation")) then
-		e.self:Say(string.format("You humor me. %s!  I would have guessed someone like yourself would have little time for humor.  Nevertheless. would you [" .. eq.say_link("I would like to hear about the job",false"like to hear about the job") .. "] I have for you?",e.other:GetName()));
+		e.self:Say(string.format("You humor me. %s!  I would have guessed someone like yourself would have little time for humor.  Nevertheless. would you [" .. eq.say_link("I would like to hear about the job",false,"like to hear about the job") .. "] I have for you?",e.other:GetName()));
 	elseif((e.message:findi("about the job") or e.message:findi("like to know more")) and fac > 5) then
 		e.self:Say("Your name is as respected as the name of the Karana bandits.  Leave my presence while you still have legs to run with.");
 	elseif((e.message:findi("about the job") or e.message:findi("like to know more")) and fac == 5) then
