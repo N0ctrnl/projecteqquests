@@ -5,16 +5,16 @@
 
 sub EVENT_SAY { 
 	if ($text=~/Hail/i){
-  	quest::say("Wot do you want?  I be tired after [big trouble].'  This Troll's speech gives you the impression that he is not the smartest being you have ever dealt with");
+  	quest::say("Wot do you want?  I be tired after [" . quest::saylink("What big trouble?",0,"big trouble") . "].'  This Troll's speech gives you the impression that he is not the smartest being you have ever dealt with");
   }
 	if ($text=~/big trouble/i){
-  	quest::say("Me's and me crew come to dock here but a big storm come and smash our ship. I thinks me the only one alive now. Da ship and all [loots] are now gone.");
+  	quest::say("Me's and me crew come to dock here but a big storm come and smash our ship. I thinks me the only one alive now. Da ship and all [" . quest::saylink("What loots?",0,"loots") . "] are now gone.");
   }
 	if ($text=~/loots/i){
-  	quest::say("Da loots from da other ship dat we attacked. Dat ship gone now too becuz of da big storm. ' An almost sly look seems to grow across the troll's scarred face. 'Yous wants da loots? Mebbe me can helps you if you can [help] me?");
+  	quest::say("Da loots from da other ship dat we attacked. Dat ship gone now too becuz of da big storm. ' An almost sly look seems to grow across the troll's scarred face. 'Yous wants da loots? Mebbe me can helps you if you can [" . quest::saylink("I will help you",0,"help") . "] me?");
   }
 	if ($text=~/help/i){
-  	quest::say("Now dat I have no ship, methinks dat I will have ta work in da mines agin. Me not want that. Dere be no ale in dere and me luvs da ale. You gets me da [safe passage] to da maynland and mebbe me can tell you more about da loots.");
+  	quest::say("Now dat I have no ship, methinks dat I will have ta work in da mines agin. Me not want that. Dere be no ale in dere and me luvs da ale. You gets me da [" . quest::saylink("What safe passage?",0,"safe passage") . "] to da maynland and mebbe me can tell you more about da loots.");
   }
 	if ($text=~/safe passage/i){
   	quest::say("I dunno. Mebbe you can gets me a note dat says me can ride on a ship to da maynland or sumthing.");

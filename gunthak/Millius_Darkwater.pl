@@ -9,14 +9,14 @@ sub EVENT_SAY {
       quest::emote("looks somewhat startled as you approach him. 'Oh hello, $name. The tides of Prexus shift angrily these days.  Be careful as you explore the island, this is a most accursed place.'");
     }
     else {
-      quest::emote("lifts his sword out of the water at his feet and scans his eyes across you. 'Hello, $name. The waters stir angrily today. Prexus is not pleased at the tarnishing of his waters by the spawn of Innoruuk. The Deepwater Knights have been trying to locate this [place] for many years.'");
+      quest::emote("lifts his sword out of the water at his feet and scans his eyes across you. 'Hello, $name. The waters stir angrily today. Prexus is not pleased at the tarnishing of his waters by the spawn of Innoruuk. The Deepwater Knights have been trying to locate this [" . quest::saylink("What place?",0,"place") . "] for many years.'");
     }
   }
   if ($text=~/place/i) {
-    quest::say("The legends of Broken Skull Rock have been whispered for years. Indeed several of our greatest vessels were lost while in search of this island. Many of our [knights] died trying to clease Prexus' waters of this great Evil.");
+    quest::say("The legends of Broken Skull Rock have been whispered for years. Indeed several of our greatest vessels were lost while in search of this island. Many of our [" . quest::saylink("What knights?",0,"knights") . "] died trying to clease Prexus' waters of this great Evil.");
   }
   if ($text=~/knights/i) {
-    quest::say("Most recently a Cavalier named Chester Steelblade went in search of the legend. He was gone at sea for months before we recieved word from him. The letter we received spoke of a map that he'd found as well as a somewhat cryptic reference to having found the [key] to Broken Skull Rock. One of our [clerics] took a small group out in search of him, but we have received no news from either group.");
+    quest::say("Most recently a Cavalier named Chester Steelblade went in search of the legend. He was gone at sea for months before we recieved word from him. The letter we received spoke of a map that he'd found as well as a somewhat cryptic reference to having found the [" . quest::saylink("What key?",0,"key") . "] to Broken Skull Rock. One of our [" . quest::saylink("clerics") . "] took a small group out in search of him, but we have received no news from either group.");
   }
   if ($text=~/clerics/i) {
     quest::say("The cleric that went in search of Chester's crew is called Alina Crystalia and she was barely more than a student when she left. We didn't want to let her go, but ultimately we had little say in the matter. She was always very fond of Chester. She may have in fact found him, although I suspect too late to save either of them. Clerics of Prexus are required to carry with them a Deepwater Emblem to identify them, if nothing else I hope to find Alina's Emblem to return it to Erudin.");

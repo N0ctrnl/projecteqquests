@@ -2,24 +2,24 @@
 function event_say(e)
 	if(e.other:GetFaction(e.self) < 6) then
 		if(e.message:findi("assist")) then
-			e.self:Say("I was ordered by Kylan O'Danos to personally escort a young warrior sent to fetch the remains of his cousin, Ivan McMannus. I forgot and spent me greater time testing out the fine spirits. Now I must find the courier and the remains. Will ye [search fer the courier]?");
+			e.self:Say("I was ordered by Kylan O'Danos to personally escort a young warrior sent to fetch the remains of his cousin, Ivan McMannus. I forgot and spent me greater time testing out the fine spirits. Now I must find the courier and the remains. Will ye [" .. eq.say_link("I will search fer the courier",false,"search fer the courier") .. "]?");
 		elseif(e.message:findi("search fer the courier")) then
 			e.self:Say("Thank ye, " .. e.other:GetName() .. "! Go to Everfrost Peaks and seek out Arnis McLish. Ask him where Megan, the courier, is. Once ye find Megan, would ye ask her where Ivan's remains are? Please go, at once!");
 		end
 	end
 	if(e.other:GetFaction(e.self) < 5) then
 		if(e.message:findi("hail")) then
-			e.self:Say("Hail, " .. e.other:GetName() .. "! Have ye come to train?  I train all warriors. All Wolves o' the North must be strong warriors and swift as well. Are ye a young wolf, then? If so, maybe ye can [assist Renth] with his wee problem, eh?");
+			e.self:Say("Hail, " .. e.other:GetName() .. "! Have ye come to train?  I train all warriors. All Wolves o' the North must be strong warriors and swift as well. Are ye a young wolf, then? If so, maybe ye can [" .. eq.say_link("I will assist Renth",false,"assist Renth") .. "] with his wee problem, eh?");
 		elseif(e.message:findi("dangerous matter")) then
-				e.self:Say("A murder was done in Halas recently.  A couple were killed by a pair o' rogues fer a mere pouch o' copper.  The shaman gave chase and the main rogue, Paglan, fell beneath an ice floe.  One got away.  We must [hunt the murderer].  Will ye help?");
+				e.self:Say("A murder was done in Halas recently.  A couple were killed by a pair o' rogues fer a mere pouch o' copper.  The shaman gave chase and the main rogue, Paglan, fell beneath an ice floe.  One got away.  We must [" .. eq.say_link("I will hunt the murderer",false,"hunt the murderer") .. "].  Will ye help?");
 		elseif(e.message:findi("hunt the murderer")) then
-				e.self:Say("Twas good old Dok whose brother and wife were slain.  Speak with him at his shop.  Ask him if he has [any information about the crime].  Return the head of the murderer and I'll give ye a [Langseax].");
+				e.self:Say("Twas good old Dok whose brother and wife were slain.  Speak with him at his shop.  Ask him if he has any information about the crime.  Return the head of the murderer and I'll give ye a [" .. eq.say_link("What is the Langseax?",false,"Langseax") .. "].");
 		elseif(e.message:findi("langseax")) then
 				e.self:Say("The Langseax was crafted to be wielded by a warrior only.  Tis a one-handed slashing weapon with great balance to assist the warrior who masters it.");
 		end
 	elseif(e.other:GetFaction(e.self) == 5) then
 		if((e.message:findi("dangerous matter") or e.message:findi("hunt the murderer") or e.message:findi("langseax"))) then
-				e.self:Say("The Wolves o' the North show ye no ill will, but there's much ye must do t' earn our trust.  Perhaps ye should speak with Lysbith and inquire o' the [gnoll bounty].");
+				e.self:Say("The Wolves o' the North show ye no ill will, but there's much ye must do t' earn our trust.  Perhaps ye should speak with Lysbith and inquire o' the [" .. eq.say_link("What gnoll bounty?",false,"gnoll bounty") .. "].");
 		end		
 	else
 		if(e.message:findi("assist") or e.message:findi("search fer the courier") or e.message:findi("dangerous matter") or e.message:findi("hunt the murderer") or e.message:findi("langseax")) then
@@ -32,7 +32,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(e.other:GetFaction(e.self) < 6) then
 		if(item_lib.check_turn_in(e.trade, {item1 = 13246})) then
-			e.self:Say("Good work!! Kylan will never know o' me negligence. I owe ye one, young warrior. Let's call it even with this. Twas found by one of our foraging parties. It is still useful. And... I believe ye can assist with a more [dangerous matter] as well");
+			e.self:Say("Good work!! Kylan will never know o' me negligence. I owe ye one, young warrior. Let's call it even with this. Twas found by one of our foraging parties. It is still useful. And... I believe ye can assist with a more [" .. eq.say_link("What dangerous matter?",false,"dangerous matter") .. "] as well");
 			e.other:Ding();
 			e.other:SummonItem(eq.ChooseRandom(17009, 17001)); -- Item(s): Purse (17009)
 			e.other:Faction( 320, 5); -- Faction: Wolves of the North
@@ -41,7 +41,7 @@ function event_trade(e)
 			e.other:Faction( 311, 5); -- Faction: Steel Warriors
 			e.other:AddEXP(2000);
 		elseif(item_lib.check_turn_in(e.trade, {item1 = 13249, item2 = 13248, item3 = 13247, item4 = 13233})) then
-			e.self:Say("Thank ye, " .. e.other:GetName() .. "! I knew ye could do it. It is a sad thing, but at least now he can rest in peace. Here is something for your efforts. If ye are interested, there is a [dangerous matter] that needs to be looked into.");
+			e.self:Say("Thank ye, " .. e.other:GetName() .. "! I knew ye could do it. It is a sad thing, but at least now he can rest in peace. Here is something for your efforts. If ye are interested, there is a [" .. eq.say_link("What dangerous matter?",false,"dangerous matter") .. "] that needs to be looked into.");
 			e.other:Ding();
 			e.other:AddEXP(3000);
 			e.other:GiveCash(0,0,8,0);

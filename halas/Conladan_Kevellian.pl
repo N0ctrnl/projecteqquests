@@ -4,10 +4,10 @@
 
 sub EVENT_SAY {
   if (($text=~/hail/i) && ($class eq "Rogue")) {
-    quest::say("The Order of the White Rose welcomes you, young rogue. Have you come to begin your [training]?");
+    quest::say("The Order of the White Rose welcomes you, young rogue. Have you come to begin your [" . quest::saylink("I have come to begin my training",0,"training") . "]?");
   }
   if ($text=~/training/i) {
-    quest::say("I recommend that all starting rogues complete my training and craft a set of [armor] to help them in their perilous adventures that lie ahead.");
+    quest::say("I recommend that all starting rogues complete my training and craft a set of [" . quest::saylink("What armor?",0,"armor") . "] to help them in their perilous adventures that lie ahead.");
   }
 if($text=~/I need a Mammoth Hide Parchment/i)
 	{
@@ -15,7 +15,7 @@ if($text=~/I need a Mammoth Hide Parchment/i)
 	quest::summonitem(12621); # Item: Mammoth Hide Parchment
 	}
   if ($text=~/armor/i) {
-    quest::say("It is a set of armor worn only by the White Rose rogues of Halas. It will serve you well for a good period of time in your beginning adventures. Take this White Rose Assembly Kit. You will use it to craft the various pieces of your White Rose armor. When you combine components in your kit, make sure they are un-stacked. Simply tell me what piece you would like to craft first, and I will give you instructions. The different pieces are [cap], [bracers], [sleeves], [boots], [leggings], [gloves], and [tunic].");
+    quest::say("It is a set of armor worn only by the White Rose rogues of Halas. It will serve you well for a good period of time in your beginning adventures. Take this White Rose Assembly Kit. You will use it to craft the various pieces of your White Rose armor. When you combine components in your kit, make sure they are un-stacked. Simply tell me what piece you would like to craft first, and I will give you instructions. The different pieces are [" . quest::saylink("cap") . "], [" . quest::saylink("bracers") . "], [" . quest::saylink("sleeves") . "], [" . quest::saylink("boots") . "], [" . quest::saylink("leggings") . "], [" . quest::saylink("gloves") . "], and [" . quest::saylink("tunic") . "].");
     quest::summonitem(55163); # Item: White Rose Assembly Kit
   }
   if ($text=~/cap/i) {
@@ -43,11 +43,11 @@ if($text=~/I need a Mammoth Hide Parchment/i)
     quest::summonitem(55161); # Item: White Rose Gloves Pattern
   }
   if ($text=~/tunic/i) {
-    quest::say("The most important part of your White Rose Armor ensemble; the Tunic of the White Rose. This very important part of your armor can be assembled by collecting one Ruined Wolf Pelt, three Patches of Gnoll Fur, one Spiderling Silk, and one Perfect Gnoll Skin. You might have to journey to Blackburrow to find the gnoll skin. Once you have combined these items in your Assembly Kit, take the White Rose Tunic Material to a loom along with this pattern and create your new tunic. Once you have completed your tunic, I have another [job] for you if you are looking for adventure.");
+    quest::say("The most important part of your White Rose Armor ensemble; the Tunic of the White Rose. This very important part of your armor can be assembled by collecting one Ruined Wolf Pelt, three Patches of Gnoll Fur, one Spiderling Silk, and one Perfect Gnoll Skin. You might have to journey to Blackburrow to find the gnoll skin. Once you have combined these items in your Assembly Kit, take the White Rose Tunic Material to a loom along with this pattern and create your new tunic. Once you have completed your tunic, I have another [" . quest::saylink("What job?",0,"job") . "] for you if you are looking for adventure.");
     quest::summonitem(55162); # Item: White Rose Tunic Pattern
   }
   if ($text=~/job/i) {
-    quest::say("The Gnolls of Blackburrow have long been a thorn in our side. If you could venture to Blackburrow and kill some of these gnolls and then bring me [proof] of your victory, I could part with a nice dagger I have.");
+    quest::say("The Gnolls of Blackburrow have long been a thorn in our side. If you could venture to Blackburrow and kill some of these gnolls and then bring me [" . quest::saylink("What proof?",0"proof") . "] of your victory, I could part with a nice dagger I have.");
   }
   if ($text=~/proof/i) {
     quest::say("Bring me one Gnoll Ulna, one Gnoll Pelvis, one Severed Gnoll Foot, and one High Quality Gnoll Fur. Do so and you shall be rewarded. Good luck to you, $name.");

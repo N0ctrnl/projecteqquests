@@ -1,9 +1,9 @@
 -- items: 18164, 18154, 18152, 18156
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Hail. %s - Are you [interested] in helping the League of Antonican Bards by delivering some [mail]?",e.other:GetName()));
+		e.self:Say(string.format("Hail. %s - Are you [" .. eq.say_link("I am interested",false,"interested") .. "] in helping the League of Antonican Bards by delivering some [" .. eq.say_link("I am interested in delivering mail",false,"mail") .. "]?",e.other:GetName()));
 	elseif(e.message:findi("I am interested in delivering mail")) then
-		e.self:Say("I have messages that need to go to Freeport and to Qeynos.  Will you [deliver] mail [to Freeport] or [to Qeynos] for me?"); 
+		e.self:Say("I have messages that need to go to Freeport and to Qeynos.  Will you deliver mail to [" .. eq.say_link("I will deliver mail to Freeport",false,"Freeport") .. "] or to [" .. eq.say_link("I will deliver mail to Qeynos",false,"Qeynos") .. "] for me?"); 
 	elseif(e.message:findi("deliver to freeport")) then
 		e.self:Say("Take this pouch of mail to Ton Twostring. You can find him at the bard guild hall. I'm sure he will compensate you for your trouble.");
 		e.other:SummonItem(18164); -- Item: Pouch of Mail (Freeport)

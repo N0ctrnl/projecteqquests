@@ -27,9 +27,9 @@ end
 function event_say(e)
 	if (event_started == 0) then
 		if(e.message:findi("hail")) then
-		  e.self:Say("'Ahh a visitor, I see? Welcome to the Cave of the Damned. I am the keeper of these caves, and I have been charged with holding the spiritual [manifestations] at bay. Many bloody battles have been fought on the shores of Gunthak, many more battles will be fought here.'");
+		  e.self:Say("'Ahh a visitor, I see? Welcome to the Cave of the Damned. I am the keeper of these caves, and I have been charged with holding the spiritual [" .. eq.say_link("What manifestation?",false,"manifestations") .. "] at bay. Many bloody battles have been fought on the shores of Gunthak, many more battles will be fought here.'");
 		elseif(e.message:findi("manifestations")) then
-		  e.self:Say("'Most of the spirits that perish on the beach move on to the next world, though a few remain bound to their ships or comrades and remain on the shore.  Every once in a great while, however, a spirit breaks its bond to the beach and is drawn to this cave.  There is magic in this cave, dark magic.  The spirits that find their way here draw power from the magic in the caves.  I assure that the spirits that find their way here remain contained in the cave, along with their [treasures].'");
+		  e.self:Say("'Most of the spirits that perish on the beach move on to the next world, though a few remain bound to their ships or comrades and remain on the shore.  Every once in a great while, however, a spirit breaks its bond to the beach and is drawn to this cave.  There is magic in this cave, dark magic.  The spirits that find their way here draw power from the magic in the caves.  I assure that the spirits that find their way here remain contained in the cave, along with their [" .. eq.say_link("What treasures?",false,"treasures") .. "].'");
 		elseif(e.message:findi("treasures")) then
 		  e.self:Say("'Finger bones.  There is strong magic in the bones of our fingers, and I use such bones to summon the spirits, as well as keep them bound to this cave.  Bring me four identical finger bones, the better condition the bones are in, the stronger the spirits I call will be.'");
 		end

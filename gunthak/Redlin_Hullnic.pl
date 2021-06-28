@@ -5,7 +5,7 @@
 
 sub EVENT_SAY{
   if($text=~/hail/i) {
-    quest::say("Eh, who's there? Yender is that you? No you're far too tall to be Yender. You must be one o' them [pirates]!' Redlin then begins to beat furiously on your ankle with his staff. Furiously might be a slightly strong word, as he doesn't seem to be doing any real damage.");
+    quest::say("Eh, who's there? Yender is that you? No you're far too tall to be Yender. You must be one o' them [" . quest::saylink("What pirates?",0,"pirates") . "]!' Redlin then begins to beat furiously on your ankle with his staff. Furiously might be a slightly strong word, as he doesn't seem to be doing any real damage.");
   }
   if($text=~/not a pirate/i) {
     quest::say("Not a pirate, aye? Well lucky thing for you, I would have given you a real thrashing with my stick if you were! I don't suppose you know where I could get a good pair of gnomish glasses around here do ya? Mine broke on the boat ride over and I can't see a thing without 'em.");

@@ -5,7 +5,7 @@
 sub EVENT_SAY {
   if($text=~/hail/i) {
     quest::emote("sways back and forth, rocking with the gentle motions of the tide. You are nearly mesmerized by its periodic fluctuation, when it suddenly speaks.");
-    quest::say("I watch you as you watch me, and I wonder. Do you realize how to become empty of wishes, of dreams, of hope and sorrow? What do you know, strange one, about the virtue of null emotion? Do you understand how to be as unwavering as the ocean itself? Can you envision yourself as the pebble in the river? Can you mute feeling? Do you [dare to learn]?");
+    quest::say("I watch you as you watch me, and I wonder. Do you realize how to become empty of wishes, of dreams, of hope and sorrow? What do you know, strange one, about the virtue of null emotion? Do you understand how to be as unwavering as the ocean itself? Can you envision yourself as the pebble in the river? Can you mute feeling? Do you [" . quest::saylink("I dare to learn",0,"dare to learn") . "]?");
   }
   if($text=~/dare to learn/i) {
     quest::say("We will see, $name, we will see. If you are a willing pupil then demonstrate that you have begun to comprehend. Bring me something empty that previously numbed feeling and therefore brought emptiness to its possessor. You should not have to travel far.");
@@ -18,7 +18,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM{
   if(plugin::check_handin(\%itemcount, 58010 => 1)) {
-    quest::say("Well done, strange one. Your perception is admirable.' The spirit hands you an incredibly heavy rock. 'Can you, $name, be as [impassive as the sea]?");
+    quest::say("Well done, strange one. Your perception is admirable.' The spirit hands you an incredibly heavy rock. 'Can you, $name, be as [" . quest::saylink("I can be as impassive as the sea",0,"impassive as the sea") . "]?");
     quest::exp(1000);
     quest::summonitem(58013); # Item: Large Rock
   }

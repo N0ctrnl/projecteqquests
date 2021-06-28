@@ -3,7 +3,7 @@
 
 function event_signal(e)
 	if(e.signal == 1) then
-		e.self:Say("The mammoth calf hides are used to shield our beasts of burden from the icy wind. You are probably now asking what shields us Northmen from that same icy wind eh? Well, along with many other furs and leathers, we have come to find that [gnoll fur] of all things is a good insulator against the cold. Look at their tiny bodies and it's obvious their fur does something good.");
+		e.self:Say("The mammoth calf hides are used to shield our beasts of burden from the icy wind. You are probably now asking what shields us Northmen from that same icy wind eh? Well, along with many other furs and leathers, we have come to find that [" .. eq.say_link("What gnoll fur?",false,"gnoll fur") .. "] of all things is a good insulator against the cold. Look at their tiny bodies and it's obvious their fur does something good.");
 	end
 end
 

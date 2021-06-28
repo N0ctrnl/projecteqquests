@@ -3,7 +3,7 @@
 
 sub EVENT_SAY { 
 if ($text=~/Hail/i){
-  quest::say("Greetings, friend. If you have come to study under the great Alvarik you have come to the right place! I help by carrying his research tomes for him. If there is one you would like to buy, feel free to browse through what we have. If you're looking for something to do, I may have a [task] available for you to get started on. Alvarik has much he needs done and I can't do it all myself!");
+  quest::say("Greetings, friend. If you have come to study under the great Alvarik you have come to the right place! I help by carrying his research tomes for him. If there is one you would like to buy, feel free to browse through what we have. If you're looking for something to do, I may have a [" . quest::saylink("What task?",0,"task") . "] available for you to get started on. Alvarik has much he needs done and I can't do it all myself!");
  }
 }
 

@@ -4,13 +4,13 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Are you a young warrior here for [training]? If not, I do not have time to chat.");
+    quest::say("Are you a young warrior here for [" . quest::saylink("I am a warrior here for training",0,"training") . "]? If not, I do not have time to chat.");
   }
   if ($text=~/training/i) {
-    quest::say("Very good. With my instruction you will craft a set of [armor] that if crafted well, should serve you well for some time to come.");
+    quest::say("Very good. With my instruction you will craft a set of [" . quest::saylink("What set of armor?",0,"armor") . "] that if crafted well, should serve you well for some time to come.");
   }
   if ($text=~/armor/i) {
-    quest::say("I will give you instructions to make your first set of armor. Just keep in mind that I don't tolerate those that are lazy! Once you start something, you should always finish it! With that said, take this Northern Wolf Plate Assembly Kit. You will use it to create the various parts of your armor such as [helm], [bracers], [armplates], [boots], [legplates], [gauntlets], and [breastplate]. When you combine components in your kit, make sure they are un-stacked. Let me know what piece you wish to craft and I will give you instructions.");
+    quest::say("I will give you instructions to make your first set of armor. Just keep in mind that I don't tolerate those that are lazy! Once you start something, you should always finish it! With that said, take this Northern Wolf Plate Assembly Kit. You will use it to create the various parts of your armor such as [" . quest::saylink("helm") . "], [" . quest::saylink("bracers") . "], [" . quest::saylink("armplates") . "], [" . quest::saylink("boots") . "], [" . quest::saylink("legplates") . "], [" . quest::saylink("gauntlets") . "], and [" . quest::saylink("breastplate") . "]. When you combine components in your kit, make sure they are un-stacked. Let me know what piece you wish to craft and I will give you instructions.");
     quest::summonitem(55095); # Item: Northern Wolf Plate Assembly Kit
   }
   if ($text=~/helm/i) {
@@ -38,7 +38,7 @@ sub EVENT_SAY {
     quest::summonitem(55116); # Item: Northern Wolf Gauntlets Mold
   }
   if ($text=~/breastplate/i) {
-    quest::say("Probably the most important part of your armor is the Breastplate of the Northern Wolf. It shows your true dedication to our cause. This is perhaps the most difficult part of your armor that you will create. To construct your breastplate, you will need to find three Small Pieces of Ore, two Ruined Wolf Pelts, and one Spider Venom Sac. Once you have combined these items in your Assembly Kit, take the Breastplate of the Northern Wolf Material to a forge along with this mold to create your new breastplate. Once you have completed your breastplate, I have another [task] for you should you feel ready.");
+    quest::say("Probably the most important part of your armor is the Breastplate of the Northern Wolf. It shows your true dedication to our cause. This is perhaps the most difficult part of your armor that you will create. To construct your breastplate, you will need to find three Small Pieces of Ore, two Ruined Wolf Pelts, and one Spider Venom Sac. Once you have combined these items in your Assembly Kit, take the Breastplate of the Northern Wolf Material to a forge along with this mold to create your new breastplate. Once you have completed your breastplate, I have another [" . quest::saylink("What other task?",0,"task") . "] for you should you feel ready.");
     quest::summonitem(55117); # Item: Northern Wolf Breastplate Mold
   }
   if ($text=~/task/i) {

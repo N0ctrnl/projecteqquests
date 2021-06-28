@@ -4,7 +4,7 @@
 
 sub EVENT_SAY { 
 	if ($text=~/Hail/i){
-		quest::emote("Greetings friend. To see one brave the dangers of this forsaken island is suprising. You must be a treasure seeker. Tell me, do you seek [treasure]?");
+		quest::emote("Greetings friend. To see one brave the dangers of this forsaken island is suprising. You must be a treasure seeker. Tell me, do you seek [" . quest::saylink("I seek treasure",0,"treasure") . "]?");
 	}
 	if ($text=~/treasure/i){
 		quest::emote("Oh that's no good! More competition means less treasure for me. Say, tell you what: If you bring me any trinkets you find, I will reward you depending on their condition.");

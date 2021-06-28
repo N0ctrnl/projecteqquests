@@ -1,7 +1,7 @@
 -- items: 17946, 13966, 15203, 15270, 15271, 15275, 15036, 15075, 13445, 13967
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hello, me friend! I'm the resident healer o' Halas. Please inform me when ye've a need fer me talents to [bind wounds], [cure disease] or [cure poison]. Might I add, if ye're a young shaman o' Halas, ye can also [assist in gathering fungus].");
+		e.self:Say("Hello, me friend! I'm the resident healer o' Halas. Please inform me when ye've a need fer me talents to [" .. eq.say_link("bind wounds") .. "], [" .. eq.say_link("cure disease") .. "] or [" .. eq.say_link("cure poison") .. "]. Might I add, if ye're a young shaman o' Halas, ye can also [" .. eq.say_link("I will assist in gathering fungus",false,"assist in gathering fungus") .. "].");
 	elseif(e.other:GetFaction(e.self) < 6) then
 		if(e.message:findi("cure disease")) then
 			e.self:Say("Two small quantities o' wooly fungus are needed before we can cure yer malady.");

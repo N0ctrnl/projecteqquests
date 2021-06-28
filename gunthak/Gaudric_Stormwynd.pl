@@ -19,20 +19,20 @@ sub SpawnTempest {
 sub EVENT_SAY {
    if ($text=~/Hail/i){
       if ($class eq "Ranger"){
-         quest::say("Greeting. What brings you to this forsaken rock? I have been sent here by the council of Surefall Glade to gather information about this Island. This place seethes with anger and hatred, and even the familiar [winds] of Karana blow with a cold bite. So far the creatures have all proved very hostile, even to a follow of Karana. I suspect that the curse of Innoruuk has caused them be very aggressive towards all outsiders. I have been able to gather some information on a new race of [insect] though.");
+         quest::say("Greeting. What brings you to this forsaken rock? I have been sent here by the council of Surefall Glade to gather information about this Island. This place seethes with anger and hatred, and even the familiar [" . quest::saylink("What familiar winds?",0,"winds") . "] of Karana blow with a cold bite. So far the creatures have all proved very hostile, even to a follow of Karana. I suspect that the curse of Innoruuk has caused them be very aggressive towards all outsiders. I have been able to gather some information on a new race of [" . quest::saylink("What insect?",0,"insect") . "] though.");
       }
       else{
         quest::emote("motions for silence. 'Can you hear it?  The sound of nature crying out in pain. The children of Karana long for a release from this place of torment.' Gaudric turns away and appears to begin meditating.");
      }
     }
    if($text=~/winds/i){
-      quest::say("The fury of a truly torrential storm is a beautiful thing. Even in their destruction they bring the birth of new life. Such is the cycle of life on Norrath, from the ashes nature always rebuilds. The trolls care nothing for this cycle though, and merely use the power of the storm to fill their treasuries. I hear the tormented cries of tempest [spirits] across the wind.");
+      quest::say("The fury of a truly torrential storm is a beautiful thing. Even in their destruction they bring the birth of new life. Such is the cycle of life on Norrath, from the ashes nature always rebuilds. The trolls care nothing for this cycle though, and merely use the power of the storm to fill their treasuries. I hear the tormented cries of tempest [" . quest::saylink("What spirits?",0,"spirts") . "] across the wind.");
    }
    if($text=~/spirits/i){
       quest::say("I believe the followers of Nadox have found a way to control the spirits of the tempest by capturing them in amulets made of the black rock from the island. Bring me one of their amulets and I may be able to free the spirit from it.");
    }
    if($text=~/insect/i){
-      quest::say("A strange group of ant like creatures that I've named Nifiliks seems to be native to the island. I've never encountered creatures quite like this. They seem to have a sort of Hive consciousness. They have a vast range in size. The smallest are barely an inch or two across, while the largest can be upwards of four feet tall. The larger ones seem to be able to control the smaller ones by some sort of audible communication. I've heard the strange noises they make, but have yet to [mimic] them.");
+      quest::say("A strange group of ant like creatures that I've named Nifiliks seems to be native to the island. I've never encountered creatures quite like this. They seem to have a sort of Hive consciousness. They have a vast range in size. The smallest are barely an inch or two across, while the largest can be upwards of four feet tall. The larger ones seem to be able to control the smaller ones by some sort of audible communication. I've heard the strange noises they make, but have yet to [" . quest::saylink("mimic") . "] them.");
    }
    if($text=~/mimic/i){
       quest::say("The smallest ones do not seem to have as developed of a nervous system as the larger ones. They only act on the instincts and the commands of their masters. If we're able to mimic the sounds that they make, we may be able to control the smaller ones. If you're able to capture one of them alive and allow me to listen to its sounds I may be able to mimic them. You'll also need to bring me one of the smaller ones so I can observe its reactions.");

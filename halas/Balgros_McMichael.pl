@@ -4,13 +4,13 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Hello, $name is it? Have you come to begin some [training]?");
+    quest::say("Hello, $name is it? Have you come to begin some [" . quest::saylink("training") . "]?");
   }
   if ($text=~/training/i) {
-    quest::say("I can provide you with instructions on how to create a set of beginning [armor], fit for any Shaman of Justice.");
+    quest::say("I can provide you with instructions on how to create a set of beginning [" . quest::saylink("armor") . "], fit for any Shaman of Justice.");
   }
   if ($text=~/armor/i) {
-    quest::say("During your travels you will no doubt run into danger. It is best to have a sturdy set of armor to protect yourself. Take this Justice Plate Assembly Kit. You will use it to create the various parts of your armor such as [helm], [bracers], [armplates], [boots], [legplates], [gauntlets], and [breastplate]. When you combine components in your kit, make sure they are un-stacked. Let me know what piece you wish to craft and I will give you instruction.");
+    quest::say("During your travels you will no doubt run into danger. It is best to have a sturdy set of armor to protect yourself. Take this Justice Plate Assembly Kit. You will use it to create the various parts of your armor such as [" . quest::saylink("helm") . "], [" . quest::saylink("bracers") . "], [" . quest::saylink("armplates") . "], [" . quest::saylink("boots") . "], [" . quest::saylink("legplates") . "], [" . quest::saylink("gauntlets") . "], and [" . quest::saylink("breastplate") . "]. When you combine components in your kit, make sure they are un-stacked. Let me know what piece you wish to craft and I will give you instruction.");
     quest::summonitem(55118); # Item: Justice Plate Assembly Kit
   }
   if ($text=~/helm/i) {
@@ -38,7 +38,7 @@ sub EVENT_SAY {
     quest::summonitem(55137); # Item: Gauntlets of Justice Mold
   }
   if ($text=~/breastplate/i) {
-    quest::say("The Breastplate of Justice is perhaps the most difficult piece that you will have to construct. To construct your breastplate, you will need to find three Small Pieces of Ore, two Polar Bear Skins, and one Spider Venom Sac. Once you have combined these items in your Assembly Kit, take this Breastplate of Justice Material to a forge along with this mold to create your new breastplate. Once you have completed your breastplate, I have another [task] for you should you feel ready.");
+    quest::say("The Breastplate of Justice is perhaps the most difficult piece that you will have to construct. To construct your breastplate, you will need to find three Small Pieces of Ore, two Polar Bear Skins, and one Spider Venom Sac. Once you have combined these items in your Assembly Kit, take this Breastplate of Justice Material to a forge along with this mold to create your new breastplate. Once you have completed your breastplate, I have another [" . quest::saylink("What task?",0,"task") . "] for you should you feel ready.");
     quest::summonitem(55140); # Item: Breastplate of Justice Mold
   }
   if ($text=~/task/i) {

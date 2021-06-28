@@ -9,7 +9,7 @@ sub EVENT_SAY {
       quest::emote("glances at you with eyes of energy. He peers across your armor and then finally seems to come to a decision and points to the ground. He kneels down and then begins to draw something in the dirt. You see the outline of a wolf begin to take shape. You then see a humanoid figure standing next to the animal. He draws a circle around them, presumably to show that they are connected somehow. Craegin looks up at you and points to the wolf and then at you. You think he is asking if you are a Beastlord. His gaze pierces your eyes waiting for an answer.");
     }
     if ($text=~/beastlord/i) {
-      quest::emote("nods quickly and begins to draw again in the sand. He points at the humanoid figure and then at himself. Apparently he has drawn himself. He looks up at you and you nod back in understanding. He points to the wolf and then points out onto the island. He grabs a handful of dust and blows it across the wolf's picture. Perhaps his [warder] is sick and lost on the island somewhere. He looks as if he might want to [draw] more.");
+      quest::emote("nods quickly and begins to draw again in the sand. He points at the humanoid figure and then at himself. Apparently he has drawn himself. He looks up at you and you nod back in understanding. He points to the wolf and then points out onto the island. He grabs a handful of dust and blows it across the wolf's picture. Perhaps his warder is sick and lost on the island somewhere. He looks as if he might want to [" . quest::saylink("Draw more about your warder",0,"draw") . "] more.");
     }
     if ($text=~/draw more about your warder/i) {
       quest::emote("nods furiously. He begins drawing again in the sand. you see some sort of spear being thrown at the wolf. He then draws a collar of some sort and then draws an arrow to the wolf. Apparently his warder has been injured and captured somehow by something on the island. You can see the pain in the barbarian's eyes as he looks at you hopefully. He hands you a small emblem of some kind and points towards the island.");
@@ -29,7 +29,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 59033 => 1)) { #A glowing collar
-    quest::emote("looks at you in amazement as you hand the glowing collar to him. He looks as if he might weep for joy at any moment. He holds the collar firmly by the clasp and brings it down to his side. He mumbles some words and the wolf immediately appears beside him. He reaches into his bags and grabs a small stone similar to the one fit into the collar. You reach forward and take it from him. He points at the dirt once more as if he wishes to [draw] something for you.");
+    quest::emote("looks at you in amazement as you hand the glowing collar to him. He looks as if he might weep for joy at any moment. He holds the collar firmly by the clasp and brings it down to his side. He mumbles some words and the wolf immediately appears beside him. He reaches into his bags and grabs a small stone similar to the one fit into the collar. You reach forward and take it from him. He points at the dirt once more as if he wishes to [" . quest::saylink("Draw for me",0,"draw") . "] something for you.");
     quest::summonitem(59010); # Item: Spell: Bond of the Wild
     quest::setglobal("CraeginA",1,0,"F");
   }	
