@@ -1,10 +1,10 @@
 # items: 10412, 10413, 10414, 10415, 31743, 10416, 31744
 sub EVENT_SAY {
  if($text=~/hail/i){
-  quest::say("Greetings! I am Drenic Garrison, Governor of Science here in Katta Castellum. I am currently involved in several scientific endeavors with the other governors and am in need of assistance supplying my researchers with the proper [materials and samples] for their studies.");
+  quest::say("Greetings! I am Drenic Garrison, Governor of Science here in Katta Castellum. I am currently involved in several scientific endeavors with the other governors and am in need of assistance supplying my researchers with the proper [" . quest::saylink("What materials and samples?",0,"materials and samples") . "] for their studies.");
  }
  elsif($text=~/materials and samples/i){
-  quest::say("The Magus Conlegium are assisting with some studies on the physiology of the Vampyres of the Coterie of the Eternal Night and are in need of [ash and blood] samples. Maralicis Dilsm our Governor of Health is assisting in research on [counteragents] to the venom and diseases native to Luclin. Finally, there have been reports from the agents of Erikal Wolfeye that there is a civilation of [snake people] that live on the furthest reaches of the light side of Luclin in a region devoid of atmosphere.");
+  quest::say("The Magus Conlegium are assisting with some studies on the physiology of the Vampyres of the Coterie of the Eternal Night and are in need of [" . quest::saylink("What do I do with the ash and blood?",0,"ash and blood") . "] samples. Maralicis Dilsm our Governor of Health is assisting in research on [" . quest::saylink("What counteragents?",0,"counteragents") . "] to the venom and diseases native to Luclin. Finally, there have been reports from the agents of Erikal Wolfeye that there is a civilation of [" . quest::saylink("Who are the snake people?",0,"snake people") . "] that live on the furthest reaches of the light side of Luclin in a region devoid of atmosphere.");
  }
  elsif($text=~/ash and blood/i){
   #Start of Vampyre Ash and Blood
@@ -16,7 +16,7 @@ sub EVENT_SAY {
  }
  elsif($text=~/snake people/i){
   #Start of Undead Snake Organs
-  quest::say("To the west beyond the Twilight Sea is an airless grey region between the light and dark sides of Luclin. Some time ago our scouts cooperating with powerful members of the Magus Conlegium attempted to chart the expanses of the barren treacherous region. During this excursion the scouts and magi encountered a small group of strange snake like men. The magi detected no magical aid that was allowing the creatures to move freely in the airless void without danger of suffocation. When approached the snake men quickly fled. We wish to know how these creatures survive in such conditions. If they prove to be a hostile species then we will have to resort to examining their [anatomy].");
+  quest::say("To the west beyond the Twilight Sea is an airless grey region between the light and dark sides of Luclin. Some time ago our scouts cooperating with powerful members of the Magus Conlegium attempted to chart the expanses of the barren treacherous region. During this excursion the scouts and magi encountered a small group of strange snake like men. The magi detected no magical aid that was allowing the creatures to move freely in the airless void without danger of suffocation. When approached the snake men quickly fled. We wish to know how these creatures survive in such conditions. If they prove to be a hostile species then we will have to resort to examining their [" . quest::saylink("Which anatomy?",0,"anatomy") . "].");
  }
  elsif($text=~/anatomy/i){
   #Part of Undead Snake Organs

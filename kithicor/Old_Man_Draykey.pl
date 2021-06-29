@@ -7,10 +7,10 @@ sub EVENT_SAY {
 	if(!quest::istaskactive(220)){
 		if(!defined $qglobals{halloween_draykey}){
 			if ($text=~/Hail/i) {
-				quest::say("Greetings $name! Have you [come to participate] in the festivities?");
+				quest::say("Greetings $name! Have you [" . quest::saylink("I have come to participate",0,"come to participate") . "] in the festivities?");
 			}
 			if ($text=~/come to participate/i) {
-				quest::say("Excellent, excellent! For those of you that enjoy trick-or-treating I have set up an event beyond anything you have done before. I will have convinced ten...well beings...not all of them are really people, to help with this. It's a very tricky endeavor, with highly complex [instructions]. Prepare yourself and then I will reveal the secrets to you.");
+				quest::say("Excellent, excellent! For those of you that enjoy trick-or-treating I have set up an event beyond anything you have done before. I will have convinced ten...well beings...not all of them are really people, to help with this. It's a very tricky endeavor, with highly complex [" . quest::saylink("What instruction?",0,"instructions") . "]. Prepare yourself and then I will reveal the secrets to you.");
 			}
 			if ($text=~/instructions/i) {
 				quest::say("First of all you need to know how to properly speak with these people. Once you find them, you simply need to say 'Trick or treat', and see what they have to say in return. I have compiled a list of my helpers around Norrath and have written them down in my book. As I have said, there are ten people each with a piece of candy you'll need to collect. Once you've collected all ten return to me with the full bag.");

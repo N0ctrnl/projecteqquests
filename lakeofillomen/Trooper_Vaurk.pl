@@ -1,7 +1,7 @@
 # items: 8004
 sub EVENT_SAY {
  if($text=~/hail/i){
-  quest::say("Have you been sent by the War Baron to [assist]? The explorers from Firiona Vie draw closer.");
+  quest::say("Have you been sent by the War Baron to [" . quest::saylink("I will assist",0,"assist") . "]? The explorers from Firiona Vie draw closer.");
  }
  elsif($text=~/assist/i){
   quest::say("That is good, I will stay here to halt any advances. Head out near the lake and destroy the trespassers on our land! Bring me four of their knives that they carry for survival. Prove your allegiance to the Legion of Cabilis.");

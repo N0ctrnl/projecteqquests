@@ -2,15 +2,15 @@
 sub EVENT_SAY {
   if($text=~/hail/i){
   # Catfish Croak Sandwich [Part 1]
-    quest::say("Buy, buy, buy. Go ahead, make a purchase. I am not here to talk. Go to Cabilis for talk. Come to Foob for armor. Now hurry and.. Ooh.. Foob is starvings. Foob wish he had his [munch break favorite].");
+    quest::say("Buy, buy, buy. Go ahead, make a purchase. I am not here to talk. Go to Cabilis for talk. Come to Foob for armor. Now hurry and.. Ooh.. Foob is starvings. Foob wish he had his [" . quest::saylink("munch break favorite") . "].");
   }
   elsif($text=~/munch break favorite/i){
   # Catfish Croak Sandwich [Part 2]
-    quest::emote("rubs his tummy. 'Oh!! Catfish croak sandwich is my favorite, it is. Can only eats on my break. I haves one and one is what the Haggle Baron says to Foob. Only thing is Foob gets way tired from standing. Foob needs some broodling to [fetch the catfish croak sandwich] for him.'");
+    quest::emote("rubs his tummy. 'Oh!! Catfish croak sandwich is my favorite, it is. Can only eats on my break. I haves one and one is what the Haggle Baron says to Foob. Only thing is Foob gets way tired from standing. Foob needs some broodling to [" . quest::saylink("fetch the catfish croak sandwich") . "] for him.'");
   }
   elsif($text=~/fetch.*sandwich/i){
   # Catfish Croak Sandwich [Part 3]
-    quest::say("What?!! You dus gets Foob his sandwich for his munch break!! You be a good tail. Gets me two sandwiches, one fer break and one fer work, then me pay you something for the troubles. But it be no trouble. Foob is sure you know [how to make sandwich].");
+    quest::say("What?!! You dus gets Foob his sandwich for his munch break!! You be a good tail. Gets me two sandwiches, one fer break and one fer work, then me pay you something for the troubles. But it be no trouble. Foob is sure you know [" . quest::saylink("how ot make sandwich") . "].");
   }
   elsif($text=~/how.*sandwich/i){
   # Catfish Croak Sandwich [Part 4]

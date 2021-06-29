@@ -1,7 +1,7 @@
 # items: 62077, 62076, 62194
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Greetings friend, it is good to be freed from the clutches of those evil creatures. Tell me are you willing to help me bring some [justice] to them?");
+    quest::say("Greetings friend, it is good to be freed from the clutches of those evil creatures. Tell me are you willing to help me bring some [" . quest::saylink("I will bring some justice",0,"justice") . "] to them?");
   }
   if ($text=~/justice/i) {
     quest::say("For justice to be brought to them you will need to strike at some of the most powerful goblins found there. Seek out Death Caller Joepla deep within the Mines of Nurga and bring me back the scrolls that the Death Caller carries. Also I will need 3 bracers of blood from the goblin blood knights. Bring me these items and you will be well rewarded. ");

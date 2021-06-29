@@ -1,13 +1,13 @@
 # items: 13766, 2315, 13752, 2314, 13054, 13755, 2313
 sub EVENT_SAY {
   if ($text=~/hail/i) {#need correct text
-    quest::say("Hello Traveler.  Don't mind me, I'm just working on some [clothes]");
+    quest::say("Hello Traveler.  Don't mind me, I'm just working on some [" . quest::saylink("What clothes?",0,"clothes") . "]");
   }
   if ($text=~/clothes/i) {
-    quest::say("Well, more like [gloves] actually, they are my specialty.");
+    quest::say("Well, more like [" . quest::saylink("gloves") . "] actually, they are my specialty.");
   }
   if ($text=~/gloves/i) {
-    quest::say("Aye, gloves.  I would be happy to make you a pair if you can bring me a lion skin and 96 gold pieces.  I also make them from [bear] skin, [wolf] skin, or [rat] skin.");
+    quest::say("Aye, gloves.  I would be happy to make you a pair if you can bring me a lion skin and 96 gold pieces.  I also make them from [" . quest::saylink("bear") . "] skin, [" . quest::saylink("wolf") . "] skin, or [" . quest::saylink("rat") . "] skin.");
   }
   if ($text=~/bear/i) {
     quest::say("If you would like gloves from bear skin I require a bear hide and 25 gold pieces.");

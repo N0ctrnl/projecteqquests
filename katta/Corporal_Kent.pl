@@ -6,7 +6,7 @@ sub EVENT_SAY {
 
 if($text=~/Hail/i){
 
-quest::say("Ho there, who are you? Are you [reporting for duty] or just annoying me?");
+quest::say("Ho there, who are you? Are you [" . quest::saylink("I am reporting for duty",0,"reporting for duty") . "] or just annoying me?");
 
 }
 

@@ -1,7 +1,7 @@
 # items: 6344, 13748
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Errr. You smell funny. You bring us [toy]?");
+    quest::say("Errr. You smell funny. You bring us [" . quest::saylink("What toy?",0,"toy") . "]?");
   }
   if ($text=~/toy/i) {
     quest::say("You go, bring us gnome toy. You not come back or we eat you and then you die like short one. Gnome toy! You bring. You good person.");

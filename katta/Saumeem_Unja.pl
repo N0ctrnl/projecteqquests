@@ -1,7 +1,7 @@
 # items: 31799, 31829, 31832, 31831, 31830, 3873, 3875
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Hail $name, it is a pleasure to meet you. As the Governor of Defense for Katta Castellum it is my duty to ensure the safety of the city from outside enemies. At present the most imminent threat to the safety of our citizens is the Coterie of the Eternal Night and their [assassins]. There are other matters of defense as well however that you may be of [assistance] in dealing with.");
+    quest::say("Hail $name, it is a pleasure to meet you. As the Governor of Defense for Katta Castellum it is my duty to ensure the safety of the city from outside enemies. At present the most imminent threat to the safety of our citizens is the Coterie of the Eternal Night and their [" . quest::saylink("What assassins?",0,"assassins") . "]. There are other matters of defense as well however that you may be of [" . quest::saylink("I will be of assistance",0,"assistance") . "] in dealing with.");
   }
   elsif($text=~/assassins/i) {
     #Start of Assassins Part1
@@ -21,7 +21,7 @@ sub EVENT_ITEM {
   #Handin: 4x Coterie Assassin Garrotes (31799)
   if(plugin::check_handin(\%itemcount, 31799 => 4)){
     #End of Assassins Part1
-    quest::say("I see you have met with success $name! You have earned the respect of the Validus Custodus. Please take this as a symbol of our gratitude and your bravery. You are gaining notoriety with the Coterie, be wary of the [Coterie Infiltrators].");
+    quest::say("I see you have met with success $name! You have earned the respect of the Validus Custodus. Please take this as a symbol of our gratitude and your bravery. You are gaining notoriety with the Coterie, be wary of the [" . quest::saylink("Who are the Coterie Infiltrators?",0,"Coterie Infiltrators") . "].");
     quest::summonitem('31829'); #Reflective Combine Claymore
     quest::faction(1504,10);  # +Magus Conlegium
     quest::faction(1502,10);  # +Katta Castellum Citizens

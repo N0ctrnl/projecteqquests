@@ -1,7 +1,7 @@
 # items: 6347, 1061
 sub EVENT_SAY {
   if($text=~/Hail/i) {
-    quest::say("Wha?  Rarrrr!  Thalith try to fish but with [rrrats] and you botherring him. he cannot concentrate on water!  Go away. let Thalith fish!");
+    quest::say("Wha?  Rarrrr!  Thalith try to fish but with [" . quest::saylink("What rrrats?",0,"rrrats") . "] and you botherring him. he cannot concentrate on water!  Go away. let Thalith fish!");
   }
   if ($text=~/rats/i) {
     quest::say("Rats. Yes. Small, furry, brown, with teeth. They come, bite my paws, steal my bait, chew on lines and rods. They nasty little beasts and easy to kill but me not able to leave this position or fish get away. Errr. Maybe you keep the rats away? You kill baddest rat, Sharptooth. You bring me his tooth. I be very happy.");

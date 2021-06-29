@@ -1,11 +1,11 @@
 # items: 6349, 1120
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Rrraaarrr! Hello furless. You come to study from [mighty warrior] yes?");
+    quest::say("Rrraaarrr! Hello furless. You come to study from [" . quest::saylink("I have come to study from a mighty warrior",0,"mighty warrior") . "] yes?");
   }
   if($text=~/mighty warrior/i) {
     #The Luck of Allix (START)
-    quest::say("Errr. Well, Allix not yet mighty warrior but soon yes. Allix just come of age and soon will enter training to become mighty Pasdar. Errr. Allix little nervous. Allix missing [one thing] to become mighty Pasdar.");
+    quest::say("Errr. Well, Allix not yet mighty warrior but soon yes. Allix just come of age and soon will enter training to become mighty Pasdar. Errr. Allix little nervous. Allix missing [" . quest::saylink("What one thing?",0,"one thing") . "] to become mighty Pasdar.");
   }
   if($text=~/one thing/i) {
     #The Luck of Allix

@@ -1,6 +1,6 @@
 sub EVENT_SAY {
   if($text=~/Hail/i) {
-    quest::say("Why you bother Wislen? Wislen trying to get fishies. Leave Wislen alone to get [fish]. please.");
+    quest::say("Why you bother Wislen? Wislen trying to get fishies. Leave Wislen alone to get [" . quest::saylink("What fish?",0,"fish") . "]. please.");
   }
   if($text=~/fish/i) {
     quest::say("Fish. Wislen fish. Wislen is mamluk, not just fisher. Mamluk is warrior but they also helps provide for all Kerran. This is hadi place in life. We happy doing this. Please, let Wislen fish now.");

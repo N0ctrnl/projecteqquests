@@ -5,10 +5,10 @@
 
 sub EVENT_SAY { 
     if($text=~/hail/i) {
-		quest::say("Most call me Gandari the Terse.  You here for [ivy armor]?");
+		quest::say("Most call me Gandari the Terse.  You here for [" . quest::saylink("ivory armor") . "]?");
     } 
 	if($text=~/ivy armor/i) {
-		quest::say("I reward brave rangers with ivy etched armor - [Helm]s. [Tunic]s. [Sleeves] and [Bracers]. [Interested]?");
+		quest::say("I reward brave rangers with ivy etched armor - [" . quest::saylink("Helms") . "], [" . quest::saylink("Tunics") . "], [" . quest::saylink("Sleeves") . "], [" . quest::saylink("Bracers") . "]. [" . quest::saylink("I am interested",0,"Interested") . "]?");
     } 
 	if($text=~/bracers/i) {
 		quest::say("I do not haggle, I do not bargain. The Bottom of the Rune of Ivy from the plains of Everfrost, a Watery Ring from the Cauldron of Tears and a Fire Emerald to warm my heart. Bring these to me and you shall earn your reward.");

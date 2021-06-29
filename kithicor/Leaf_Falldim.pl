@@ -1,13 +1,13 @@
 # items: 3190, 3192, 3191
 sub EVENT_SAY { 
     if($text=~/Hail/i){
-	quest::say("Greetings. $name!  Respect the woods and all its inhabitants or face the wrath of the rangers.  Do not end up like [Maldyn Greenburn].");
+	quest::say("Greetings. $name!  Respect the woods and all its inhabitants or face the wrath of the rangers.  Do not end up like [" . quest::saylink("Who is Maldyn Greenburn?",0,"Maldyn Greenburn") . "].");
     }
     if($text=~/maldyn greenburn/i){
-	quest::say("Maldyn was once one of us.  He was the finest of archers.  Everyone aspired to be like him.  He soon was tempted to hunt.  The animals of these woods found themselves nothing more than moving targets for Maldyn's training.  We held a trial and exiled him to parts unknown.  He would take with him Morin's [Bow of Kithicor].  I was asked to find a worthy ranger to [retrieve the bow].");
+	quest::say("Maldyn was once one of us.  He was the finest of archers.  Everyone aspired to be like him.  He soon was tempted to hunt.  The animals of these woods found themselves nothing more than moving targets for Maldyn's training.  We held a trial and exiled him to parts unknown.  He would take with him Morin's [" . quest::saylink("What is the Bow of Kithicor?",0,"Bow of Kithicor") . "].  I was asked to find a worthy ranger to [" . quest::saylink("I will retrieve the bow",0,"retrieve the bow") . "].");
     }
     if($text=~/bow of kithicor/i){
-	quest::say("The Bow of Kithicor was carved from an ancient tree. It has great powers which were but a portion of the tree's mana. I seek a brave ranger to [retrieve the bow].");
+	quest::say("The Bow of Kithicor was carved from an ancient tree. It has great powers which were but a portion of the tree's mana. I seek a brave ranger to [" . quest::saylink("I will retrieve the bow",0,"retrieve the bow") . "].");
     }
     if($text=~/retrieve the bow/i){
 	quest::say("Search the lands of the Unkempt Druids in the Rathe Mountains.  I have heard of his arrows being found inside its territories and  of his death wish to hunt down its leader.  Retrieve the bow and return it to me and I shall give you the ivy etched gauntlets.");

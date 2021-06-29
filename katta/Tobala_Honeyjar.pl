@@ -4,13 +4,13 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Hello, $name! I am Governess Tobala Honeyjar of Katta Castellum. Overseeing the maintenance of the [Nocturnal Gardens] is just one of my duties as the governess of agriculture and ecology.");
+    quest::say("Hello, $name! I am Governess Tobala Honeyjar of Katta Castellum. Overseeing the maintenance of the [" . quest::saylink("What are the Nocturnal Gardens?",0,"Nocturnal Gardens") . "] is just one of my duties as the governess of agriculture and ecology.");
   }
   if ($text=~/nocturnal gardens/i) {
-    quest::say("These are the Nocturnal Gardens in which we now stand. It is a collection of flora from various regions of the dark side of Luclin. It is a shame that we are not capable of supplying the nutrients necessary to maintain flora from the light side of Luclin. If you wish to assist in the maintenance of the garden I have some [tasks] you may be helpful in completing.");
+    quest::say("These are the Nocturnal Gardens in which we now stand. It is a collection of flora from various regions of the dark side of Luclin. It is a shame that we are not capable of supplying the nutrients necessary to maintain flora from the light side of Luclin. If you wish to assist in the maintenance of the garden I have some [" . quest::saylink("What tasks?",0,"tasks") . "] you may be helpful in completing.");
   }
   if ($text=~/tasks/i) {
-    quest::say("I am in need of ingredients to create more [fertilizer] and in need of a competent forager to gather some [rare plants] for me.");
+    quest::say("I am in need of ingredients to create more [" . quest::saylink("What fertilizer?",0,"fertilizer") . "] and in need of a competent forager to gather some [" . quest::saylink("What rare plants?",0,"rare plants") . "] for me.");
   }
   if ($text=~/fertilizer/i) {
     quest::say("How humble of you to assist me with my mundane tasks! Take this bag and fill it with Three piles of Owlbear Dung, Three Piles of Fungus Compost, and Two Piles of Netherbian Nitrate.");

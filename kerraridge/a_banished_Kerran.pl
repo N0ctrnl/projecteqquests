@@ -40,7 +40,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 12369 => 1)) {
-    quest::say("Ashen Order!!  Prrr.. My order.  I have been expecting one of us.  Prrr.. Help me rejoin my native land.  Take this box.  Combine all the [remains of Thipt] within the box and return it to me.  This shall aid me in my redemption.");
+    quest::say("Ashen Order!!  Prrr.. My order.  I have been expecting one of us.  Prrr.. Help me rejoin my native land.  Take this box.  Combine all the [" . quest::saylink("What are the remains of Thipt?",0,"remains of Thipt") . "] within the box and return it to me.  This shall aid me in my redemption.");
     quest::summonitem(17985); # Item: Box With Pawprints
   }
   if(plugin::check_handin(\%itemcount, 12371 => 1)) {

@@ -1,10 +1,10 @@
 # items: 10690, 2596, 10691, 10694
 sub EVENT_SAY {
  if($text=~/hail/i){
-  quest::say("Pleasure to meet ya! Have you come to the Illuminarium Industria to gaggle about or have you come looking for [some work]?");
+  quest::say("Pleasure to meet ya! Have you come to the Illuminarium Industria to gaggle about or have you come looking for [" . quest::saylink("I am looking for some work",0,"some work") . "]?");
  }
  elsif($text=~/some work/i){
-  quest::say("Well in that case I sure could use the assistance of a powerful $race such as yourself. You see my job here is to construct the lighting for Katta Castellum and Im always in need of more supplies. I need a fresh supply of [zelniak oil] for the standard city street lanterns and a fresh supply of [acrylian phosphate] to construct more phosporous lanterns and torches.");
+  quest::say("Well in that case I sure could use the assistance of a powerful $race such as yourself. You see my job here is to construct the lighting for Katta Castellum and Im always in need of more supplies. I need a fresh supply of [" . quest::saylink("What is zelniak oil?",0,"zelniak oil") . "] for the standard city street lanterns and a fresh supply of [" . quest::saylink("What is acrylian phosphate",0,"acrylian phosphate") . "] to construct more phosporous lanterns and torches.");
  }
  elsif($text=~/acrylian phosphate/i){
   #Start of Acrylia Phosphate

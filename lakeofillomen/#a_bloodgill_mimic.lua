@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Can't you feel him? I hear the wind blow across the lake and I think he must still be . . .  ");
 	elseif(e.message:findi("who is he")) then
-		e.self:Say("He who fell from the sky. I have sought [evidence] of him for my [master].");
+		e.self:Say("He who fell from the sky. I have sought [" .. eq.say_link("What evidence?",false,"evidence") .. "] of him for my [" .. eq.say_link("Who is your master?",false,"master") .. "].");
 	elseif(e.message:findi("master")) then
 		e.self:Say("You know my master. Are we not the same?");
 	elseif(e.message:findi("Aida")) then

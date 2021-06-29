@@ -7,13 +7,13 @@ sub EVENT_SAY {
     quest::say("Hello there, $name. Pleasure to meet you, I am Governor Tilbok Furrunner. I am tasked with the gathering and security of information for the Concilium Universus, the ruling council of our fine city.");
   }
   if ($text=~/purpose/i) {
-    quest::say("The teaching in the city is that Katta feigned his death to blame it on Seru. When in fact Seru actually poisoned Katta. The crusade that Seru leads is false and must be stopped. We must gain access to Seru's [chambers] and destroy him and show the city the truth.");
+    quest::say("The teaching in the city is that Katta feigned his death to blame it on Seru. When in fact Seru actually poisoned Katta. The crusade that Seru leads is false and must be stopped. We must gain access to Seru's [" . quest::saylink("What chambers?",0,"chambers") . "] and destroy him and show the city the truth.");
   }
   if ($text=~/chambers/i) {
     quest::say("We do not know much about Seru's Chamber, that is what we need you to find out. This will require great effort on your part. We need you to infiltrate Sanctus Seru and bring back reports from each Consillium. I do not know who will have these reports, and I have only heard rumor that they exist. Return to me with the Satchel full, and your Etched Earring.");
   }
   if ($text=~/action/i) {
-    quest::say("You must go see Lcea. She was Tsaph Katta's closest advisor. This matter has escalated greatly and must be placed in her hands. Ask her about the [Arx Key] she will no doubt ask in your service retrieving it. I salute your service to the city and wish you well.");
+    quest::say("You must go see Lcea. She was Tsaph Katta's closest advisor. This matter has escalated greatly and must be placed in her hands. Ask her about the [" . quest::saylink("What Arx Key?",0,"Arx Key") . "] she will no doubt ask in your service retrieving it. I salute your service to the city and wish you well.");
   }
   if ($text=~/praesertum/i) { #This text is from where?
     quest::say("The four Praesertum can be found in the center of the city. Each has their own building, easily identified by the symbol above the main entrance. Stay clear of the Arx Seru, the central building. This is the resting place of Seru, who does not allow anyone but the Praesertum to disturb him. To venture inside is death for all that are not invited.");
@@ -35,7 +35,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 29891 => 1)) { #Report to Tilbok
-    quest::emote("reads through the report, hands you a small satchel then starts to explain. 'Finally, news from Euzan. I knew that it would take a long time to get planted within Seru, but I still worried about their mission constantly. This report shows that you have earned trust from Euzan, so I in turn will show the same trust. Euzan and Torsten were placed in the city for information. They are deep undercover and risk their life everyday. Every person in that city is ingrained with the [purpose] of either destroying Katta or converting his people.'");
+    quest::emote("reads through the report, hands you a small satchel then starts to explain. 'Finally, news from Euzan. I knew that it would take a long time to get planted within Seru, but I still worried about their mission constantly. This report shows that you have earned trust from Euzan, so I in turn will show the same trust. Euzan and Torsten were placed in the city for information. They are deep undercover and risk their life everyday. Every person in that city is ingrained with the [" . quest::saylink("What purpose?",0,"purpose") . "] of either destroying Katta or converting his people.'");
     quest::summonitem(17121); #Report Satchel
     quest::faction(1503,10);  #Validus Custodus
     quest::faction(1502,1);  #Katta Castellum Citizens
@@ -49,7 +49,7 @@ sub EVENT_ITEM {
     quest::exp(100000);
   }
   elsif (plugin::check_handin(\%itemcount, 29858 => 1, 29889 => 1)) { #Etched Earring of Veracity and Full Satchel
-    quest::say("According to these reports Seru resides in a building called the Arx Seru. It is the large complex in the center of the four Praesertum Consillium. We must take [action] now. Do not underestimate the power of Sanctus Seru for what they do they feel is right.");
+    quest::say("According to these reports Seru resides in a building called the Arx Seru. It is the large complex in the center of the four Praesertum Consillium. We must take [" . quest::saylink("I will take action",0,"action") . "] now. Do not underestimate the power of Sanctus Seru for what they do they feel is right.");
     quest::summonitem(29859); #Runed Earring of Veracity
     quest::faction(1503,20);  #Validus Custodus
     quest::faction(1502,2);  #Katta Castellum Citizens
