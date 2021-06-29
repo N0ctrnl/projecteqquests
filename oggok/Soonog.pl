@@ -13,13 +13,13 @@ sub EVENT_ENTER {
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("You [Greenblood]?");
+    quest::say("You [" . quest::saylink("I am Greenblood",0,"Greenblood") . "]?");
   }
   if ($text=~/greenblood/i) {
     quest::say("Good, you mine.  We tuffest, bestest, scariest warriors in da Norrath.  Not like dem wimpy Craknek hoomie wannabees.  You Greenblood, you my toy.  You lives or dies at my will.  Go, brings me many lizard meats cause I Greenblood leader and I berry hungry lots.  So hungry dat I eats four lizards.  Go bring meat or I eats you.");
   }
   if ($text=~/trades/i) {
-    quest::say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
+    quest::say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [" . quest::saylink("What second book?",0,"second book") . "], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
     quest::summonitem(51121); # Tradeskill Basics Volume 1
   }
   if ($text=~/second book/i) {
@@ -30,7 +30,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 18789 => 1)) {
-    quest::say("Soonog own you now.. fight for Soonog.. Soonog make you strong.. When you ready for task you tell Soonog.  Soonog army rule all!! You return to me when you stronger, I teach you many things I know, including how to start working in the various [trades].");
+    quest::say("Soonog own you now.. fight for Soonog.. Soonog make you strong.. When you ready for task you tell Soonog.  Soonog army rule all!! You return to me when you stronger, I teach you many things I know, including how to start working in the various [" . quest::saylink("What trades?",0,"trades") . "].");
     quest::summonitem(13527); # Item: Green Stained Skin Tunic*
 	quest::faction(261,100);  # Green Blood Knight
 	quest::faction(228,50);   # Clurg

@@ -1,7 +1,7 @@
 # items: 12203
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("What you want?!! Face so ugly you scare fish away!! ..sniff, sniff. Smell so bad, too!! Me sure is hungry. Wish had [grub locker].");
+    quest::say("What you want?!! Face so ugly you scare fish away!! ..sniff, sniff. Smell so bad, too!! Me sure is hungry. Wish had [" . quest::saylink("What grub locker?",0,"grub locker") . "].");
   }
   if ($text=~/grub locker/i) {
     quest::say("You gots grub locker!! Give to me. Me sick of fish and not many dwarves fall off ship. Me pay a plat to get me grub locker from the Gobbler in Neriak. Go to him and say you [deliver grub locker] if you wants one plat.");

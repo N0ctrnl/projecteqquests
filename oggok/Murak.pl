@@ -1,14 +1,14 @@
 # items: 51378, 51349, 51351, 51350, 51353, 51354, 51352, 51355, 55208, 55209
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Yuz be a shaman, yes? Gud, mez have many tings to teach yuz, yuz have lots of training still. Da first ting we haz to work on is teeching yuz to make some armor. If yuz a [shaman], mez can teech you da ways of our class.");
+    quest::say("Yuz be a shaman, yes? Gud, mez have many tings to teach yuz, yuz have lots of training still. Da first ting we haz to work on is teeching yuz to make some armor. If yuz a [" . quest::saylink("I am a shaman",0,"shaman") . "], mez can teech you da ways of our class.");
   }
   if ($text=~/shaman/i) {
-    quest::say("Mez tink dat yuz were. Letz begin yur traineeng. Da furst ting dat yuz needz to do is gather da itemz dat will be uzed in da krafteeng of da [armor] and den yuz can kraft dem in dis majikal assembly kit.");
+    quest::say("Mez tink dat yuz were. Letz begin yur traineeng. Da furst ting dat yuz needz to do is gather da itemz dat will be uzed in da krafteeng of da [" . quest::saylink("What armor?",0,"armor") . "] and den yuz can kraft dem in dis majikal assembly kit.");
     quest::summonitem(51378); # Item: Assembly Kit of Protection
   }
   if ($text=~/armor/i) {
-    quest::say("Da itemz you will needz to gather will be all ober da Feerrott. Dese itemz will be hard for yuz to gather, dey come from some of da meanest tings in da Feerrott. Once yuz are redy to begin, tell mez da piece dat yuz wantz to kraft and mez will give yuz da recipez dat yuz will need when making da armor. I have recipez for [Helms], [Bracers], [Sleeves], [Boots], [Legplates], [Gloves] and [Breastplate].");
+    quest::say("Da itemz you will needz to gather will be all ober da Feerrott. Dese itemz will be hard for yuz to gather, dey come from some of da meanest tings in da Feerrott. Once yuz are redy to begin, tell mez da piece dat yuz wantz to kraft and mez will give yuz da recipez dat yuz will need when making da armor. I have recipez for [" . quest::saylink("Helms") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Sleeves") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Legplates") . "], [" . quest::saylink("Gloves") . "] and [" . quest::saylink("Breastplate") . "].");
   }
   if ($text=~/helm/i) {
     quest::say("Oh! Yuz be a smert ogre, dat yuz are! Protektshun for dat hed of yurz be bery impotent! If yuz want to kraft da helm, yuz needz to gather an orange lizard scale, one chunk of dark colored fungus, and one short lizard tail. Once yuz have dem items, yuz need to craft dem togeder in yur majikal kit to get da helm material. When yuz got da material, yuz need to take it to da forge wit dis mold and smelt it into a gud helm.");
@@ -35,7 +35,7 @@ sub EVENT_SAY {
     quest::summonitem(51352); # Item: Gauntlet Mold of Protection
   }
   if ($text=~/breastplate/i) {
-    quest::say("Da breastplate is da most protektive armer yuz can get, but iz also da most impotent one if yuz plan on fighting in da army. If yuz want to kraft a tunic, yuz need to gather two orange lizard scales, one yellow lizard scale, and three pristine spider silks. Once yuz have dem items, yuz need to craft dem togeder in yur majikal kit to get da brestplate material. When yuz got da material, yuz need to take it to da forge wit dis mold and smelt it into a gud brestplate. After yuz make da breastplate mebbe me give you anuder [job].");
+    quest::say("Da breastplate is da most protektive armer yuz can get, but iz also da most impotent one if yuz plan on fighting in da army. If yuz want to kraft a tunic, yuz need to gather two orange lizard scales, one yellow lizard scale, and three pristine spider silks. Once yuz have dem items, yuz need to craft dem togeder in yur majikal kit to get da brestplate material. When yuz got da material, yuz need to take it to da forge wit dis mold and smelt it into a gud brestplate. After yuz make da breastplate mebbe me give you anuder [" . quest::saylink("What job?",0,"job") . "].");
     quest::summonitem(51355); # Item: Breastplate Mold of Protection
   }
   if ($text=~/job/i) {

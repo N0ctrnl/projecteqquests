@@ -3,11 +3,11 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Hail, %s! Fixxin is my moniker. Nice ta see ya. I am a member of the [Fangbreakers] and we are hunting [werewolves]. We run into lots of other [creepies] out here as well.",e.other:GetName()));
+		e.self:Say(string.format("Hail, %s! Fixxin is my moniker. Nice ta see ya. I am a member of the [" .. eq.say_link("Who are the Fangbreakers?",false,"Fangbreakers") .. "] and we are hunting [" .. eq.say_link("What werewolves?",false,"werewolves") .. "]. We run into lots of other [" .. eq.say_link("What other creepies?",false,"creepies") .. "] out here as well.",e.other:GetName()));
 	elseif(e.message:findi("fangbreaker")) then
 		e.self:Say("Fangbreakers? You have not heard of us? We are the best [werewolf] hunters there are!");
 	elseif(e.message:findi("werewolves")) then
-		e.self:Say("Those blasted fiends hide among normal folk during the day, but at night their bloodlust is set free on an innocent populace. Some claim there is a cure for their condition but the only one we know of is an [enchanted blade] through the bellies of the beasts.");
+		e.self:Say("Those blasted fiends hide among normal folk during the day, but at night their bloodlust is set free on an innocent populace. Some claim there is a cure for their condition but the only one we know of is an [" .. eq.say_link("What enchanted blade?",false,"enchanged blade") .. "] through the bellies of the beasts.");
 	elseif(e.message:findi("enchanted blade")) then
 		e.self:Say("Interested in an enchanted blade? You wouldn't be planning on hunting the moon beasts without a strong, well-oiled party to back you up, now, would you? Well, in any case, I'll gladly lend you a copy of my book, Fixxin Followigs Silvery Blades, if you will fetch me a bar of silver. My supply is running low and our weapons are in need of repair after the deaths of so many lycanthropes.");
 	elseif(e.message:findi("creepies")) then

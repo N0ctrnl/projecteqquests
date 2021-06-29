@@ -1,13 +1,13 @@
 # items: 13384, 21964, 21962, 21968, 13452, 12217
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Welcome you. You look all skin 'n bones. Eat you must do. Chef Dooga can fix up goodies for you. Try [HEHE meat].");
+    quest::say("Welcome you. You look all skin 'n bones. Eat you must do. Chef Dooga can fix up goodies for you. Try [" . quest::saylink("What isHEHE meat?",0,"HEHE meat") . "].");
   }
   if ($text=~/hehe meat/i) {
-    quest::say("It is a secret ground meat made with high elf, human, and Erudite Flesh. Mmmm. It good stuff. Dooga make it and [the Gobbler] make it. If you find any of those meats in the swamps bring to me and I pay you.");
+    quest::say("It is a secret ground meat made with high elf, human, and Erudite Flesh. Mmmm. It good stuff. Dooga make it and [" . quest::saylink("What is the Gobbler?",0,"the Gobbler") . "] make it. If you find any of those meats in the swamps bring to me and I pay you.");
   }
   if ($text=~/gobbler/i) {
-    quest::say("You no hear of the Gobbler!! Him great butcher. Have all kinds of meat. Him am low on froglok legs. Dooga supply him. Dooga need someone to [deliver froglok legs].");
+    quest::say("You no hear of the Gobbler!! Him great butcher. Have all kinds of meat. Him am low on froglok legs. Dooga supply him. Dooga need someone to [" . quest::saylink("I will deliver froglok legs",0,"deliver froglok legs") . "].");
   }
   if ($text=~/froglok legs/i) {
     quest::say("You think so!! That be good thing. Make the Gobbler happy. Maybe he give you something good. Maybe not. You take this. Deliver meat.");

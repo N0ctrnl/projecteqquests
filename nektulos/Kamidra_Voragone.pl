@@ -1,7 +1,7 @@
 # items: 13088
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Hello, $name. I am so hungry, but I have much work to do. Do you think you can [help] me?"); #Text made up
+    quest::say("Hello, $name. I am so hungry, but I have much work to do. Do you think you can [" . quest::saylink("I can help you",0,"help") . "] me?"); #Text made up
   }
   if ($text=~/help/i) {
     quest::say("Excellent."); #Text made up

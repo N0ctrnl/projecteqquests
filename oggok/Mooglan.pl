@@ -1,14 +1,14 @@
 # items: 51380, 51370, 51372, 51371, 51374, 51375, 51373, 51376, 55210, 55211
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Yuz come lookeeng to make sum armorz? Yuz come to da right place, if'n yuz be a shadowknight. Is you a [shadowknight]?");
+    quest::say("Yuz come lookeeng to make sum armorz? Yuz come to da right place, if'n yuz be a shadowknight. Is you a [" . quest::saylink("I am a shadowknight",0,"shadowknight") . "]?");
   }
   if ($text=~/shadowknight/i) {
-    quest::say("Mez tink dat yuz were. Letz begin yur traineeng. Da furst ting dat yuz needz to do is gather da itemz dat will be uzed in da krafteeng of da [armor] and den yuz can kraft dem in dis majikal assembly kit.");
+    quest::say("Mez tink dat yuz were. Letz begin yur traineeng. Da furst ting dat yuz needz to do is gather da itemz dat will be uzed in da krafteeng of da [" . quest::saylink("What armor?",0,"armor") . "] and den yuz can kraft dem in dis majikal assembly kit.");
     quest::summonitem(51380); # Item: Assembly Kit of Darkness
   }
   if ($text=~/armor/i) { # Made up sentence about the job, rest is real text.
-    quest::say("Da itemz you will needz to gather will be all ober da Feerrott. Dese itemz will be hard for yuz to gather, dey come from some of da meanest tings in da Feerrott. Once yuz are redy to begin, tell mez da piece dat yuz wantz to kraft and mez will give yuz da recipez dat yuz will need when making da armor. I have recipez for [Helm], [Bracers], [Sleeves], [Boots], [Legplates], [Gloves] and [Breastplate].  Once yuz done wit da armorz, mez hab a job fer yuz, if I can [trust] yuz.");
+    quest::say("Da itemz you will needz to gather will be all ober da Feerrott. Dese itemz will be hard for yuz to gather, dey come from some of da meanest tings in da Feerrott. Once yuz are redy to begin, tell mez da piece dat yuz wantz to kraft and mez will give yuz da recipez dat yuz will need when making da armor. I have recipez for [" . quest::saylink("Helm") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Sleeves") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Legplates") . "], [" . quest::saylink("Gloves") . "] and [" . quest::saylink("Breastplate") . "].  Once yuz done wit da armorz, mez hab a job fer yuz, if I can [" . quest::saylink("You can trust me",0,"trust") . "] yuz.");
   }
   if ($text=~/helm/i) {
     quest::say("Da helm iz da most impotent piece to get, since it protekt da smertest part of da body. To kraft da helm, yuz needz to gather a pristine lizard scale, one chunk of light colored fungus, and two spider legs, and kraft dem into dis here majikal assembly kit to get yur helm material. Den yuz take dat material and dis mold to a forge and smelt dem together into a gud helm.");

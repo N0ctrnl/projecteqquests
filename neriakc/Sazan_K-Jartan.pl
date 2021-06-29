@@ -5,13 +5,13 @@ sub EVENT_SAY {
     quest::say("You'd better speak more swiftly than my blades or you won't walk out of here $name.");
     quest::say("You are quite bold to approach a member of the Ebon Mask. Now be smart and run away.");
     quest::say("Prepare to be gutted like a fish.");
-    quest::say("Ah, come to speak business have you, I figured Ryoz would be sending someone to me eventually. Well then, let's get down to business. I know of a [potent poison] that will kill even the hardiest Froglok quickly and silently, but with great pain.");
+    quest::say("Ah, come to speak business have you, I figured Ryoz would be sending someone to me eventually. Well then, let's get down to business. I know of a [" . quest::saylink("What potent poison?",0,"potent poison") . "] that will kill even the hardiest Froglok quickly and silently, but with great pain.");
   }
   if ($text=~/potent poison/i) {
-    quest::say("It is a bubbling concoction that can be quite dangerous to make for those with less than skilled hands. I will make this poison for you. However, I will need you to gather the [necessary materials].");
+    quest::say("It is a bubbling concoction that can be quite dangerous to make for those with less than skilled hands. I will make this poison for you. However, I will need you to gather the [" . quest::saylink("What necessary materials?",0,"necessary materials") . "].");
   }
   if ($text=~/necessary materials/i) {
-    quest::say("Well, first off, we will need one dose of Mage's Bane which I just happen to have here. However, I will also need a dose of Susceptible Essence, a dose of Mind Melt and two [special ingredients]. When you have collected these poisons use this mortar to combine them and then hand me the result. Now you must be careful as this mortar is very fragile. If you happen to break it just tell me you need another and I will give you a new one.");
+    quest::say("Well, first off, we will need one dose of Mage's Bane which I just happen to have here. However, I will also need a dose of Susceptible Essence, a dose of Mind Melt and two [" . quest::saylink("What special ingredients?",0,"special ingredients") . "]. When you have collected these poisons use this mortar to combine them and then hand me the result. Now you must be careful as this mortar is very fragile. If you happen to break it just tell me you need another and I will give you a new one.");
     quest::summonitem(67002); # Item: Slime Coated Mortar and Pestle
       }
       if ($text=~/special ingredients/i) {

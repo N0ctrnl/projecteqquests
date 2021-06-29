@@ -1,6 +1,7 @@
 sub EVENT_SAY { 
-if($text=~/Hail/i){
-quest::say("Welcome. A brother of the Indigo you must be. Why else would one dare to roam the corridors of the Cauldron of Hate? You were most likely sent to speak with Yegek. If so. speak up and tell Yegek who [sent] you."); }
+  if($text=~/Hail/i){
+    quest::say("Welcome. A brother of the Indigo you must be. Why else would one dare to roam the corridors of the Cauldron of Hate? You were most likely sent to speak with Yegek. If so. speak up and tell Yegek who [sent] you.");
+  }
 }
 
 sub EVENT_ITEM {

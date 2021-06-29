@@ -14,7 +14,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 63012 =>1 )) {
-    quest::say("Hmm. You seem more capable than my other assistants. I have another [task] to ask of you.");
+    quest::say("Hmm. You seem more capable than my other assistants. I have another [" . quest::saylink("What task?",0,"task") . "] to ask of you.");
     quest::setglobal("tsoma",1,5,"F");
   }
   if (plugin::check_handin(\%itemcount, 63013 =>1 )) {
@@ -22,19 +22,17 @@ sub EVENT_ITEM {
     quest::setglobal("tsoma",2,5,"F");
   }
   if (defined $qglobals{tsoma} && $qglobals{tsoma} == 2) {
-  if (plugin::check_handin(\%itemcount, 63015 =>1 )) {
-    if (($class eq "bard") || ($class eq "beastlord") || ($class eq "paladin") || ($class eq "ranger") || ($class eq "rogue") || ($class eq "shadowknight") || ($class eq "warrior")){
-    		quest::say("Apparently our ignorance exceeded our luck. Ah well, I'm sure the Prince of Hate will find some other punishment for our folly. Well, since you too chance his anger I suppose you deserve a reward. Here, take this...though I'm not sure how much use it will be against a god."); 
-    		quest::summonitem(63052); # Item: Heartspike
-		quest::exp(5000);
+    if (plugin::check_handin(\%itemcount, 63015 =>1 )) {
+      if (($class eq "bard") || ($class eq "beastlord") || ($class eq "paladin") || ($class eq "ranger") || ($class eq "rogue") || ($class eq "shadowknight") || ($class eq "warrior")){
+        quest::say("Apparently our ignorance exceeded our luck. Ah well, I'm sure the Prince of Hate will find some other punishment for our folly. Well, since you too chance his anger I suppose you deserve a reward. Here, take this...though I'm not sure how much use it will be against a god."); 
+        quest::summonitem(63052); # Item: Heartspike
+        quest::exp(5000);
+      } else{
+        quest::say("Apparently our ignorance exceeded our luck. Ah well, I'm sure the Prince of Hate will find some other punishment for our folly. Well, since you too chance his anger I suppose you deserve a reward. Here, take this...though I'm not sure how much use it will be against a god."); 
+        quest::summonitem(63053); # Item: Fleshweaver's Mark
+        quest::exp(5000);
+      }
     }
-	else{
-		quest::say("Apparently our ignorance exceeded our luck. Ah well, I'm sure the Prince of Hate will find some other punishment for our folly. Well, since you too chance his anger I suppose you deserve a reward. Here, take this...though I'm not sure how much use it will be against a god."); 
-    		quest::summonitem(63053); # Item: Fleshweaver's Mark
-		quest::exp(5000);
-
-  }
-  }
   }
   plugin::return_items(\%itemcount);
 }

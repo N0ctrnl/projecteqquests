@@ -1,7 +1,7 @@
 # items: 12982, 12981
 sub EVENT_SAY {
   if($text=~/hail/i){
-    quest::emote("has numerous cracks and holes in his skull from many battles. 'Attention, marine!! You will go into battle and fear nothing! You shall prevail over one enemy and then you shall be sent back into battle! We [shall not allow those sarnak to overtake the Danak shipyards]! Is that clear marine?!!'");
+    quest::emote("has numerous cracks and holes in his skull from many battles. 'Attention, marine!! You will go into battle and fear nothing! You shall prevail over one enemy and then you shall be sent back into battle! We [" . quest::saylink("We shall not allow those sarnak to overtake the Danak shipyards",0,"shall not allow those sarnak to overtake the Danak shipyards") . "]! Is that clear marine?!!'");
   }
   if($text=~/shall not allow those sarnak to overtake the danak shipyards/i){
     quest::say("Stand up straight!! That is correct marine!! YOU shall not allow the sarnak to overtake the shipyards!! Head out to the frontlines, marine!! Kill the berzerkers and return their war braids to me!! For every four, you shall earn your wages!! Now get to the front, marine!! Move it!! Move it!!");

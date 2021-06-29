@@ -1,7 +1,7 @@
 # items: 13410, 7375, 16486, 7376, 13367, 7377, 13061, 13062, 7378, 13354, 7379
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Hi $name. Did [Bordag send you]?");
+    quest::say("Hi $name. Did [" . quest::saylink("Bordag sent me",0,"Bordag send you") . "]?");
   }
   if ($text=~/bordag sent me/i) {
     quest::say("So you want learn about how to fight like bear and crush enemy with bare hand? That good. Best way to start is just go out and do it. Biggest enemy around here lizard men. You go practice. Fight against lizard men. Bring me their tasty meat. You bring four.");

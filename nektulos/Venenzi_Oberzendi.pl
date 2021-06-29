@@ -3,7 +3,7 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("What is it you want! Can't you see I am gathering reagents for my [master]? If I don't get them for him quickly he might punish me.");
+    quest::say("What is it you want! Can't you see I am gathering reagents for my [" . quest::saylink("Who is your master?",0,"master") . "]? If I don't get them for him quickly he might punish me.");
   }
   if($text=~/master/i) {
     quest::say("You do not know of my teacher? The great Kazen Fecae! I am one of his illustrious apprentices! If you fancy yourself a necromancer, travel to Lake Rathetear and tell Kazen you wish to study the dark arts.");
@@ -18,7 +18,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 20642 => 1)) {
-    quest::say("I see you serve my master as well now. I assume you are here to take the reagents from me which I have gathered for him? I don't know if I like the idea of you gaining the credit for my hard work here. I might consider giving you these reagents, if only you do a small [task] for me.");
+    quest::say("I see you serve my master as well now. I assume you are here to take the reagents from me which I have gathered for him? I don't know if I like the idea of you gaining the credit for my hard work here. I might consider giving you these reagents, if only you do a small [" . quest::saylink("What small task?",0,"task") . "] for me.");
     quest::ding();
     quest::exp(500);
     quest::summonitem(20643); # Item: Twisted Symbol of the Apprentice

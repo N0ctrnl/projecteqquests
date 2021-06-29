@@ -6,10 +6,10 @@ sub EVENT_SAY{
     quest::say("Trog trog trog trog?");
   }
   if ($text=~/trog/i) {
-    quest::say("Ha! What are you talking about?! Strange thing you are. Wait a minute, come closer. Are you [from Norrath]?");
+    quest::say("Ha! What are you talking about?! Strange thing you are. Wait a minute, come closer. Are you [" . quest::saylink("I am from Norrath",0,"from Norrath") . "]?");
   }
   if ($text=~/from norrath/i) {
-    quest::say("I thought so, your armor looks to be made from things found not here. Have you heard of [Rivervale]?");
+    quest::say("I thought so, your armor looks to be made from things found not here. Have you heard of [" . quest::saylink("I have heard of Rivervale",0,"Rivervale") . "]?");
   }
   if ($text=~/Rivervale/i) {
     quest::say("[Good].");

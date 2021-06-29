@@ -1,10 +1,10 @@
 # items: 14794, 14791, 14792, 14793, 14813, 3064, 4983, 14808, 3061, 4980, 14831, 3063, 4982, 14809, 3062, 4981
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Begone unless you seek the armor of the [trooper]");
+    quest::say("Begone unless you seek the armor of the [" . quest::saylink("What armor of the trooper?",0,"trooper") . "]");
     }
   if ($text=~/trooper/i) {
-    quest::say("I can provide [boots], [bracer], [gauntlets], or [greaves]");
+    quest::say("I can provide [" . quest::saylink("boots") . "], [" . quest::saylink("bracer") . "], [" . quest::saylink("gauntlets") . "], or [" . quest::saylink("greaves") . "]");
   }
   if ($text=~/boots/i) {
     quest::say("You wish the boots worn by the ancients? Then you must first master the virtue of confidence. For our brothers of the dead, confidence is the virtue that allows them to control the forces that would tear them apart if they knew it not. When a warrior steps, he must be confident, for a weak step cannot crush your enemies. Take this note to the current Harbinger in Cabilis and learn from him.");

@@ -3,14 +3,14 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Hi dere, yuz be talking to Gronk, mez know lotz bout da krafting of arnor dat protekts our yung warriors. If yuz a [warrior] come lookeeng to make sum armorz, yuz find da right Ogre.");
+    quest::say("Hi dere, yuz be talking to Gronk, mez know lotz bout da krafting of arnor dat protekts our yung warriors. If yuz a [" . quest::saylink("I am a warrior",0,"Warrior") . "] come lookeeng to make sum armorz, yuz find da right Ogre.");
   }
   if ($text=~/warrior/i) {
-    quest::say("Mez tink dat yuz were. Letz begin yur traineeng. One of da furst tingz dat yuz needz to do is gather da itemz dat will be uzed in da krafteeng of da [armor] and den yuz can kraft dem in dis majikal assembly kit.");
+    quest::say("Mez tink dat yuz were. Letz begin yur traineeng. One of da furst tingz dat yuz needz to do is gather da itemz dat will be uzed in da krafteeng of da [" . quest::saylink("What armor?",0,"armor") . "] and den yuz can kraft dem in dis majikal assembly kit.");
     quest::summonitem(51377); # Item: Assembly Kit of War
   }
   if ($text=~/armor/i) {
-    quest::say("Da itemz you will needz to gather will be all ober da Feerrott. Dese itemz will be hard for yuz to gather, dey come from some of da meanest tings in da Feerrott. Once yuz are redy to begin, tell mez da piece dat yuz wantz to kraft and mez will give yuz da recipez dat yuz will need when making da armor. I have recipez for [Helms], [Bracers], [Sleeves], [Boots], [Legplates], [Gloves] and [Breastplate].");
+    quest::say("Da itemz you will needz to gather will be all ober da Feerrott. Dese itemz will be hard for yuz to gather, dey come from some of da meanest tings in da Feerrott. Once yuz are redy to begin, tell mez da piece dat yuz wantz to kraft and mez will give yuz da recipez dat yuz will need when making da armor. I have recipez for [" . quest::saylink("Helms") . "][" . quest::saylink("Bracers") . "], [" . quest::saylink("Sleeves") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Legplates") . "], [" . quest::saylink("Gloves") . "] and [" . quest::saylink("Breastplate") . "].");
   }
   if ($text=~/helm/i) {
     quest::say("A gud smert warrior wud not be widout his helm, oderwize yuz wud not be a smert warrior! Da recipe to kraft a helm... mez gotz it somewhere... Oh yes! To kraft da helm, yuz needz to gather a white lizard scale, one chunk of dark colored fungus, and a bone chip. Combine dese items in yur assembly kit to get da helm material. Once yuz got da material, den yuz need to use dis mold and smelt da material into da shape of a helm.");
@@ -37,11 +37,11 @@ sub EVENT_SAY {
     quest::summonitem(51366); # Item: Gauntlet Mold of War
   }
   if ($text=~/breastplate/i) {
-    quest::say("A gud strong warrior wud not be widout his brestplate, oderwize yuz wud not be a strong warrior for long! Da recipe to kraft kraft a brestplate... Oh yes! Yuz need to gather a white lizard scale, two orange lizard scales, and one chunk of light colored fungus. Combine dese items in yur assembly kit to get da brestplate material. Once yuz got da material, den yuz need to use dis mold and smelt da material into da shape of a brestplate. After yuz maka da brestplate, mebbe me gives ya anuder [job].");
+    quest::say("A gud strong warrior wud not be widout his brestplate, oderwize yuz wud not be a strong warrior for long! Da recipe to kraft kraft a brestplate... Oh yes! Yuz need to gather a white lizard scale, two orange lizard scales, and one chunk of light colored fungus. Combine dese items in yur assembly kit to get da brestplate material. Once yuz got da material, den yuz need to use dis mold and smelt da material into da shape of a brestplate. After yuz maka da brestplate, mebbe me gives ya anuder [" . quest::saylink("What job?",0,"job") . "].");
     quest::summonitem(51369); # Item: Breastplate Mold of War
   }
   if ($text=~/job/i) {
-    quest::say("Gronk used to have girlfriend. Her name was Hermina. One day we iz sittin by da river on da big bridge. Hermina made Gronk's favorut treat, candeed lizard man brainz for da lunch. Hermina went into da water for da swim and never came back. Me looked fer her but never found her again. Gronk think dat da gaterz ate her. Huh? Me crying?! Gronk not cry! Gronk be strong! Mebbe you [help find] what happen to her?");
+    quest::say("Gronk used to have girlfriend. Her name was Hermina. One day we iz sittin by da river on da big bridge. Hermina made Gronk's favorut treat, candeed lizard man brainz for da lunch. Hermina went into da water for da swim and never came back. Me looked fer her but never found her again. Gronk think dat da gaterz ate her. Huh? Me crying?! Gronk not cry! Gronk be strong! Mebbe you [" . quest::saylink("I will help find what happened to her",0,"find") . "] what happen to her?");
   }
   if ($text=~/help find/i) {
     quest::say("If you find anyting about her, I give you reward.");

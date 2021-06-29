@@ -1,16 +1,16 @@
 # items: 17244, 22588, 22584, 22587, 22630, 22586, 22583, 22589, 17243
 sub EVENT_SAY { 
 if($text=~/Hail/i){
-quest::say("On what grounds do you think you are welcome to address me like that vermin? I am afraid you will have to prove yourself to me before I can treat you with any respect. Do you feel that you are [worthy] to stand before me?");
+quest::say("On what grounds do you think you are welcome to address me like that vermin? I am afraid you will have to prove yourself to me before I can treat you with any respect. Do you feel that you are [" . quest::saylink("I am worthy",0,"worthy") . "] to stand before me?");
 }
 if($text=~/worthy/i){
-quest::say("Very well then. you are lucky that I have been looking for some sort of an apprentice to help me out in gathering some hides from those nasty halflings. I did have a young one as yourself working for me before but unfortunately they didn't work out as you can see by looking at this autopsy table. I would hope that you will complete my [tasks]. for your sake.");
+quest::say("Very well then. you are lucky that I have been looking for some sort of an apprentice to help me out in gathering some hides from those nasty halflings. I did have a young one as yourself working for me before but unfortunately they didn't work out as you can see by looking at this autopsy table. I would hope that you will complete my [" . quest::saylink("What tasks?",0,"tasks") . "]. for your sake.");
 }
 if($text=~/tasks/i){
-quest::say("If you are willing to [gather some items] that are needed for specific halfling hides I can offer you with the resources necessary to fashion your own armor.");
+quest::say("If you are willing to [" . quest::saylink("I will gather some items",0,"gather some items") . "] that are needed for specific halfling hides I can offer you with the resources necessary to fashion your own armor.");
 }
 if($text=~/gather some items/i){
-quest::say("Excellent $name. Please take this Old Enchanted Tailors Kit. It contains magical power that is able to fashion specific components into a magical version of whatever the core material is. If you are a Necromancer you will need to gather halfling hides that have been infused with many different elements that you will collect and combine in this box. Simply tell me what pattern you want and I will present you with the recipe necessary for [Gloves]. [Robe]. [Trousers]. [Sleeves]. [Skullcap]. [Bracers] and [slippers]. I  would recommend you fashion your Robe last due to the difficulty and complex nature that is involved with finding the items necessary.");
+quest::say("Excellent $name. Please take this Old Enchanted Tailors Kit. It contains magical power that is able to fashion specific components into a magical version of whatever the core material is. If you are a Necromancer you will need to gather halfling hides that have been infused with many different elements that you will collect and combine in this box. Simply tell me what pattern you want and I will present you with the recipe necessary for [" . quest::saylink("Gloves") . "], [" . quest::saylink("Robe") . "] [Robe], [" . quest::saylink("Trousers") . "], [" . quest::saylink("Sleeves") . "], [" . quest::saylink("Skullcap") . "], [" . quest::saylink("Bracers") . "] and [" . quest::saylink("Slippers") . "]. I  would recommend you fashion your Robe last due to the difficulty and complex nature that is involved with finding the items necessary.");
 quest::summonitem("17244");
 }
 if($text=~/gloves/i){
@@ -38,7 +38,7 @@ quest::say("In order to fashion your own Unholy Silk Skullcap you will need to c
 quest::summonitem("22583");
 }
 if($text=~/robe/i){
-quest::say("Your Unholy Silk Gown is your most important and symbolic item you that will be able to craft on your own. I would recommend that you have already gone through the steps of crafting your other pieces before your Gown. If you think that you are ready you will need to collect 4 Halfling Hides. 1 Black Wolf Pelt. 2 Embalming Dusts. 1 Halfling Toe. 1 Bear Meat and 1 Fish Wine. Combine all of these in your box to create the Infused hide then use this Robe pattern along with your Infused hide on the nearest loom to reap the rewards of your hard work.  Please come back after you have fashioned your robe. I may have a [final test] for you.");
+quest::say("Your Unholy Silk Gown is your most important and symbolic item you that will be able to craft on your own. I would recommend that you have already gone through the steps of crafting your other pieces before your Gown. If you think that you are ready you will need to collect 4 Halfling Hides. 1 Black Wolf Pelt. 2 Embalming Dusts. 1 Halfling Toe. 1 Bear Meat and 1 Fish Wine. Combine all of these in your box to create the Infused hide then use this Robe pattern along with your Infused hide on the nearest loom to reap the rewards of your hard work.  Please come back after you have fashioned your robe. I may have a [" . quest::saylink("What final test?",0,"final test") . "] for you.");
 quest::summonitem("22589");
 }
 if($text=~/final test/i){

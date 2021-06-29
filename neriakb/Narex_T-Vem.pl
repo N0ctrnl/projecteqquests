@@ -4,17 +4,17 @@
 
 sub EVENT_SAY {
   if($text=~/Hail/i) {
-    quest::say("Welcome to the Cauldron of Hate. If you are a young warrior, you have come to the right place. There are many [duties] to be performed. If you are a veteran of the blade, we welcome your return to service. Perhaps you return with a [Leatherfoot] skullcap?");
+    quest::say("Welcome to the Cauldron of Hate. If you are a young warrior, you have come to the right place. There are many [" . quest::saylink("What duties?",0,"duties") . "] to be performed. If you are a veteran of the blade, we welcome your return to service. Perhaps you return with a [" . quest::saylink("Who are the Leatherfoot?",0,"Leatherfoot") . "] skullcap?");
   }
   if($text=~/duties/i) {
-    quest::say("I am so glad you asked. There is one matter of importance with which you may be able to assist. It seems an Erudite has made camp in Lavastorm. He is powerful and we do not expect you to slay him. Your mission is to cut off his supply line. I hope you will [accept the mission].");
+    quest::say("I am so glad you asked. There is one matter of importance with which you may be able to assist. It seems an Erudite has made camp in Lavastorm. He is powerful and we do not expect you to slay him. Your mission is to cut off his supply line. I hope you will [" . quest::saylink("I accept the mission",0,"accept the mission") . "].");
   }
   if($text=~/accept the mission/i) {
     quest::say("Go to the Lavastorm Mountain Range. It is a dangerous place, but the one you seek must leave by the direction you entered. He is a goblin. Apparently the Erudite is employing their strength. The fire goblin runner shall be an easy kill for you. At least, he should be. Return his runner pouch to me.");
   }
   if($text=~/leatherfoot/i) {
     if ($class eq "Warrior"){
-      quest::say("Where have you been? The halflings of Rivervale have an elite force of warriors. They are called the Leatherfoot Raiders. They have been infiltrating our glorious city of Neriak for quite some time. They must be exterminated! I must hire strong warriors who wish to [collect the bounty].");
+      quest::say("Where have you been? The halflings of Rivervale have an elite force of warriors. They are called the Leatherfoot Raiders. They have been infiltrating our glorious city of Neriak for quite some time. They must be exterminated! I must hire strong warriors who wish to [" . quest::saylink("I want to collect the bounty",0,"collect the bounty") . "].");
     }
     else {
       quest::say("Go!! Return when you have done more to serve the Indigo Brotherhood of Neriak. Fewer Leatherfoot Raiders in Nektulos and a few Leatherfoot skullcaps in the palms of Master Narex shall prove your true warrior nature and loyalty to our house.");

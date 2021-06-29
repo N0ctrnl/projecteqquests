@@ -1,10 +1,10 @@
 # items: 14789, 14788, 14790, 14783, 3053, 4976, 14786, 3060, 4979, 3056, 4977
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Begone unless you seek the armor of the [trooper]");
+    quest::say("Begone unless you seek the armor of the [" . quest::saylink("I seek the armor of the trooper",0,"trooper") . "]");
     }
   if ($text=~/trooper/i) {
-    quest::say("I can provide [breastplate], [pauldrons], [helm], or [vambraces]");
+    quest::say("I can provide [" . quest::saylink("breastplate") . "], [" . quest::saylink("pauldrons") . "], [" . quest::saylink("helm") . "], or [" . quest::saylink("vambraces") . "]");
   }
   if ($text=~/breastplate/i) {
     quest::say("The monk is the master of focus, the shaman of sacrifice and the shadowknight of righteousness. Lastly, our brothers of the dark know confidence. It is then our duty to know perseverance more than any other. When others fall from spear and sword, we must stand. When others are washed away by fire and ice, we must stand. When others are frustrated and confused, we must continue on. There is a warrior in the swamp near the city. He is an exile, like my brother and I. He knows more about than I.");

@@ -6,7 +6,7 @@ sub EVENT_SAY {
   my $TrueRace = $client->GetBaseRace();
 
   if($text=~/hail/i) {
-    quest::say("Hello, $name. Feel free to browse my wares. Unless you are looking to make a special Dark robe. If so, just let me know that you want a [robe pattern]."); #Still need real text
+    quest::say("Hello, $name. Feel free to browse my wares. Unless you are looking to make a special Dark robe. If so, just let me know that you want a [" . quest::saylink("I want a robe pattern",0,"robe pattern") . "]."); #Still need real text
   }
   if($text=~/robe pattern/i) {
     if ($TrueRace == 6) { #Dark Elf

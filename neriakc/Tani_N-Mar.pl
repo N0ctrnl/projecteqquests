@@ -3,10 +3,10 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Greetings!  You must be a stranger or [new to the Hall].  If you are a stranger. be warned that these halls are intended for the Ebon Mask only. If you are found to be a member of another house. you just may feel the sting of a blade in your back.");
+    quest::say("Greetings!  You must be a stranger or [" . quest::saylink("I am new to the Hall",0,"new to the Hall") . "].  If you are a stranger. be warned that these halls are intended for the Ebon Mask only. If you are found to be a member of another house. you just may feel the sting of a blade in your back.");
  }
   if($text=~/i am new to the hall/i) {
-    quest::say("Then I am glad to make your acquaintance. Have you ever been to Freeport?  If not. how would you like to go?  It is a test of your cunning we wish.  Are you prepared to risk your young life?  Are you [ready to venture to Freeport]?");
+    quest::say("Then I am glad to make your acquaintance. Have you ever been to Freeport?  If not. how would you like to go?  It is a test of your cunning we wish.  Are you prepared to risk your young life?  Are you [" . quest::saylink("I am ready to venture to Freeport",0,"ready to venture to Freeport") . "]?");
  }
   if($text=~/i am ready to venture to freeport/i) {
     quest::say("Find a way to the port of Freeport.  Seek out Giz Dinree.  She is usually near the shores at night.  She is your contact. Tell her you were [sent by TanI].  She will fill you in on your mission.  Good luck.  Do not waste time practicing your skills. Go as you are.");

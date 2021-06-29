@@ -1,15 +1,15 @@
 # items: 51379, 51357, 51360, 51358, 51362, 51359, 51356, 51361, 55212, 55213
 sub EVENT_SAY {
   if($text=~/hail/i){
-    quest::say("Whats do yuz wants? Yuz come to mez to lern bout speshul armorz? If'n yuz ar a Beastlord, yuz kan lern to kraft yur own armor, yuz just needz da recipe. Ar yuz a [Beastlord]?");
+    quest::say("Whats do yuz wants? Yuz come to mez to lern bout speshul armorz? If'n yuz ar a Beastlord, yuz kan lern to kraft yur own armor, yuz just needz da recipe. Ar yuz a [" . quest::saylink("I am a Beastlord",0,"Beastlord") . "]?");
   }
   if($text=~/beastlord/i){
-    quest::say("Mez tink dat yuz were. Letz begin yur traineeng. Da furst ting dat yuz needz to do is gather da itemz dat will be uzed in da krafteeng of da [armor] and den yuz can kraft dem in dis majikal assembly kit.");
+    quest::say("Mez tink dat yuz were. Letz begin yur traineeng. Da furst ting dat yuz needz to do is gather da itemz dat will be uzed in da krafteeng of da [" . quest::saylink("What suit of armor?",0,"suit of armor") . "] and den yuz can kraft dem in dis majikal assembly kit.");
     # Summon Assembly Kit of Scale
     quest::summonitem(51379); # Item: Assembly Kit of Scale
   }
   if($text=~/armor/i){
-    quest::say("Da itemz you will needz to gather will be all ober da Feerrott. Dese itemz will be hard for yuz to gather, dey come from some of da meanest tings in da Feerrott. Once yuz are redy to begin, tell mez da piece dat yuz wantz to kraft and mez will give yuz da recipez dat yuz will need when making da armor. I have recipez for [Caps], [Bracers], [Sleeves], [Boots], [Leggings], [Gloves] and [Tunics].");
+    quest::say("Da itemz you will needz to gather will be all ober da Feerrott. Dese itemz will be hard for yuz to gather, dey come from some of da meanest tings in da Feerrott. Once yuz are redy to begin, tell mez da piece dat yuz wantz to kraft and mez will give yuz da recipez dat yuz will need when making da armor. I have recipez for [" . quest::saylink("Bracers") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Sleeves") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Leggings") . "], [" . quest::saylink("Gloves") . "] and [" . quest::saylink("Tunics") . "].");
   }
   if($text=~/sleeves/i){
     quest::say("Da sleeves is gud to get, yuz can never be too protektive of yur body, and da armz is whut you needz to do all yur huntin. If yuz want to kraft a sleeves, yuz need to gather one yellow lizard scale, a long lizard tail, and one large snake skin, den yuz combine dem together in yur magikal assembly kit to create da material yuz needz. Once yuz have da material, den you take it to a loom wit dis pattern and create yur sleeves.");
@@ -27,7 +27,7 @@ sub EVENT_SAY {
     quest::summonitem(51358); # Item: Bracer Pattern of Scale
   }
   if($text=~/tunics/i){
-    quest::say("Da tunic is a gud piece to have, it protektz yuz from all da beatingz dat you get if you fight in da Feerrott. If yuz want to kraft a tunic, yuz need to gather one yellow lizard scale, two pristine lizard scales, one long lizard tail, and two black spider silks, and kraft dem into dis here majikal assembly kit to get yur tunic material. Den yuz take dat material to a loom wit dis pattern to make da tunic. After you make da armor, I have sumting else for you if you tink you [strong] enuff.");
+    quest::say("Da tunic is a gud piece to have, it protektz yuz from all da beatingz dat you get if you fight in da Feerrott. If yuz want to kraft a tunic, yuz need to gather one yellow lizard scale, two pristine lizard scales, one long lizard tail, and two black spider silks, and kraft dem into dis here majikal assembly kit to get yur tunic material. Den yuz take dat material to a loom wit dis pattern to make da tunic. After you make da armor, I have sumting else for you if you tink you [" . quest::saylink("I am strong enough",0,"strong") . "] enuff.");
     # Summon: Breastplate Pattern of Scale
     quest::summonitem(51362); # Item: Breastplate Pattern of Scale
   }

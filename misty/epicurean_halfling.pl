@@ -4,10 +4,10 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Hmmm. What? Oh sorry, I was snoozing. I was up throughout last night harvesting my [grapes] by the light of the moon.");
+    quest::say("Hmmm. What? Oh sorry, I was snoozing. I was up throughout last night harvesting my [" . quest::saylink("What grapes?",0,"grapes") . "] by the light of the moon.");
   }
   if($text=~/grapes/i) {
-    quest::say("Why, my magic moon-harvested grapes, of course. I will give you some to sample if you would [help] me.");
+    quest::say("Why, my magic moon-harvested grapes, of course. I will give you some to sample if you would [" . quest::saylink("I will help",0,"help") . "] me.");
   }
   if($text=~/help/i) {
     quest::say("The specially-prepared soil that grows the vines for my grapes is becoming muddy again. I need more of the magical sand from the deserts of Ro to mix with my soil. Bring me that and I will give you some grapes.");

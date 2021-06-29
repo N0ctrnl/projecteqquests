@@ -1,7 +1,7 @@
 # items: 20523, 16547, 1717, 13227, 13355, 13356, 13357, 18840, 5030, 13358
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("You $name. We hear of you. We need help. You [help Crakneks] or you [help self]?");
+    quest::say("You $name. We hear of you. We need help. You [" . quest::saylink("I will help Crakneks",0,"help Crakneks") . "] or you [" . quest::saylink("I help self",0,"help self") . "]?");
   }
   if($text=~/help crakneks/i) {
     quest::say("Ha!! We hear of great adventurer. You?!! Me no think so. You prove self to Crakneks before you help us. Go to Innoth.. Innotu.. Innooth.. Arghh!! You go to outside Oggok. Find fat alligator bit Lork brother in two. Bring brother, Nork, body back. Then me know you strong.");
@@ -27,7 +27,7 @@ sub EVENT_ITEM {
     quest::summonitem(13355); # Item: Crude Stein
   }
   elsif(plugin::check_handin(\%itemcount, 13356 => 1)) {
-    quest::say("Ahhh!! Boohoohoo. Nork!! That you arm. Me will take care of you now. Thank you for killing gator. You must be strong. Now you help Crakneks. We hear.. ohh, poor Nork, we hear trouble begins. Find ogre warrior [Uglan]. Give him this. It broken. He know where you from. Go. Nork.. Poor Nork.");
+    quest::say("Ahhh!! Boohoohoo. Nork!! That you arm. Me will take care of you now. Thank you for killing gator. You must be strong. Now you help Crakneks. We hear.. ohh, poor Nork, we hear trouble begins. Find ogre warrior [" . quest::saylink("Who is Uglan?",0,"Uglan") . "]. Give him this. It broken. He know where you from. Go. Nork.. Poor Nork.");
     quest::faction(232,10); # Faction: Craknek Warriors
     quest::faction(228,10); # Faction: Clurg
     quest::faction(261,-10); # Faction: Green Blood Knights

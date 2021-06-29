@@ -25,22 +25,22 @@ sub EVENT_COMBAT{
 
 sub EVENT_SAY { 
   if($text=~/hail/i) {
-    quest::say("Hail, $name! My name is Blixkin Entopop. Have you seen the wonderful assortment of [spiders] and [beetles] that inhabit the thicket? I have quite an extensive [bug collection]. Be careful, though. I have seen many brave halflings fall beneath a [swarm] of clicking and hissing bugs.");
+    quest::say("Hail, $name! My name is Blixkin Entopop. Have you seen the wonderful assortment of [" . quest::saylink("spiders") . "] and [" . quest::saylink("beetles") . "] that inhabit the thicket? I have quite an extensive [" . quest::saylink("What bug collection?",0,"bug collection") . "]. Be careful, though. I have seen many brave halflings fall beneath a [" . quest::saylink("swarm") . "] of clicking and hissing bugs.");
   }
   if($text=~/spiders/i) {
-    quest::say("There are many species of bugs out here. The most common are the fire beetles. If you are hunting them, make sure their queen is not around or you will be in deep trouble. Their eyes are a popular item for adventurers because they give off light as if they were on fire. I even had one warrior try to kill [Ember] for her eyes!!");
+    quest::say("There are many species of bugs out here. The most common are the fire beetles. If you are hunting them, make sure their queen is not around or you will be in deep trouble. Their eyes are a popular item for adventurers because they give off light as if they were on fire. I even had one warrior try to kill [" . quest::saylink("Ember") . "] for her eyes!!");
   }
   if($text=~/ember/i) {
     quest::say("I raised Ember from an egg. She is my faithful pet and quite smart for a beetle. There are plenty of other bugs to squish, out in the thicket, so you had best leave her alone or I will have to SQUISH you!");
   }
   if($text=~/swarms/i) {
-    quest::say("Bugs tend to swarm and defend others of their species when they are attacked. So keep your eyes peeled if you intend to squish any of them.. And you'd better not even THINK of squishing [Ember] or you will be sorry!");
+    quest::say("Bugs tend to swarm and defend others of their species when they are attacked. So keep your eyes peeled if you intend to squish any of them.. And you'd better not even THINK of squishing [" . quest::saylink("Ember") . "] or you will be sorry!");
   }
   if($text=~/beetles/i) {
-    quest::say("There are many species of bugs out here. The most common are the fire beetles. If you are hunting them, make sure their queen is not around or you will be in deep trouble. Their eyes are a popular item for adventurers because they give off light as if they were on fire. I even had one warrior try to kill [Ember] for her eyes!!");
+    quest::say("There are many species of bugs out here. The most common are the fire beetles. If you are hunting them, make sure their queen is not around or you will be in deep trouble. Their eyes are a popular item for adventurers because they give off light as if they were on fire. I even had one warrior try to kill [" . quest::saylink("Ember") . "] for her eyes!!");
   }
   if($text=~/collection/i) {
-    quest::say("Here you go. Just follow the instructions on the [list] so you know what to collect and how to prepare the collection for me.");
+    quest::say("Here you go. Just follow the instructions on the [" . quest::saylink("list") . "] so you know what to collect and how to prepare the collection for me.");
     quest::summonitem(17922); # Item: Bug Collection Box
   }
   if($text=~/list/i) {
