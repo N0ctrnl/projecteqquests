@@ -1,11 +1,11 @@
 # items: 18935, 13054, 13282, 13995, 13321, 5415
 sub EVENT_SAY {
    if ($text=~/hail/i) {
-      quest::say("Step forth, young $name! I heard that you have come of age! The spirit of adventure has entered your body. That is good. Go and speak with the others. They shall help you. I am afraid I have no time to spend conversing. There is much I have to [ponder].");
+      quest::say("Step forth, young $name! I heard that you have come of age! The spirit of adventure has entered your body. That is good. Go and speak with the others. They shall help you. I am afraid I have no time to spend conversing. There is much I have to [" . quest::saylink("What do you have to ponder?",0,"ponder") . "].");
    }
    elsif ($text=~/ponder/i) {
       if ($faction <= 4) {
-         quest::say("Must you know everyone's business? Hmm.. Maybe you can be of assistance. You see, I have been instructed by Furtog to tend to a matter of extreme urgency, which is keeping me from clearing the mines of rats. Will you assist and [exterminate the rats]?");
+         quest::say("Must you know everyone's business? Hmm.. Maybe you can be of assistance. You see, I have been instructed by Furtog to tend to a matter of extreme urgency, which is keeping me from clearing the mines of rats. Will you assist and [" . quest::saylink("I will exterminate the rats",0,"exterminate the rats") . "]?");
       }
       elsif ($faction <= 5) {
          quest::say("Prove yourself to the Stormguard and then we shall talk. Perhaps you may assist Master Canloe and show your worth to us.");
@@ -16,7 +16,7 @@ sub EVENT_SAY {
    }
    elsif ($text=~/exterminate the rats/i) {
       if ($faction <= 4) {
-         quest::say("Very good! I shall reward you for every four giant rat pelts returned to me. And be on the lookout for a [metal rat]!");
+         quest::say("Very good! I shall reward you for every four giant rat pelts returned to me. And be on the lookout for a [" . quest::saylink("What metal rat?",0,"metal rat") . "]!");
       }
       elsif ($faction <= 5) {
          quest::say("Prove yourself to the Stormguard and then we shall talk. Perhaps you may assist Master Canloe and show your worth to us.");
@@ -38,7 +38,7 @@ sub EVENT_SAY {
    }
    elsif ($text=~/important stormguard matter/i) {
       if ($faction <= 4) {
-         quest::say("I am apprehensive about sending one who is so young out into the world, but I have a good feeling about you, $name. Someone has stolen the [Eye of Stormhammer]. You must journey to Antonica and go to a place called Highpass Hold. The rogue who has it is locked up in the prison. We have arranged for his extradition to Kaladim. Please give the jail clerk this note of release.");
+         quest::say("I am apprehensive about sending one who is so young out into the world, but I have a good feeling about you, $name. Someone has stolen the [" . quest::saylink("What is the Eye of STormhammer?",0,"Eye of Stormhammer") . "]. You must journey to Antonica and go to a place called Highpass Hold. The rogue who has it is locked up in the prison. We have arranged for his extradition to Kaladim. Please give the jail clerk this note of release.");
          quest::summonitem(18935); # Sealed Note
       }
       elsif ($faction <= 5) {
@@ -50,7 +50,7 @@ sub EVENT_SAY {
    }
    elsif ($text=~/eye of stormhammer/i) {
       if ($faction <= 5) {
-         quest::say("The great statue of Kazon Stormhammer was once encrusted with two great gems from the mines of Butcherblock. So big were they that it took the magic of the high elves to assist us in lifting them to the statue's face. In the year 2995, somehow, someone stole one of the eyes. We decided to keep the remaining eye in the vault. Now, even that has been stolen from us! Only the most trusted warriors may be involved in this [important Stormguard matter].");
+         quest::say("The great statue of Kazon Stormhammer was once encrusted with two great gems from the mines of Butcherblock. So big were they that it took the magic of the high elves to assist us in lifting them to the statue's face. In the year 2995, somehow, someone stole one of the eyes. We decided to keep the remaining eye in the vault. Now, even that has been stolen from us! Only the most trusted warriors may be involved in this [" . quest::saylink("What important Stormguard matter?",0,"important STormguard matter") . "].");
       }
       else {
          quest::say("Your shifty eyes tell me that you are no ally of the Stormguard.");
@@ -68,7 +68,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
    if (($faction <= 4) && (plugin::check_handin(\%itemcount, 13054 => 4))) { # Giant Rat Pelt
-      quest::say("Great work, young one! We shall soon rid our mines of these pests. Keep a lookout for that [metal rat]. Here is a small reward for such fine work. Soon, you shall be know as Kaladim's resident exterminator.");
+      quest::say("Great work, young one! We shall soon rid our mines of these pests. Keep a lookout for that [" . quest::saylink("What metal rat?",0,"metal rat") . "]. Here is a small reward for such fine work. Soon, you shall be know as Kaladim's resident exterminator.");
       quest::ding();
       quest::faction(312, 5); # Storm Guard
       quest::faction(274, 1); # Kazon Stormhammer
@@ -79,7 +79,7 @@ sub EVENT_ITEM {
       quest::givecash(0,3,0,0);
    }
    elsif (($faction <= 4) && (plugin::check_handin(\%itemcount, 13282 => 1))) { # Scrap Metal
-      quest::say("I thank you, my friend. I was to destroy this metal monster months ago. I could never find him. Please accept this reward for such good service. Oh yes.. And take this card to a man named [Doran Vargnus]. He is a fine blacksmith. I am sure he will reward you with one of his finest suits of armor. Perhaps you may now assist in an [important Stormguard matter].");
+      quest::say("I thank you, my friend. I was to destroy this metal monster months ago. I could never find him. Please accept this reward for such good service. Oh yes.. And take this card to a man named [" . quest::saylink("Who is Doran Vargnus?",0,"Doran Vargnus") . "]. He is a fine blacksmith. I am sure he will reward you with one of his finest suits of armor. Perhaps you may now assist in an [" . quest::saylink("What important Stormguard matter?",0,"important Stormguard matter") . "].");
       quest::ding();
       quest::faction(312, 20); # Storm Guard
       quest::faction(274, 5); # Kazon Stormhammer

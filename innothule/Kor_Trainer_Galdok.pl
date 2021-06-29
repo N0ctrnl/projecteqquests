@@ -2,7 +2,7 @@
 sub EVENT_SAY {
   if(plugin::check_hasitem($client, 51116)) {
  if($text=~/hail/i) {
-  quest::say("Well, well. You've made good use of this in the field, I see. Are those a few notches in the belt? Luckily all this wear and tear is repairable. I can reseal the leather and reinforce it with bone for improved protection if you like. Are you interested in [reinforcing] the belt?");
+  quest::say("Well, well. You've made good use of this in the field, I see. Are those a few notches in the belt? Luckily all this wear and tear is repairable. I can reseal the leather and reinforce it with bone for improved protection if you like. Are you interested in [" . quest::saylink("I am interested in reinforcing",0,"reinforcing") . "] the belt?");
   }
   }
   if ($text=~/reinforcing/i) {
@@ -10,10 +10,10 @@ sub EVENT_SAY {
   }
   elsif ($text=~/hail/i) {
     quest::emote("looks up at you and blinks,");
-    quest::say("Oh hello, initiate. This is by no means aimed as an insult, but you look as if you could use a new waistguard. Perhaps I could interest you in a [leathery girdle] of my own design?");
+    quest::say("Oh hello, initiate. This is by no means aimed as an insult, but you look as if you could use a new waistguard. Perhaps I could interest you in a [" . quest::saylink("What leathery girdle?",0,"leathery girdle") . "] of my own design?");
   }
   if ($text=~/leathery girdle/i) {
-    quest::say("It is quite trivial to craft this girdle, for someone of my experience, however, I will require that you gather some components for me before I can craft it. The items that I require are the raw materials that I will need to craft the belt, the first of which would be a pair of High Quality Gnoll Furs, which can only be found in the depths of Blackburrow. The second item would be the scale of a Mermaid, which would be found in the Ocean of Tears, though I highly doubt it will come easily. The third, and final item, admittedly, is not a component for the belt, but rather a task of a more [personal nature]. This item would be a Minotaur's Battle Axe, which can be found in several areas of Norrath, including the Gorge of the great King Xorbb. Return to me with these, and I shall craft
+    quest::say("It is quite trivial to craft this girdle, for someone of my experience, however, I will require that you gather some components for me before I can craft it. The items that I require are the raw materials that I will need to craft the belt, the first of which would be a pair of High Quality Gnoll Furs, which can only be found in the depths of Blackburrow. The second item would be the scale of a Mermaid, which would be found in the Ocean of Tears, though I highly doubt it will come easily. The third, and final item, admittedly, is not a component for the belt, but rather a task of a more [" . quest::saylink("What personal nature?",0,"personal nature") . "]. This item would be a Minotaur's Battle Axe, which can be found in several areas of Norrath, including the Gorge of the great King Xorbb. Return to me with these, and I shall craft
 for you a belt of fine quality.");
   }
   if ($text=~/personal nature/i) {

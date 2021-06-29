@@ -1,18 +1,18 @@
 # items: 17247, 19635, 19634, 19632, 19637, 19633, 19636, 19631, 28064, 28063, 26076
 sub EVENT_SAY {
   if($text=~/hail/i){
-    quest::say("Hail to ye too $name, what brings ye to Kaladim`s hall of champions? I am Dirjadak Barbrawler and its gud to meet ye. I pride myself on being one of the finest Warlords to have ever served in Brells Army. However, my days nowadays aren't all that exciting. I just spend me time training young ones that are born into the life of a Kaladim Champion. If you are a young [warrior] of Brell I might have some work for you.");
+    quest::say("Hail to ye too $name, what brings ye to Kaladim`s hall of champions? I am Dirjadak Barbrawler and its gud to meet ye. I pride myself on being one of the finest Warlords to have ever served in Brells Army. However, my days nowadays aren't all that exciting. I just spend me time training young ones that are born into the life of a Kaladim Champion. If you are a young [" . quest::saylink("I am a warrior of Brell",0,"Warrior") . "] of Brell I might have some work for you.");
   }
   if($text=~/warrior/i){
-    quest::say("Excellent $name, you must surely have been sent to me to begin yer training then. Aye? If you are [interested] in beginning yer training as a Champion of Kaladim I will be happy to present you with yer instructions for crafting yer own set of Axebringers Platemail Armor.");
+    quest::say("Excellent $name, you must surely have been sent to me to begin yer training then. Aye? If you are [" . quest::saylink("I am interested",0,"interested") . "] in beginning yer training as a Champion of Kaladim I will be happy to present you with yer instructions for crafting yer own set of Axebringers Platemail Armor.");
   }
   if($text=~/interested/i){
-    quest::say("Dats great to here dere young one. First and foremost you will need dis Dusty Mail Assembly Kit to combine all the various items that you will need to collect from different parts of the Butcherblock Mountains and in our great city of Kaladim. As you collect specific items from yer surroundings, you will use them in certain quantities in this kit to create armor materials that will then be placed in a forge with armor molds to fashion yer armor. Once you are [ready] to begin collecting the supplies for yer materials I will be happy to supply you with the necessary material recipes and molds to craft yer armor.");
+    quest::say("Dats great to here dere young one. First and foremost you will need dis Dusty Mail Assembly Kit to combine all the various items that you will need to collect from different parts of the Butcherblock Mountains and in our great city of Kaladim. As you collect specific items from yer surroundings, you will use them in certain quantities in this kit to create armor materials that will then be placed in a forge with armor molds to fashion yer armor. Once you are [" . quest::saylink("I am ready",0,"ready") . "] to begin collecting the supplies for yer materials I will be happy to supply you with the necessary material recipes and molds to craft yer armor.");
     # Summon: Dusty Mail Assembly Kit
     quest::summonitem(17247); # Item: Dusty Mail Assembly Kit
   }
   if($text=~/ready/i){
-    quest::say("Glad to ere that I am indeed Aye! When you have decided what armor piece you would like to collect please simply tell me what piece it is that you want to craft and I will supply you material recipe and mold necessary for crafting Axebringers Platemail [Helm], [Bracer], [Armguards], [Boots], [Greaves], [Gauntlets], and [Breastplate].");
+    quest::say("Glad to ere that I am indeed Aye! When you have decided what armor piece you would like to collect please simply tell me what piece it is that you want to craft and I will supply you material recipe and mold necessary for crafting Axebringers Platemail [" . quest::saylink("Helm") . "], [" . quest::saylink("Bracer") . "], [" . quest::saylink("Armguards") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Greaves") . "], [" . quest::saylink("Gauntlets") . "] and [" . quest::saylink("Breastplate") . "].");
   }
   if($text=~/armguards/i){
     quest::say("To create yer armguards material you will need to combine 2 Bricks of Crude Bronze, 2 Giant Scarab Claw, and 1 Torch in yer assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion yer very own Armguards of the Axebringer.");
@@ -30,7 +30,7 @@ sub EVENT_SAY {
     quest::summonitem(19632); # Item: Crude Bracer Mold
   }
   if($text=~/breastplate/i){
-    quest::say("To create yer breastplate material you will need to combine 5 Bricks of Crude Bronze, 1 Glyndas Tongue, 1 Pristine Forest Drakeling Scale, 1 Golden Bandit Tooth, 1 Goblin Brain and 1 Aqua Goblin Headdress in yer assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion yer very own Breastplate of the Axebringer. I would also like to see you after you have completed yer breastplate because I have a final [favor] to ask of ye.");
+    quest::say("To create yer breastplate material you will need to combine 5 Bricks of Crude Bronze, 1 Glyndas Tongue, 1 Pristine Forest Drakeling Scale, 1 Golden Bandit Tooth, 1 Goblin Brain and 1 Aqua Goblin Headdress in yer assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion yer very own Breastplate of the Axebringer. I would also like to see you after you have completed yer breastplate because I have a final [" . quest::saylink("What favor?",0,"favor") . "] to ask of ye.");
     # Summon: Crude Breastplate Mold
     quest::summonitem(19637); # Item: Crude Breastplate Mold
   }

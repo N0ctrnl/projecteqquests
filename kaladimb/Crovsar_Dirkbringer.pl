@@ -1,16 +1,16 @@
 # items: 17247, 19634, 19632, 19631, 19633, 19636, 19635, 19637, 28067, 28068, 26078
 sub EVENT_SAY {
   if($text=~/hail/i){
-    quest::say("Gud to meet ye there $name. Me names Crovsar Dirkbringer and I run dis here mining operation. Anyone else that tell ye different simply aint telling da truth! I like to spend most of me time minin but I also like to help our young miners pick dere way to glory as a great rogue! Er I mean a great miner! Aye, dats it. If ye are a young minin [rogue] of Kaladim den I might just have some things for ye to do.");
+    quest::say("Gud to meet ye there $name. Me names Crovsar Dirkbringer and I run dis here mining operation. Anyone else that tell ye different simply aint telling da truth! I like to spend most of me time minin but I also like to help our young miners pick dere way to glory as a great rogue! Er I mean a great miner! Aye, dats it. If ye are a young minin [" . quest::saylink("I am a rogue of Kaladim",0,"rogue") . "] of Kaladim den I might just have some things for ye to do.");
   }
   if($text=~/rogue/i){
-    quest::say("A young rogue ye say ye is eh Gilborn? Well den If`n yer ready to git your hands dirty and yer pockets full I will be happy to explain to you the [training] exercises dat I have our new recruits all undergo to earn dere keep in dese here mines!");
+    quest::say("A young rogue ye say ye is eh Gilborn? Well den If`n yer ready to git your hands dirty and yer pockets full I will be happy to explain to you the [" . quest::saylink("What training?",0,"training") . "] exercises dat I have our new recruits all undergo to earn dere keep in dese here mines!");
   }
   if($text=~/training/i){
-    quest::say("Well den it must be obvious that not just any young miner can git his things and venture out into da world without the proper armor to protect dem Aye? Dis is why I have developed training exercises dat will test both yer fightin and collectin skills and will in da end yield you a full set of Apprentice Miners Chainmail! Now makin da armor will nat be hard at all because I will be able to give you the tools necessary too craft da armor pieces once you have created da correct armor [materials].");
+    quest::say("Well den it must be obvious that not just any young miner can git his things and venture out into da world without the proper armor to protect dem Aye? Dis is why I have developed training exercises dat will test both yer fightin and collectin skills and will in da end yield you a full set of Apprentice Miners Chainmail! Now makin da armor will nat be hard at all because I will be able to give you the tools necessary too craft da armor pieces once you have created da correct armor [" . quest::saylink("What materials?",0,"materials") . "].");
   }
   if($text=~/materials/i){
-    quest::say("Now were talkin! I can see dat ye are very interested in carving yer way into da Kaladim history books so lets git started. First off you will use this Dusty Mail Assembly Kit to collect various magical items that can be combined in da kit to create the armor materials that I spoke of earlier. You will then take the material to a forge along with patterns that I will present ye with to create da specific armor piece ye asked for. When ye are ready simply say what armor piece ye want to craft and I can provide ye with the armor material recipes and patterns for Apprentice Miners [Coifs], [Bracers], [Sleeves], [Boots], [Legplates], [Gauntlets] and [Tunics].");
+    quest::say("Now were talkin! I can see dat ye are very interested in carving yer way into da Kaladim history books so lets git started. First off you will use this Dusty Mail Assembly Kit to collect various magical items that can be combined in da kit to create the armor materials that I spoke of earlier. You will then take the material to a forge along with patterns that I will present ye with to create da specific armor piece ye asked for. When ye are ready simply say what armor piece ye want to craft and I can provide ye with the armor material recipes and patterns for Apprentice Miners [" . quest::saylink("Coifs") . "], [" . quest::saylink("Bracers") . "], [" . quest::saylink("Sleeves") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Legplates") . "], [" . quest::saylink("Gauntlets") . "], and [" . quest::saylink("Tunics") . "].");
     #Summon: Dusty Mail Assembly Kit
     quest::summonitem(17247)
   }
@@ -45,12 +45,12 @@ sub EVENT_SAY {
     quest::summonitem(19635); # Item: Crude Vambrace Mold
   }
   if($text=~/tunics/i){
-    quest::say("To create your tunic material you will need to combine 5 Bricks of Crude Bronze, 1 Enraged Goblin Beads, 1 Pristine Forest Drakeling Scale, 1 Golden Bandit Tooth, 1 Basilisk Tongue and 1 Goblin Parts in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Apprentice Miners Tunic. When ye finish yer tunic come on back fer I got one more [assignment] for a miner that I know I can trust!");
+    quest::say("To create your tunic material you will need to combine 5 Bricks of Crude Bronze, 1 Enraged Goblin Beads, 1 Pristine Forest Drakeling Scale, 1 Golden Bandit Tooth, 1 Basilisk Tongue and 1 Goblin Parts in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Apprentice Miners Tunic. When ye finish yer tunic come on back fer I got one more [" . quest::saylink("What assignment?",0,"assignment") . "] for a miner that I know I can trust!");
     #Summon: Crude Breastplate Mold
     quest::summonitem(19637); # Item: Crude Breastplate Mold
   }
   if($text=~/assignment/i){
-    quest::say("Well da assignment is simple $name. I jess simply need ye to fetch me some items that I need to create a minin pick dat I plan on distributing to all da new miners around dese parts dat pass my exercises, much like yerself. If you would like to help me [collect] the items I need I could perhaps fix ye up one of dese first minin picks. Whatta ya say dere $name?");
+    quest::say("Well da assignment is simple $name. I jess simply need ye to fetch me some items that I need to create a minin pick dat I plan on distributing to all da new miners around dese parts dat pass my exercises, much like yerself. If you would like to help me [" . quest::saylink("I will collect the items",0,"collect") . "] the items I need I could perhaps fix ye up one of dese first minin picks. Whatta ya say dere $name?");
   }
   if($text=~/collect/i){
     quest::say("Das great news to hear indeed! Please seek out 1 Aqua Goblin Backbone and 2 Pristine Skunk Claws and I will surely reward ye for yer trouble. I hope to see ye soon!");

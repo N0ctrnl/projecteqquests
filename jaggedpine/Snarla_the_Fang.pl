@@ -2,13 +2,13 @@
 sub EVENT_SAY {
   if ($faction <= 5) {
     if($text=~/hail/i){
-      quest::say("Shhh. quiet! This is place of solitude and peace! You [respect temple] while you here if you know what good for you!");
+      quest::say("Shhh. quiet! This is place of solitude and peace! You [" . quest::saylink("I will respect temple",false,"respect temple") . "] while you here if you know what good for you!");
     }
     if($text=~/respect temple/i){
-      quest::say("One way guests show respect is to bring the host [food]. Something really good would be nice.");
+      quest::say("One way guests show respect is to bring the host [" . quest::saylink("What food?",false,"food") . "]. Something really good would be nice.");
     }
     if($text=~/food/i){
-      quest::say("Lessee. . . Dryad Pate is what I want. Bring me some [Dryad Pate] and then you be a good guest. Maybe then I return a favor for you.");
+      quest::say("Lessee. . . Dryad Pate is what I want. Bring me some [" . quest::saylink("What is Dryad Pate?",false,"Dryad Pate") . "] and then you be a good guest. Maybe then I return a favor for you.");
     }
     if($text=~/dryad pate/i){
       quest::say("I don't know how it made. Talk to the Brargus about it. He the cook.");
@@ -21,7 +21,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 8199 => 1)) { #Hand-In: Dryad Pate
-    quest::say("Ohh. . . This really good, thanks! You take this token of friendship. You all smell the same so this way I know who you are. I can make nice [necklaces] for my friends.");
+    quest::say("Ohh. . . This really good, thanks! You take this token of friendship. You all smell the same so this way I know who you are. I can make nice [" . quest::saylink("What necklaces?",false,"necklaces") . "] for my friends.");
     quest::summonitem(8270); #Token of Friendship
     quest::faction(1598,50); #Anchorites of Brell Serilis
   }

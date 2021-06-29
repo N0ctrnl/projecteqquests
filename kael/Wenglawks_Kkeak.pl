@@ -1,19 +1,19 @@
 # items: 25279, 25280, 25281, 28600, 28601, 20474, 25062, 25130, 25061, 25110, 17049, 29068, 29626, 1722, 1719, 1723
 sub EVENT_SAY {
   if($text=~/hail/i){
-    quest::say("Greetings, $name, I have heard of you. My name is Wenglawks Kkeak. Welcome to my humble home. My sources tell me you are a [mercenary]. Is this true?");
+    quest::say("Greetings, $name, I have heard of you. My name is Wenglawks Kkeak. Welcome to my humble home. My sources tell me you are a [" . quest::saylink("I am a mercenary",0,"mercenary") . "]. Is this true?");
   }
   if($text=~/mercenary/i){
-    quest::say("Well then, I suppose you might be [looking] for work. Are you?");
+    quest::say("Well then, I suppose you might be [" . quest::saylink("I am looking for work",0,"looking") . "] for work. Are you?");
   }
   if($text=~/looking/i){
-    quest::say("I have been looking for a few good people to deliver goods for me. I have several [deliveries] to clients which must be made soon. My last delivery person ended up dead, unfortunately.");
+    quest::say("I have been looking for a few good people to deliver goods for me. I have several [" . quest::saylink("What are the deliveries?",0,"deliveries") . "] to clients which must be made soon. My last delivery person ended up dead, unfortunately.");
   }
   if($text=~/deliveries/i){
     quest::say("I have three clients whose orders must be taken care of. These will not be simple deliveries. I want you not only to deliver the items but to assist them if they need help using their packages. Do you wish to hear of the first task I have for you?");
   }
   if($text=~/first task/i){
-    quest::say("One of my clients lives on the shores of the Iceclad Ocean. His name is Sojan. Supposedly he is some kind of pirate from the other lands. However, I could not care less what he calls himself. He paid me well to acquire him a set of Coldain tools and they were not easy to come by. Are you willing to take this [package] to Sonjan?");
+    quest::say("One of my clients lives on the shores of the Iceclad Ocean. His name is Sojan. Supposedly he is some kind of pirate from the other lands. However, I could not care less what he calls himself. He paid me well to acquire him a set of Coldain tools and they were not easy to come by. Are you willing to take this [" . quest::saylink("I will take the package",0,"package") . "] to Sonjan?");
   }
   if($text=~/package/i){
     # Toolset Delivery (kael)
@@ -29,11 +29,11 @@ sub EVENT_SAY {
   }
   if($text=~/third client/i){
     # Mechanical Net Delivery (kael)
-    quest::say("Are you sure you will be up to this journey? It will take a hardened person to survive the trip. Let alone find my client. Do you really [want to go] out into the dangerous lands in the west?");
+    quest::say("Are you sure you will be up to this journey? It will take a hardened person to survive the trip. Let alone find my client. Do you really [" . quest::saylink("I want to go",0,"want to go") . "] out into the dangerous lands in the west?");
   }
   if($text=~/want to go/i){
     # Mechanical Net Delivery (kael)
-    quest::say("I'm not sure if I can [trust] you with this. If you die on the trip, I will be losing profit! The other deliveries were much simpler, I remind you. Can I really [trust] you as far as I can throw you? Wait, that's a bad example - I could probably throw you quite far.");
+    quest::say("I'm not sure if I can [" . quest::saylink("You can trust me",0,"trust") . "] you with this. If you die on the trip, I will be losing profit! The other deliveries were much simpler, I remind you. Can I really [" . quest::saylink("You can trust me",0,"trust") . "] you as far as I can throw you? Wait, that's a bad example - I could probably throw you quite far.");
   }
   if($text=~/trust/i){
     # Mechanical Net Delivery (kael)
@@ -54,7 +54,7 @@ sub EVENT_ITEM {
   # Handin: Receipt
   elsif(plugin::check_handin(\%itemcount, 20474 => 1)){
     # Toolset Delivery (kael)[End]
-    quest::say("I assume the delivery went well? You can have these as payment. One of my customers just decided he does not wish to buy them. They are rather sturdy! I do have another task available if you wish to [undertake] it.");
+    quest::say("I assume the delivery went well? You can have these as payment. One of my customers just decided he does not wish to buy them. They are rather sturdy! I do have another task available if you wish to [" . quest::saylink("I will undertake the task",0,"undertake") . "] it.");
     quest::exp(1000);
     # Summon: Engraved Bone Pauldrons
     quest::summonitem(25062); # Item: Engraved Bone Pauldrons
@@ -62,7 +62,7 @@ sub EVENT_ITEM {
   # Handin: Giant Icewurm Talisman
   elsif(plugin::check_handin(\%itemcount, 25130 => 1)){
     # Spear Delivery (kael)[End]
-    quest::say("He has reconsidered the offer, you say? This is most excellent! I hope this will be acceptable payment for your troubles, $name. My cash situation is not the best at this point in time. I do have a [third client] who needs delivery...");
+    quest::say("He has reconsidered the offer, you say? This is most excellent! I hope this will be acceptable payment for your troubles, $name. My cash situation is not the best at this point in time. I do have a [" . quest::saylink("Who is your third client?",0,"third client") . "] who needs delivery...");
     quest::exp(1500);
     # Summon: Bracer of Midnight
     quest::summonitem(25061); # Item: Bracer of Midnight

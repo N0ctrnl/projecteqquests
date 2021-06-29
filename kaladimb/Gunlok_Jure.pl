@@ -1,7 +1,7 @@
 # items: 13073, 2116, 2122, 5013, 5014, 5016, 5023, 6011, 13002, 13003, 13332, 15201
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Hail, $name!  Bow before the greatness of the Clerics of Underfoot!  It is good to be a paladin in such an order as ours - to fight the good fight and defend Kaladim from the evil and undead.  If you be a paladin, then I pray you find the [courage to battle the undead].");
+    quest::say("Hail, $name!  Bow before the greatness of the Clerics of Underfoot!  It is good to be a paladin in such an order as ours - to fight the good fight and defend Kaladim from the evil and undead.  If you be a paladin, then I pray you find the [" . quest::saylink("I have the courage to battle the undead",0,"courage to battle the undead") . "].");
   }
   if($text=~/courage/i) {
     quest::say("Yes!!  To battle the undead is our greatest call.  There has been a rise in the number of dwarven skeletons seen in the Butcherblocks.  If you are a true member of this order, I shall reward you for the return of four bone chips.  We shall defend our land from evil!");
@@ -18,7 +18,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 13073 => 4)) {
-    quest::say("You have done well. We thank you for your deed with this humble reward. The power behind the raising of our dead shall soon be found. You will earn more respect with more bone chips. I only wish you could assist in the return of the [remains of Cromil].");
+    quest::say("You have done well. We thank you for your deed with this humble reward. The power behind the raising of our dead shall soon be found. You will earn more respect with more bone chips. I only wish you could assist in the return of the [" . quest::saylink("I will return the remains of Cromil",0,"remains of Cromil") . "].");
     quest::summonitem(quest::ChooseRandom(2116,2122,5013,5014,5016,5023,6011,13002,13003)); # Item(s): Small Patchwork Tunic (2116), Small Tattered Gloves (2122), Rusty Short Sword (5013), Rusty Axe (5014), Rusty Broad Sword (5016), Rusty Two Handed Sword (5023), Rusty Mace (6011), Torch (13002), Small Lantern (13003)
     quest::ding();
     quest::givecash(7,10,0,0); # Cash
@@ -41,4 +41,3 @@ sub EVENT_ITEM {
   plugin::try_tome_handins(\%itemcount, $class, 'Paladin');
   plugin::return_items(\%itemcount);
 }
-

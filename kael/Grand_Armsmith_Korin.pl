@@ -6,7 +6,7 @@
 sub EVENT_SAY {
   if ($faction <= 3) {
     if ($text=~/hail/i) {
-      quest::say("What do you want from me $race? I can only imagine that you are here to ask me to use my obviously superior smithing talents to create some [special helmets] to help protect your obviously frail body.");
+      quest::say("What do you want from me $race? I can only imagine that you are here to ask me to use my obviously superior smithing talents to create some [" . quest::saylink("What special helmets?",0,"special helmets") . "] to help protect your obviously frail body.");
     }      
     if ($text=~/special helmets/i) {
       quest::say("Just as I suspected $race. Using my superior skills I can customize a plate helmet to help better protect you. Give me your Malevolent Crown, Warlord's Crown, Shining Helm, Templar's Crown, Troubadour's Helm, Frostreaver's Velium Crown, Crown of the Kromzek Kings or a Cowl of Mortality and I shall make you a new helm that will better protect you.");

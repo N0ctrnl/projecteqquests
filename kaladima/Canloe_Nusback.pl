@@ -1,16 +1,16 @@
 # items: 13318, 9009, 2113, 2114, 2115, 2116, 2117, 2118, 2119, 2120, 2122, 2123, 2124, 13319, 10017
 sub EVENT_SAY { 
   if ($text=~/hail/i) {
-    quest::say("Step forward and speak up, young $name! Kaladim can always use another warrior. Are you [ready to serve Kaladim] or has a yellow streak appeared down your back?");
+    quest::say("Step forward and speak up, young $name! Kaladim can always use another warrior. Are you [" . quest::saylink("I am ready to serve Kaladim",0,"ready to serve Kaladim") . "] or has a yellow streak appeared down your back?");
   }
   if ($text=~/ready to serve kaladim/i) {
-    quest::say("Then serve you shall. Let your training begin on the battlefields of Faydwer. Seek out and destroy all [Crushbone orcs]. Return their belts to me. I shall also reward you for every two orc legionnaire shoulder pads returned. A warrior great enough to slay one legionnaire shall surely have no problem with another. Go, and let the cleansing of Faydwer begin.");
+    quest::say("Then serve you shall. Let your training begin on the battlefields of Faydwer. Seek out and destroy all [" . quest::saylink("Who are the Crushbone orcs?",0,"Crushbone orcs") . "]. Return their belts to me. I shall also reward you for every two orc legionnaire shoulder pads returned. A warrior great enough to slay one legionnaire shall surely have no problem with another. Go, and let the cleansing of Faydwer begin.");
   }
   if ($text=~/crushbone orcs/i) {
-    quest::say("The army of the Crushbone orcs is deadly indeed. They are great military strategists. It was a legion of them that brought down the great [Trondle Ogrebane]. Speak with Furtog Ogrebane about the Crushbones. He has need of warriors such as you.");
+    quest::say("The army of the Crushbone orcs is deadly indeed. They are great military strategists. It was a legion of them that brought down the great [" . quest::saylink("Who was Trondle Ogrebane",0,"Trondle Ogrebane") . "]. Speak with Furtog Ogrebane about the Crushbones. He has need of warriors such as you.");
   }
   if ($text=~/trondle ogrebane/i) {
-    quest::say("Trondle Ogrebane is the legendary dwarven warrior who single-handedly exterminated the ogre clan called the [Mudtoes]. He was recently killed in battle. It took an entire legion of Crushbone orcs to bring him down. Furtog is still fuming about that.");
+    quest::say("Trondle Ogrebane is the legendary dwarven warrior who single-handedly exterminated the ogre clan called the [" . quest::saylink("Who are the Mudtoes",0,"Mudtoes") . "]. He was recently killed in battle. It took an entire legion of Crushbone orcs to bring him down. Furtog is still fuming about that.");
   }
   if ($text=~/mudtoes/i) {
     quest::say("The Mudtoes were a small clan of ogres. They lived somewhere in the Butcherblock Mountains. They had an insatiable appetite for dwarves. They were finally destroyed by the hand of Trondle Ogrebane.");

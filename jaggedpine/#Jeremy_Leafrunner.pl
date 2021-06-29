@@ -4,13 +4,13 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Hello there $name. Nice day today isn't it? We really appreciate the help that the city of Qeynos has offered us in defense of [Fort Jaggedpine].");
+    quest::say("Hello there $name. Nice day today isn't it? We really appreciate the help that the city of Qeynos has offered us in defense of [" . quest::saylink("What is Fort Jaggedpine?",0,"Fort Jaggedpine") . "].");
   }
   if($text=~/Fort Jaggedpine/i) {
-    quest::say("That's the name my grandfather and grandmother gave to this place a while ago. Great name don't you think? Well at least I think it is anyway. My grandmother moved away after my grandfather passed away a long time ago. Are you [planning a trip to Felwithe] any time soon?");
+    quest::say("That's the name my grandfather and grandmother gave to this place a while ago. Great name don't you think? Well at least I think it is anyway. My grandmother moved away after my grandfather passed away a long time ago. Are you [" . quest::saylink("I am planning a trip to Felwithe",false,"planning a trip to Felwithe") . "] any time soon?");
   }
   if($text=~/planning a trip to Felwithe/i) {
-    quest::say("Hey that's great. I don't see much of my grandmother these days, would you be [willing to deliver a letter] to her?");
+    quest::say("Hey that's great. I don't see much of my grandmother these days, would you be [" . quest::saylink("I am willing to deliver a letter to her",false,"willing to deliver a letter") . "] to her?");
   }
   if($text=~/willing to deliver a letter/i) {
     quest::say("Thanks a bunch, I really appreciate it! Here take this to her. Her name is Elishia.");

@@ -1,18 +1,16 @@
 # items: 17253, 19635, 19634, 19632, 19637, 19633, 19636, 19631, 28062, 28061, 26075
 sub EVENT_SAY {
   if($text=~/hail/i){
-    quest::say("Hail dere me friend. I be Haldorak Foamymugs High Priest of Clerics dat heed the call of Brell. I am a very busy Dwarf for I have many new house recruits to train. Ye see I am in charge of all the young ones that pass through our halls. They must all undergo and pass me [tests] before they are truly ready to travel the dangerous world of Norrath.");
+    quest::say("Hail dere me friend. I be Haldorak Foamymugs High Priest of Clerics dat heed the call of Brell. I am a very busy Dwarf for I have many new house recruits to train. Ye see I am in charge of all the young ones that pass through our halls. They must all undergo and pass me [" . quest::saylink("What tests?",0,"tests") . "] before they are truly ready to travel the dangerous world of Norrath.");
   }
   if($text=~/tests/i){
-    quest::say("Well ye see $name, we cant just send anyone out 
-into dis world to spread Brells word and not make sure dey are properly trained in the ways of battle. Dis is why I have created some exercises for our young ones so that dey may be able to do which will in the end enable them to make a full set of their own armor. If`n ye are a young [cleric] of Brell 
-well den these special exercise will surely be right for ye! Aye.");
+    quest::say("Well ye see $name, we cant just send anyone out into dis world to spread Brells word and not make sure dey are properly trained in the ways of battle. Dis is why I have created some exercises for our young ones so that dey may be able to do which will in the end enable them to make a full set of their own armor. If`n ye are a young [" . quest::saylink("I am a cleric of Brell",0,"cleric") . "] of Brell well den these special exercise will surely be right for ye! Aye.");
   }
   if($text=~/cleric/i){
-    quest::say("Well den lets not waste anytime and lets get you started! Here is yer Assembly Kit of Brell. In this kit ye will be collected many different items from both da Mountains of Butcherblock as well is in our great minin city o Kaladim! You will then place certain items in yer kit to create armor materials that you will then combine in a forge with an armor mold to make yer armor piece. If`n yer ready to begin craftin yer armor then I will be glad to present you with da material [recipes]!");
+    quest::say("Well den lets not waste anytime and lets get you started! Here is yer Assembly Kit of Brell. In this kit ye will be collected many different items from both da Mountains of Butcherblock as well is in our great minin city o Kaladim! You will then place certain items in yer kit to create armor materials that you will then combine in a forge with an armor mold to make yer armor piece. If`n yer ready to begin craftin yer armor then I will be glad to present you with da material [" . quest::saylink("What recipes?",0,"recipes") . "]!");
   }
   if($text=~/recipes/i){
-    quest::say("Now yer talking $name, I be glad to see yer ready to begin crafting yer honor and heed yer calling as a servant o Brell! I have the armor material recipes and molds for Brells Blessed Platemail [Helm], [Bracer], [Armguards], [Boots], [Greaves], [Gauntlets], and [Breastplate]. All ye must do is simply tell me what armor piece ye want to craft and I will gladly present ye with the material recipe and armor mold necessary fer craftin it.");
+    quest::say("Now yer talking $name, I be glad to see yer ready to begin crafting yer honor and heed yer calling as a servant o Brell! I have the armor material recipes and molds for Brells Blessed Platemail [" . quest::saylink("Helm") . "], [" . quest::saylink("Bracer") . "], [" . quest::saylink("Armguards") . "], [" . quest::saylink("Boots") . "], [" . quest::saylink("Greaves") . "], [" . quest::saylink("Gauntlets") . "], and [" . quest::saylink("Breastplate") . "]. All ye must do is simply tell me what armor piece ye want to craft and I will gladly present ye with the material recipe and armor mold necessary fer craftin it.");
     # Holy Assembly Kit    
     quest::summonitem(17253); # Item: Holy Assembly Kit
   }
@@ -36,7 +34,7 @@ well den these special exercise will surely be right for ye! Aye.");
   }
   if($text=~/breastplate/i){
     # Quest: Brells Blessed Platemail Breastplate
-    quest::say("To create yer breastplate material you will need to combine 5 Bricks of Crude Bronze, 1 Glynns Tongue, 1 Dwarven Bandit Coinpurse, 1 Pristine Forest Drakeling Scale, 1 Undead Pawn Tibia and 1 Golden Bandit Tooth in yer assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion yer very own Brells Blessed Breastplate. Please come back to see me after ye has completed yer final armor piece? I need a lil [help] with something that only a proven disciple of Brell can complete.");
+    quest::say("To create yer breastplate material you will need to combine 5 Bricks of Crude Bronze, 1 Glynns Tongue, 1 Dwarven Bandit Coinpurse, 1 Pristine Forest Drakeling Scale, 1 Undead Pawn Tibia and 1 Golden Bandit Tooth in yer assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion yer very own Brells Blessed Breastplate. Please come back to see me after ye has completed yer final armor piece? I need a lil [" . quest::saylink("I will help",0,"help") . "] with something that only a proven disciple of Brell can complete.");
     # Crude Breastplate Mold
     quest::summonitem(19637); # Item: Crude Breastplate Mold
   }

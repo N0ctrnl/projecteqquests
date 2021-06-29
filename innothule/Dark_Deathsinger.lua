@@ -1,9 +1,9 @@
 -- items: 18154, 18155
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, " .. e.other:GetName() .. " - Are you [interested] in helping the League of Antonican Bards by delivering some [mail]?");
+		e.self:Say("Hail, " .. e.other:GetName() .. " - Are you [" .. eq.say_link("I am interested",false,"interested") .. "] in helping the League of Antonican Bards by delivering some [" .. eq.say_link("What mail?",false,"mail") .. "]?");
 	elseif(e.message:findi("interested")) then
-		e.self:Say("I have messages that need to go to Highpass and to Freeport.  Will you [deliver] mail to [Highpass] or [Freeport] for me?");
+		e.self:Say("I have messages that need to go to Qeynos and to Freeport.  Will you deliver mail to [" .. eq.say_link("I will deliver to Qeynos",false,"Qeynos") .. "] or [" .. eq.say_link("I will deliver to Freeport",false,"Freeport") .. "] for me?");
 	elseif(e.message:findi("mail")) then
 		e.self:Say("The League of Antonican Bards has a courier system made up of travelers and adventurers.  We pay good gold to anyone who will take messages from bards such as myself to one of our more distant offices.  Are you [interested]?");
 	elseif(e.message:findi("deliver to qeynos")) then

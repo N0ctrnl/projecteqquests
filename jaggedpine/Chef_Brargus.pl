@@ -5,10 +5,10 @@ sub EVENT_SAY {
       quest::say("Whatchoo want?"); 
     }
     if($text=~/dryad pate/i){
-       quest::say("You want my secret recipe for Nymph Pate? You don't look like you could even cook a [Patty Melt] without making a disgusting mess, let alone something as delicate and refined as Nymph Pate!");
+       quest::say("You want my secret recipe for Nymph Pate? You don't look like you could even cook a [" . quest::saylink("A patty melt?",0,"Patty Melt") . "] without making a disgusting mess, let alone something as delicate and refined as Nymph Pate!");
     }
     if($text=~/patty melt/i){
-       quest::say("Yeah, you know a patty melt! It's like a [Grilled Cheese Sandwich] with some meat stuck in between the whole mess. Sheesh, are you a vegetarian or something?");
+       quest::say("Yeah, you know a patty melt! It's like a [" . quest::saylink("What is a grilled cheese sandwitch?",0,"Grilled Cheese Sandwitch") . "] with some meat stuck in between the whole mess. Sheesh, are you a vegetarian or something?");
     }
     if($text=~/grilled cheese sandwich/i){
        quest::say("Great Brell's gravy, you are inept aren't you! I'll say this slowly. You take some bread, then you take some cheese then you put them together and cook it with a frying pan! I'll tell you what, if you can manage to figure out how to make a Patty Melt, bring it back to me and if it's halfway edible I'll give you my recipe for Nymph Pate.");

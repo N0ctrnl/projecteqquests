@@ -1,10 +1,10 @@
 # items: 12157, 2116, 2118, 2120, 2123, 2124, 12158
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Welcome, $name. The Cathedral of Underfoot welcomes all good persons. May you find peace from the dangers of Butcherblock within these walls. The paladins of this holy place are very much aware of the evils outside Kaladim. The threat of goblins and [birdmen] has increased.");
+    quest::say("Welcome, $name. The Cathedral of Underfoot welcomes all good persons. May you find peace from the dangers of Butcherblock within these walls. The paladins of this holy place are very much aware of the evils outside Kaladim. The threat of goblins and [" . quest::saylink("What birdmen?",0,"birdmen") . "] has increased.");
   }
   elsif($text=~/birdmen/i) {
-    quest::say("The birdmen I speak of are the aviak krags. These vile creatures have desecrated our land. They have dared to perch upon our great statue. The king has instructed all noble paladins in this order to [destroy the krag chicks].");
+    quest::say("The birdmen I speak of are the aviak krags. These vile creatures have desecrated our land. They have dared to perch upon our great statue. The king has instructed all noble paladins in this order to [" . quest::saylink("I will destroy the krag chicks",0,"destroy the krag chicks") . "].");
   }
   elsif($text=~/destroy the krag chicks/i) {
     if ($faction <= 4) {
@@ -26,7 +26,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
    if (($faction <= 4) && (plugin::check_handin(\%itemcount, 12157 => 4))) {
-      quest::say("You have done well. Your deeds shall be recorded within our journals. Here, then, is your reward. May you strive to serve us to the full extent of your powers. The [elders] must also die.");
+      quest::say("You have done well. Your deeds shall be recorded within our journals. Here, then, is your reward. May you strive to serve us to the full extent of your powers. The [" . quest::saylink("Who are the elders?",0,"elders") . "] must also die.");
       quest::faction(227, 20);  #Clerics Of Underfoot
       quest::faction(274, 20); #Kazon Stormhammer
       quest::faction(293, 20); #Miner's Guild 249

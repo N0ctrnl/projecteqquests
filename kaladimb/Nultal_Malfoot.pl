@@ -1,7 +1,7 @@
 # items: 14030, 15203, 15229, 15560, 15036, 15216
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("May the power of Underfoot be with you. Welcome. I am here to serve the will of the king as should you. If you [need healing], then speak. Or perhaps you are here to [return skunk glands]?");
+    quest::say("May the power of Underfoot be with you. Welcome. I am here to serve the will of the king as should you. If you [" . quest::saylink("I need healing",0,"need healing") . "], then speak. Or perhaps you are here to [" . quest::saylink("I will return skunk glands",0,"return skunk glands") . "]?");
   }
   if($text=~/need healing/i) {
     quest::say("Before the power of Underfoot can attempt to bind your wounds you must pay tribute. Three gold coins!!");

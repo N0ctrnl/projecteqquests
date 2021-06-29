@@ -4,7 +4,7 @@
 
 sub EVENT_SAY { 
   if($text=~/hail/i){
-    quest::say("State your business!!  I have no time for chitchat.  Well..  speak up. toad!!  What?!!..  Have you come here to [return goblin beads]?");
+    quest::say("State your business!!  I have no time for chitchat.  Well..  speak up. toad!!  What?!!..  Have you come here to [" . quest::saylink("I have come to return goblin heads",0,"return goblin heads") . "]?");
   }
   if($text=~/return goblin beads/i){
     quest::say("If you wish to return Runnyeye Warbeads you best have at least four of them.  Do not waste my time with any less.  If I am in a good mood I just may reward you with some trash, err..  I mean equipment from our armory.");
@@ -31,7 +31,7 @@ sub EVENT_ITEM {
     quest::summonitem(quest::ChooseRandom(2113,2114,2115,2117,2119,2121,2122)); # Item(s): Small Tattered Skullcap (2113), Small Tattered Mask (2114), Small Tattered Gorget (2115), Small Tattered Shoulderpads (2117), Small Tattered Belt (2119), Small Tattered Wristbands (2121), Small Tattered Gloves (2122)
   }
   elsif(plugin::check_handin(\%itemcount, 13741 => 1, 13740 => 1)){
-    quest::say("I underestimated you.  You are truly a great warrior.  I reward you with a piece of my own Bloodforge armor.  You would be fine Bloodforge Brigade material!  How would you like to [take a little trip] in the name of the Bloodforge Brigade?");
+    quest::say("I underestimated you.  You are truly a great warrior.  I reward you with a piece of my own Bloodforge armor.  You would be fine Bloodforge Brigade material!  How would you like to [" . quest::saylink("I would like to take a little trip",0,"take a little trip") . "] in the name of the Bloodforge Brigade?");
     quest::faction(312,15);   # StormGuard better
     quest::faction(274,15);   # KazonStormhammer better
     quest::faction(293,15);   # MinersGuild249 better
