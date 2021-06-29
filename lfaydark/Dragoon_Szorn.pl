@@ -12,7 +12,7 @@ sub EVENT_SAY{
 }
 sub EVENT_ITEM { 
 	if(plugin::check_handin(\%itemcount, 19030 => 1)){#Crate of Teir`Dal Provisions
-		quest::say("Finally!! We have been in dire need of these supplies for quite some time, $name!  Here is the receipt for the shipment. The last shipment never made it here and there is an item of great importance stored in the lost crate. Before you return to Neriak, your services are needed to retrieve our [missing shipment]. I command your obedience as is my right as a dragoon of Naythox Thex's personal regime.");
+		quest::say("Finally!! We have been in dire need of these supplies for quite some time, $name!  Here is the receipt for the shipment. The last shipment never made it here and there is an item of great importance stored in the lost crate. Before you return to Neriak, your services are needed to retrieve our [" . quest::saylink("What missing shipment?",0,"missing shipment") . "]. I command your obedience as is my right as a dragoon of Naythox Thex's personal regime.");
 		quest::summonitem(19029);#Receipt for Provisions Crate
 		quest::givecash(0,0,0,1);
 	}

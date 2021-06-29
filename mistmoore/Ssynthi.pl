@@ -3,7 +3,7 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("I am Ssynthi, [Warder of Ro]. Would you do a simple [service] for me?");
+    quest::say("I am Ssynthi, [" . quest::saylink("Warder of Ro") . "]. Would you do a simple [" . quest::saylink("I will do you a service",0,"service") . "] for me?");
   }
   if ($text=~/warder of ro/i) {
     quest::say("I have renounced my ties to the Shadowed Men and become a follower of the one True Flame, Solusek Ro. I have hopes that one day my brethren will see the errors of their ways and cease their mindless war.");

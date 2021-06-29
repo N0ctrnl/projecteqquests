@@ -7,7 +7,7 @@
 
 sub EVENT_SAY {
   if($text=~/Hail/i){
-    quest::say("Hello. $name! I am the shaman Kyralynn. If you have a banded armor, my husband Vrynn and I can form it into a new shaman armor using this totem and some reagents for the ritual. I can use a banded [bracer], [mail], [helm] or [cloak] to form this new armor.");
+    quest::say("Hello. $name! I am the shaman Kyralynn. If you have a banded armor, my husband Vrynn and I can form it into a new shaman armor using this totem and some reagents for the ritual. I can use a banded [" . quest::saylink("bracer") . "], [" . quest::saylink("mail") . "], [" . quest::saylink("helm") . "] or [" . quest::saylink("cloak") . "] to form this new armor.");
   }
   if($text=~/bracer/i){
     quest::say("The bracer requires a banded bracer, 1 dufrenite, a cauldron shell from an aqua goblin lord in Dagnor's Cauldron, and a bull elephant tooth.");

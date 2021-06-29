@@ -14,10 +14,10 @@ sub EVENT_TIMER {
 
 sub EVENT_SAY {
 	if($text=~/hail/i) {
-		quest::say("I am rescued from the hands of the Teir'Dal! I am grateful.  Show me your [proof of allegiance] along with a key to remove these [dark shackles] and I shall reward thee.");
+		quest::say("I am rescued from the hands of the Teir'Dal! I am grateful.  Show me your [" . quest::saylink("proof of allegiance") . "] along with a key to remove these [" . quest::saylink("dark shackles") . "] and I shall reward thee.");
 	}
 	if($text=~/proof of allegiance/i) {
-		quest::say("When I speak of proof of allegiance, I speak of proof you were sent by one of the [Silent Watch].");
+		quest::say("When I speak of proof of allegiance, I speak of proof you were sent by one of the [" . quest::saylink("Silent Watch") . "].");
 	}
 	if($text=~/dark shackles/i) {
 		quest::say("My Teir'Dal captors have placed magical shackles upon me.  The shackles prevent me from using my magic to transport myself home nor do they allow me to venture far from Lake Rathetear.  I will require special shackle keys from Highkeep.");
@@ -39,7 +39,7 @@ sub EVENT_ITEM {
 		quest::depop();
 	}
 	else {
-		quest::say("I will require both the shackle key for the [dark shackles] and some [proof of allegiance].");
+		quest::say("I will require both the shackle key for the [" . quest::saylink("dark shackles") . "] and some [" . quest::saylink("proof of allegiance") . "].");
 	}
 	plugin::return_items(\%itemcount);
 }

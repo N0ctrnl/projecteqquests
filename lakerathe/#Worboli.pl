@@ -4,7 +4,7 @@
 sub EVENT_SAY {
   if(defined($qglobals{NecroPre}) && ($qglobals{NecroPre} == 1)) {
     if($text=~/hail/i) {
-      quest::say("Yes, yes, looking for the staff are yous? We can tell. We does see a staff but yous must [do somethings] for us first, yes?");
+      quest::say("Yes, yes, looking for the staff are yous? We can tell. We does see a staff but yous must [" . quest::saylink("I will do somethings",0,"do somethings") . "] for us first, yes?");
     }
     if($text=~/do somethings/i) {
       quest::say("The gnolls tooks something that was mines. They tooks my fish. It was nice and rotten, yes it was. Yous finds my rotten fish and maybe we can tell about the staff.");

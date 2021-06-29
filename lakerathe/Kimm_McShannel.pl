@@ -2,7 +2,7 @@
 sub EVENT_SAY {
   if (defined($qglobals{shaman_epic}) && ($qglobals{shaman_epic} == 1)) {
     if ($text=~/elder spirit sent me/i) {
-      quest::say("Aye, well then. Watch yerself. Thar be a crazy fella over there. Been trying for days, I 'ave, to get 'im to make some sense about this megalodon creature 'e keeps prattling on about. I been a bit shy o' stepping in the lake to get some seaweed for the spirit's potion. Maybe you could go take a look. Somethin' usually comes by to snap 'em up when they grow, so ye may need to route around a tad out there. You think you are [up to it]?");
+      quest::say("Aye, well then. Watch yerself. Thar be a crazy fella over there. Been trying for days, I 'ave, to get 'im to make some sense about this megalodon creature 'e keeps prattling on about. I been a bit shy o' stepping in the lake to get some seaweed for the spirit's potion. Maybe you could go take a look. Somethin' usually comes by to snap 'em up when they grow, so ye may need to route around a tad out there. You think you are [" . quest::saylink("I am up to it",0,"up to it") . "]?");
     }
     if ($text=~/up to it/i) {
       quest::say("Very well, then, off you go in search of the seaweed.");
@@ -11,7 +11,7 @@ sub EVENT_SAY {
   }
   if (defined($qglobals{shaman_epic}) && ($qglobals{shaman_epic} == 3)) {
     if ($text=~/break down/i) {
-      quest::say("As most things, the process is not a simple one and we'll need some ingredients for a special potion. You must retrieve four items, which should not prove difficult for a shaman of your stature. They are very specific and I can tell you more about the [skin], the [powder], the [tooth], and the [goo]. When you have all of these things, use my medicine bag to create this potion and return it to me.");
+      quest::say("As most things, the process is not a simple one and we'll need some ingredients for a special potion. You must retrieve four items, which should not prove difficult for a shaman of your stature. They are very specific and I can tell you more about the [" . quest::saylink("skin") . "], the [" . quest::saylink("powder") . "], the [" . quest::saylink("tooth") . "], and the [" . quest::saylink("goo") . "]. When you have all of these things, use my medicine bag to create this potion and return it to me.");
       quest::summonitem(52922); # Item: Heyokah Medicine Bag
     }
     if ($text=~/skin/i) {
@@ -35,7 +35,7 @@ sub EVENT_ITEM {
     quest::summonitem(57600); # Item: Twine-Wrapped Lustrous Seaweed
   }
   if (plugin::check_handin(\%itemcount, 57088 => 1)) {
-    quest::say("Aye, so ye have returned. We have much to do here, me friend. The first thing we must do is [break down] this bangle into its gems and metal. This here bangle was very carefully made. First, the gems were blessed by the spirits, then the metal itself as it was forged. Aye, we need to carefully separate them. The two gems were blessed by the spirits of Wisdom and Patience, and the metal was strengthened by the Spirit of Might. We will use these to call them back to us.");
+    quest::say("Aye, so ye have returned. We have much to do here, me friend. The first thing we must do is [" . quest::saylink("break down") . "] this bangle into its gems and metal. This here bangle was very carefully made. First, the gems were blessed by the spirits, then the metal itself as it was forged. Aye, we need to carefully separate them. The two gems were blessed by the spirits of Wisdom and Patience, and the metal was strengthened by the Spirit of Might. We will use these to call them back to us.");
   }
   if (plugin::check_handin(\%itemcount, 57560 => 1)) {
     quest::emote("nods at you and reaches into her pocket and takes out the gemmed bangle and puts it on the ground. She takes the vial and slowly lets a few drops fall on the platinum. It seems to coil and bend and pulls itself into a small globe and the gems lazily fall onto the ground.");

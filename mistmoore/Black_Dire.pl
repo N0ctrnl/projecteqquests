@@ -3,7 +3,7 @@
 sub EVENT_SAY {
   if($text=~/hail/i) {
     if($class=="Shaman") { #Part of Shaman Epic 1.0
-      quest::say("So, you've come. I suppose my brothers have sent you to lead me back to their flock. Those fools are so blinded by their devotion they know nothing of life. If they only knew the power I've become, the luxuries I've amassed, the pleasures I've known, they too would leave that sour and unrewarding existence in seconds. You know, you could come to know what I have, shaman. You found me, which speaks of your intelligence; we could use you. What do you say, $name? [Will you join] my master Mayong Mistmoore?");
+      quest::say("So, you've come. I suppose my brothers have sent you to lead me back to their flock. Those fools are so blinded by their devotion they know nothing of life. If they only knew the power I've become, the luxuries I've amassed, the pleasures I've known, they too would leave that sour and unrewarding existence in seconds. You know, you could come to know what I have, shaman. You found me, which speaks of your intelligence; we could use you. What do you say, $name? [" . quest::saylink("I will not join",0,"Will you join") . "] my master Mayong Mistmoore?");
     }
     else {
       quest::say("Hello, $name.");

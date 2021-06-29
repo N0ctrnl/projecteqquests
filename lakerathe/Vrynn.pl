@@ -4,7 +4,7 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Greetings, spiritwalker. I am called Vrynn. If you have banded armor, my wife Kyralynn and I can form it into a new shaman armor using this totem and some reagents for the ritual. I make armor from banded [boots], [gauntlets], [sleeves], and [leggings].");
+    quest::say("Greetings, spiritwalker. I am called Vrynn. If you have banded armor, my wife Kyralynn and I can form it into a new shaman armor using this totem and some reagents for the ritual. I make armor from banded [" . quest::saylink("boots") . "], [" . quest::saylink("gauntlets") . "], [" . quest::saylink("sleeves") . "], and [" . quest::saylink("leggings") . "].");
   }
   if($text=~/boots/i) {
     quest::say("The boots require banded boots, 1 dufrenite, an orc chief's tongue from Lesser Faydark, and terror spines from a tentacle terror in Najena.");
