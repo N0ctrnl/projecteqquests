@@ -1,9 +1,9 @@
 -- items: 12103, 12104, 12101
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Greetings and blessings to you, %s. Karana offers you his protection and guidance. All who accept the offer shall find safe haven within our Temple of Thunder, If you are a cleric of Karana, you must have a [desire to serve Karana]'s flock.",e.other:GetName()));
+		e.self:Say(string.format("Greetings and blessings to you, %s. Karana offers you his protection and guidance. All who accept the offer shall find safe haven within our Temple of Thunder, If you are a cleric of Karana, you must have a [" .. eq.say_link("I desire to serve Karana",false,"desire to serve Karana's") .. "] flock.",e.other:GetName()));
 	elseif(e.message:findi("serve karana")) then
-		e.self:Say("If you are a young acolyte, you may [deliver blessings to the flock] and if you are a skilled cleric, we need you to [hunt bandit binders].");
+		e.self:Say("If you are a young acolyte, you may [" .. eq.say_link("I will deliver blessings to the block",false,"deliver blessings to the flock") .. "] and if you are a skilled cleric, we need you to [" .. eq.say_link("I will hunt bandit binders",false,"hunt bandit binders") .. "].");
 	elseif(e.message:findi("blessings to the flock")) then
 		e.self:Say("Then go to the Plains of Karana. It is there that the blessings are needed. Ask every resident of the plains if they are followers of Karana. If they are, then ask them if they [require Karana's blessings]. Let them drink from this temple chalice. Return the empty chalice to me and you shall never go thirsty again.");
 		e.other:SummonItem(12103); -- Item: Full Chalice

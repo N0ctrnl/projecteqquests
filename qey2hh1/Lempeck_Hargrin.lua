@@ -1,11 +1,11 @@
 -- items: 13954, 13955
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Gree.. .. tings. How are you? Don't get too close to me. I've [come down] with something bad.");
+		e.self:Say("Gree.. .. tings. How are you? Don't get too close to me. I've [" .. eq.say_link("What have you come down with?",false,"come down") .. "] with something bad.");
 	elseif(e.message:findi("come down")) then
-		e.self:Say("Ever since that wolf bit me on the way to Qeynos I have been feeling ill. My strength is all gone and I...  I... I need the [potion].");
+		e.self:Say("Ever since that wolf bit me on the way to Qeynos I have been feeling ill. My strength is all gone and I...  I... I need the [" .. eq.say_link("What potion?",false,"potion") .. "].");
 	elseif(e.message:findi("potion")) then
-		e.self:Say("I have been informed that the potions of the Temple of Life will help me.  The [potion is my last chance] - that is what Astaed Wemor of the temple told me.");
+		e.self:Say("I have been informed that the potions of the Temple of Life will help me.  The [" .. eq.say_link("What potion?",false,"potion") .. "] is my last chance - that is what Astaed Wemor of the temple told me.");
 		
 	end
 end

@@ -3,11 +3,11 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("%s! Make it quick I am in a [hurry].",e.other:GetName()));
+		e.self:Say(string.format("%s! Make it quick I am in a [" .. eq.say_link("Why are you in a hurry?",false,"hurry") .. "].",e.other:GetName()));
 	elseif(e.message:findi("hurry")) then
-		e.self:Say("I was in Paw receantly and stole a skull and now an [assassin] is hunting me down, even after returning the skull to him.");
+		e.self:Say("I was in Paw receantly and stole a skull and now an [" .. eq.say_link("What assassin?",false,"assassin") .. "] is hunting me down, even after returning the skull to him.");
 	elseif(e.message:findi("assassin")) then
-		e.self:Say(string.format("Look %s, I don't have time to talk! If you want to help me deliver this [message].",e.other:GetName()));
+		e.self:Say(string.format("Look %s, I don't have time to talk! If you want to help me deliver this [" .. eq.say_link("I will deliver the message",false,"message") .. "].",e.other:GetName()));
 	elseif(e.message:findi("message")) then
 		e.self:Say("Hurry now and take this to my brother, Hyrill Pon in Freeport, and before you go take that skull back from the assassin");
 		e.other:SummonItem(18010); -- Item: Torn Parchment

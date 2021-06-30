@@ -6,7 +6,7 @@ function event_say(e)
 	local standing = e.other.GetModCharacterFactionLevel(e.other, 280);
 
 	if(e.message:findi("hail")) then
-		e.self:Say("May the blessings of the Rainkeeper protect you in your travels. I am Kasine Paegra, keeper of the [Order of Thunder] medallions.");
+		e.self:Say("May the blessings of the Rainkeeper protect you in your travels. I am Kasine Paegra, keeper of the [" .. eq.say_link("What Order of Thunder medallions?",false,"Order of Thunder") .. "] medallions.");
 	elseif(standing < 0) then
 		e.self:Say("You have proven yourself not only an enemy of the Knights of Thunder, but an enemy of Karana himself.  Now leave, sewer rat!");
 	elseif(e.message:findi("order of thunder")) then

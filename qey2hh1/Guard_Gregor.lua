@@ -7,7 +7,7 @@ end
 function event_say(e)
 	if(e.other:GetLevel() >= 20 and e.other:GetLevel() <= 30) then
 		if(e.message:findi("hail")) then
-			e.self:Say(string.format("Oh, hello %s. Would you like to assist me in a [task]?",e.other:GetName()));
+			e.self:Say(string.format("Oh, hello %s. Would you like to assist me in a [" .. eq.say_link("What task?",false,"task") .. "]?",e.other:GetName()));
 		elseif(e.message:findi("task")) then
 			e.self:Say("Excellent! I was hoping you would be able to help me.");
 			eq.task_selector({143}); -- Task: Bringing Goods to the Karanas

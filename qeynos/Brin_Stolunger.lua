@@ -3,7 +3,7 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 	
 	if(e.message:findi("Hail")) then
-		e.self:Say("What?  What?!!  Are we a [young steel warrior]..  Or another [spectator] for the Arena?");
+		e.self:Say("What?  What?!!  Are we a [" .. eq.say_link("I am a young steel warrior",false,"young steel warrior") .. "]..  Or another [" .. eq.say_link("I am a spectator",false,"spectator") .. "] for the Arena?");
 	elseif(e.message:findi("i am a spectator")) then
 		e.self:Say("As I thought!!  You shall be better off upon the ramparts of the arena.  It would be dreadful to see a fine citizen injured in the arena.");
 	elseif(e.message:findi("young steel warrior")) then

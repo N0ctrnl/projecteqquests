@@ -17,11 +17,11 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome, my name is Belious Naliedin of the League of Antonican Bards. A few years ago, I had finally saved up the money, and I bought this place. I settled in, and have been [working] here ever since.");
+		e.self:Say("Welcome, my name is Belious Naliedin of the League of Antonican Bards. A few years ago, I had finally saved up the money, and I bought this place. I settled in, and have been [" .. eq.say_link("Why working here?",false,"working") .. "] here ever since.");
 	elseif(e.message:findi("working")) then
-		e.self:Say("Ah, this is my shop. I am a musician, well known for my ability both in tuning, and [building instruments.]");
+		e.self:Say("Ah, this is my shop. I am a musician, well known for my ability both in tuning, and [" .. eq.say_link("Building what instruments?",false,"building instruments") .. "].");
 	elseif(e.message:findi("building")) then
-		e.self:Say("Young bards are often not the wealthiest people in Norrath, and oftentimes, they have nothing to accompany their beautiful voices when they sing. If young bards are able to locate, and bring to me the [various parts] to assemble a lute with, I provide the labor for free.");
+		e.self:Say("Young bards are often not the wealthiest people in Norrath, and oftentimes, they have nothing to accompany their beautiful voices when they sing. If young bards are able to locate, and bring to me the [" .. eq.say_link("What various parts?",false,"various parts") .. "] to assemble a lute with, I provide the labor for free.");
 	elseif(e.message:findi("parts")) then
 		e.self:Say("If you are able to find an unfinished lute body, an unfinished lute neck, a box of lute strings, and a set of fine lute tuners I will be able to craft for you one of the best sounding lutes that you have ever heard in your young life, and it will be yours, free of charge. It has long been my desire to help out any young men and women who wish to explore the bardic arts.");
 	elseif(e.message:findi("famous bard")) then
@@ -31,7 +31,7 @@ function event_say(e)
 	elseif(e.message:findi("letter of introduction")) then
 		e.self:Emote("looks around. 'Well, you want a letter of introduction, eh? I think that fifty shiny platinum pieces sounds like a good introduction to me, my friend.'");
 	elseif(e.message:findi("trades")) then
-		e.self:Say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
+		e.self:Say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [" .. eq.say_link("What second book?",false,"second book") .. "], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
 		e.other:SummonItem(51121); -- Item: Tradeskill Basics : Volume I
 	elseif(e.message:findi("second book")) then
 		e.self:Say("Here is the second volume of the book you requested, may it serve you well!");
@@ -43,7 +43,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 18717})) then -- Tattered Note
-		e.self:Say("Good day friend, and welcome to the Wind Spirit's Song. Thank you for joining our cause. Go speak with Jusean Evanesque. I'm sure you'll fit in well. And once you are ready to test your hunting and gathering abilities please see Sollari Bekines, she will have some work for you. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.");
+		e.self:Say("Good day friend, and welcome to the Wind Spirit's Song. Thank you for joining our cause. Go speak with Jusean Evanesque. I'm sure you'll fit in well. And once you are ready to test your hunting and gathering abilities please see Sollari Bekines, she will have some work for you. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [" .. eq.say_link("What trades?",false,"trades") .. "] you will have available to you.");
 		e.other:SummonItem(13502); -- #Brown Tunic*
 		e.other:Ding();
 		e.other:Faction(284,100,0); -- League of Antonican Bards

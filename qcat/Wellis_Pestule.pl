@@ -35,7 +35,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 20206 => 1)) {
-    quest::say("Welcome to the Bloodsabers young Scourge Knight. I will help prepare you for your spreading of the disease. You must use this Mail Assembly Kit to construct the pieces of your armor. Each piece will require different materials for its construction. Will you craft [Gauntlets of the Scourge Knight], [Boots of the Scourge Knight], a [Bracer of the Scourge Knight], a [Helm of the Scourge Knight], [Greaves of the Scourge Knight], [Vambraces of the Scourge Knight], or a [Breastplate of the Scourge Knight]?");
+    quest::say("Welcome to the Bloodsabers young Scourge Knight. I will help prepare you for your spreading of the disease. You must use this Mail Assembly Kit to construct the pieces of your armor. Each piece will require different materials for its construction. Will you craft [" . quest::saylink("Gauntlets",0,"Gauntlets") . "] of the Scourge Knight, [" . quest::saylink("Boots",0,"Boots") . "] of the Scourge Knight, a [" . quest::saylink("Bracer",0,"Bracer") . "] of the Scourge Knight, a [" . quest::saylink("Helm",0,"Helm") . "] of the Scourge Knight, [" . quest::saylink("Greaves",0,"Greaves") . "] of the Scourge Knight, [" . quest::saylink("Vambraces",0,"Vambraces") . "] of the Scourge Knight, or a [" . quest::saylink("Breastplate",0,"Breastplate") . "] of the Scourge Knight?");
     quest::summonitem(17124); # Item: Mail Assembly Kit
   }
   elsif (plugin::check_handin(\%itemcount, 20188 => 1, 19946 => 1)) {

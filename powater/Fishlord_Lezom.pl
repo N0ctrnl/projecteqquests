@@ -18,7 +18,7 @@ sub EVENT_SPAWN {
 
 sub EVENT_SAY {
 	if($text=~/Hail/i) {
-		quest::say("Be like the water $name. The water spirits have fortold of your coming. I am a fishlord, summoner of the [dwellers] of the deep.");
+		quest::say("Be like the water $name. The water spirits have fortold of your coming. I am a fishlord, summoner of the [" . quest::saylink("What dwellers?",0,"dwellers") . "] of the deep.");
 	} 
 	elsif($text=~/dwellers/i) {
 		quest::say("These are great creatures that dwell in the nether reaches of this reef. For 100 platinum I will summon them forth.");

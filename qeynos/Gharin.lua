@@ -1,9 +1,9 @@
 -- items: 13799, 18807
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Good day! I see they have good stock for the future armies of Qeynos. I, myself, wish to be a soldier one day instead of doing this [job].");
+		e.self:Say("Good day! I see they have good stock for the future armies of Qeynos. I, myself, wish to be a soldier one day instead of doing this [" .. eq.say_link("What job?",false,"job") .. "].");
 	elseif(e.message:findi("job")) then
-		e.self:Say("I am a [messenger] for Antonius Bayle. Not big enough to fight, but light enough to run all the way to the [Jaggedpine] tomorrow morning. I sort of wish I did not have to go. I'd rather be at the Lion's Mane.");
+		e.self:Say("I am a messenger for Antonius Bayle. Not big enough to fight, but light enough to run all the way to the Jaggedpine tomorrow morning. I sort of wish I did not have to go. I'd rather be at the [" .. eq.say_link("What is the Lion's Mane?",false,"Lion's Mane") .. "].");
 	elseif(e.message:findi("lion's mane")) then
 		e.self:Say("Ahh. The Lion's Mane. If I were there, I would be enjoying a stein of Crow's [special brew]. They are expecting their first shipment of the brew. I believe if I had a few or more of those lagers, I would be very ill. I would probably have to have someone else deliver the note for me. Still, I wish I had one of those fine brews.");
 	else

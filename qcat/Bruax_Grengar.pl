@@ -1,13 +1,13 @@
 # items: 17125, 19555, 19558, 19559, 19561, 19557, 19560, 11395, 20204, 20203, 13915, 19946, 13251, 20264
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Hail $name. I am Bruax Grengar, master necromancer of the Bloodsabers. I assist not only young necromancers with their training but also aid all those Bloodsabers who have chosen to practice the [sorcerous arts]. If you a practitioner of a sorcerous art I can give you instructions to obtain an [outfit and robe] that will assist you in your work. Once you have been properly outfitted I will also assist you in acquiring a [Staff of the Bloodsabers].");
+    quest::say("Hail $name. I am Bruax Grengar, master necromancer of the Bloodsabers. I assist not only young necromancers with their training but also aid all those Bloodsabers who have chosen to practice the [" . quest::saylink("What sorcerous arts?",0,"sorcerous arts") . "]. If you a practitioner of a sorcerous art I can give you instructions to obtain an [" . quest::saylink("What outfit and robe?",0,"outfit and robe") . "] that will assist you in your work. Once you have been properly outfitted I will also assist you in acquiring a [" . quest::saylink("What Staff of the Bloodsabers?",0,"Staff of the Bloodsabers") . "].");
   }
   if($text=~/sorcerous arts/i) {
     quest::say("I speak of those who practice the sorcerous arts other than necromancy: the arts of Enchantment, Magery, and Wizardry. It is a common misnomer proclaimed by those uneducated to the ways of the Plague Bringer that only Shadowknights and Necromancers serve Bertoxxulous. In fact this temple alone has members from all walks of life, from tailors, scholars, and blacksmiths to warriors and sorcerers.");
   }
   if ($text=~/outfit and robe/i) {
-    quest::say("I have prepared this special curing kit for the crafting of an outfit and robe. The materials required for each article of clothing vary. Do you desire to craft a [scourge sorcerer cap], [scourge sorcerer wristband], [scourge sorcerer gloves], [scourge sorcerer boots], [scourge sorcerer sleeves], [scourge sorcerer pantaloons], or [scourge sorcerer robe]?");
+    quest::say("I have prepared this special curing kit for the crafting of an outfit and robe. The materials required for each article of clothing vary. Do you desire to craft a [" . quest::saylink("scourge sorcerer cap",0,"scourge sorcerer cap") . "], [" . quest::saylink("scourge sorcerer wristband",0,"scourge sorcerer wristband") . "], [" . quest::saylink("scourge sorcerer gloves",0,"scourge sorcerer gloves") . "], [" . quest::saylink("scourge sorcerer boots",0,"scourge sorcerer boots") . "], [" . quest::saylink("scourge sorcerer sleeves",0,"scourge sorcerer sleeves") . "], [" . quest::saylink("scourge sorcerer pantaloons",0,"scourge sorcerer pantaloons") . "], or [" . quest::saylink("scourge sorcerer robe",0,"scourge sorcerer robe") . "]?");
     quest::summonitem(17125); # Item: Curing Kit
   }
   if ($text=~/cap/i) {

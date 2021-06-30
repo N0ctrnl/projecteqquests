@@ -1,7 +1,7 @@
 -- items: 13071, 13070, 13068
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Hello, %s, I am Unsar, student of Mespha. I am working on a spell. . . I call it [Unsar's Glory]. Great name, huh?",e.other:GetName()));
+		e.self:Say(string.format("Hello, %s, I am Unsar, student of Mespha. I am working on a spell. . . I call it [" .. eq.say_link("What is Unsar's Glory?",false,"Unsar's Glory") .. "]. Great name, huh?",e.other:GetName()));
 	elseif(e.message:findi("unsar's glory")) then
 		e.self:Say("Ah, Unsar's Glory. . . Mind you, I haven't perfected it yet, but bring me some [rat whiskers], [snake scales], and two [bat wings], and I'll show you how it works.");
 	end

@@ -21,7 +21,7 @@ function event_trade(e)
 		e.other:Faction(273,10,0); -- Faction: Kane Bayle
 		e.other:AddEXP(200);
 	elseif(item_lib.check_turn_in(e.trade, {gold = 3})) then
-		e.self:Say("Thank you, kind master. I don't wish to trouble you further but I do have another [favor] to ask..");
+		e.self:Say("Thank you, kind master. I don't wish to trouble you further but I do have another [" .. eq.say_link("What favor?",false,"favor") .. "] to ask..");
 		e.other:Ding();
 		e.other:Faction(223,10,0); -- Faction: Circle of Unseen Hands
 		e.other:Faction(291,-10,0); -- Faction: Merchants of Qeynos

@@ -5,7 +5,7 @@ function event_say(e)
     e.self:Say("Greetings, and welcome to my humble little shop. I sell and trade various goods for my fellow wizards of the Order of Three. My assistants, Hanlore and Drawna, specialize in magicians' and enchanters' goods and would be glad to help you, too.");
   elseif(e.message:findi("bat fur") or e.message:findi("rat whiskers") or e.message:findi("beetle eye")) then
     if(fac < 5) then
-      e.self:Say(string.format("I need someone to gather up the three ingredients for a new spell I'm working on. I need some [rat whiskers], a [fire beetle eye], and a patch of [bat fur]. Thanks for helping me, young %s.",e.other:GetName()));
+      e.self:Say(string.format("I need someone to gather up the three ingredients for a new spell I'm working on. I need some [" .. eq.say_link("What rat whiskers?",false,"rat whiskers") .. "], a [" .. eq.say_link("What fire beetle eye?",false,"fire beetle eye") .. "], and a patch of [" .. eq.say_link("What bat fur?",false,"bat fur") .. "]. Thanks for helping me, young %s.",e.other:GetName()));
     else
 	  e.self:Say("The Order of Three has been monitoring your recent activities, and we are appalled by you and your actions! Now, begone!");
     end
@@ -37,6 +37,6 @@ function event_timer(e)
 end
 
 function event_signal(e)
-  e.self:Say("Hmmm.. Let's see if we can find someone to help relenish our stock of [rat whiskers] and [bat fur]. I need these items for a new little experiment I'm working on.");
+  e.self:Say("Hmmm.. Let's see if we can find someone to help relenish our stock of [" .. eq.say_link("What rat whiskers?",false,"rat whiskers") .. "] and [" .. eq.say_link("What bat fur?",false,"bat fur") .. "]. I need these items for a new little experiment I'm working on.");
 end
 

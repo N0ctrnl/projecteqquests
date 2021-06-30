@@ -17,15 +17,15 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome to the Temple of Thunder. We are home to paladins and clerics who follow the ways of Karana. Do you [need guidance] or are you [already a follower of Karana]?"); 
+		e.self:Say("Welcome to the Temple of Thunder. We are home to paladins and clerics who follow the ways of Karana. Do you [" .. eq.say_link("I need guidance",false,"need guidance") .. "] or are you [" .. eq.say_link("I am already a follower of Karana",false,"already a follower of Karana") .. "]?"); 
 	elseif(e.message:findi("need guidance")) then
 		e.self:Say("Then go forth into the church and speak with Gehna Solbenya. She will assist you."); 
 	elseif(e.message:findi("follower of karana") or e.message:findi("wish to assist") or e.message:findi("retrieve")) then
 		if(e.other:GetFaction(e.self) <= 4) then
 			if(e.message:findi("follower of karana")) then
-				e.self:Say("So you are one with our cause? This is good. Be aware that there are forces at work which not even the Qeynos Guard can keep at bay. We are here to spread the words of Karana and smite those who should try to end His children. We and Antonius Bayle shall work together in our destruction of evil. He requests our aid. Do you also [wish to assist Lord Bayle]?");
+				e.self:Say("So you are one with our cause? This is good. Be aware that there are forces at work which not even the Qeynos Guard can keep at bay. We are here to spread the words of Karana and smite those who should try to end His children. We and Antonius Bayle shall work together in our destruction of evil. He requests our aid. Do you also [" .. eq.say_link("I wish to assist Lord Bayle",false,"wish to assist Lord Bayle") .. "]?");
 			elseif(e.message:findi("wish to assist") or e.message:findi("retrieve")) then
-				e.self:Say("Then we command you to assist the Qeynos Guard with the destruction of Blackburrow. Report to Captain Tillin of Qeynos Guard and speak with him of the [gnolls of Blackburrow]. I believe he is at the arena. My loyal friend, if you have earned your Thunder Staff, I urge you to [retrieve the Bayle list].");						
+				e.self:Say("Then we command you to assist the Qeynos Guard with the destruction of Blackburrow. Report to Captain Tillin of Qeynos Guard and speak with him of the [" .. eq.say_link("What gnolls of Blackburrow?",false,"gnolls of Blackburrow") .. "]. I believe he is at the arena. My loyal friend, if you have earned your Thunder Staff, I urge you to [" .. eq.say_link("I will retrieve the Bayle list",false,"retrieve the Bayle list") .. "].");						
 			end		
 		elseif(e.other:GetFaction(e.self) == 5) then
 			e.self:Say("Well, friend, the Temple of Thunder has recognized and appreciates your past deeds for us.  But this matter is of vital importance to us and we need more proof of your devotion to our cause.");

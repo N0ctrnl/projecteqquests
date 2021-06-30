@@ -1,7 +1,7 @@
 -- items: 13064, 1050, 13054, 1051, 13067, 1052, 13065, 13071, 13033, 1053
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, fine citizen of Qeynos, what can I make for you today?  How about a genuine, handmade [rat fur cap]?  Or maybe a lovely [rat pelt cape]?  Maybe you'd like a necklace?  For a small fee. I can make a nice [snake fang necklace] or a [lucky rat's foot necklace].");
+		e.self:Say("Greetings, fine citizen of Qeynos, what can I make for you today?  How about a genuine, handmade [" .. eq.say_link("What rat fur cap?",false,"") .. "]?  Or maybe a lovely [" .. eq.say_link("What rat pelt cape?",false,"") .. "]?  Maybe you'd like a necklace?  For a small fee. I can make a nice [" .. eq.say_link("What snake fang necklace?",false,"snake fang necklace") .. "] or a [" .. eq.say_link("What lucky rat's foot necklace?",false,"lucky rat's foot necklace") .. "].");
 	elseif(e.message:findi("rat fur cap")) then
 		e.self:Say(string.format("Rat fur cap?  You're in luck, that happens to be my specialty, %s.  Just bring me 2 pieces of rat fur and 3 gold, and I'll make one up for you while you wait.",e.other:GetName()));
 	elseif(e.message:findi("rat pelt cape")) then

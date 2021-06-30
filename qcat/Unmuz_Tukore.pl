@@ -1,13 +1,13 @@
 # items: 20206, 20186, 20187
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Your eyes betray your eagerness and your naivety young one. I am Unmuz Tukore. Scourge Knight of the Bloodsabers. If you have come seeking the [training as a Shadowknight] then I will offer you guidance.");
+    quest::say("Your eyes betray your eagerness and your naivety young one. I am Unmuz Tukore. Scourge Knight of the Bloodsabers. If you have come seeking the [" . quest::saylink("I seek training as a Shadowknight",0,"training as a Shadowknight") . "] then I will offer you guidance.");
   }
   if($text=~/training as a shadowknight/i) {
-    quest::say("We Scourge Knights of the Bloodsabers, often refered to as shadowknights by those less knowledgeable of our sect, are gifted by Bertoxxulous with prowess in combat and powers over the spirits and bodies of the dead. It is through discipline, training, and devotion to the Plague Lord that we are granted our powers. You must first equip yourself with a [suit of armor] to defend you in battle from the weapons of our [enemies].");
+    quest::say("We Scourge Knights of the Bloodsabers, often refered to as shadowknights by those less knowledgeable of our sect, are gifted by Bertoxxulous with prowess in combat and powers over the spirits and bodies of the dead. It is through discipline, training, and devotion to the Plague Lord that we are granted our powers. You must first equip yourself with a [" . quest::saylink("What suit of armor?",0,"suit of armor") . "] to defend you in battle from the weapons of our [" . quest::saylink("What enemies?",0,"enemies") . "].");
   }
   if($text=~/suit of armor/i) {
-    quest::say("Take this note to Wellis Pestule. He will assist you in obtaining your armor. Once you have been properly outfitted return to me. I will allow you to assist me with a [pressing matter].");
+    quest::say("Take this note to Wellis Pestule. He will assist you in obtaining your armor. Once you have been properly outfitted return to me. I will allow you to assist me with a [" . quest::saylink("What pressing matter?",0,"pressing matter") . "].");
     quest::summonitem(20206); # Item: Note to Wellis Pestule
   }
   if($text=~/pressing matter/i) {

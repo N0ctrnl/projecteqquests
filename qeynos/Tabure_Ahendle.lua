@@ -13,7 +13,7 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("What have we here?  Perhaps a future Ebon Strongbear?  A [member of the Steel Warriors]?  If the way of the warrior is not to your liking, might I suggest joining the League of Antonican Bards?  The only damage you might take there is a sore throat! HAHAHA!");
+		e.self:Say("What have we here?  Perhaps a future Ebon Strongbear?  A [" .. eq.say_link("I am a member of the Steel Warriors",false,"member of the Steel Warriors") .. "]?  If the way of the warrior is not to your liking, might I suggest joining the League of Antonican Bards?  The only damage you might take there is a sore throat! HAHAHA!");
 	elseif(e.message:findi("steel warrior")) then
 		e.self:Say("The Steel Warriors have no cause to dislike you, but you have yet to truly prove your worth to this guild.");
 	elseif(e.message:findi("dangerous task")) then
@@ -21,7 +21,7 @@ function event_say(e)
 	elseif(e.message:findi("assist")) then
 		e.self:Say("So, you think you be of assistance to me? Let me test your skill. Travel to Erudin and seek out the beasts which are called Kobolds. I have never seen one and would very much like to have four Kobold Hides with which to make a rug. To do so would earn you some barely used rawhide armor - maybe even a shield.");
 	elseif(e.message:findi("trades")) then
-		e.self:Say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
+		e.self:Say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [" .. eq.say_link("What second book?",false,"second book") .. "], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
 		e.other:SummonItem(51121); -- Item: Tradeskill Basics : Volume I
 	elseif(e.message:findi("second book")) then
 		e.self:Say("Here is the second volume of the book you requested, may it serve you well!");
@@ -33,7 +33,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 18707})) then -- Recruitment Flyer
-		e.self:Say("Welcome to the Hall of Steel, our swords are strong, and our warriors stronger. Here is our guild tunic. Brin Stolunger is in charge of our new recruits. Go see him, and he'll teach the basics. You look like you'll make a fine addition to our guild. Once you are ready to pave your path to glory return to me for some initial armor quests. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.");
+		e.self:Say("Welcome to the Hall of Steel, our swords are strong, and our warriors stronger. Here is our guild tunic. Brin Stolunger is in charge of our new recruits. Go see him, and he'll teach the basics. You look like you'll make a fine addition to our guild. Once you are ready to pave your path to glory return to me for some initial armor quests. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [" .. eq.say_link("What trades?",false,"trades") .. "] you will have available to you.");
 		e.other:SummonItem(13572); -- Dirty Training Tunic*
 		e.other:Ding();
 		e.other:Faction(311,100,0); -- Steel Warriors
@@ -54,7 +54,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:GiveCash(0,3,0,0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13424, item2 =13424, item3 = 13424,item4 = 13424})) then
-		e.self:Say("Incredible!! Such grand tones. It shall make a fine rug. You have shown me that you cannot always judge a book by its cover. You are quite skilled. Would you like to perform a [dangerous task] for me?");
+		e.self:Say("Incredible!! Such grand tones. It shall make a fine rug. You have shown me that you cannot always judge a book by its cover. You are quite skilled. Would you like to perform a [" .. eq.say_link("What dangerous task?",false,"dangerous task") .. "] for me?");
 		e.other:SummonItem(eq.ChooseRandom(2101,2102,2103,2104,2105,2106,2107,2108,2109,2110,2111,2112)); -- Item(s): Tattered Skullcap (2101), Tattered Mask (2102), Tattered Gorget (2103), Patchwork Tunic (2104), Tattered Shoulderpads (2105), Patchwork Cloak (2106), Tattered Belt (2107), Patchwork Sleeves (2108), Tattered Wristbands (2109), Tattered Gloves (2110), Patchwork Pants (2111), Patchwork Boots (2112)
 		e.other:Ding();
 		e.other:Faction(262,1,0); -- Faction: Guards of Qeynos

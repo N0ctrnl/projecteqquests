@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Leave me alone.");
 	elseif(e.message:findi("paw of opolla")) then
-		e.self:Say("What was that? The Paw of Opolla? Hmm... I might have heard of it.. But my information is valuable. I am a seeker of gems. I might offer up what I know if you were to give me three fine [jewels].");
+		e.self:Say("What was that? The Paw of Opolla? Hmm... I might have heard of it.. But my information is valuable. I am a seeker of gems. I might offer up what I know if you were to give me three fine [" .. eq.say_link("Whatt jewels?",false,"jewels") .. "].");
 	elseif(e.message:findi("jewels")) then
 		e.self:Say("I require three jewels; a Bloodstone , a Moonstone , and a Star Rose Quartz. Only then will I tell you what I know of the rare and powerful Paw of Opolla.");
 	end

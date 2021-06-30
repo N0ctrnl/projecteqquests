@@ -18,7 +18,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if(item_lib.check_turn_in(e.trade, {item1 = 2694}, 0)) then
-		e.self:Say("Well, well! Vegalys did send you after all. Are you [ready to complete the mission]? I am certain I know where Azibelle is hiding.");
+		e.self:Say("Well, well! Vegalys did send you after all. Are you [" .. eq.say_link("I am ready to complete the mission",false,"ready to complete the mission") .. "]? I am certain I know where Azibelle is hiding.");
 		e.other:QuestReward(e.self,0,0,0,0,2694);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

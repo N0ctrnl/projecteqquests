@@ -17,7 +17,7 @@ sub EVENT_SAY {
   }
   if ($text=~/ink of the dark/i) {
     if ($ulevel >= 50) {
-      quest::say("Ink of the Dark, you say? That isn't an everyday item, you know. In fact I can't remember the last time someone requested it. I have given up keeping any here with me. You are going to need to [find your own supply] now. Sorry.");
+      quest::say("Ink of the Dark, you say? That isn't an everyday item, you know. In fact I can't remember the last time someone requested it. I have given up keeping any here with me. You are going to need to [" . quest::saylink("I will find my own supply",0,"find your own supply") . "] now. Sorry.");
     }
     else {
       quest::say("Sorry, but your skills just aren't advanced enough for this.");
@@ -33,7 +33,7 @@ sub EVENT_SAY {
     }
   }
   if($text=~/trades/i) {
-    quest::say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
+    quest::say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [" . quest::saylink("What second book?",0,"second book") . "], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
     quest::summonitem(51121); # Item: Tradeskill Basics : Volume I
   }
   if($text=~/second book/i)  {
@@ -44,7 +44,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 18851 => 1)) { #Blood Stained Note
-    quest::say("A new initiate always pleases me, here is your tunic. Once you are ready to begin your training please make sure that you see Bruax Grengar, he can assist you in developing your hunting and gathering skills. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.");
+    quest::say("A new initiate always pleases me, here is your tunic. Once you are ready to begin your training please make sure that you see Bruax Grengar, he can assist you in developing your hunting and gathering skills. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [" . quest::saylink("What trades?",0,"trades") . "] you will have available to you.");
     quest::summonitem(13596); #Dirty Purple Robe*
     quest::ding();
     quest::faction(221,100); #Bloodsabers
