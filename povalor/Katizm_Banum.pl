@@ -1,6 +1,6 @@
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Hail $name. You can just call me Banum. Just [exploring] are you?");
+    quest::say("Hail $name. You can just call me Banum. Just [" . quest::saylink("I am exploring",0,"exploring") . "] are you?");
   }
   if($text=~/exploring/i) {
     quest::say("Be careful out there. I have heard of the glass playing tricks on people's eyes.");

@@ -2,19 +2,19 @@
 sub EVENT_SAY {
   if(defined($qglobals{pov_key_quest}) && ($qglobals{pov_key_quest} == 4)) {
     if($text=~/hail/i) {
-      quest::say("I am very [busy] at the moment. Perhaps you should come back at another time $name.");
+      quest::say("I am very [" . quest::saylink("Why are you busy?",0,"busy") . "] at the moment. Perhaps you should come back at another time $name.");
     }
     if($text=~/busy/i) {
-      quest::say("I can't go into any great detail, but the Crystalline Globe was taken from our command structure. It's believed to have been separated into three pieces. Unfortunately, we're having a lot of trouble relocating it. Perhaps you'd like to [help]?");
+      quest::say("I can't go into any great detail, but the Crystalline Globe was taken from our command structure. It's believed to have been separated into three pieces. Unfortunately, we're having a lot of trouble relocating it. Perhaps you'd like to [" . quest::saylink("I'd like to help",0,"help") . "]?");
     }
     if($text=~/help/i) {
-      quest::say("That's good to hear $name. I wish we had more soldiers like yourself willing to help. I'm going to need you to locate the missing pieces of the globe and bring them back to me. After you've acquired the pieces perhaps you'd be able to rally enough people to lend us a hand with another [mission] objective we've been unable to fulfill do to our diminished numbers.");
+      quest::say("That's good to hear $name. I wish we had more soldiers like yourself willing to help. I'm going to need you to locate the missing pieces of the globe and bring them back to me. After you've acquired the pieces perhaps you'd be able to rally enough people to lend us a hand with another [" . quest::saylink("What mission?",0,"mission") . "] objective we've been unable to fulfill do to our diminished numbers.");
     }
     if($text=~/mission/i) {
-      quest::say("Well, I can't go into any details as to our main purpose is, but one of our missions was to exterminate the crystalline dragon. However, due to our company being split we are unable to go forward with this part of the operation. It has been placed on hold, pending the outcome of the [war].");
+      quest::say("Well, I can't go into any details as to our main purpose is, but one of our missions was to exterminate the crystalline dragon. However, due to our company being split we are unable to go forward with this part of the operation. It has been placed on hold, pending the outcome of the [" . quest::saylink("What war?",0,"war") . "].");
     }
     if($text=~/war/i) {
-      quest::say("Unfortunately, that is one of the things that I'm unable to speak of at this time. However, if you are [willing] to help rally some people together I may be able to release some more information to you.");
+      quest::say("Unfortunately, that is one of the things that I'm unable to speak of at this time. However, if you are [" . quest::saylink("I am willing",0,"willing") . "] to help rally some people together I may be able to release some more information to you.");
     }
     if($text=~/willing/i) {
       quest::say("Please bring me three peices from the Crystaline Globe. You will find them in the nearby areas among various creatures. Once you have all three, let me have them.");

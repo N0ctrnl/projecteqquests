@@ -1,13 +1,13 @@
 # items: 20605, 20606
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::emote("groans in extreme anguish. '[Help] me.'");
+    quest::emote("groans in extreme anguish. '[" . quest::saylink("I will help you",0,"help") . "] me.'");
   }
   if ($text=~/help/i) {
-    quest::say("My resting grounds have been desecrated. I now lie awake unable to rest with my fellow brethren. My soul is bound to this area for all of eternity. Until my [belongings] are brought back I cannot rest.");
+    quest::say("My resting grounds have been desecrated. I now lie awake unable to rest with my fellow brethren. My soul is bound to this area for all of eternity. Until my [" . quest::saylink("What belongings?",0,"belongings") . "] are brought back I cannot rest.");
   }
   if ($text=~/belongings/i) {
-    quest::say("Many different things were taken, but I'm mainly concerned with my [amulet] and my family's crescent symbol. Bring these articles back into my possession and I'll return back to my state of rest.");
+    quest::say("Many different things were taken, but I'm mainly concerned with my [" . quest::saylink("What amulet?",0,"amulet") . "] and my family's crescent symbol. Bring these articles back into my possession and I'll return back to my state of rest.");
   }
   if ($text=~/amulet/i) {
     quest::say("The amulet was given to me after passing the Trials many many generations ago. It is a part of every soldier who has passed the trials, it is a part of my very being.");
