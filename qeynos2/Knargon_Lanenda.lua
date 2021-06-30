@@ -20,17 +20,17 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hey..  What's up? My name's Knargon Lanenda. I just came over here from [Freeport] a couple of months ago. I used to run a big business importing goods from [Faydwer]. If you've been to [Freeport]. I'm sure you've heard of me.");
+		e.self:Say("Hey..  What's up? My name's Knargon Lanenda. I just came over here from [" .. eq.say_link("What is Freeport?",false,"Freeport") .. "] a couple of months ago. I used to run a big business importing goods from [" .. eq.say_link("What is Faydwer?",false,"Faydwer") .. "]. If you've been to [" .. eq.say_link("What is Freeport?",false,"Freeport") .. "]. I'm sure you've heard of me.");
 	elseif(e.message:findi("freeport")) then
 		e.self:Say("It's a long way from here. . .which is a good thing for me.");
 	elseif(e.message:findi("faydwer")) then
 		e.self:Say("It's a long way from here. . .which is a good thing for me.");
 	elseif(e.message:findi("jracol")) then
-		e.self:Say("I don't know why [Carson] likes that guy ... he's certainly been nothing but trouble for me.");
+		e.self:Say("I don't know why [" .. eq.say_link("Who is Carson?",false,"Carson") .. "] likes that guy ... he's certainly been nothing but trouble for me.");
 	elseif(e.message:findi("carson")) then
-		e.self:Say("Carson McCabe? He runs that sham of a fortress called [Highpass Hold]. We've been dealing with him for a few years, now. But, lately he seems to be losing control of his business. [Hanns] will whip him into shape pretty soon though, I bet.");
+		e.self:Say("Carson McCabe? He runs that sham of a fortress called [" .. eq.say_link("What is Highpass Hold?",false,"Highpass Hold") .. "]. We've been dealing with him for a few years, now. But, lately he seems to be losing control of his business. [" .. eq.say_link("Who is Hanns?",false,"Hanns") .. "] will whip him into shape pretty soon though, I bet.");
 	elseif(e.message:findi("shipment")) then
-		e.self:Say("We have a small shipment of goods coming in later tonight. The [courier] will be waiting outside the city gates. Casually tell the courier [Lovely night for a stroll], and give him this old card as proof that you work for us. Make certain that you are not followed, and return the shipment to me.");
+		e.self:Say("We have a small shipment of goods coming in later tonight. The [" .. eq.say_link("What courier?",false,"courier") .. "] will be waiting outside the city gates. Casually tell the courier [Lovely night for a stroll], and give him this old card as proof that you work for us. Make certain that you are not followed, and return the shipment to me.");
 		e.other:SummonItem(13903); -- Bent Playing Card
 	elseif(e.message:findi("courier")) then
 		e.self:Say("The courier that usually runs [McCabe]'s shipment, is that good for nothing J'Racol. I don't trust his kind.");

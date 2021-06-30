@@ -3,13 +3,13 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello, my name is Phin. Practice, practice, practice.. That's my motto. It is my responsibility to train our members, and help them to advance their skills and abilities. I also reward our members with colored [headbands] for completing certain tasks.");
+		e.self:Say("Hello, my name is Phin. Practice, practice, practice.. That's my motto. It is my responsibility to train our members, and help them to advance their skills and abilities. I also reward our members with colored [" .. eq.say_link("What headbands?",false,"headbands") .. "] for completing certain tasks.");
 	elseif(e.message:findi("headbands")) then
-		e.self:Say("Yes, I give the [White, Yellow, and Orange Headbands] to our newer members, and Togahn gives out [Red, Purple, and Blue Headbands] to our elder members.");
+		e.self:Say("Yes, I give the [" .. eq.say_link("White headband",false,"White") .. "],[" .. eq.say_link("Yellow headband",false,"Yellow") .. "],[" .. eq.say_link("Orange headband",false,"Orange") .. "] Headbands to our newer members, and Togahn gives out [" .. eq.say_link("Red headband",false,"Red") .. "],[" .. eq.say_link("Purple headband",false,"Purple") .. "],[" .. eq.say_link("Blue headband",false,"Blue") .. "] Headbands to our elder members.");
 	elseif(e.message:findi("Tomer Instogle")) then
 		e.self:Say("Tomer? I think Seta needs someone to go find him... Go ask her.");
 	elseif(e.message:findi("Konem Matse")) then
-		e.self:Say("Konem was sent to retrieve [supplies] and has not returned.");
+		e.self:Say("Konem was sent to retrieve [" .. eq.say_link("What supplies?",false,"supplies") .. "] and has not returned.");
 	elseif(e.message:findi("supplies")) then
 		e.self:Say("Take this message to Konem and find out where my supplies are.");
 		-- Message to Konem ID-18921
@@ -18,11 +18,11 @@ function event_say(e)
 		e.self:Say("Those vile creatures are constantly attacking our city.. and often killing innocent citizens. It is our duty to help defend Qeynos from their vicious raids.");
 	elseif(fac <= 5) then
 		if(e.message:findi("white headband")) then
-			e.self:Say("That is our training headband.. Beginning students can earn this by slaying four [gnoll] pups, and bringing their scalps back to me.");
+			e.self:Say("That is our training headband.. Beginning students can earn this by slaying four [" .. eq.say_link("What gnoll pups?",false,"gnoll") .. "] pups, and bringing their scalps back to me.");
 		elseif(e.message:findi("yellow headband")) then
-			e.self:Say("This is awarded to our students for helping clear out the evil that inhabits the old ruins of the Qeynos Hills. Just bring me back three putrid rib bones as proof of your good deeds and turn in your [training headband], and then I will give you the yellow headband.");
+			e.self:Say("This is awarded to our students for helping clear out the evil that inhabits the old ruins of the Qeynos Hills. Just bring me back three putrid rib bones as proof of your good deeds and turn in your [" .. eq.say_link("What training headband?",false,"training headband") .. "], and then I will give you the yellow headband.");
 		elseif(e.message:findi("orange headband")) then
-			e.self:Say("This is a difficult award to obtain. The city of Qeynos is, as you know, under constant attack by the gnolls of Blackburrow. The Silent Fist Clan rewards its members who venture deep into this gnoll stronghold and bring swift justice to these vile creatures. Please return two Blackburrow gnoll pelts - make sure they aren't ruined - and a Blackburrow gnoll skin as proof of your noble actions. Also, turn in your [yellow headband], and then I shall give you the orange one. Good luck.");
+			e.self:Say("This is a difficult award to obtain. The city of Qeynos is, as you know, under constant attack by the gnolls of Blackburrow. The Silent Fist Clan rewards its members who venture deep into this gnoll stronghold and bring swift justice to these vile creatures. Please return two Blackburrow gnoll pelts - make sure they aren't ruined - and a Blackburrow gnoll skin as proof of your noble actions. Also, turn in your [" .. eq.say_link("What yellow headband?",false,"yellow headband") .. "], and then I shall give you the orange one. Good luck.");
 		end
 	else
 		e.self:Say("I have been watching you, and appreciate the help you've given to the brothers and sisters of the Silent Fist. But, I feel that such a vital matter should be left to one of our more trusted members.");

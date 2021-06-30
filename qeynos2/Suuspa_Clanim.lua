@@ -1,9 +1,9 @@
 -- items: 13301, 13908
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome to the Temple of Life, " .. e.other:GetName() .. ".  It is here that you may pay tribute to the Prime Healer. Does not your heart beat with the sound of life? It is He who makes it so. Do not let the hand of Bertoxxulous and his [new disease] lay upon your soul or, like so many, you shall meet your fate at the end of my sword!");
+		e.self:Say("Welcome to the Temple of Life, " .. e.other:GetName() .. ".  It is here that you may pay tribute to the Prime Healer. Does not your heart beat with the sound of life? It is He who makes it so. Do not let the hand of Bertoxxulous and his [" .. eq.say_link("What new disease?",false,"new disease") .. "] lay upon your soul or, like so many, you shall meet your fate at the end of my sword!");
 	elseif(e.message:findi("new disease")) then
-		e.self:Say("The new disease I speak of is called the Bloodsabers. They are the loyal followers of Bertoxxulous and as such have been condemned by our temple. Do you wish to [join the fight]?");
+		e.self:Say("The new disease I speak of is called the Bloodsabers. They are the loyal followers of Bertoxxulous and as such have been condemned by our temple. Do you wish to [" .. eq.say_link("I will join the fight",false,"join the fight") .. "]?");
 	elseif(e.message:findi("join the fight")) then
 		e.self:Say("Then seek out those who worship the Plaguebringer. End their threat!! Each member has upon them the mark of the Bloodsabers, a rat-shaped ring. I shall reward all those who return such rings to me.");
 	elseif(e.message:findi("Brother Trintle attacked Brother Estle")) then

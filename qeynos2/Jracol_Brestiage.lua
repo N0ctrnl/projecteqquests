@@ -5,7 +5,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("You'd better run along, if ya know what's best for ya!");
 	elseif(e.message:findi("lovely night for a stroll")) then
-		e.self:Say("Yes, it is a lovely night for a walk, especially with a good friend. Tell me, are you a [friend]?");
+		e.self:Say("Yes, it is a lovely night for a walk, especially with a good friend. Tell me, are you a [" .. eq.say_link("I am a friend",false,"friend") .. "]?");
 		proof = 1;
 	elseif(e.message:findi("friend") and proof == 1) then
 		e.self:Say("My memory is a bit fuzzy. If you are a friend, prove it to me.");
