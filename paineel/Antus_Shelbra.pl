@@ -1,7 +1,7 @@
 # items: 9968, 9969, 13697, 9967
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Greetings, $name. You have come to me searching for tasks and tasks I have. Would you judge yourself an [experienced heretic] or one who has [much to learn]?");
+    quest::say("Greetings, $name. You have come to me searching for tasks and tasks I have. Would you judge yourself an [" . quest::saylink("I am an experienced heretic",0,"experienced heretic") . "] or one who has [" . quest::saylink("I have much to learn",0,"much to learn") . "]?");
   }
   if($text=~/much to learn/i) {
     quest::say("Very well, $name. I do have a task for you. There is an old and frail Erudite male who now lives in Toxxulia named Aglthin Dasmore. He has left the ways of Cazic-Thule and no longer practices our craft. He has been stripped of his power and wealth, so he spends his time fishing by the river. Our great Lord of Fear has decreed that his life is forfeit. Slay him, and bring me proof of the deed.");

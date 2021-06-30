@@ -9,7 +9,7 @@ sub EVENT_SAY {
 }
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 14041 => 1)) { #A Rolled Up Note
-    quest::say("Why are you giving this to me? Oh I see. I forgot that rats don't know how to read. Haha! Well, then. I shall read it for you. You do [understand common] don't you? Haha.");
+    quest::say("Why are you giving this to me? Oh I see. I forgot that rats don't know how to read. Haha! Well, then. I shall read it for you. You do [" . quest::saylink("I understand common",0,"understand common") . "] don't you? Haha.");
   }
   elsif(plugin::check_handin(\%itemcount, 12993 => 1)) { #Small Sealed Bag
     quest::say("My revenge has been satisfied. Thank you, my child. You have proven yourself to be a most worthy asset to our cause. Here, I no longer have any use for this, my ties to the old life are now severed.");

@@ -15,7 +15,7 @@ sub EVENT_SAY {
     }
   }
   if($text=~/pool/i) {
-    quest::say("Oh Tatlan and Wicas sent you did they? I'll tell you what I told them, nothing is free. If you want to know about the pools then I need something [from you] first.");
+    quest::say("Oh Tatlan and Wicas sent you did they? I'll tell you what I told them, nothing is free. If you want to know about the pools then I need something [" . quest::saylink("What do you need from me?",0,"from you") . "] first.");
   }
   if($text=~/from me/i) {
     quest::say("I'm sure it'll be easy for an adventurer as you. I am working on a potion, and I cannot currently travel to gather my last component. If you could bring me the blood of a Sarnak I'd be willing to share what I know.");

@@ -5,10 +5,10 @@
 
 sub EVENT_SAY {
   if($text=~/Hail/i) {
-    quest::emote("beams a smile as you approach. 'Welcome $name. This building will be the site of New Tanaan's greatest museum ever. I realize it looks a bit empty now, but just imagine how beautiful it will look after we fill it with rare and exotic treasures from all over. It's a very exciting time, no? Of course, we still need to obtain a few more [artifacts].'");
+    quest::emote("beams a smile as you approach. 'Welcome $name. This building will be the site of New Tanaan's greatest museum ever. I realize it looks a bit empty now, but just imagine how beautiful it will look after we fill it with rare and exotic treasures from all over. It's a very exciting time, no? Of course, we still need to obtain a few more [" . quest::saylink("What artifacts?",0,"artifacts") . "].'");
   }
   if($text=~/artifacts/i) {
-    quest::say("Each of the people you see working here has their own exhibit to build and maintain. If you speak to them, they can tell you about which items they are looking for to add to their collection. Any items you collect will need to be placed inside one of my storage containers. If you [need a Collector's Box] at any time, just ask me. Also know I could use some help in retrieving some [special items] for my own exhibit.");
+    quest::say("Each of the people you see working here has their own exhibit to build and maintain. If you speak to them, they can tell you about which items they are looking for to add to their collection. Any items you collect will need to be placed inside one of my storage containers. If you [" . quest::saylink("I need a Collector's Box",0,"need a Collector's Box") . "] at any time, just ask me. Also know I could use some help in retrieving some [" . quest::saylink("What special items?",0,"special items") . "] for my own exhibit.");
   }
   if($text=~/special items/i) {
     quest::say("My display will showcase the many interesting religious idols and artifacts from Norrath's history. Most of my gallery is complete, but I still need a few more items. I am looking for a Forlorn Totem of Rolfron Zek, Idol of Woven Grass, Coldain Fetish, and a Petrified Totem. Once you have these holy artifacts, close them up inside a Collector's Box and return it to me. Good luck.");

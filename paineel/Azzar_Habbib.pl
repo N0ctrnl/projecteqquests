@@ -14,7 +14,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 1528 => 1)) {
     quest::emote("gasps in astonishment");
-    quest::say("You...you..found my hat!! This is the most I can repay you but perhaps I can reward you further for some [other tasks]?");
+    quest::say("You...you..found my hat!! This is the most I can repay you but perhaps I can reward you further for some [" . quest::saylink("What other tasks?",0,"other tasks") . "]?");
     quest::summonitem("1530");#black lace sash
     quest::faction("265","1");
     quest::faction("231","-3");

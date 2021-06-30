@@ -27,7 +27,7 @@ sub EVENT_ITEM {
   }
   elsif(plugin::check_handin(\%itemcount, 9834 => 1)) { #Brightly Glowing Tome
     quest::emote("holds up the book with both hands and begins to chant. After several minutes, a sudden flash blinds you. When you regain your vision a few seconds later, you are amazed to see the staff floating in the air before you. Before you or Tebarin are able to take the staff as your own, a booming voice echoes throughout the room, 'All who seek my staff will be destroyed!' An explosion of bright magic stuns you as a magical portal opens. Four heavily armored paladins step through the portal and grab the staff. 'Not if we destroy the staff first!' one of the paladins shouts. The paladins rush back into the portal with the staff.");
-    quest::emote("tries to follow them into the portal but it disappears. 'This cannot be!' cries Tebarin. 'We must ensure this tome does not also fall into the hands of the paladins. The tome is our only hope of recovering the staff before the paladins destroy it. We must build a [special box] that will protect the tome. Take this rune-covered insert. You will use it to construct the box.'");
+    quest::emote("tries to follow them into the portal but it disappears. 'This cannot be!' cries Tebarin. 'We must ensure this tome does not also fall into the hands of the paladins. The tome is our only hope of recovering the staff before the paladins destroy it. We must build a [" . quest::saylink("What special box?",0,"special box") . "] that will protect the tome. Take this rune-covered insert. You will use it to construct the box.'");
     quest::summonitem(11406); #Rune Covered Insert
   }
   elsif(plugin::check_handin(\%itemcount, 13620 => 1)) { #Glowing Box of Protection

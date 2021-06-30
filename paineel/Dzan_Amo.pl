@@ -1,7 +1,7 @@
 # items: 13069, 13250
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Welcome to the Tabernacle of Terror. Perhaps you can control your fear long enough to be of [service] to us.");
+    quest::say("Welcome to the Tabernacle of Terror. Perhaps you can control your fear long enough to be of [" . quest::saylink("I will be of service",0,"service") . "] to us.");
   }
   if($text=~/service/i) {
     quest::say("I need some things fetched from the creatures just outside our city for some ritual experimentation. Bring me two tufts of bat fur and two fire beetle legs and I will school you in the ways of terror.");

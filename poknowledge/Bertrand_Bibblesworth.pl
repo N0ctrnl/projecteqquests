@@ -10,10 +10,10 @@
 
 sub EVENT_SAY {
   if($text=~/Hail/i) {
-    quest::say("Yes, hello to you as well. I have recently come here in search of some more curious [crystals].");
+    quest::say("Yes, hello to you as well. I have recently come here in search of some more curious [" . quest::saylink("What crystals?",0,"crystals") . "].");
   }
   if($text=~/crystals/i) {
-    quest::say("These are no ordinary crystals. They are known as frozen crystal shards and burning crystal shards. I believe they are made by the gelidrans and pyrilens, chaotic elemental creatures composed of fire and ice. I encountered a couple of these fierce creatures in the Realm of Discord and managed to, um, procure quite a collection of crystals. Hey, if you would like to [trade], I might be interested.");
+    quest::say("These are no ordinary crystals. They are known as frozen crystal shards and burning crystal shards. I believe they are made by the gelidrans and pyrilens, chaotic elemental creatures composed of fire and ice. I encountered a couple of these fierce creatures in the Realm of Discord and managed to, um, procure quite a collection of crystals. Hey, if you would like to [" . quest::saylink("I would like to trade",0,"trade") . "], I might be interested.");
   }
   if($text=~/trade/i) {
     quest::say("I can trade you a frozen crystal for a burning crystal or vice versa. Just hand one to me if you are interested!");

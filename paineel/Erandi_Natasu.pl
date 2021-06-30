@@ -4,13 +4,13 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::emote("looks nervously about before leaning in close to your ear. 'Do you need [work]?'");
+    quest::emote("looks nervously about before leaning in close to your ear. 'Do you need [" . quest::saylink("I need work",0,"work") . "]?'");
   }
   if($text=~/work/i) {
-    quest::say("My name is Erandi Natasu. I am here representing a group of interested parties among the merchant coalitions across Norrath. You do not need to know who is involved with this. We are looking to hire a few people to [take care] of some things for us.");
+    quest::say("My name is Erandi Natasu. I am here representing a group of interested parties among the merchant coalitions across Norrath. You do not need to know who is involved with this. We are looking to hire a few people to [" . quest::saylink("I will take care of some things",0,"take care") . "] of some things for us.");
   }
   if($text=~/take care/i) {
-    quest::say("Our businesses are hurting, people cannot keep up their stock or afford to stay in business with the upsurge in [piracy] upon our waters. Trade lines are cut between the continents; supplies are not arriving at their proper destinations. It is quite dreadful.");
+    quest::say("Our businesses are hurting, people cannot keep up their stock or afford to stay in business with the upsurge in [" . quest::saylink("What piracy?",0,"piracy") . "] upon our waters. Trade lines are cut between the continents; supplies are not arriving at their proper destinations. It is quite dreadful.");
   }
   if($text=~/piracy/i) {
     quest::say("As the pirates that reside in Broken Skull Rock become stronger and more bold, the attacks on our ships have increased dramatically. Would you be interested in helping the very merchants that supply your food and clothing by performing some mercenary services?");

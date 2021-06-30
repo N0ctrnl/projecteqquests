@@ -24,11 +24,11 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 4747 => 1)) {
-    quest::say("Ah these must be from ol Coggo! Ye see I had sent out a few men to gather some new picks an such for the mining operation ere but they haven't returned yet. I'm really in need of some picks that are being held in Katta by a friend of mine. Will you [retrieve the mining picks] for me?");
+    quest::say("Ah these must be from ol Coggo! Ye see I had sent out a few men to gather some new picks an such for the mining operation ere but they haven't returned yet. I'm really in need of some picks that are being held in Katta by a friend of mine. Will you [" . quest::saylink("I will retrieve the mining picks",0,"retrieve the mining picks") . "] for me?");
     $picks = 1;
   }
   if (plugin::check_handin(\%itemcount, 4755 => 1)) {
-    quest::say("Ye did it, $name! Ye hear dat boys! Dis outlander ere jess delivered us our new minin picks! You have no idea how much these supplies will aid our operation! As a final task would you be able to [return a letter] to me wife back home?");
+    quest::say("Ye did it, $name! Ye hear dat boys! Dis outlander ere jess delivered us our new minin picks! You have no idea how much these supplies will aid our operation! As a final task would you be able to [" . quest::saylink("I will return a letter",0,"return a letter") . "] to me wife back home?");
     $picks = 2;
   }
   else {

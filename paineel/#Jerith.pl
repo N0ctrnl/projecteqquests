@@ -3,7 +3,7 @@
 
 sub EVENT_SAY { 
 	if($text=~/Osaftars/i){
-		quest::say("Osaftars did you say? Jerith knows this name. Osaftars is a scourge of the seas. He takes what he wants and does what he wants. He is a captain of a ship. Yes, Jerith does believe the ship's name was the Stormwave. It can probably be found in the port town of [Dulak].");
+		quest::say("Osaftars did you say? Jerith knows this name. Osaftars is a scourge of the seas. He takes what he wants and does what he wants. He is a captain of a ship. Yes, Jerith does believe the ship's name was the Stormwave. It can probably be found in the port town of [" . quest::saylink("What is Dulak?",0,"Dulak") . "].");
 	}
 	
 	if ($text=~/Dulak/i) {

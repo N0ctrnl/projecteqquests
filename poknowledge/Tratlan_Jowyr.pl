@@ -5,12 +5,12 @@
 
 sub EVENT_SAY {
   if($text=~/Hail/i) {
-    quest::emote("looks deeply into the pool in front of him, 'Well darn it! I still can't see anything in this blasted [pool], can you Wicas?");
+    quest::emote("looks deeply into the pool in front of him, 'Well darn it! I still can't see anything in this blasted [" . quest::saylink("What pool?",0,"pool") . "], can you Wicas?");
     #Need to trigger Wicas to say: "Nothing at all. Do you think that he led us astray?" right after this.
     quest::signalwith(202301, 1, 1000); # NPC: Wicas_Adaolath
   }
   if($text=~/pool/i) {
-    quest::emote("glances up at you like he just noticed your presence, 'This pool. There is supposed to be strong [magic] in it.'");
+    quest::emote("glances up at you like he just noticed your presence, 'This pool. There is supposed to be strong [" . quest::saylink("What magic?",0,"magic") . "] in it.'");
   }
   if($text=~/magic/i) {
     quest::say("Scrying magic. These pools can supposedly glance into all of the knowledge past, present, and future.");

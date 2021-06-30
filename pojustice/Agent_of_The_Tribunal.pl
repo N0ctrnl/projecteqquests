@@ -14,7 +14,7 @@ my $hold_torture = 0;
 
 sub EVENT_SAY {
    if ($text =~ /hail/i) {
-      quest::say("Do you wish to [return]?");
+      quest::say("Do you wish to [" . quest::saylink("I wish to return",0,"return") . "]?");
    }
    
    elsif($text =~ /return/i) {

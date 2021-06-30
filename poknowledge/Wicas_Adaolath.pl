@@ -7,7 +7,7 @@ sub EVENT_SIGNAL {
     quest::say("Nothing at all. Do you think that he led us astray?");
   }
   if($signal == 2) {
-    quest::say("I think we should just do what [Tarerd] wants us to do.");
+    quest::say("I think we should just do what [" . quest::saylink("Who is Tarerd?",0,"Tarerd") . "] wants us to do.");
   }
 }
 
