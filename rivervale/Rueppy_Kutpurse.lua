@@ -1,13 +1,13 @@
 -- items: 13032, 13131
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello, " .. e.other:GetName() .. ". Rueppy's my name. Why don't you buy us something to [drink] and we can talk?");
+		e.self:Say("Hello, " .. e.other:GetName() .. ". Rueppy's my name. Why don't you buy us something to [" .. eq.say_link("What drink?",false,"drink") .. "] and we can talk?");
 	elseif(e.message:findi("drink")) then
 		e.self:Say("How about a short beer? That sounds good.");
 	elseif(e.message:findi("blackburrow stout")) then
-		e.self:Say("Oh, well we can't get that here. However, you can always [smuggle] it in...");
+		e.self:Say("Oh, well we can't get that here. However, you can always [" .. eq.say_link("How can I smuggle it in?",false,"smuggle") .. "] it in...");
 	elseif(e.message:findi("smuggle")) then
-		e.self:Say("Well, that depends. Do you want a [job]?");
+		e.self:Say("Well, that depends. Do you want a [" .. eq.say_link("I want a job",false,"job") .. "]?");
 	elseif(e.message:findi("job")) then
 		e.self:Say("Should you choose to accept, you have to go to the ruins on the other side of the great wall, find Gunrich, and tell him that [Dark Rivers Flow East].");
 	end
@@ -17,7 +17,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 13032})) then -- Short Beer
-		e.self:Say("Mmm. It's good, but not as good as [Blackburrow Stout].");
+		e.self:Say("Mmm. It's good, but not as good as [" .. eq.say_link("What is Blackburrow Stout?",false,"Blackburrow Stout") .. "].");
 		e.other:Ding();
 		e.other:AddEXP(100);
 		e.other:GiveCash(5,0,0,0);

@@ -10,7 +10,7 @@ function event_say(e)
 			e.self:Say("Your help in getting rid of those mongrels is more appreciated than you know. There's just one thing left for you to do though, and that's to deliver four Rat Whiskers to Swish Appletop. I'm sure getting some additional supplies will be a relief.");
 			e.other:UpdateTaskActivity(12,2,1);
 		else
-			e.self:Say("Hey, hey, hey! Welcome to the Fool's Gold. Don't bet more than you can afford to lose, pal! You don't want to end up like ol' [Kevlin]. If you're looking for something to do after you have a drink, you may be interested in a [task].");
+			e.self:Say("Hey, hey, hey! Welcome to the Fool's Gold. Don't bet more than you can afford to lose, pal! You don't want to end up like ol' [" .. eq.say_link("Who is Kevlin?",false,"Kevlin") .. "]. If you're looking for something to do after you have a drink, you may be interested in a [" .. eq.say_link("What task?",false,"task") .. "].");
 		end
 	elseif(e.message:findi("task")) then
 		if(level > 4 and level < 9) then --Maximum level for task is 8. Minimum level is currently unknown.
@@ -23,7 +23,7 @@ function event_say(e)
 			e.self:Say("I'm afraid you're not yet ready for the tasks I have available. You should seek out areas more fitting to your experience.");
 		end
 	elseif(e.message:findi("kevlin")) then
-		e.self:Say("Kevlin Diggs. His family sells armor here in Rivervale. He has a nice shop right across from us here. But he owes us Deeppockets some [gold] that we need to collect. We can't rough him up because he is a friend of Mayor Gubbin. We need someone to steal it.");
+		e.self:Say("Kevlin Diggs. His family sells armor here in Rivervale. He has a nice shop right across from us here. But he owes us Deeppockets some [" .. eq.say_link("What gold?",false,"gold") .. "] that we need to collect. We can't rough him up because he is a friend of Mayor Gubbin. We need someone to steal it.");
 	elseif(e.message:findi("gold")) then
 		e.self:Say("He keeps his money in a sack on his bed. But he has a mean pet wolf, named Mangler, who mangled the last cutpurse we sent after it. If you were to wait until he leaves his shop, then sneak past Mangler and bring me the money he owes us, I will make it worth your time.");
 	end

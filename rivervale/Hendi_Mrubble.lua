@@ -1,7 +1,7 @@
 -- items: 14029, 13870
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Why. hello there!!  Welcome to the Church of Mischief.  I am Hendi Mrubble. The 'R' is silent.  I am the resident healer of the church. so if you are in [need of healing]. or want me to [cure poison] or [cure disease]. let me know.  If you've got a touch of the crazy brain. I can't do a thing for you.");
+		e.self:Say("Why. hello there!!  Welcome to the Church of Mischief.  I am Hendi Mrubble. The 'R' is silent.  I am the resident healer of the church. so if you are in [" .. eq.say_link("I am in need of healing",false,"need of healing") .. "]. or want me to [" .. eq.say_link("I need cure poison",false,"cure poison") .. "] or [" .. eq.say_link("I need cure disease",false,"cure disease") .. "]. let me know.  If you've got a touch of the crazy brain. I can't do a thing for you.");
 	elseif(e.message:findi("healing")) then
 		e.self:Say("Hmmm.  I would love to help you with that. but you will have to make a donation to the temple.  The Guardians asked me to charge one of the Rivervale piranha teeth.");
 	elseif(e.message:findi("cure disease")) then
