@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("In the name of the [" .. eq.say_link("What Brotherhood of the Lost Circle?",false,"Brotherhood of the Lost Circle") .. "], I greet you.");
 	elseif(e.message:findi("brotherhood of the lost circle")) then
-		e.self:Say("The [" .. eq.say_link("What monks of the Whistling Fist?",false,"monks of the Whistling Fist") .. "] are called the Lost Circle by others. We are an ancient league of monks, long forgotten and nearly extinct. Within this realm, there are only two. [" .. eq.say_link("Who is Brother Zephyl?",false,"Brother Zephyl") .. "] and myself. We seek the items stolen from us. I seek the [" .. eq.say_link("What Code of Zan Fi?",false,"Coe of Zan Fi") .. "].");
+		e.self:Say("The [" .. eq.say_link("What monks of the Whistling Fist?",false,"monks of the Whistling Fist") .. "] are called the Lost Circle by others. We are an ancient league of monks, long forgotten and nearly extinct. Within this realm, there are only two. [" .. eq.say_link("Who is Brother Zephyl?",false,"Brother Zephyl") .. "] and myself. We seek the items stolen from us. I seek the [" .. eq.say_link("What Code of Zan Fi?",false,"Code of Zan Fi") .. "].");
 	elseif(e.message:findi("monks of the whistling fist")) then
 		e.self:Say("The monks of the Whistling fist were forged from the vision of the great master, Zan Fi. When the Combine Empire reigned supreme, a single bard grew to learn the ways of the monk. This bard was Zan Fi. The brotherhood was all but destroyed in the times that followed. Now only a few remain to carry on Zan Fi's legacy.");
 	elseif(e.message:findi("code of zan fi")) then
