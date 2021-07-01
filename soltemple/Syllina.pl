@@ -3,25 +3,25 @@
 
 sub EVENT_SAY { 
   if($text=~/Hail/i){
-    quest::say("Hello, I am Syllina, follower of Solusek Ro and keeper of the [Shadow Lore].");
+    quest::say("Hello, I am Syllina, follower of Solusek Ro and keeper of the [" . quest::saylink("What Shadow Lore?",0,"Shadow Lore") . "].");
   }
   if($text=~/shadow lore/i){
-    quest::say("I hold the secrets to the Shadow Lore so highly prized by Necromancers. If you are interested, I can tell you about [ShadowBound Boots], [ShadowBound Gloves], the [Robe of Enshroudment] or the secrets to the making of [Shadow Silk].");
+    quest::say("I hold the secrets to the Shadow Lore so highly prized by Necromancers. If you are interested, I can tell you about [" . quest::saylink("What Shadowbound Boots?",0,"Shadowbound Boots") . "], [" . quest::saylink("What Shadowbound Gloves?",0,"Shadowbound Gloves") . "], the [" . quest::saylink("What Robe of Enshroudment?",0,"Robe of Enshroudment") . "] or the secrets to the making of [" . quest::saylink("What is the secret to making Shadow Silk?",0,"Shadow Silk") . "].");
   }
   if($text=~/shadowbound boots/i){
-    quest::say("ShadowBound Boots are boots woven from purest shadow. If you are interested, I will weave you a pair - but I will need [boot components].");
+    quest::say("ShadowBound Boots are boots woven from purest shadow. If you are interested, I will weave you a pair - but I will need [" . quest::saylink("What boot components?",0,"boot components") . "].");
   }
   if($text=~/boot components/i){
     quest::say("I will need the following items to make you a pair of ShadowBound Boots: Shadow Silk, The Scepter of Sorrow from Castle Mistmoore, an Eye of Shadow from our mortal enemies the Shadowed Men and a Skeletal toe from a Rathe Giant Skeleton.");
   }
   if($text=~/shadowbound gloves/i){
-    quest::say("ShadowBound Gloves are gloves woven from the purest shadow. If you are interested, I will weave you a pair - but I will need [glove components].");
+    quest::say("ShadowBound Gloves are gloves woven from the purest shadow. If you are interested, I will weave you a pair - but I will need [" . quest::saylink("What glove components?",0,"glove components") . "].");
   }
   if($text=~/glove components/i){
     quest::say("I will need the following items to make you a pair of ShadowBound Gloves: Inky Shadow Silk, The Scepter of Tears from the circle-stair-waterfall of Guk, a Hand of Shadow from our mortal enemies the Shadowed Men and a Skeletal finger from a Rathe Giant Skeleton.");
   }
   if($text=~/robe of enshroudment/i){
-    quest::say("The Robe of Enshroudment is a robe woven from the purest of shadow. If you are interested, I will weave you a robe - but I will need the following [robe components].");
+    quest::say("The Robe of Enshroudment is a robe woven from the purest of shadow. If you are interested, I will weave you a robe - but I will need the following [" . quest::saylink("What robe components?",0,"robe components") . "].");
   }
   if($text=~/robe components/i){
     quest::say("I will need the following items to make you a Robe of Enshroudment: Large Shadow Silk, A Werebat Wing from the Estate of Unrest, A Mask of Shadow from our mortal enemies the Shadowed Men and a Globe of Shadow from a Nokta Shaman in Guk.");

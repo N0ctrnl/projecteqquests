@@ -4,13 +4,13 @@
 
 sub EVENT_SAY {
   if($text=~/Hail/i) {
-    quest::emote("growls as you approach. 'Do not attack. I wish to speak with you.' Gitog leans forward and sniffs the air. 'Yes you are powerful. [Help] me, and I will help you.'");
+    quest::emote("growls as you approach. 'Do not attack. I wish to speak with you.' Gitog leans forward and sniffs the air. 'Yes you are powerful.  [" . quest::saylink("I will help",0,"Help") . "]me, and I will help you.'");
   }
   if($text=~/help/i) {
-    quest::emote("'s lips curl into a snarl. 'I do not normally associate with outsiders, but we have a problem and you seem strong enough to assist us. Our hunting grounds have recently been overtaken by a dangerous group of [fire goblins]. These are no ordinary fire goblins however.'");
+    quest::emote("'s lips curl into a snarl. 'I do not normally associate with outsiders, but we have a problem and you seem strong enough to assist us. Our hunting grounds have recently been overtaken by a dangerous group of [" . quest::saylink("What fire goblins?",0,"fire goblins") . "]. These are no ordinary fire goblins however.'");
   }
   if($text=~/fire goblins/i) {
-    quest::say("They were once members of the Taklasinai fire goblin tribe that lair further within the caverns. However they fed upon the flesh of the spiders that live in the caves. The spider flesh is poisonous. It burns the brain causing madness and rage. These fire goblins are out of control. They attack any who venture near them. They have recently attacked several members of our tribe in our hunting grounds. If you [assist] us in stopping them, you will be rewarded.");
+    quest::say("They were once members of the Taklasinai fire goblin tribe that lair further within the caverns. However they fed upon the flesh of the spiders that live in the caves. The spider flesh is poisonous. It burns the brain causing madness and rage. These fire goblins are out of control. They attack any who venture near them. They have recently attacked several members of our tribe in our hunting grounds. If you [" . quest::saylink("I will assist",0,"assist") . "] us in stopping them, you will be rewarded.");
   }
   if($text=~/assist/i) {
     quest::say("I will reward you for every four brain-scorched goblin heads you bring to me.");

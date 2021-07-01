@@ -4,31 +4,31 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Well met $name. I am Vira, elementalist of Solusek Ro. I guard the secrets of the tools of [elemental summoning]. If you are a magician, you might be interested.");
+    quest::say("Well met $name. I am Vira, elementalist of Solusek Ro. I guard the secrets of the tools of [" . quest::saylink("What elemental summoning?",0,"elemental summoning") . "]. If you are a magician, you might be interested.");
   }
   if($text=~/elemental summoning/i) {
-    quest::say("I hold the secrets to the construction of four tools which assist magicians with the summoning of elementals. I know about the [broom of Trilon], the [shovel of Ponz], the [torch of Alna] and the [stein of Ulissa].");
+    quest::say("I hold the secrets to the construction of four tools which assist magicians with the summoning of elementals. I know about the [" . quest::saylink("What Broom of Trilon?",0,"broom of Trilon") . "], the [" . quest::saylink("What shovel of Ponz?",0,"shovel of Ponz") . "], the [" . quest::saylink("What torch of Alna?",0,"torch of Alna") . "] and the [" . quest::saylink("What stein of Ulissa?",0,"stein of Ulissa") . "].");
   }
   if($text=~/broom of trilon/i) {
-    quest::say("The broom of Trilon was held by the infamous Mistress of Air of the same name. Are you [interested in the broom]?");
+    quest::say("The broom of Trilon was held by the infamous Mistress of Air of the same name. Are you [" . quest::saylink("I am interested in the broom",0,"interested in the broom") . "]?");
   }
   if($text=~/interested in the broom/i) {
     quest::say("I will construct a replica of the broom of Trilon for you, but I will need the following components to make it: a star ruby; a feather from a griffon, a broom from a magician in Najena and the toes of a cyclops. Bring me these four components, and I will fashion for you an object of elemental power.");
   }
   if($text=~/shovel of ponz/i) {
-    quest::say("The shovel of Ponz was crafted by the earthen master of the same name. Are you [interested in the shovel]?");
+    quest::say("The shovel of Ponz was crafted by the earthen master of the same name. Are you [" . quest::saylink("I am interested in the shovel",0,"interested in the shovel") . "]?");
   }
   if($text=~/interested in the shovel/i) {
     quest::say("I will create a replica of the shovel of Ponz for you, but I will need the following components to make it: a ruby, the eyes of a gargoyle, a shovel from a magician in Najena and the toes of a hill giant. Bring me these four components, and I will construct for you an object of elemental power.");
   }
   if($text=~/stein of ulissa/i) {
-    quest::say("The stein of Ulissa was found and used by the mistress of water of the same name. Are you [interested in the stein]?");
+    quest::say("The stein of Ulissa was found and used by the mistress of water of the same name. Are you [" . quest::saylink("I am interested in the stein",0,"interested in the stein") . "]?");
   }
   if($text=~/interested in the stein/i) {
     quest::say("I will devise a replica of the stein of Ulissa for you, but I will need the following items to make it: a sapphire, a scale from a mermaid, a stein from a magician in Najena and the toes of an ice giant. Bring me these four components, and I will make for you an object of elemental power.");
   }
   if($text=~/torch of alna/i) {
-    quest::say("The torch of Alna was constructed and held by the fire mistress of the same name. Are you [interested in the torch]?");
+    quest::say("The torch of Alna was constructed and held by the fire mistress of the same name. Are you [" . quest::saylink("I am interested in the torch",0,"interested in the torch") . "]?");
   }
   if($text=~/interested in the torch/i) {
     quest::say("I will make a replica of the torch of Alna for you, but I will need the following items to make it: a fire emerald, a scale from a fire drake, a torch from a magician in Najena and the toes of a fire giant. Bring me these four components, and I will build for you an object of elemental power.");

@@ -18,7 +18,7 @@ sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 3495 => 1)) {
     quest::emote("looks like she has been awake for many hours. She looks up and says 'Are you here to assist me with these sick citizens? I was told that a few of our newest Dar Khura recruits might be coming to aid me. I could definitly use the help. Here, take the jar while I explain. Were you told about the [" . quest::saylink("What tasks?",0,"tasks") . "] that I need help with?' The room is filled with the smell of aromatic herbs and the sweat of the feverish.");
     quest::summonitem(3495); # Item: Treated Hopperhide Buckler
-    quest::summonitem(17077); }
+    quest::summonitem(17077);
     quest::emote("perks up when you hand her the jar. 'Many thanks,' she exlaims, as she digs in her medicine bag.");
     quest::say("Your assistance is greatly appreciated. Please take this tincture. It will help to strengthen your buckler. Mydi Darjik can help you apply it. She is a friend and a wonderful alchemist. Tell her that you need her to [treat] your buckler. Take care, $name!");
     quest::summonitem(5537); 

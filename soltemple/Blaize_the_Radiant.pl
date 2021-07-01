@@ -3,10 +3,10 @@
 
 sub EVENT_SAY { 
   if($text=~/Hail/i){
-    quest::say("Hail, faithful one. I am Blaize the Radiant. Brother Gavel and I are well known among clerics for our forging skills, but special payment is required for our services. Special [Ingots and Icons] given to our members have been lost, and we will reward whoever retrieves them for us.");
+    quest::say("Hail, faithful one. I am Blaize the Radiant. Brother Gavel and I are well known among clerics for our forging skills, but special payment is required for our services. Special [" . quest::saylink("What Ingots and Icons?",0,"Ingots and Icons") . "] given to our members have been lost, and we will reward whoever retrieves them for us.");
   }
   if($text=~/ingots and icons/i){
-    quest::say("The Ingots and Icons are all named after the virtues of the cleric who held them. The virtues I require are those of the [Reliant], the [Ardent], the [Fervent] and the [Penitent].");
+    quest::say("The Ingots and Icons are all named after the virtues of the cleric who held them. The virtues I require are those of the [" . quest::saylink("What Reliant?",0,"Reliant") . "], the [" . quest::saylink("What Ardent?",0,"Ardent") . "], the [" . quest::saylink("What Fervent?",0,"Fervent") . "] and the [" . quest::saylink("What Penitent?",0,"Penitent") . "].");
   }
   if($text=~/reliant/i){
     quest::say("Turgan the Reliant lived in a cabin in the Kithicor woods until there was a great fire. Searching the burned cabins there may turn something up. He always loved Lake Rathetear as well. Bring me the Ingot of the Reliant, the Icon of the Reliant, and one Enchanted Platinum Bar and I will forge them into a reward for you.");

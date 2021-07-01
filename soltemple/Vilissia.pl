@@ -4,16 +4,16 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("I am Vilissia, chosen of Solusek Ro.  I am a practitioner in the Wizardly arts, and keeper of lore for the [Runescale Cloak], [Tishans Kilt] and the [Acumen Mask].");
+    quest::say("I am Vilissia, chosen of Solusek Ro.  I am a practitioner in the Wizardly arts, and keeper of lore for the [" . quest::saylink("What Runescale Cloak?",0,"Runescale Cloak") . "], [" . quest::saylink("What Tishans Kilt?",0,"Tishans Kilt") . "] and the [" . quest::saylink("What Acument Mask?",0,"Acument Mask") . "].");
   }
   if($text=~/runescale cloak/i) {
-    quest::say("The Runescale cloak is a wonderful item of defense for any Wizard.  Are you [interested in the cloak]?");
+    quest::say("The Runescale cloak is a wonderful item of defense for any Wizard.  Are you [" . quest::saylink("I am interested in the cloak",0,"interested in the cloak") . "]?");
   }
   if($text=~/interested in the cloak/i) {
-    quest::say("I can assemble for you a Runescale Cloak – but you will need to bring me the necessary components.  I will need a Lizardscale Cloak from the Feerrott and the three Runes of Scale.  All three can be found on Crocodiles – Saltwater Crocodiles in the Caverns of Guk, Deepwater Crocodiles in the Oasis of Marr and Firescale Crocodiles in the mountains of Lavastorm.  Bring me these items, and I will make for you a Runescale Cloak.");
+    quest::say("I can assemble for you a Runescale Cloak but you will need to bring me the necessary components.  I will need a Lizardscale Cloak from the Feerrott and the three Runes of Scale.  All three can be found on Crocodiles Saltwater Crocodiles in the Caverns of Guk, Deepwater Crocodiles in the Oasis of Marr and Firescale Crocodiles in the mountains of Lavastorm.  Bring me these items, and I will make for you a Runescale Cloak.");
   }
   if($text=~/tishans kilt/i) {
-    quest::say("Tishan was once counted among the mightiest of wiards – and his items are items of power.  If you are interested in acquiring Tishans Kilt, you must take a Shadowed Ball from our mortal enemies the Shadowed Men and bring it to Trankia in the Everfrost Mountains.");
+    quest::say("Tishan was once counted among the mightiest of wizards  and his items are items of power.  If you are interested in acquiring Tishans Kilt, you must take a Shadowed Ball from our mortal enemies the Shadowed Men and bring it to Trankia in the Everfrost Mountains.");
   }
   if($text=~/acumen mask/i) {
     quest::say("The Acumen Mask, as its name suggests, confers to its wearer certain powers of insight and knowledge. I can make an Acumen Mask for you, but you will need to bring me the proper components. I will need a Glowing Mask from a Skeletal Monk in the Caverns of Guk, A Patch of Shadow from our mortal enemies the Shadowed Men, a Darkbone Skull from a Greater Darkbone Skeleton in the Estate of Unrest and a Bonechipped Mask from a Goblin Headmaster in the Ocean of Tears. Bring me these four items, and I will make for you an Acumen Mask.");

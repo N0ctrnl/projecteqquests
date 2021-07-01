@@ -3,10 +3,10 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-   quest::say("I am Sultin - keeper of the three [Incandescent]s of power and the [Rod] of Insidious Glamour. If you are an Enchanter, perhaps we can deal.");
+   quest::say("I am Sultin - keeper of the three [" . quest::saylink("What Incandescents?",0,"Incandescents") . "] of power and the [" . quest::saylink("What Rod?",0,"Rod") . "] of Insidious Glamour. If you are an Enchanter, perhaps we can deal.");
   }
   if($text=~/incandescent/i) {
-   quest::say("There are three Incandescent items of power - [Wand], [Mask] and [Gloves]. Are you [interested] in any of them?");
+   quest::say("There are three Incandescent items of power - [" . quest::saylink("I am interested in the Wand",0,"Wand") . "], [" . quest::saylink("I am interested in the Mask",0,"Mask") . "] and [" . quest::saylink("I am interested in the Gloves",0,"Gloves") . "]. Are you [interested] in any of them?");
   }
   if($text=~/interested in the wand/i) {
    quest::say("Ahh, the Incandescent Wand. If you will get the components to make another, I will give you mine. I will need a Pouch of Silver Dust, found on the dusty Werebat in the Estate of Unrest. I will also need a Silver wand, found on a Silvered Guard in the Temple of Cazic Thule. This wand will not be enchanted - you will need to pay Esmirella of the Northern Karana Gypsy Camp 50 gold to enchant it for you. When the Wand is fully enchanted, bring it and the pouch to me and I will give you the Incandescent Wand.");
@@ -18,7 +18,7 @@ sub EVENT_SAY {
    quest::say("My personal favorite - Incandescent Gloves. If you bring me the components to make another pair, I will give you my gloves. Incandescent Gloves are made by sewing together four other sets of gloves. Glowing Gloves can be found on our mortal enemies - the Shadowed Men. Radiant Gloves can be found on Radiant in the Feerrott. Enchanted and Gleaming gloves can be purchased for 50 golden coins from Tizina of the Lavastrom Gypsies and a bloodstone from Tarn Vislin of HighKeep. Bring me all four sets of gloves and I will give you a pair of Incadescent ones.");
   }
   if($text=~/rod/i) {
-   quest::say("I am keeper of the Rod of Insidious Glamour - a device of guile and deceit. The rod will increase the Charisma of whomever holds it. Are you [interested] in obtaining the [rod]?");
+   quest::say("I am keeper of the Rod of Insidious Glamour - a device of guile and deceit. The rod will increase the Charisma of whomever holds it. Are you interested in obtaining the [" . quest::saylink("I am interested in obtaining the rod",0,"Rod") . "]?");
   }
   if($text=~/interested in the rod/i) {
    quest::say("If I am to give you this rod, you must bring me the parts to make another. I will need the Golden Rod from the froglok priest in Guk, as well as a Shining Stone from our mortal enemies, the Shadowed Men. Once you have obtained the Shining Stone, you will need to get it enchanted. Cynthia of the Rathe Mountain Gypsy Clan will enchant the Shining Stone for you - give it to her with 50 golden coins. When the Stone is fully enchanted, bring it and the rod to me and I will give you a Rod of Insidious Glamour.");

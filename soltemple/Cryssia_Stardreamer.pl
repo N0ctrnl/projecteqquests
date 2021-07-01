@@ -9,7 +9,7 @@ sub EVENT_SAY {
     quest::say("Very well then.");
   }
   if($text=~/yes/i) {
-    quest::say("Very well. I can craft a special type of bardic armor called lambent.  I can craft for you a set of [bracers], a [breastplate], a [helm], and [vambraces]. I require a special kind of lambent stone for each of my armor pieces.  Find my friends Orstorm, Genni, Gardern, and Vilissia within the temple and they will help you create them.");
+    quest::say("Very well. I can craft a special type of bardic armor called lambent.  I can craft for you a set of [" . quest::saylink("bracers",0,"bracers") . "], a [" . quest::saylink("breastplate",0,"breastplate") . "], a [" . quest::saylink("helm",0,"helm") . "], and [" . quest::saylink("vambraces",0,"vambraces") . "]. I require a special kind of lambent stone for each of my armor pieces.  Find my friends Orstorm, Genni, Gardern, and Vilissia within the temple and they will help you create them.");
   }
   if($text=~/bracers/i) {
     quest::say("Alright, I will be needing some items. Return to me with them and I will craft your bracers. I will be needing a Dark Boned Bracelet, a Griffenne Charm, and a Lambent Fire Opal.");

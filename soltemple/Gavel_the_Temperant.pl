@@ -3,10 +3,10 @@
 
 sub EVENT_SAY {
   if($text=~/Hail/i){
-    quest::say("May the fires of Solusek Ro warm your innards! I am Gavel the Temperant. I work with Sister Blaize to forge the most elegant finery for clerics known to man or beast. Because we have no need for material wealth here in the temple, we ask that you retrieve [ingots and icons] from the lost or fallen brothers and sisters of our order. When mixed with some enchanted, [galvanized], [vulcanized], or [magnetized] platinum into an alloy, the items I can forge are splendid indeed!");
+    quest::say("May the fires of Solusek Ro warm your innards! I am Gavel the Temperant. I work with Sister Blaize to forge the most elegant finery for clerics known to man or beast. Because we have no need for material wealth here in the temple, we ask that you retrieve [" . quest::saylink("What ingots and icons?",0,"ingots and icons") . "] from the lost or fallen brothers and sisters of our order. When mixed with some enchanted, [" . quest::saylink("What is galvanized?",0,"galvanized") . "], [" . quest::saylink("What is vulcanized?",0,"vulcanized") . "], or [" . quest::saylink("What is magnetized?",0,"magnetized") . "] platinum into an alloy, the items I can forge are splendid indeed!");
   }
   if($text=~/ingots and icons/i){
-    quest::say("The ingots and icons are all named after the virtues of the cleric who held them. The virtues I require are those of the [reverent], the [constant], and the [devout].");
+    quest::say("The ingots and icons are all named after the virtues of the cleric who held them. The virtues I require are those of the [" . quest::saylink("What reverent?",0,"reverent") . "], the [" . quest::saylink("What constant?",0,"constant") . "], and the [" . quest::saylink("What devout?",0,"devout") . "].");
   }
   if($text=~/reverent/i){
     quest::say("Regis the Reverent fell in love with a gypsy girl named Lianna Ferasa who lives in the Rathe Mountains. Ask her what has become of him. Bring me the ingot of the Reverent, the icon of the Reverent, and two enchanted platinum bars and I will forge them into a reward for you.");

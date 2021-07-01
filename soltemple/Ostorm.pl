@@ -4,13 +4,13 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("I am Ostorm of the Temple of Solusek Ro, guardian of the sacred crystal of Kintaz.  Be wary and keep your distance, lest the proximity of the crystal [steal] your [memories].");
+    quest::say("I am Ostorm of the Temple of Solusek Ro, guardian of the sacred crystal of Kintaz.  Be wary and keep your distance, lest the proximity of the crystal [" . quest::saylink("How will it steal my memories?",0,"steal your memories") . "].");
   }
   if($text=~/steal my memories/i) {
-    quest::say("It is the nature of the crystal of Kintaz to steal the memories of those around it. Only I am safe, and then only because of the strong wardings placed on me by Solusek Ro himself. Are you interested in [losing] any [memories]?");
+    quest::say("It is the nature of the crystal of Kintaz to steal the memories of those around it. Only I am safe, and then only because of the strong wardings placed on me by Solusek Ro himself. Are you interested in [" . quest::saylink("I am interested in losing my memories",0,"losing any memories") . "]?");
   }
   if($text=~/losing my memories/i) {
-    quest::say("Recently, I have been experimenting with the crystal, and have found that those exposed to ruby light filtered through it tend to lose the memories of their most specialized arcane skills. Are you sure you want to [lose advanced memory] of specialization?");
+    quest::say("Recently, I have been experimenting with the crystal, and have found that those exposed to ruby light filtered through it tend to lose the memories of their most specialized arcane skills. Are you sure you want to [" . quest::saylink("I want to lose advanced memory",0,"lose advanced memory") . "] of specialization?");
   }
   if($text=~/lose advanced memory/i) {
     quest::say("Be warned that once exposed to the crystal, I can not reverse the effects. If you desire exposure, fetch me a ruby.");
@@ -22,7 +22,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if($itemcount{10035} == 1) {
-    quest::say("..hear me? Ah, you seem to be coming out of your stupor. I think you have been exposed to the crystal long enough. By the time you leave the temple, your memories should have faded. Do you have the [fifty gold] coins that you owe me?");
+    quest::say("..hear me? Ah, you seem to be coming out of your stupor. I think you have been exposed to the crystal long enough. By the time you leave the temple, your memories should have faded. Do you have the [" . quest::saylink("What fifty gold?",0,"fifty gold") . "] coins that you owe me?");
     quest::faction("415","1");
     quest::faction("416","-1");
     foreach $skill (43, 44, 45, 46, 47) {
