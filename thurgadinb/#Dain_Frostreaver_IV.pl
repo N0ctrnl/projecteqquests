@@ -34,7 +34,7 @@ sub EVENT_SAY {
   }
   if ($text=~/mission/i && plugin::check_hasitem($client, 8898)) {
     # Approved Issue Kit (id:8898)
-    quest::say("After General Bragmur has equipped the armor you have created for him, give him these orders. He is a skilled diplomat and will need to reach the pirate Gnomes. We must enter into a pact with them. We will supply them the velium that they need to build their silly gadgets, and they will take their ship back to Antonica and call for reinforcements from out ancestors. We hope they will acceppt this pact, after all Brell has been known to align himself with Bristlebane whom the Gnomes of Iceclad follow. You may be an important [factor] in their success.");
+    quest::say("After General Bragmur has equipped the armor you have created for him, give him these orders. He is a skilled diplomat and will need to reach the pirate Gnomes. We must enter into a pact with them. We will supply them the velium that they need to build their silly gadgets, and they will take their ship back to Antonica and call for reinforcements from out ancestors. We hope they will acceppt this pact, after all Brell has been known to align himself with Bristlebane whom the Gnomes of Iceclad follow. You may be an important [" . quest::saylink("What factor?",0,"factor") . "] in their success.");
   }
   if ($text=~/factor/i && plugin::check_hasitem($client, 8898)) {
     # Approved Issue Kit (id:8898)
@@ -83,7 +83,7 @@ sub EVENT_ITEM {
   }
 # Coldain Standard Issue Kit
   elsif(plugin::check_handin(\%itemcount, 8886 => 1)) {
-    quest::say("Excellent work $name. If I didn't know I would assume this was made by our most skilled artisans.  You must hurry, General Bragmur has formed camp in Iceclad. Take the kit to the General, he had to drudge forward without any armor. His [mission] must be a success if we hope to successfully defend Thurgadin against the Giants.");
+    quest::say("Excellent work $name. If I didn't know I would assume this was made by our most skilled artisans.  You must hurry, General Bragmur has formed camp in Iceclad. Take the kit to the General, he had to drudge forward without any armor. His [" . quest::saylink("What mission?",0,"mission") . "] must be a success if we hope to successfully defend Thurgadin against the Giants.");
     quest::summonitem(8898); # Approved Issue Kit
     quest::summonitem(8897); # Expedition Orders
   } 

@@ -11,7 +11,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	local qglobals = eq.get_qglobals(e.other);	
 	if(qglobals["cleric_epic"] >= "4" and item_lib.check_turn_in(e.trade, {item1 = 9591})) then  --Dark Disciples Notice of Service
-		e.self:Say("You are from the Faydwer camp are you? I'm not terribly familiar with the faces from there. Anyway, the scouts have been sent out, and are gathering the \"parts\" that we believe the Legion will need to prepare for the incursion into our realm. If we are to find their good graces, we must prove that we will stop at nothing to [aid] them.");
+		e.self:Say("You are from the Faydwer camp are you? I'm not terribly familiar with the faces from there. Anyway, the scouts have been sent out, and are gathering the \"parts\" that we believe the Legion will need to prepare for the incursion into our realm. If we are to find their good graces, we must prove that we will stop at nothing to [" .. eq.say_link("I will aid them",false,"aid") .. "] them.");
 		eq.set_global("cleric_epic","5",5,"F");
 	elseif(qglobals["cleric_epic"] >= "5" and item_lib.check_turn_in(e.trade, {item1 = 9945, item2 = 9948, item3 = 9597})) then -- Shissar Cerebral Cortex // Dragon Cerebrum // Akhevan Brain Stem
 		e.self:Say("Excellent work! The leader will be pleased. He should be here any moment to collect them.");

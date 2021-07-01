@@ -4,7 +4,7 @@ sub EVENT_SAY {
     quest::say("Oh hello there, I'm in charge of the docks here and wife to Alton.");
   }
   if ($text=~/ranger/i) {
-    quest:say("Very well. If you want the Woodsman's [Mantle], Woodsman's [Mask], Woodsman's [Cape], Woodsman's [Gauntlets], Woodsman's [Choker], or Woodsman's [Belt] I have some errands that need to be done.");
+    quest:say("Very well. If you want the Woodsman's [" . quest::saylink("Mantle",0,"Mantle") . "], Woodsman's [" . quest::saylink("Mask",0,"Mask") . "], Woodsman's [" . quest::saylink("Cape",0,"Cape") . "], Woodsman's [" . quest::saylink("Gauntlets",0,"Gauntlets") . "], Woodsman's [" . quest::saylink("Choker",0,"Choker") . "], or Woodsman's [" . quest::saylink("Belt",0,"Belt") . "] I have some errands that need to be done.");
   }
   if ($text=~/armor/i) {
     quest:say("Oh you wish to get the armor that Alton's great granddaddy used to wear. If you are a ranger just let me know.");

@@ -15,10 +15,10 @@
 
 sub EVENT_SAY {
   if($text =~ /Hail/i) {
-    quest::say("Shalom, $name! I welcome you to our humble village in these [trying times].");
+    quest::say("Shalom, $name! I welcome you to our humble village in these [" . quest::saylink("What trying times?",0,"trying times") . "].");
   }
   if($text =~ /trying times/i) {
-    quest::say("There are many threats currently facing this village. The kobolds of Clan Kolbok are becoming bolder in pushing the boundaries of the territory in which they usually hunt. A few of the kobolds now hunt recklessly, killing for pleasure instead of sustenance. [Rognarog] the Infuriated is the most murderous of such kobolds. Then there are the [heretics] that have been invading both Clan Kolbok and Kejek territories alike, practicing their dark sorceries as a show of devotion to their faceless god.");
+    quest::say("There are many threats currently facing this village. The kobolds of Clan Kolbok are becoming bolder in pushing the boundaries of the territory in which they usually hunt. A few of the kobolds now hunt recklessly, killing for pleasure instead of sustenance. [" . quest::saylink("Who is Rognarog?",0,"Rognarog") . "] the Infuriated is the most murderous of such kobolds. Then there are the [" . quest::saylink("Who are the heretics?",0,"heretics") . "] that have been invading both Clan Kolbok and Kejek territories alike, practicing their dark sorceries as a show of devotion to their faceless god.");
   }
   if($text =~ /heretics/i) {
     quest::say("The heretics have not only corrupted their own spirits but they defile the spirits of the dead with their evil sorceries. Fill this satchel with the heads of invading heretics and I shall reward you for your allegiance to Kejek.");

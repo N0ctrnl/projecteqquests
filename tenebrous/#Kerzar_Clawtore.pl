@@ -7,7 +7,7 @@ sub EVENT_SPAWN {
 
 sub EVENT_SAY {
    if(($text=~/valdanov/i) && (defined $qglobals{vampyre_vahshir_combat})){
-      quest::say("I have not seen Valdanov Zevfeer in many years. He came to me once when I was still newly reborn wanting to extract a vial of my blood.  When I refused he attacked me and extracted it against my will. I was still new and unfamiliar with my vampyric powers, Valdanov's [abilities] were far more developed than my own.");
+      quest::say("I have not seen Valdanov Zevfeer in many years. He came to me once when I was still newly reborn wanting to extract a vial of my blood.  When I refused he attacked me and extracted it against my will. I was still new and unfamiliar with my vampyric powers, Valdanov's [" . quest::saylink("What abilities?",0,"abilities") . "] were far more developed than my own.");
    }
    if(($text=~/abilities/i) && (defined $qglobals{vampyre_vahshir_combat})){
       quest::say("His vampyric abilities of course. Valdanov had either been reborn in undeath far before myself or had a powerful mentor and the time and facilities in which to train. I did my best to resist his attack but I was still subdued by his superior skills and strength. He dropped this key in the struggle. I have no use for it, consider it yours. I must be going before I'm seen by the others. Oh no! It's too late! We've been spotted! May you continue your investigations in the afterlife!");

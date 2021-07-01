@@ -13,10 +13,10 @@
 
 sub EVENT_SAY {
  if($text =~/hail/i) {
-	quest::say("Ah hello and welcome $name. tis a pleasure to see some new faces.  I have the finest wares to be found. be sure to check them out. Are ya by chance a [necromancer]");
+	quest::say("Ah hello and welcome $name. tis a pleasure to see some new faces.  I have the finest wares to be found. be sure to check them out. Are ya by chance a [" . quest::saylink("I am a necromancer",0,"necromancer") . "]");
  }
  if($text =~ /necromancer/i) {
-	quest::say("I have a cap, robes, sleeves, pants, shawl, bracer, and sandals for a necromancer. Frantip has the rest just ask him about armor and I'm sure he'll help you. Which are you interested in?");
+	quest::say("I have a [" . quest::saylink("cap",0,"cap") . "], [" . quest::saylink("robes",0,"robes") . "], [" . quest::saylink("sleeves",0,"sleeves") . "], [" . quest::saylink("pants",0,"pants") . "], [" . quest::saylink("shawl",0,"shawl") . "], [" . quest::saylink("bracer",0,"bracer") . "], and [" . quest::saylink("sandals",0,"sandals") . "] for a necromancer. Frantip has the rest just ask him about armor and I'm sure he'll help you. Which are you interested in?");
  }
  if($text =~ /cap/i) {
 	quest::say("For the cap of pestilence you'll have to bring me a sky jewel, an aged gold coin, a dark gem, and a priceless book.");
@@ -74,6 +74,3 @@ sub EVENT_ITEM {
 }
 
 #END of FILE 
-
-
-

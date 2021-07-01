@@ -4,13 +4,13 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Greetings, as you can see I am quite busy with my [research]. If you don't mind I need silence to concentrate.");
+    quest::say("Greetings, as you can see I am quite busy with my [" . quest::saylink("What research?",0,"research") . "]. If you don't mind I need silence to concentrate.");
   }
   if ($text=~/research/i) {
-    quest::say("I am researching what went wrong in Mons Letalis. The spires constructed there should allow us passage back to Norrath freely. Upon completion of them something [went wrong].");
+    quest::say("I am researching what went wrong in Mons Letalis. The spires constructed there should allow us passage back to Norrath freely. Upon completion of them something [" . quest::saylink("What went wrong?",0,"went wrong") . "].");
   }
   if ($text=~/went wrong/i) {
-    quest::say("Suddenly the spires were overwhelmed with eerie beings that seemed to have no essence to them. These spirits now plague the spires. Due to our lack of knowledge of these creatures we do not know how to deal with them. Fighting them seems useless because as soon as one is destroyed more would materialize. They seemed to feed off of death, especially ours. We must [find out more] about them.");
+    quest::say("Suddenly the spires were overwhelmed with eerie beings that seemed to have no essence to them. These spirits now plague the spires. Due to our lack of knowledge of these creatures we do not know how to deal with them. Fighting them seems useless because as soon as one is destroyed more would materialize. They seemed to feed off of death, especially ours. We must [" . quest::saylink("I will find out more",0,"find out more") . "] about them.");
   }
   if ($text=~/find out more/i) {
     quest::say("If you think you can help, I charge you with the task of gathering information. Seek out these creatures, and if you can manage to destroy them bring me their robes. I will study the garment to see if I can determine its origin. Now please, leave me be so that I can get to my research.");

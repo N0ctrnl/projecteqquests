@@ -1,7 +1,7 @@
 # items: 2049
 sub EVENT_SAY { 
   if($text=~/hail/i) {
-    quest::say("Hail, $name, I am Aderius Rhenar, priest of Quellious and assistant to Lady Laraena. I have been fortunate to be imprisoned here with these Kejekan cat men, they are a very wise people. Are you planning on returning to Erudin soon my friend?");
+    quest::say("Hail, $name, I am Aderius Rhenar, priest of Quellious and assistant to Lady Laraena. I have been fortunate to be imprisoned here with these Kejekan cat men, they are a very wise people. Are you planning on returning to n[" . quest::saylink("I am returning to Erudin",0,"Erudin") . "] soon my friend?");
   }
   if($text=~/erudin/i) {
     quest::say("I have managed to prepare a message on this scrap of cloth for the priestess Laraena. It is a matter of great importance to the High Council of Erudin. Please deliver this message to her promptly. I must stay here for a while longer and converse further with my Kejekan friends.");

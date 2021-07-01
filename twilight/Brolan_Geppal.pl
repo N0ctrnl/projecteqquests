@@ -6,7 +6,7 @@ quest::say("Well met friend lovely day isn't it?"); }
 	quest::say("Yes Shelia told me I may have some people asking me about the armor I have. Are ya a bard?");
  }
  if($text =~ /I am a bard./i) {
-   quest::say("Good, I have a [mask], [cloak], [gauntlets], [gorget], [girdle], and a [sword].");
+   quest::say("Good, I have a [" . quest::saylink("mask",0,"mask") . "], [" . quest::saylink("cloak",0,"cloak") . "], [" . quest::saylink("gauntlets",0,"gauntlets") . "], [" . quest::saylink("gorget",0,"gorget") . "], [" . quest::saylink("girdle",0,"girdle") . "], and a [" . quest::saylink("sword",0,"sword") . "].");
  }
  if($text =~ /cloak/i) {
    quest::say("For the cloak you must gather these things. An Astral jewel, a mark of melody, an onyx studded medal, and a porous rock.");

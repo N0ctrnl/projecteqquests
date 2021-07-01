@@ -1,11 +1,11 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("lets out a cry of pain as your words reach her ears.  'No!  No more noise!  No more experiments!'");
+		e.self:Emote("lets out a cry of pain as your words reach her ears.  'No!  No more noise!  No more [" .. eq.say_link("What experiments?",false,"experiments") .. "]!'");
 	elseif(e.message:findi("experiment")) then
-		e.self:Emote("screams, 'Stop! I can't stand it leave me alone you beasts!' Frekka clasps her hands to her ears and shakes her head.");
+		e.self:Emote("screams, 'Stop! I can't stand it leave me alone you [" .. eq.say_link("What beasts?",false,"beasts") .. "]!' Frekka clasps her hands to her ears and shakes her head.");
 		eq.signal(112034,1); -- NPC: Brumen_Firehammer
 	elseif(e.message:findi("beast")) then
-		e.self:Emote("howls in pain. 'Get out of my head! Get out of my head! Get them out of my head! Stop eating my mind!' ");
+		e.self:Emote("howls in pain. 'Get out of my head! Get out of my head! Get them out of my head! Stop [" .. eq.say_link("What is eating your mind?",false,"eating my mind") .. "]!' ");
 	elseif(e.message:findi("eating your mind")) then
 		e.self:Emote("tenses and trys to ignore you.");
 	end

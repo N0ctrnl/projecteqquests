@@ -34,13 +34,13 @@
 sub EVENT_SAY {
   if($text =~ /hail/i) {
     quest::emote("gestures as if casting a powerful spell...");
-    quest::say("Come forward, adventurer! Come and [see the dancing skeleton]. I shall cast a powerfull spell and bring forth this operatic, clattering jumble of bones and he shall do a fine dance for you. From the nether regions and planes beyond, I call forth this bardic, magical, rhyming, tap-dancing hunk of undead!! I am Oowomp the Great!!");
+    quest::say("Come forward, adventurer! Come and [" . quest::saylink("I want to see the dancing skeleton",0,"see the dancing skeleton") . "]. I shall cast a powerfull spell and bring forth this operatic, clattering jumble of bones and he shall do a fine dance for you. From the nether regions and planes beyond, I call forth this bardic, magical, rhyming, tap-dancing hunk of undead!! I am Oowomp the Great!!");
   }
   if($text=~/see the dancing skeleton/i){
-    quest::say("Oh!!  You wish to see the great Oowomp perform his magic!! I have studied with the grand mages and wise [McMerin clan] of Norrath. as my speech implies. I can call forth the skeleton with but a twinkling of my power and five of your gold.");
+    quest::say("Oh!!  You wish to see the great Oowomp perform his magic!! I have studied with the grand mages and wise [" . quest::saylink("Who is the McMerin Clan?",0,"McMerin Clan") . "] of Norrath. as my speech implies. I can call forth the skeleton with but a twinkling of my power and five of your gold.");
   }
   if($text=~/McMerin clan/i){
-    quest::say("Clan McMerin were wise shamans from the North. They allowed me to study with them. I learned many spells while I communed with them.  From them, I sto.., I mean, I learned the secret of McMerin's Feast. If you want to know the secret, you could [help gather components] for future rituals.");
+    quest::say("Clan McMerin were wise shamans from the North. They allowed me to study with them. I learned many spells while I communed with them.  From them, I sto.., I mean, I learned the secret of McMerin's Feast. If you want to know the secret, you could [" . quest::saylink("I will help gather components",0,"help gather components") . "] for future rituals.");
   }
   if($text=~/help gather components/i){
     quest::say("Actually... Not so much help as do - ALL - of the gathering. In the lands of Kunark are clay of Ghiosk, crushed dread diamond and powder of Yun. A rare find would be the bones of one who touched the Bath of Obulus. Find and return these to me and the shaman secret of McMerin's Feast is yours.");

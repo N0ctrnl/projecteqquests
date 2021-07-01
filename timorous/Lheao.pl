@@ -7,11 +7,11 @@ sub EVENT_SAY {
  if($text=~/i have found the book of immortals/i){
   # Monk Epic 1.0
   quest::emote("looks up at you, eyes wide in astonishment.");
-  quest::say("My god, you found Immortals?! Where did you find it? Nevermind, that is unimportant. I have in my possession a book that explains more of these individuals. Its value is unimaginable as well as the impact it is capable of. As you can see, I grow old. I need an individual to watch over this book and make sure it is protected. Would you be willing to take this [responsibility]?");
+  quest::say("My god, you found Immortals?! Where did you find it? Nevermind, that is unimportant. I have in my possession a book that explains more of these individuals. Its value is unimaginable as well as the impact it is capable of. As you can see, I grow old. I need an individual to watch over this book and make sure it is protected. Would you be willing to take this [" . quest::saylink("What responsibility?",0,"responsibility?") . "]?");
  }
  if($text=~/responsibility/i){
   # Monk Epic 1.0
-  quest::say("Im sorry, $name, but I could only give this book to a true master, such as a member of the Whistling Fists Order. And unless you can give me proof that you are one, in addition to Danls reference, which is very unlikely, there is no way I'll let you take charge of the [Celestial Fists].");
+  quest::say("Im sorry, $name, but I could only give this book to a true master, such as a member of the Whistling Fists Order. And unless you can give me proof that you are one, in addition to Danls reference, which is very unlikely, there is no way I'll let you take charge of the [" . quest::saylink("What Celestial Fists?",0,"Celestial Fists") . "].");
  }
  if($text=~/celestial fists/i){
   # Monk Epic 1.0

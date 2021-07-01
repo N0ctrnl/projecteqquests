@@ -1,7 +1,7 @@
 # items: 12463, 8175, 48051
 sub EVENT_SAY {
   if ($text=~/ixthal sent me/i) {
-    quest::say("Oh, has he now? I can't return yet, I don't have the strength. If you were to [help] me I think I might be able to make it back though.");
+    quest::say("Oh, has he now? I can't return yet, I don't have the strength. If you were to [" . quest::saylink("I will help you",0,"help") . "] me I think I might be able to make it back though.");
   }
   if ($text=~/help/i) {
     quest::say("Good. I have not eaten in a while so I will ask you to get me some Legion Lager and Noodles for my journey back.");

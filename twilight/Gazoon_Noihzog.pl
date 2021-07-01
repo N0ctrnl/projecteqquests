@@ -4,16 +4,16 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Who are you?! Why are you on MY island?! If you have [business] with me then speak! Otherwise, leave at once.");
+    quest::say("Who are you?! Why are you on MY island?! If you have [" . quest::saylink("I have business",0,"business") . "] with me then speak! Otherwise, leave at once.");
   }
   if ($text=~/business/i) {
-    quest::say("I'll only deal with a wizard! And you look like no real [wizard] I've ever met!");
+    quest::say("I'll only deal with a wizard! And you look like no real [" . quest::saylink("I am a wizard",0,"wizard") . "] I've ever met!");
   }
   if ($text=~/wizard/i) {
-    quest::say("Your a wizard you say? Hrmph! If so, let's see you prove it to me. I need some item's collected for my research. In return, I will give you some [armor] I have laying around.");
+    quest::say("Your a wizard you say? Hrmph! If so, let's see you prove it to me. I need some item's collected for my research. In return, I will give you some [" . quest::saylink("What armor?",0,"armor") . "] I have laying around.");
   }
   if ($text=~/armor/i) {
-    quest::say("I have a [bracer], [cap], [pants], [robe], [sandals], [shawl], and [sleeves]. I gave some of the other ones to Trizpo if you desire those as well, oh great 'wizard'");
+    quest::say("I have a [" . quest::saylink("bracer",0,"bracer") . "], [" . quest::saylink("cap",0,"cap") . "], [" . quest::saylink("pants",0,"pants") . "], [" . quest::saylink("robe",0,"robe") . "], [" . quest::saylink("sandals",0,"sandals") . "], [" . quest::saylink("shawl",0,"shawl") . "], and [" . quest::saylink("sleeves",0,"sleeves") . "]. I gave some of the other ones to Trizpo if you desire those as well, oh great 'wizard'");
     quest::emote("laughs extremely loud");
   }
   if ($text=~/bracer/i) { #bracer

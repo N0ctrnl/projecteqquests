@@ -12,7 +12,7 @@ sub EVENT_SAY {
     quest::say("Get out you pesky $race! I don't need any $race germs! Out, ye filthy beast!");
   }
   if ($text=~/mystical instrument/i) {
-    quest::say("I have made many mystical instruments in the past. Each one seemed to be better then the last. I have always had a dream of building the world's best lute, but I have yet to find someone brave enough to gather the components needed to make the instrument.");
+    quest::say("I have made many mystical instruments in the past. Each one seemed to be better then the last. I have always had a dream of building the world's best lute, but I have yet to find someone brave enough to gather the [" . quest::saylink("What components?",0,"components") . "] needed to make the instrument.");
   }
   if ($text=~/components/i) {
     quest::say("To make a mystical lute I will first need to make several pieces. If you bring me the backbone of an ancient fishman, a strong tentacle from one of the long lost amalgyms, and a petrified skull of a lycanthrope I may be able to create the head and neck of the instrument. If you go out and gather these things, make sure to bring me the note I gave you or I might forget who you are. I am getting quite old, you know.");
@@ -27,17 +27,17 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 20378 => 1)) { #Note to Forpar Fizfla
-    quest::say("So you know Vedico! How is the lass? If Vedico would give you the time of day, you must be something special. What can I do for you? I hope you have not come to have me make another [mystical instrument].");
+    quest::say("So you know Vedico! How is the lass? If Vedico would give you the time of day, you must be something special. What can I do for you? I hope you have not come to have me make another [" . quest::saylink("What mystical instrument?",0,"instrument") . "].");
     quest::summonitem(20380); #Forpar's Note to Himself
   }
   elsif (plugin::check_handin(\%itemcount, 20380 => 1, 20524 => 1, 20525 => 1, 5520 => 1)) { #Forpar's Note to Himself, Kedge Backbone, Petrified Werewolf Skull, Amygdalan Tendril
     quest::say("Wow! I didn't think a $race like you would be able to gather all of those things.");
     quest::emote("rambles around and works with small tools for a good ten minutes before handing you a very fine looking lute head.");
     quest::summonitem(20535); #Mystical Lute Head
-    quest::say("Now, do you want to gather the next pieces for me?");
+    quest::say("Now, do you want to gather the [" . quest::saylink("What next pieces?",0,"next pieces") . "] for me?");
   }
   elsif (plugin::check_handin(\%itemcount, 11602 => 1, 11622 => 1, 16905 => 1)) { #White Dragon Scales, Red Dragon Scales, Metal Bits
-    quest::say("Wooooooo! You are doing a wonderful job, $name. I wish I could go out and gather these things myself.' Forpar sits back down at his desk and pulls several very strange looking tools out. Eventually he looks up at you and says, 'The body is done! Only one more piece to go!");
+    quest::say("Wooooooo! You are doing a wonderful job, $name. I wish I could go out and gather these things myself.' Forpar sits back down at his desk and pulls several very strange looking tools out. Eventually he looks up at you and says, 'The body is done! Only [" . quest::saylink("What one more to go?",0,"one more piece to go") . "]!");
     quest::summonitem(20536); #Mystical Lute Body
   }
   elsif (plugin::check_handin(\%itemcount, 20535 => 1, 20536 => 1, 20526 => 1)) { #Mystical Lute Head, Mystical Lute Body, Undead Dragongut Strings

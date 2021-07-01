@@ -1,7 +1,7 @@
 # items: 12441
 sub EVENT_SAY {
  if($text=~/hail/i){
-  quest::say("I hope you have come to assist in the defense of the gate. We have had numerous assaults by the goblins. No doubt it is due to those [goblin watchers].");
+  quest::say("I hope you have come to assist in the defense of the gate. We have had numerous assaults by the goblins. No doubt it is due to those [" . quest::saylink("What goblin watchers?",0,"goblin watchers") . "].");
  }
  elsif($text=~/goblin watchers/i){
   quest::say("Goblin Watchers are rumored to be the communication link between goblin outposts and patrols. We have found Goblin Watcher Signal Torches on a few of them. You bring me back no less than three and I will reward you.");

@@ -14,10 +14,10 @@ sub EVENT_SAY {
   if ($event == 0) { #Event ready, not active
     if (defined($qglobals{wiz_epic_pre}) && ($qglobals{wiz_epic_pre} == 4)) {
       if ($text =~ /hail/i) {
-        quest::say("Just in time! Talwyn said he might be sending me someone to help me with this particular predicament. You see, I need help with this guy here. His battery has gone dry and we can't find a way to recharge it. We think the clockworks of Innovation are powered through some kind of magical energy, different from what is stored in normal batteries. I would like you to use your best electrical magics to try and [resurrect his battery].");
+        quest::say("Just in time! Talwyn said he might be sending me someone to help me with this particular predicament. You see, I need help with this guy here. His battery has gone dry and we can't find a way to recharge it. We think the clockworks of Innovation are powered through some kind of magical energy, different from what is stored in normal batteries. I would like you to use your best electrical magics to try and [" . quest::saylink("I will resurrect his battery",0,"resurrect his battery") . "].");
       }
       if ($text =~ /resurrect his battery/i) {
-        quest::say("Ok good, but here is the thing, we have to be really careful. I don't want to overcharge the battery, and you will have to cast on it while I am holding the correct wires together. If you don't do it at the right time you will either fry me, or it will be a waste and we will have to start completely over. Let me know when you have cleared your mind, regained your magical strength, and are [ready to start].");
+        quest::say("Ok good, but here is the thing, we have to be really careful. I don't want to overcharge the battery, and you will have to cast on it while I am holding the correct wires together. If you don't do it at the right time you will either fry me, or it will be a waste and we will have to start completely over. Let me know when you have cleared your mind, regained your magical strength, and are [" . quest::saylink("I am ready to start",0,"ready to start") . "].");
       }
       if ($text =~ /ready to start/i) {
         quest::say("Excellent, then I shall begin performing my work.");

@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("This is no place for you. These Splitpaws are very fierce. Only the power of Rodcet Nife will guide them to the light. By the way, I might warn you that the cells here lock behind you.");
 	elseif(e.message:findi("proof of nobility")) then
-		e.self:Say("I require the returned note I gave you, a Testimony of Truth, a Sword of Faith and finally the hilt of Soulfire. The Testimony and Sword of Faith are earned in the Hall of Truth, but for the hilt of Soulfire you shall have to battle [Xicotl].");
+		e.self:Say("I require the returned note I gave you, a Testimony of Truth, a Sword of Faith and finally the hilt of Soulfire. The Testimony and Sword of Faith are earned in the Hall of Truth, but for the hilt of Soulfire you shall have to battle [" .. eq.say_link("Who is Xicotl?",false,"Xicotl") .. "].");
 	elseif(e.message:findi("xicotl")) then
 		e.self:Say("Xicotl is the evil troll who attempted to steal Soulfire from the vaults of the Temple of Life. The hilt of Soulfire broke off during the battle and now rests in the hands of this troll shadowknight. From what I have heard, he is frequently an invited guest at the castle called Mistmoore. Woe to any paladin who dares set foot upon the land of Mistmoore, but should you attempt it you might search the guest rooms for the troll. May Rodcet Nife walk with you.");
 	end
@@ -24,7 +24,7 @@ function event_trade(e)
 		e.other:Faction(219,5,0); -- Antonious Bayle
 		e.other:AddEXP(200);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18936})) then -- A Sealed Note
-		e.self:Say("Finally!! I see that Ariska has found a noble knight to retrieve Soulfire. Per Ariska's orders I am not to give Soulfire to you until you can show me [proof of nobility]. You must honor both the Temple of Life as well as the Hall of Truth and to a high degree. Only then shall you hold Soulfire.");
+		e.self:Say("Finally!! I see that Ariska has found a noble knight to retrieve Soulfire. Per Ariska's orders I am not to give Soulfire to you until you can show me [" .. eq.say_link("What proof of nobility?",false,"proof of nobility") .. "]. You must honor both the Temple of Life as well as the Hall of Truth and to a high degree. Only then shall you hold Soulfire.");
 		e.other:SummonItem(18937); --  a note
 		e.other:Ding();
 		e.other:Faction(341,5,0); -- Priest of Life

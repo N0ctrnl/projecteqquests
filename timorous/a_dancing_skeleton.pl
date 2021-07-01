@@ -37,7 +37,7 @@ sub EVENT_SAY {
     quest::settimer(100,40); # Get the conversation out the way in 40s, or depop
   }
   if($text=~/talon southpaw/i) {
-    quest::say("Master Talon Southpaw!! He was my master. Dead, he became. Off to the elements. I keep his special hand with me. Perhaps I should have it returned. Maybe I shall find a young adventurer to [return the hand to Cabilis].");
+    quest::say("Master Talon Southpaw!! He was my master. Dead, he became. Off to the elements. I keep his special hand with me. Perhaps I should have it returned. Maybe I shall find a young adventurer to [" . quest::saylink("I will return the hand to Cabilis",0,"return the hand to Cabilis") . "].");
     quest::stoptimer(100);
     quest::settimer(100,30); # Get the conversation out the way in 30s, or depop
   }

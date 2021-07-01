@@ -3,21 +3,21 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Greetings. I am Makil Rargon, an esteemed assistant to the great wizard [Al'Kabor]. What can I help you with?");
+    quest::say("Greetings. I am Makil Rargon, an esteemed assistant to the great wizard [" . quest::saylink("Who is Al'Kabor?",0,"Al'Kabor") . "]. What can I help you with?");
   }
   if ($text=~/al'kabor/i) {
-    quest::say("Al'Kabor is the most powerful wizard on all of Norrath. He is currently back to his Combine Empire research. Being his most trusted assistant, he assigned me to follow up on his fusibility [research] findings. Do you have any information to offer?");
+    quest::say("Al'Kabor is the most powerful wizard on all of Norrath. He is currently back to his Combine Empire research. Being his most trusted assistant, he assigned me to follow up on his fusibility [" . quest::saylink("What research?",0,"research") . "] findings. Do you have any information to offer?");
   }
   if ($text=~/research/i) {
-    quest::say("Ah. Yes, his fusibility research. Al'Kabor has been studying the melting point of minerals. Here, take this journal. It explains what fusibility is. Over the last few years, he has conducted several tests on [fusible ores].");
+    quest::say("Ah. Yes, his fusibility research. Al'Kabor has been studying the melting point of minerals. Here, take this journal. It explains what fusibility is. Over the last few years, he has conducted several tests on [" . quest::saylink("What fusible ores?",0,"fusible ores") . "].");
     quest::summonitem(18290); # Item: Fusibility Study: Part 1
   }
   if ($text=~/fusible ores/i) {
-    quest::say("An ore is considered fusible if it can be melted. Now, this book explains the most unique forms of fusible ore that the master has conducted [experiments] on.");
+    quest::say("An ore is considered fusible if it can be melted. Now, this book explains the most unique forms of fusible ore that the master has conducted [" . quest::saylink("What experiments?",0,"experiments") . "] on.");
     quest::summonitem(18293); # Item: Fusibility Study: Part 2
   }
   if ($text=~/experiments/i) {
-    quest::say("So far his research has been quite successful. This journal explains what he has been able to accomplish. He has managed to create several magical items including an artifactual scepter of great power. While only he can grant permission to a worthy wizard to possess the artifact, if you are willing to help me complete a [fusibility test], I can offer you another item of great strength against the elements.");
+    quest::say("So far his research has been quite successful. This journal explains what he has been able to accomplish. He has managed to create several magical items including an artifactual scepter of great power. While only he can grant permission to a worthy wizard to possess the artifact, if you are willing to help me complete a [" . quest::saylink("I will complete a fusibility test",0,"fusibility test") . "], I can offer you another item of great strength against the elements.");
     quest::summonitem(18294); # Item: Fusibility Study: Part 3
   }
   if ($text=~/fusibility test/i) {

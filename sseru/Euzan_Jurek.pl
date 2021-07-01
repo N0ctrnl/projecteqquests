@@ -4,14 +4,14 @@ sub EVENT_SAY {
     quest::say("Greetings, $name");
   }
   if ($text=~/Torsten/i) {
-    quest::say("So Torsten has sent you? He must see the potential within you to help us. I cannot give you any information right now as to who we are. That is a trust you must [earn].");
+    quest::say("So Torsten has sent you? He must see the potential within you to help us. I cannot give you any information right now as to who we are. That is a trust you must [" . quest::saylink("I will earn trust",0,"earn") . "].");
   }
   if ($text=~/earn/i) {
     quest::emote("leans in and whispers to you.");
-    quest::say("Let it be known that assisting us will show your distrust in everything this city stands for. If you do not want to get involved I urge you to walk away now. However if you wish to [bring about change], stay and I will tell you how to earn our trust.");
+    quest::say("Let it be known that assisting us will show your distrust in everything this city stands for. If you do not want to get involved I urge you to walk away now. However if you wish to [" . quest::saylink("I will bring about change",0,"bring about change") . "], stay and I will tell you how to earn our trust.");
   }
   if ($text=~/bring about change/i) {
-    quest::say("Good, you must do something for us. One of our members, who needs not be named, is due to be called for the Question. We need you to go into the Heart [Consillium] and replace their records with this one. This false record shows that they have completed their Question and still have time until their next one. Changing the records will make the question pass over us so that we avoid being discovered. Go in stealth, when you have completed this task bring me back the original records and your Insignia Earring.");
+    quest::say("Good, you must do something for us. One of our members, who needs not be named, is due to be called for the Question. We need you to go into the Heart [" . quest::saylink("What is the Consillium?",0,"") . "] and replace their records with this one. This false record shows that they have completed their Question and still have time until their next one. Changing the records will make the question pass over us so that we avoid being discovered. Go in stealth, when you have completed this task bring me back the original records and your Insignia Earring.");
     quest::summonitem(29855); # 29855  Replacement Records
   }
   if ($text=~/Consillium/i) {

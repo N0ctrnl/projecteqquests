@@ -5,16 +5,16 @@
 sub EVENT_SAY {
   if ($faction <= 3) { #req kindly CoV
     if ($text=~/hail/i) {
-      quest::say("Greetings, $name. If you seek wisdom or the arcane I have tasks in the halls of testing you may complete to gain what you seek.");
+      quest::say("Greetings, $name. If you seek [" . quest::saylink("I seek wisdom",0,"wisdom") . "] or the [" . quest::saylink("I seek the arcane",0,"arcane") . "] I have tasks in the halls of testing you may complete to gain what you seek.");
     }  
     elsif ($text=~/the arcane/i) {
-      quest::say("To garner a reward fit for one who walks the arcane path return to me the poison tear and the poison symbol. Along with these return the serrated symbol and the runed symbol. If this task is not hard enough for you, I have a second quest for you.");
+      quest::say("To garner a reward fit for one who walks the arcane path return to me the poison tear and the poison symbol. Along with these return the serrated symbol and the runed symbol. If this task is not hard enough for you, I have a [" . quest::saylink("Tell me about the second quest",0,"second quest") . "] for you.");
     }
     elsif ($text=~/the second quest/i) {
       quest::say("Tears may fall to the ground but not the ones you seek now. The black tear and the ruby tear you must seek. For more power I require the ruby symbol and a white symbol to bind the powers together. Upon the return of these four objects you will receive a wondrous reward.");
     }
     elsif ($text=~/wisdom/i) {
-      quest::say("Wisdom can be gleaned from battle and that is what I wish you to do. Battle in the halls of testing may give you a different outlook on life. Which do you seek, the short battle or the long $name?");
+      quest::say("Wisdom can be gleaned from battle and that is what I wish you to do. Battle in the halls of testing may give you a different outlook on life. Which do you seek, the [" . quest::saylink("I seek the short battle",0,"short battle") . "] or the [" . quest::saylink("I seek the long battle",0,"long") . "], $name?");
     }
     elsif ($text=~/long battle/i) {
       quest::say("You will spend much time in the halls of testing. Seek out a runed tear and a flame kissed tear, bring them back to me with a symbol black as midnight and a glowing orb of the ancient drakes.");

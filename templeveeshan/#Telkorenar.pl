@@ -5,10 +5,10 @@
 sub EVENT_SAY {
   if ($faction <= 3) { #req kindly CoV
     if ($text=~/hail/i) {
-      quest::say("The Strong seek me out, for one reason or another. It seems you have come here in peace. Perhaps you wish to prove yourself a mighty $class? I respect only might, $race.");
+      quest::say("The Strong seek me out, for one reason or another. It seems you have come here in peace. Perhaps you wish to [" . quest::saylink("I wish to prove myself",0,"prove") . "] yourself a mighty $class? I respect only might, $race.");
     }
     elsif ($text=~/wish to prove/i) {
-      quest::say("For the mighty I have four tests. The test of the tooth, the test of the flame, the test of the fire storm, and the test of protection. Which test do you wish to undertake?");
+      quest::say("For the mighty I have four tests. The test of the [" . quest::saylink("What Test of the tooth?",0,"tooth") . "], the test of the [" . quest::saylink("What test of the flame?",0,"flame") . "], the test of the [" . quest::saylink("What test of the fire storm?",0,"fire storm") . "], and the test of [" . quest::saylink("What test of protection?",0,"protection") . "]. Which test do you wish to undertake?");
     }
     elsif ($text=~/test of the tooth/i) {
       quest::say("With tooth and nail you must fight, deep into the halls of testing. Recover the white tear of power, the white symbol for purity, the silver symbol to calm ones self, and a glowing orb. If you can return these to me I will know you are a mighty fighter indeed.");

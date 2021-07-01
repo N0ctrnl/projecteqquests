@@ -7,7 +7,7 @@
 sub EVENT_SAY {
   if ($faction <= 3) { # Require warmly and greater faction
     if ($text=~/hail/i) {
-      quest::say("Welcome, $name. I'm Slade, Royal Armorer to the Dain and his personal guardsmen. I've heard yer name once or twice in these halls and apparently ye've earned the respect of my people. In light of that I'm willin ta offer my [services] to you if'n ye need them.");
+      quest::say("Welcome, $name. I'm Slade, Royal Armorer to the Dain and his personal guardsmen. I've heard yer name once or twice in these halls and apparently ye've earned the respect of my people. In light of that I'm willin ta offer my [" . quest::saylink("What services?",0,"services") . "] to you if'n ye need them.");
     }
     if ($text=~/services/i) {
       quest::say("If'n ye've had the fortune to earn any of the plate helms that are made by my people in the city then I can use my skills to custom fit and detail it for a $race of yer like. I can do this fer the Dark Runed Crown, the Runed Protector's Helm, the Resonant Helm, the Crown of Forbidden Rites, Crown of the Kromzek Kings, Frostreaver's Velium Crown, Cowl of Mortality, and the Champions Crown. Simply hand me one of these and I'll do the work for you.");

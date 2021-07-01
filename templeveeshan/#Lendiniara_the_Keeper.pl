@@ -2,13 +2,13 @@
 sub EVENT_SAY {
   if ($faction <= 3) {
     if ($text=~/hail/i) {
-      quest::say("Greetings, $name. I am the keeper of relics. If you are brave I have tasks to test your might and perhaps rewards.");
+      quest::say("Greetings, $name. I am the keeper of relics. If you are brave I have tasks to test your might and perhaps [" . quest::saylink("What rewards?",0,"rewards") . "].");
     }
     elsif ($text=~/rewards/i) {
-      quest::say("One should ask of the tasks before worrying about rewards, $race.");
+      quest::say("One should ask of the [" . quest::saylink("What tasks?",0,"tasks") . "] before worrying about rewards, $race.");
     }
     elsif ($text=~/tasks/i) {
-      quest::say("Enter into the halls of testing to complete these tasks. Seek out the ancient ones inside and see if your might is as great as theirs and fear not, those who you slay will be returned to the temple by the gift of Veeshan's great power. I have three tasks, which any may complete, as well as a request of both the arcane and the strong.");
+      quest::say("Enter into the halls of testing to complete these tasks. Seek out the ancient ones inside and see if your might is as great as theirs and fear not, those who you slay will be returned to the temple by the gift of Veeshan's great power. I have [" . quest::saylink("What task of the three?",0,"three tasks") . "], which any may complete, as well as a request of both the [" . quest::saylink("What is the request of the arcane?",0,"arcane") . "] and the [" . quest::saylink("What is the request of the srong?",0,"strong") . "].");
     }
     elsif ($text=~/request of the arcane/i) {
       quest::say("Those who seek knowledge, will seek this task out for its reward is great. Three tears and a glowing orb will garner one an ancient mask. The White tear and the black tear for balance the runed tear to hold the balance and a glowing orb to return raw energy to the ancient mask.");
@@ -17,7 +17,7 @@ sub EVENT_SAY {
       quest::say("Those who believe they are strong may be surprised after such a task. Seek out the cursed one and slay him, return to me when you have gathered a silver tear, a poison tear, a flame kissed tear and a serrated tear. End the cursed ones torment for a short time, before the high priest raises him to continue his suffering for eternity.");
     }
     elsif ($text=~/request of the three/i) {
-    quest::say("Tears from the cursed you much seek for each task. The test of the Ruby Tear, the test of the Platinum Tear and the test of the Emerald Tear await all who wish to partake of them.");
+    quest::say("Tears from the cursed you much seek for each task. The test of the [" . quest::saylink("What test of the Ruby Tear?",0,"Ruby Tear") . "], the test of the [" . quest::saylink("What test of the Platinum Tear?",0,"Platinum Tear") . "] and the test of the [" . quest::saylink("What test of the Emerald Tear?",0,"Emerald Tear") . "] await all who wish to partake of them.");
     }
     elsif ($text=~/test of the ruby tear/i) {
     quest::say("The test of the ruby tear sounds simple enough, enter the halls of testing, secure a ruby tear, a white symbol, a silver symbol and a ruby symbol. I warn you mortal, those who walk the halls will rend your body and mind if you are not worthy.");

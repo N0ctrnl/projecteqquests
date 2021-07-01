@@ -8,10 +8,10 @@
 
 sub EVENT_SAY { 
  if($text=~/Hail/i){
-  quest::say("Greetings, $race. You are welcome in [Kejek] so long as you do not offend the [spirits] of these lands.");
+  quest::say("Greetings, $race. You are welcome in [" . quest::saylink("What Kejek?",0,"Kejek") . "] so long as you do not offend the [" . quest::saylink("What spirits?",0,"spirits") . "] of these lands.");
  }
 
- if($text=~/what is kejek/i){
+ if($text=~/kejek/i){
   quest::say("This is Kejek, our village on the peak of Mt. Klaw. It is here that we continue to cherish the customs and beliefs of our ancestors, the Vah'Shir. Our location here in the Stonebrunt Mountains and the protection of the spirits allows us to escape the persecution and war that is waged between our yellow furred cousins and the Erudites.");
  }
 
@@ -20,7 +20,7 @@ sub EVENT_SAY {
  }
 
  if($text=~/Jali sent me/i){
-  quest::say("Ah yes Jali, whose wife is ill. I have been looking for a cure for many moons. I do believe I can make one now if I had the proper ingredients. Unfortunately it will require the deaths of some of our lands creatures but the spirits will not be angered as it is for a noble cause. Perhaps you could [fetch them] for me?");
+  quest::say("Ah yes Jali, whose wife is ill. I have been looking for a cure for many moons. I do believe I can make one now if I had the proper ingredients. Unfortunately it will require the deaths of some of our lands creatures but the spirits will not be angered as it is for a noble cause. Perhaps you could [" . quest::saylink("I will fetch them",0,"fetch them") . "] for me?");
  }
 
  if($text=~/fetch them/i){

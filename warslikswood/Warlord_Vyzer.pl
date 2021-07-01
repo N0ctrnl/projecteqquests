@@ -14,7 +14,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 18210 => 1)) {
-    quest::say("I am glad to see they have sent a strong new recruit. I have a task for you which will require you to recover a few pages of a certain poem I once wrote. I never should have written of such weak-minded things, but the pages were stolen from me before I could destroy them. Take this poem binder and find the [thieves]. When you combine the pages in the binder, it will magically lock and you may return it to me for your prize, the geozite tool.");
+    quest::say("I am glad to see they have sent a strong new recruit. I have a task for you which will require you to recover a few pages of a certain poem I once wrote. I never should have written of such weak-minded things, but the pages were stolen from me before I could destroy them. Take this poem binder and find the [" . quest::saylink("What thieves?",0,"thieves") . "]. When you combine the pages in the binder, it will magically lock and you may return it to me for your prize, the geozite tool.");
     quest::summonitem(17995); # Item: Book Binder
   }
   elsif (plugin::check_handin(\%itemcount, 12667 => 1)) {

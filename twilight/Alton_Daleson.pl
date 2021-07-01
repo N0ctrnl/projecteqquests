@@ -4,10 +4,10 @@ if($text=~/Hail/i){
 quest::say("Welcome to Jern's Rest!  I'm the owner and proprietor of this inn. its been in my family for generations.  My great grandaddy. Jern. built it back when Katta Castellum was first being built.  If ya be wantin' of anything don't hesitate to ask.'"); 
 }
   if ($text=~/armor/i) {
-    quest::say("His armor has also been in the family for generations, if ye be a [ranger] I don't have much use for it running this inn. I'll just need something in return for it.");
+    quest::say("His armor has also been in the family for generations, if ye be a [" . quest::saylink("I am a ranger",0,"ranger") . "] I don't have much use for it running this inn. I'll just need something in return for it.");
   }
   if ($text=~/ranger/i) {
-    quest::say("Excellent! If you are interested I have the Woodsman's [Helm], Woodsmand's [Mail], Woodsman's [Vambraces], Woodsman's [Greaves], Woodsman's [Bracer], Woodsman's [Boots], and the Woodsman's [Axe]. If youa re interested in the rest of his armor you'll have to ask my wife Ellen, she'll have some errands you can run for her.");
+    quest::say("Excellent! If you are interested I have the Woodsman's [" . quest::saylink("Helm",0,"Helm") . "], Woodsmand's [" . quest::saylink("Mail",0,"Mail") . "], Woodsman's [" . quest::saylink("Vambraces",0,"Vambraces") . "], Woodsman's [" . quest::saylink("Greaves",0,"Greaves") . "], Woodsman's [" . quest::saylink("Bracer",0,"Bracer") . "], Woodsman's [" . quest::saylink("Boots",0,"Boots") . "], and the Woodsman's [" . quest::saylink("Axe",0,"Axe") . "]. If youa re interested in the rest of his armor you'll have to ask my wife Ellen, she'll have some errands you can run for her.");
   }
   if ($text=~/axe/i) {
     quest::say("If you want the Woodsman's Axe you will have to aquire these items: a sun jewel, a mark of the naturalist, some ancient pottery, and a fossilized skull.");

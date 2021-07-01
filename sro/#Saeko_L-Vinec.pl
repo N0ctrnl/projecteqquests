@@ -10,6 +10,6 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 67004 =>1 )) {
-    quest::say("So you're the one Sazan sent to help. He must need this venom badly. Tell you what, since I have been here for so long and turned up nothing I will tell you the [last known area] that Gargantula was spotted. She is a crafty beast who uses the sands of this desert to move silently.");
+    quest::say("So you're the one Sazan sent to help. He must need this venom badly. Tell you what, since I have been here for so long and turned up nothing I will tell you the [" . quest::saylink("What last known area?",0,"last known area") . "] that Gargantula was spotted. She is a crafty beast who uses the sands of this desert to move silently.");
   }
 }

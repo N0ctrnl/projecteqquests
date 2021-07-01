@@ -9,7 +9,7 @@ sub EVENT_SAY {
   quest::emote("squints one eye open, then returns to his meditation.");
  }
  elsif($text=~/talon southpaw/i){
-  quest::emote("waves his arms in the air. 'The great master. His soul is the wind. He speaks to us in words of thunder. He strikes Norrath with bolts of lightning. I seek to be as he is. I have traveled the globe in search of his fists. I have found only one. Another is said to be with [Gomoz]. I shall return it when I am finished with my seasons-long meditation or perhaps I shall find a monk to [return the hand to Cabilis].'");
+  quest::emote("waves his arms in the air. 'The great master. His soul is the wind. He speaks to us in words of thunder. He strikes Norrath with bolts of lightning. I seek to be as he is. I have traveled the globe in search of his fists. I have found only one. Another is said to be with [" . quest::saylink("Who is Gomoz?",0,"Gomoz") . "]. I shall return it when I am finished with my seasons-long meditation or perhaps I shall find a monk to [" . quest::saylink("I will return the hand to Cabilis",0,"return the hand to Cabilis") . "].'");
  }
  elsif($text=~/Gomoz/i){
   quest::say("Disciple Gomoz was once Talon Southpaw's pupil. It is rumored that he has only one hand. Unfortunately, a horde of ogre raiders swiped his bones, along with others, from their place in Kurn's Tower. What those simple oafs plan to do with them is a mystery. Only one who has studied the arcane sciences could use them. They most likely used them as soup bones.");
@@ -50,14 +50,14 @@ sub EVENT_ITEM {
   quest::faction(441,10); # Faction: Legion of Cabilis
  }
  elsif(plugin::check_handin(\%itemcount, 12829 => 1)){
-  quest::emote("opens the box to reveal a variety of pebbles. 'How grand!! My pebbles!! Now I can continue with my rock garden!! Hmmm. You look familiar. Hey!! I bet you can help me complete my garden!! Would you please [assist old Rinmark in completing his rock garden]?'");
+  quest::emote("opens the box to reveal a variety of pebbles. 'How grand!! My pebbles!! Now I can continue with my rock garden!! Hmmm. You look familiar. Hey!! I bet you can help me complete my garden!! Would you please [" . quest::saylink("I will assist old Rinmark in completing his rock garden",0,"assist old Rinmark in completing his rock garden") . "]?'");
   quest::exp(30000);
   quest::ding();
   quest::faction(444,20); # Faction: Swift Tails
   quest::faction(441,10); # Faction: Legion of Cabilis
  }
  elsif(plugin::check_handin(\%itemcount, 12836 => 1)){
-  quest::emote("graciously accepts the tin box filled with precious rocks and gems. 'Thank you greatly, young $name. For your deed, I bestow upon you the shackle of bronze!! You have completed the third rung. Alas, there is no time for celebration. I need your help in rescuing a [student] of mine.'");
+  quest::emote("graciously accepts the tin box filled with precious rocks and gems. 'Thank you greatly, young $name. For your deed, I bestow upon you the shackle of bronze!! You have completed the third rung. Alas, there is no time for celebration. I need your help in rescuing a [" . quest::saylink("What student?",0,"student") . "] of mine.'");
   quest::summonitem(4195); # Item: Shackle of Bronze
   quest::exp(30000);
   quest::ding();

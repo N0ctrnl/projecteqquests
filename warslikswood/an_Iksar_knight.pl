@@ -6,7 +6,7 @@ sub EVENT_SAY {
   quest::emote("wipes the sweat from his forehead and spits some flarefire seeds on the ground near your feet. 'Whew!! Good to be back and safe at the Cabilis Gate. The troopers will protect us.'");
   }
  elsif($text=~/chalp diagram/i){ #Test of the Zealot (Greenmist Quest 4/8)
-  quest::emote("spits out some flarefire seeds. 'Great!! Sent to retrieve the Chalp diagram. I will give them to you, but I want you to do me a little favor first. I want you to [retrieve some spells] I lost. They are incorrectly scribed and useless, but I yearn for their return nonetheless.'");
+  quest::emote("spits out some flarefire seeds. 'Great!! Sent to retrieve the Chalp diagram. I will give them to you, but I want you to do me a little favor first. I want you to [" . quest::saylink("I will retrieve some spells",0,"retrieve some spells") . "] I lost. They are incorrectly scribed and useless, but I yearn for their return nonetheless.'");
   }
  elsif($text=~/retrieve some spells/i){ #Test of the Zealot (Greenmist Quest 4/8)
   quest::emote("spits flarefire seeds on you. 'Oops!! Sorry. Yeah!! You go to Chalp and get two incorrectly scribed spells which they grabbed from me. The third one, I threw in a river crossing by Chalp. It was in a bottle and probably drifted way down the river. Bring me all three and also a shovel and I will make it worth your while.'");

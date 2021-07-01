@@ -6,7 +6,7 @@ quest::say("Hi there. who are you?  What are you doing here? Oh I'm one of Vorno
     quest::say("Oh you've been to see Gazoon on his island. Yep he gave me some of his fancy finger waggler armor, are ya a wizard?");
       }
   if ($text=~/wizard/i) {
-    quest::say("Cool then you'll probably be wanting the [mask], [cloak], [gloves], [choker], [belt] and [staff] I have.");
+    quest::say("Cool then you'll probably be wanting the [" . quest::saylink("mask",0,"mask") . "], [" . quest::saylink("cloak",0,"cloak") . "], [" . quest::saylink("gloves",0,"gloves") . "], [" . quest::saylink("choker",0,"choker") . "], [" . quest::saylink("belt",0,"belt") . "] and [" . quest::saylink("staff",0,"staff") . "] I have.");
       }
   if ($text=~/mask/i) {
     quest::say("For the mask you'll have to get me a meteor jewel, a mark of potential, and an iron tipped wand.");
