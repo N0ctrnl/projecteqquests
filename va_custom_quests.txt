@@ -1,0 +1,3 @@
+nexus/Recordkeeper_Durand.pl
+nexus/Lorekeeper_Xivan.pl
+eastwastes/Belath_the_Trader.pl

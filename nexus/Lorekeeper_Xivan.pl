@@ -1,5 +1,8 @@
 # Lorekeeper Xivan - Nexus (Spell Lists)
 # npcID 152101
+# Written by N0ctrnl (2021)
+# VA custom spell list NPC. Reads from database table using a plugin
+
 sub EVENT_SAY {
   if($class eq "Warrior" || $class eq "Rogue" || $class eq "Monk"){
     $client->Message(315, "I have no information to share with melee classes.");
@@ -12,8 +15,8 @@ sub EVENT_SAY {
 
     $client->Message(315, 'Spell Lists');
     $client->Message(315, '-----------------------------------------------------');
-    $client->Message(315, " --- " . $low_spells . " - " . $medium_spells . " - " . $high_spells);
-    $client->Message(315, " --- " . $max_spells . " - " . $all_spells);
+    $client->Message(315, " --- " . $low_spells . " - " . $medium_spells);
+    $client->Message(315, " --- " . $high_spells . " - " . $max_spells);
     $client->Message(315, '-----------------------------------------------------');
 
   } elsif($text=~/spells/i){
@@ -25,8 +28,6 @@ sub EVENT_SAY {
       plugin::ShowSpellList($class,"high");
     } elsif($text=~/max/i){
       plugin::ShowSpellList($class,"max");
-    } else {
-      plugin::ShowSpellList($class,"all");
     }
   }
 }
