@@ -9,16 +9,16 @@
 
 sub EVENT_SAY {
   if ($text=~/Hail, Iago Sabuela/i) {
-    quest::say("Salutations dragon friend $name. I am Iago Sabuela archeologist, enchanter, and proud member of the [Draconic Loyalist Fellowship]. Please make yourself comfortable and enjoy your visit to Skyshrine.");
+    quest::say("Salutations dragon friend $name. I am Iago Sabuela archeologist, enchanter, and proud member of the [" . quest::saylink("What is the Draconic Loyalist Fellowship?",0,"Draconic Loyalist Fellowship") . "]. Please make yourself comfortable and enjoy your visit to Skyshrine.");
   }
   if ($text=~/What Draconic Loyalist Fellowship?/i) {
-    quest::say("The Draconic Loyalist Fellowship is people like myself of a non-draconic heritage that have pledged obedience to the dragons and dragon-kin of Skyshrine. We have proven that we can provide valuable services and resources to the dragons and dragon-kin that would otherwise be difficult or impossible for them to obtain. Among the occupations I pursue here in the Skyshrine is the acquisition of lost [draconic artifacts].");
+    quest::say("The Draconic Loyalist Fellowship is people like myself of a non-draconic heritage that have pledged obedience to the dragons and dragon-kin of Skyshrine. We have proven that we can provide valuable services and resources to the dragons and dragon-kin that would otherwise be difficult or impossible for them to obtain. Among the occupations I pursue here in the Skyshrine is the acquisition of lost [" . quest::saylink("What draconic artifacts?",0,"draconic artifacts") . "].");
   }
   if ($text=~/What draconic artifacts?/i) {
-    quest::say("The dragons and their kin have an ancient and complex culture like any intelligent creature in Norrath. I have spent the majority of my years studying the ancient dragon civilizations of Norrath and recovering lost draconic artifacts. There are several artifacts I am currently searching for and could use the assistance of a capable group of adventurers. Are you interested in [hunting for lost artifacts]?");
+    quest::say("The dragons and their kin have an ancient and complex culture like any intelligent creature in Norrath. I have spent the majority of my years studying the ancient dragon civilizations of Norrath and recovering lost draconic artifacts. There are several artifacts I am currently searching for and could use the assistance of a capable group of adventurers. Are you interested in [" . quest::saylink("I am interested in hunting for lost artifacts",0,"hunting for lost artifacts") . "]?");
   }
   if ($text=~/I am interested in hunting for lost artifacts./i) {
-    quest::say("Excellent. With the help of the texts provided me by the dragon-kin here in Skyshrine I have narrowed my search down to a few locations where I believe the artifacts I seek may be hiding. Before the artifacts may be recovered however you will need a special container in which to store them in. They are quite old and who knows what condition they may be in. I am missing some materials that are necessary for the insulation of the container thus it would be appreciated if you could provide me with a [crystalline silk mesh] and two [oily goo secretions] I will finish the construction of the artifact container and provide with the information I have obtained of the lost artifacts.");
+    quest::say("Excellent. With the help of the texts provided me by the dragon-kin here in Skyshrine I have narrowed my search down to a few locations where I believe the artifacts I seek may be hiding. Before the artifacts may be recovered however you will need a special container in which to store them in. They are quite old and who knows what condition they may be in. I am missing some materials that are necessary for the insulation of the container thus it would be appreciated if you could provide me with a [" . quest::saylink("What crystalline silk mesh?",0,"crystalline silk mesh") . "] and two [" . quest::saylink("What oily goo secretions?",0,"oily goo secretions") . "] I will finish the construction of the artifact container and provide with the information I have obtained of the lost artifacts.");
   }
   if ($text=~/What crystalline silk mesh/i) {
     quest::say("An experienced tailor must craft the woven crystalline spider silk mesh in a tailoring kit out of four crystalline silks.");
@@ -43,7 +43,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if ($faction <= 3) { # requires kindly faction
      if (plugin::check_handin(\%itemcount, 11637 => 2, 11636 => 1)) {
-      quest::say("Thank you $name. Here is the container that the artifacts must be stored and returned to me in once they have been recovered. The artifacts I seek are a [Crystal Dragon Eye], a [Golden Dragon Claw], a [Dragon Scripture Tablet], and a [Platinum Dragon Scale]. When all the items have been recovered, seal the artifact container and return it to me. You shall be rewarded well for your assistance, I assure you.");
+      quest::say("Thank you $name. Here is the container that the artifacts must be stored and returned to me in once they have been recovered. The artifacts I seek are a [" . quest::saylink("What Crystal Dragon Eye?",0,"Crystal Dragon Eye") . "], a [" . quest::saylink("What Golden Dragon Claw?",0,"Golden Dragon Claw") . "], a [" . quest::saylink("What Dragon Scripture Tablet?",0,"Dragon Scripture Tablet") . "], and a [" . quest::saylink("What Platinum Dragon Scale?",0,"Platinum Dragon Scale") . "]. When all the items have been recovered, seal the artifact container and return it to me. You shall be rewarded well for your assistance, I assure you.");
       quest::summonitem(17167); # Item: Empty Artifact Container
       quest::faction(430,5); # Faction: Claws of Veeshan
       quest::faction(436,5); # Faction: Yelinak

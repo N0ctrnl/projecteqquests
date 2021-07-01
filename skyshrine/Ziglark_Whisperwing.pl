@@ -1,19 +1,19 @@
 # items: 28600, 28601, 28602
 sub EVENT_SAY {
   if($text=~/hail/i){
-    quest::say("Welcome to the greatness that is Skyshrine, $name. I am Herald to our great leader, Lord Yelinak. It is my position to make sure that all is running in an orderly and functional matter in the mighty shrine before you. I handle the guard assignments as well as granting [access] to pass through the shrine. If you'd like to find out about either of these, please just ask.");
+    quest::say("Welcome to the greatness that is Skyshrine, $name. I am Herald to our great leader, Lord Yelinak. It is my position to make sure that all is running in an orderly and functional matter in the mighty shrine before you. I handle the guard assignments as well as granting [" . quest::saylink("How do I get access?",0,"access") . "] to pass through the shrine. If you'd like to find out about either of these, please just ask.");
   }
   if($text=~/access/i){
     # Key to Cobalt Scar
-    quest::say("You may have seen the large monument in a pond out in the commune area on your journey to see me. This is not just a monument to our great Lord Yelinak, but also a portal to the cold recesses of the Cobalt Scar. Access is, however, only granted to those who are [worthy] to be called allies of the shrine.");
+    quest::say("You may have seen the large monument in a pond out in the commune area on your journey to see me. This is not just a monument to our great Lord Yelinak, but also a portal to the cold recesses of the Cobalt Scar. Access is, however, only granted to those who are [" . quest::saylink("I am worthy",0,"worthy") . "] to be called allies of the shrine.");
   }
   if($text=~/worthy/i){
     # Key to Cobalt Scar
-    quest::say("Perhaps, then again you only say that so you might gain access and plunder through the riches beyond the portal. We shall see. If you truly wish to prove yourself, you will need to entertain a bit of a [challenge].");
+    quest::say("Perhaps, then again you only say that so you might gain access and plunder through the riches beyond the portal. We shall see. If you truly wish to prove yourself, you will need to entertain a bit of a [" . quest::saylink("What challenge?",0,"challenge") . "].");
   }
   if($text=~/challenge/i){
     # Key to Cobalt Scar
-    quest::say("We of the kin have a contact within the giant regime, named Wenglawks Kkeak. He has information on the movements of the storm giants through the arctic homelands of Velious. We have been in contact with him for quite some time, however, as of late, our couriers have been lost on their way to met him. As you can imagine, this worries us and makes it rather difficult to keep abreast of the movements of the giants. What we needs is someone to find Wenglawks and [deliver] the payment to him, so that we can gather further information on their movements.");
+    quest::say("We of the kin have a contact within the giant regime, named Wenglawks Kkeak. He has information on the movements of the storm giants through the arctic homelands of Velious. We have been in contact with him for quite some time, however, as of late, our couriers have been lost on their way to met him. As you can imagine, this worries us and makes it rather difficult to keep abreast of the movements of the giants. What we needs is someone to find Wenglawks and [" . quest::saylink("I will deliver",0,"deliver") . "] the payment to him, so that we can gather further information on their movements.");
   }
   if($text=~/deliver/i){
     # Key to Cobalt Scar

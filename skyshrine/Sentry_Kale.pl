@@ -18,7 +18,7 @@
 sub EVENT_SAY {
   if ($faction <= 2) {
     if ($text=~/hail/i) {
-      quest::say("Another $race, in the great shrine? Perhaps the times have gotten worse than we had expected -- I wonder if I will need to reactivate my [sentinel] for further use in my stead.");
+      quest::say("Another $race, in the great shrine? Perhaps the times have gotten worse than we had expected -- I wonder if I will need to reactivate my [" . quest::saylink("What sentinel?",0,"sentinel") . "] for further use in my stead.");
     }
     if ($text=~/sentinel/i) {
       quest::say("It was not too long ago that I was merely a chunk of walking velium in the eyes of most who traveled through the shrine. However that golem was in fact one of my sentinels used to keep my identity secluded, and took on the tasks that I gave it. However, there has been a problem recently with our supplies, and I have had to take it offline until further notice.");
@@ -31,7 +31,7 @@ sub EVENT_SAY {
       quest::summonitem(1725); # Item: Velium Delivery Note
     }
     if (($text=~/i am interested/i) && ($friendofthekin == 1)) {
-      quest::say("I'm glad to hear it. You see, we have received news that there is a spy amongst the kin, sending our movements and our defensive strategies to the giants. Every attempt of ours to decipher who the spy is have failed. It seems there is a great protective magic around them preventing us from centering on the source of the espionage. However, we do have a [source] of our own in the city of Kael who passes us information now and again.");
+      quest::say("I'm glad to hear it. You see, we have received news that there is a spy amongst the kin, sending our movements and our defensive strategies to the giants. Every attempt of ours to decipher who the spy is have failed. It seems there is a great protective magic around them preventing us from centering on the source of the espionage. However, we do have a [" . quest::saylink("What source?",0,"source") . "] of our own in the city of Kael who passes us information now and again.");
     }
     if (($text=~/source/i) && ($friendofthekin == 1)) {
       quest::say("He is an associate that holds ties to us, for the fact that he believes that the invasion against the kin is a non-profitable, overall bad endeavor. Wenglawks is his name and he has told us that he has information regarding the name of the spy here in the shrine. His price is 100 platinum, paid in full to reveal the spy to us. If you think you're capable of finding out the name of this spy, I have a piece of parchment that will show Wenglawks that you are there for the information.");

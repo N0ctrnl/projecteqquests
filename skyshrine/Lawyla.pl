@@ -1,19 +1,19 @@
 # items: 1897, 1898, 1899, 19470
 sub EVENT_SAY {
   if($text=~/Hail/i){
-   quest::say("Hail and well met, $name. I can see by your appearance that you are well traveled. I congratulate you on your thirst for adventure as you are obviously far from where you call home. Would you happen to [study the art of sorcery]?");
+   quest::say("Hail and well met, $name. I can see by your appearance that you are well traveled. I congratulate you on your thirst for adventure as you are obviously far from where you call home. Would you happen to [" . quest::saylink("I study the art of sorcery",0,"study the art of sorcery") . "]?");
   }
   #Hsagra's Wrath(START)
   elsif($text=~/I study the art of sorcery/i){
-   quest::say("Then I believe you would be interested in hearing of the sad tale of our beloved Hsagra. Many years ago, Hsagra was slain by the wicked Kromzek Porlos. Unfortunately, Porlos found out that Hsagra had discovered a new magic that was extremely powerful against the Giants. Hsagra was the mate of Yelinak. You might have heard the tale of Yelinak, for he still lives with the terrible memory of the horrid day that he lost his wingmate. The Giants even have the gall to have made the throne of King Tormax out of the skull of Hsagra. Do you [wish to avenge Hsagra] after what I have told you?");
+   quest::say("Then I believe you would be interested in hearing of the sad tale of our beloved Hsagra. Many years ago, Hsagra was slain by the wicked Kromzek Porlos. Unfortunately, Porlos found out that Hsagra had discovered a new magic that was extremely powerful against the Giants. Hsagra was the mate of Yelinak. You might have heard the tale of Yelinak, for he still lives with the terrible memory of the horrid day that he lost his wingmate. The Giants even have the gall to have made the throne of King Tormax out of the skull of Hsagra. Do you [" . quest::saylink("I wish to avenge Hsagra",0,"wish to avenge Hsagra") . "] after what I have told you?");
   }
   #Hsagra's Wrath
   elsif($text=~/I wish to avenge Hsagra/i){
-   quest::say("The Kromzek have been a bane upon our very existence for far too long. If you wish to aid our cause, I will need proof of your devotion and allegiance. We will not waste our time educating anyone who does not have our best interests at heart. The journey will prove very dangerous both to you as well as whom you choose to accompany you. After knowing this, do you still [wish to prove your allegiance]?");
+   quest::say("The Kromzek have been a bane upon our very existence for far too long. If you wish to aid our cause, I will need proof of your devotion and allegiance. We will not waste our time educating anyone who does not have our best interests at heart. The journey will prove very dangerous both to you as well as whom you choose to accompany you. After knowing this, do you still [" . quest::saylink("I wish to prove my allegiance",0,"wish to prove your allegiance") . "]?");
   }
   #Hsagra's Wrath
   elsif($text=~/I wish to prove my allegiance/i){
-   quest::say("Before I divulge the secret behind the sorcery against the Kromzek, I require three items from you, and you alone. Please also keep in mind I will need to combine these three items together, so I will not accept them individually. First, we must start out with the teachings of Relinar, for it is necessary in recreating the magic against the vile giants. Our [lorekeeper] is one you must seek out to acquire those teachings, he resides within the confines of our dwelling.");
+   quest::say("Before I divulge the secret behind the sorcery against the Kromzek, I require three items from you, and you alone. Please also keep in mind I will need to combine these three items together, so I will not accept them individually. First, we must start out with the teachings of Relinar, for it is necessary in recreating the magic against the vile giants. Our [" . quest::saylink("What lorekeeper?",0,"lorekeeper") . "] is one you must seek out to acquire those teachings, he resides within the confines of our dwelling.");
   }
   #Hsagra's Wrath
   elsif($text=~/lorekeeper/i){

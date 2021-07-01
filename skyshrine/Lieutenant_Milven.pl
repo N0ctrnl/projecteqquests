@@ -1,10 +1,10 @@
 # items: 29062, 29124, 29125
 sub EVENT_SAY {
  if($text=~/hail/i){
-  quest::say("Hmm, the guards at the gate sent a $race to assist with the [rampant problems]? They shall have to be replaced with functional sentries so this does not occur again, but that is another matter for later.");
+  quest::say("Hmm, the guards at the gate sent a $race to assist with the [" . quest::saylink("What rampant problems?",0,"rampant problems") . "]? They shall have to be replaced with functional sentries so this does not occur again, but that is another matter for later.");
  }
  elsif($text=~/rampant problems/i){ #Start of: Helms of Giant Warriors
-  quest::say("I trust that what is said here will not be repeated to outsiders, yes? Good. For some time now, we've been fortifying our position in the shrine to fend off giant attacks as they come. Though there hasn't been a major engagement between the shrine and the giants for quite some time, there have been strafing runs done by them in an attempt to test us. If you're up for it, I have a [mission] I need someone new to the shrine to complete.");
+  quest::say("I trust that what is said here will not be repeated to outsiders, yes? Good. For some time now, we've been fortifying our position in the shrine to fend off giant attacks as they come. Though there hasn't been a major engagement between the shrine and the giants for quite some time, there have been strafing runs done by them in an attempt to test us. If you're up for it, I have a [" . quest::saylink("What mission?",0,"mission") . "] I need someone new to the shrine to complete.");
  }
  elsif($text=~/mission/i){ #Part of: Helms of Giant Warriors
   quest::say("We've been looking for someone that isn't from the shrine to find some of the giants that have been on these strafing runs and have them eliminated. You're of the perfect ilk because they will not recognize you as a friend to the shrine. Once you pry their steel-plated helms from their cold, dead heads and bring them back to me, your worth will be proven and you may show promise as an ally to the shrine.");
@@ -17,7 +17,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
  #Handin: Giant Warrior Helmet (29062)
  if(plugin::check_handin(\%itemcount, 29062 => 1)){ #End of: Helms of Giant Warriors
-  quest::say("Well done, $name. You are proving to be worth the risk of sending a new recruit out on a mission such as this. If you feel this is the type of mission you're best suited for, feel free to slay more of these beasts and return their helmets to me. The fewer giants there are out there, the less chance they continue their random attacks against us. I also may have another [assignment] for you if you're interested.");
+  quest::say("Well done, $name. You are proving to be worth the risk of sending a new recruit out on a mission such as this. If you feel this is the type of mission you're best suited for, feel free to slay more of these beasts and return their helmets to me. The fewer giants there are out there, the less chance they continue their random attacks against us. I also may have another [" . quest::saylink("What assignment?",0,"assignment") . "] for you if you're interested.");
   quest::faction(430,15); # +Claws of Veeshan
   quest::faction(436,3); # +Yelinak
   quest::faction(448,-7); # -Kromzek
