@@ -1,4 +1,5 @@
-# Gargoyle Illusion Click
+# VA Buff Crystal
+# Written by N0ctrnl (2016)
 
 #sub EVENT_ITEM_CLICK_CAST {
 sub EVENT_SPELL_EFFECT_CLIENT {
