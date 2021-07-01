@@ -43,7 +43,7 @@ sub EVENT_TIMER {
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Stand back hunter! Not all of my men are properly trained in the use of their spears. You may find yourself losing an eye if you get too close. Now then, I assume you have [come to help.] Is that correct?");
+    quest::say("Stand back hunter! Not all of my men are properly trained in the use of their spears. You may find yourself losing an eye if you get too close. Now then, I assume you have [" . quest::saylink("I have come to help",0,"come to help") . "] Is that correct?");
   }
   if ($text=~/come to help/i) {
     quest::say("Then why are you standing around! Can't you see the invading forces of the Shak Dratha approach our town? Destroy them and bring me four of their bloody hearts as proof of your deed. Snap to it!");

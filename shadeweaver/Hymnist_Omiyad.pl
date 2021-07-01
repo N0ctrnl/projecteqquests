@@ -1,11 +1,11 @@
 # items: 31289, 7498
 sub EVENT_SAY { 
   if($text=~/hail/i){
-    quest::say("Greetings young one, have a seat by the fire.  You will notice the dance being preformed.  This is much more than just a dance though.  It is a ritual that we preform to [purge] the evil spirits that are plaguing the thicket.");
+    quest::say("Greetings young one, have a seat by the fire.  You will notice the dance being preformed.  This is much more than just a dance though.  It is a ritual that we preform to [" . quest::saylink("I will purge the evil spirits",0,"purge") . "] the evil spirits that are plaguing the thicket.");
   }
   if($text=~/purge/i){
     #Talisman of the Flame (Start)
-    quest::say("Lately there has been a surge in the number of Lodi Kai threatening our trade routes.  This ritual is preformed around a fire that burns from their [remains].  Setting their remains in the fire will free their tie with this world and shall ward off their numbers.");
+    quest::say("Lately there has been a surge in the number of Lodi Kai threatening our trade routes.  This ritual is preformed around a fire that burns from their [" . quest::saylink("What remains?",0,"remains") . "]. Setting their remains in the fire will free their tie with this world and shall ward off their numbers.");
   }
   if($text=~/remains/i){
     #Talisman of the Flame

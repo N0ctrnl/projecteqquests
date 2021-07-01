@@ -10,7 +10,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 5545 =>1 )) {
     quest::emote("examines the hilt for a moment and hands the sword back to you.");
-    quest::say("This looks like it will work fine.' He says. 'If you are up to doing me a favor, I can teach you how to modify your shield as well. Take this bag and these files and come back to me when you have some [spare time] and want to learn more about shields.");
+    quest::say("This looks like it will work fine.' He says. 'If you are up to doing me a favor, I can teach you how to modify your shield as well. Take this bag and these files and come back to me when you have some [" . quest::saylink("I have spare time",0,"spare time") . "] and want to learn more about shields.");
     quest::summonitem(5545); # Item: Leather Gripped Short Sword
 	quest::summonitem(5546); # Item: Set of Engraved Files
     quest::summonitem(17605); # Item: Grime Covered Bag

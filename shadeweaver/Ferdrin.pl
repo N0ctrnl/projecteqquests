@@ -1,10 +1,10 @@
 # items: 7807, 30579, 7813
 sub EVENT_SAY { 
   if($text=~/hail/i){
-    quest::say("Welcome $name! Have you been sent to speak with me by [Captain Alim]?");
+    quest::say("Welcome $name! Have you been sent to speak with me by [" . quest::saylink("Who is Captain Alim?",0,"Captain Alim") . "]?");
   }
   if($text=~/captain alim/i){
-    quest::say("Excellent, I presume you wish to speak with me about the [Firefall Club]?");
+    quest::say("Excellent, I presume you wish to speak with me about the [" . quest::saylink("What is the Fireball Club?",0,"Fireball Club") . "]?");
   }
   if($text=~/firefall club/i){
     quest::say("If you provide me with three firefall claws, and a wooden practice flail, I am able to fashion them together into a Firefall Claw Club, for you to use.");

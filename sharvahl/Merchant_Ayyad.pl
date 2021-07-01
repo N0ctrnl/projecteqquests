@@ -35,7 +35,7 @@ sub EVENT_ITEM {
     quest::summonitem(3632); #Novice's Runequill Set
   }
   if (($base_skill >= 188) && plugin::check_handin(\%itemcount, 3632 => 1)) { #Pottery skill at least 188, Novice's Runequill Set
-    quest::say("You continue to amaze me with your progress, $name. Here is the final pen to add to your set of runequills. I have just received word that the king has need of your particular talents. Take this note to Guard Fareed and he will instruct you further. Also, this runequill set is able to mark a set of runes on the Grey Jars with Sonic Wolf Blood. This will enchant the jar and make a great container. I trust your artistic instincts to guide you. You should also tell me when you're ready for some [additional instructions].");
+    quest::say("You continue to amaze me with your progress, $name. Here is the final pen to add to your set of runequills. I have just received word that the king has need of your particular talents. Take this note to Guard Fareed and he will instruct you further. Also, this runequill set is able to mark a set of runes on the Grey Jars with Sonic Wolf Blood. This will enchant the jar and make a great container. I trust your artistic instincts to guide you. You should also tell me when you're ready for some [" . quest::saylink("What additional instructions?",0,"additional instructions") . "].");
     quest::summonitem(3641); #Finely Crafted Runequill Set
     quest::summonitem(3647); #Ayyad's Note to Fareed
   }

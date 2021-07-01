@@ -8,7 +8,7 @@
 sub EVENT_SAY {
 
   if($text=~/Hail/i){
-  quest::say("Hello there friend, would you like to buy some of my delicious [Payala] goodies?");
+  quest::say("Hello there friend, would you like to buy some of my delicious [" . quest::saylink("What is Payala?",0,"Payala") . "] goodies?");
   }
 
   if($text=~/Payala/i){

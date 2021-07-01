@@ -38,26 +38,26 @@ sub EVENT_ITEM {
     quest::exp(1000);
   }
   elsif(plugin::check_handin(\%itemcount, 3656 => 4)) { #Leather Cord x 4
-    quest::say("So you wish to learn the way of the Vah Shir tailors, do you? I assure you it is among the most difficult to master of any of the great Vah Shir disciplines, but one of the most rewarding as well. If you truly wish to learn how to manipulate fabrics and materials of all types you'll have to start with a basic task. Take this Vah Shir skinning knife and use it to cut a [belt strap]. Once you feel that you've mastered that task, bring me an example of your work and the Vah Shir skinning knife I gave you and we'll start you on some needle work.");
+    quest::say("So you wish to learn the way of the Vah Shir tailors, do you? I assure you it is among the most difficult to master of any of the great Vah Shir disciplines, but one of the most rewarding as well. If you truly wish to learn how to manipulate fabrics and materials of all types you'll have to start with a basic task. Take this Vah Shir skinning knife and use it to cut a [" . quest::saylink("What belt strap?",0,"belt strap") . "]. Once you feel that you've mastered that task, bring me an example of your work and the Vah Shir skinning knife I gave you and we'll start you on some needle work.");
     quest::exp(1000);
     quest::ding();
     quest::summonitem(3913); #Vah Shir Skinning Knife
   }
   elsif(plugin::check_handin(\%itemcount, 3922 => 1)) { #Rough Belt Strap
     quest::emote("briefly glances at the strap and throws it over his shoulder. He then says");
-    quest::say("I can tell it's hurried work, but it will do. I suppose you're ready to learn some needlework. The needlework really makes the belt. Here, this needle set will allow you to learn the basics of our trade. You'll want to practice on some [Black Chitin Belts] and some [Bone Beaded Belts]. Bring me one example of each of these and your needle set to show me that you've mastered the basics of this sort of needlework. If your work is good enough you might be able to sell a piece or two as well.");
+    quest::say("I can tell it's hurried work, but it will do. I suppose you're ready to learn some needlework. The needlework really makes the belt. Here, this needle set will allow you to learn the basics of our trade. You'll want to practice on some [" . quest::saylink("What Black Chitin Belts?",0,"Black Chitin Belts") . "] and some [" . quest::saylink("What Bone Beaded Belts?",0,"Bone Beaded Belts") . "]. Bring me one example of each of these and your needle set to show me that you've mastered the basics of this sort of needlework. If your work is good enough you might be able to sell a piece or two as well.");
     quest::exp(1000);
     quest::ding();
     quest::summonitem(3914); #Vah Shir Needle Set
   }
   elsif(plugin::check_handin(\%itemcount, 3914 => 1, 3924 => 1, 3925 =>1 )) { #Vah Shir Needle Set, Bone Beaded Belt, Black Chitin Belt
-    quest::say("You're getting better, $name, these are very well done. I believe you're ready to take the acrylia needle that is so necessary to our work. With this needle you'll be able to pierce even the toughest hides almost effortlessly, as well as to stitch the most delicate fabrics without tearing them. The first thing you should work on with this needle are some [Owlbear feathered leggings]. When you have managed to fashion a set of these, bring them to me with your acrylia needle and I'll provide the final tool for your journey toward master tailor.");
+    quest::say("You're getting better, $name, these are very well done. I believe you're ready to take the acrylia needle that is so necessary to our work. With this needle you'll be able to pierce even the toughest hides almost effortlessly, as well as to stitch the most delicate fabrics without tearing them. The first thing you should work on with this needle are some [" . quest::saylink("What Owlbear feathered leggings?",0,"Owlbear feathered leggings") . "]. When you have managed to fashion a set of these, bring them to me with your acrylia needle and I'll provide the final tool for your journey toward master tailor.");
     quest::exp(1000);
     quest::ding();
     quest::summonitem(3915); #Acrylia Needle
   }
   elsif(plugin::check_handin(\%itemcount, 3915 => 1, 3926 => 1)) { #Acrylia Needle, Owlbear Feathered Leggings
-    quest::say("Well done, $name. These leggings are truly the work of an aspiring master tailor. I have just received word from the palace that the king is planning a celebration in the near future, and he wishes the guards to have new uniforms. Take this case and fill it with [owlbear hide tunics] and take it to Elder Hymnist Hortitosh on the roof of the palace. I'm sure the king will be pleased with your work.");
+    quest::say("Well done, $name. These leggings are truly the work of an aspiring master tailor. I have just received word from the palace that the king is planning a celebration in the near future, and he wishes the guards to have new uniforms. Take this case and fill it with [" . quest::saylink("What owlbear hide tunics?",0,"owlbear hide tunics") . "] and take it to Elder Hymnist Hortitosh on the roof of the palace. I'm sure the king will be pleased with your work.");
     quest::exp(1000);
     quest::ding();
     quest::summonitem(3916); #Acrylia Thimble and Needle Set

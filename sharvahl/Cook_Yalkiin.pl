@@ -9,13 +9,13 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Welcome to our kitchen! As you can tell we stay pretty busy in here. There are a lot of people to feed and a vast number of delicious meals to feed them. I'm in charge of preparing [stews], [broth], and [vegetables]. If you ever have any questions about those areas. please let me know.");
+    quest::say("Welcome to our kitchen! As you can tell we stay pretty busy in here. There are a lot of people to feed and a vast number of delicious meals to feed them. I'm in charge of preparing [" . quest::saylink("What stews?",0,"stews") . "], [" . quest::saylink("What broth?",0,"broth") . "], and [" . quest::saylink("What vegetables?",0,"vegetables") . "]. If you ever have any questions about those areas. please let me know.");
   }
   if ($text=~/vegetables/i) {
     quest::say("I could go on forever about vegetables. There is such a huge variety to choose from and so much that you can do with... well... come back a bit later and we can talk about them in greater detail.");
   }
   if ($text=~/stews/i) {
-    quest::say("Stews are a staple in this kitchen. When a cook can't think of a real meal or needs to feed a large number of people in a hurry, they can always whip up a stew. You have to be able to adapt and provide, friend. That's our role here. We're here to make sure people eat. When food is abundant, we can be as lavish as we please. When I'm in a hurry or out of supplies, I like to throw some [beetle claws] in some boiling broth and... bam! It's soup!");
+    quest::say("Stews are a staple in this kitchen. When a cook can't think of a real meal or needs to feed a large number of people in a hurry, they can always whip up a stew. You have to be able to adapt and provide, friend. That's our role here. We're here to make sure people eat. When food is abundant, we can be as lavish as we please. When I'm in a hurry or out of supplies, I like to throw some [" . quest::saylink("What beetle claws?",0,"beetle claws") . "] in some boiling broth and... bam! It's soup!");
   }
   if ($text=~/beetle claws/i) {
     quest::say("Beetle claw stew is quick, easy, and fills stomachs. The main ingredient comes from the Rhino Beetles that can be found in abundance around the city. We use the claws in a variety of dishes, so we can always use a few more. Here, I can give you a bag if you want to go gather some for me. Just fill it up and come back.");

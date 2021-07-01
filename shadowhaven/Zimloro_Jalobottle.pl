@@ -1,13 +1,13 @@
 # items: 4758, 4759, 4765
 sub EVENT_SAY { 
   if($text=~/Hail/i){
-    quest::say("Oi there, $name. If you are lookin for a potion or an antidote I got just what the doctor ordered. Step right up! I also have many other special potions but sadly I do not have the correct [components] for them.");
+    quest::say("Oi there, $name. If you are lookin for a potion or an antidote I got just what the doctor ordered. Step right up! I also have many other special potions but sadly I do not have the correct [" . quest::saylink("What components?",0,"components") . "] for them.");
   }
   if($text=~/components/i){
-    quest::say("Well you see I can make some very magnificent potions. Unfortunately, I am in need of a few [ingredients] that I lost in a lab accident a few days back.");
+    quest::say("Well you see I can make some very magnificent potions. Unfortunately, I am in need of a few [" . quest::saylink("What ingredients?",0,"ingredients") . "] that I lost in a lab accident a few days back.");
   }
   if($text=~/ingredients/i){
-    quest::say("You sure seem interested in my work there, $name. So interested that I think you would be willing to go fetch the components I require for my studies for me! Am I correct? Will you [retrieve these components] for me?");
+    quest::say("You sure seem interested in my work there, $name. So interested that I think you would be willing to go fetch the components I require for my studies for me! Am I correct? Will you [" . quest::saylink("I will retrieve these components",0,"retrieve these components") . "] for me?");
   }
   if($text=~/retrieve these components/i){
     quest::say("Fantastic, $name! Elefan, my apprentice, is currently studying under my wing. He had been collecting samples in Shadeweaver lately and he probably has the items that I need. If you could go and speak with him and present him with this ingredient list, hopefully he will have what I need. Please bring the components back to me as soon as possible!");
@@ -28,6 +28,4 @@ sub EVENT_ITEM {
   }
   plugin::return_items(\%itemcount);
 }
-
 #END of FILE Zone:shadowhaven  ID:150278 -- Zimloro_Jalobottle 
-

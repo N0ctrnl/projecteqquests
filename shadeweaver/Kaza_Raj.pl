@@ -6,7 +6,7 @@
 
 sub EVENT_SAY { 
 	if($text=~/Hail/i) {
-		quest::say("Ah. greetings!  I am Kaza Raj, trainer of young Vah'shir!  Bring me the items I ask and I will reward you with pieces of armor to protect you in your travels.  I have a fine pair of [gloves] available now if you're interested.");
+		quest::say("Ah. greetings!  I am Kaza Raj, trainer of young Vah'shir!  Bring me the items I ask and I will reward you with pieces of armor to protect you in your travels.  I have a fine pair of [" . quest::saylink("What gloves?",0,"gloves") . "] available now if you're interested.");
 	}
 	
 	if($text=~/gloves/i) {
@@ -39,32 +39,32 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
 	if(plugin::check_handin(\%itemcount, 2476 => 4)){#Broken Brigand Skull  x4
-		quest::say("Excellent! Here are your Bracer! Would you like to get some [Boots]?");
+		quest::say("Excellent! Here are your Bracer! Would you like to get some [" . quest::saylink("Boots",0,"Boots") . "]?");
 		quest::summonitem(2453);#Ghulam Bracer
 	}
 	
 	elsif(plugin::check_handin(\%itemcount, 2460 => 4)){#Sharp Bloodling Mandible  x4
-		quest::say("Excellent! Here are your Gloves! Would you like to get a [Bracer]?");
+		quest::say("Excellent! Here are your Gloves! Would you like to get a [" . quest::saylink("Bracer",0,"Bracer") . "]?");
 		quest::summonitem(2452);#Ghulam Gloves
 	}
 	
 	elsif(plugin::check_handin(\%itemcount, 2477 => 4)){#Shadowed Claw  x4
-		quest::say("Excellent! Here are your Boots! Would you like to get some [Sleeves]?");
+		quest::say("Excellent! Here are your Boots! Would you like to get some [" . quest::saylink("Sleeves",0,"Sleeves") . "]?");
 		quest::summonitem(2454);#Ghulam Boots
 	}
 
 	elsif(plugin::check_handin(\%itemcount, 2478 => 4)){#Loda Kai Earring  x4
-		quest::say("Excellent! Here are your Sleeves! Would you like to get a [Cap]?");
+		quest::say("Excellent! Here are your Sleeves! Would you like to get a [" . quest::saylink("Cap",0,"Cap") . "]?");
 		quest::summonitem(2455);#Ghulam Armguards
 	}
 
 	elsif(plugin::check_handin(\%itemcount, 2479 => 4)){#Loda Kai Insignia  x4
-		quest::say("Excellent! Here is your Cap! Would you like to get some [Pants]?");
+		quest::say("Excellent! Here is your Cap! Would you like to get some [" . quest::saylink("Pants",0,"Pants") . "]?");
 		quest::summonitem(2456);#Ghulam Cap 
 	}
 
 	elsif(plugin::check_handin(\%itemcount, 2480 => 4)){#Saurek Fang  x4
-		quest::say("Excellent! Here are your Pants! Would you like to get a [Tunic]?");
+		quest::say("Excellent! Here are your Pants! Would you like to get a [" . quest::saylink("Tunics",0,"Tunics") . "]?");
 		quest::summonitem(2457);#Ghulam Legplates 
 	}
 

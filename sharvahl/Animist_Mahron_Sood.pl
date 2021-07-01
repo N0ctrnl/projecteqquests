@@ -4,7 +4,7 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Hail mate. Did you need something from me or are you looking to do me a [favor]?");
+    quest::say("Hail mate. Did you need something from me or are you looking to do me a [" . quest::saylink("What favor?",0,"favor") . "]?");
   }
   if($text=~/favor/i) {
     quest::say("I've been playing with this little hopper for a while with the hopes of maybe domesticating him. He's fond of grimling parts, so that's what I bring him when I come over here to sit around and work on my leatherwork. I'll make you a deal... If you bring me four grimling toes or finger bones, I'll trade them for one of my leather pieces. Don't mix them up though.... I'm trying to see which he likes best... fingers bones or toes.");

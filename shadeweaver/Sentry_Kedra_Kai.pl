@@ -1,11 +1,11 @@
 # items: 10644, 10645, 10646, 10647, 85054
 sub EVENT_SAY { 
   if($text=~/hail/i){
-    quest::say("Well met wanderer. Pay heed to the road you chose to travel on, for there are many [hazards] you may come across no matter which direction you chose.");
+    quest::say("Well met wanderer. Pay heed to the road you chose to travel on, for there are many [" . quest::saylink("What hazards?",0,"hazards") . "] you may come across no matter which direction you chose.");
   }
   if($text=~/hazards/i){
     #Quest: Insect Carapace Shield (Start)
-    quest::say("The western road passes through a dangerous part of the thickets. A rivalry between the strange Tegi clans is afoot. Pay close attention, for the darker ones seem much more hostile than the ones that came before them. The Northern road passes through to the [Paludal] caverns. Once it was a rather safe trade route to the city of Shadow Haven. It has since fallen to regular brigand attacks.. We still get traders coming to sell their wares, but the journey is far more treacherous these days.");
+    quest::say("The western road passes through a dangerous part of the thickets. A rivalry between the strange Tegi clans is afoot. Pay close attention, for the darker ones seem much more hostile than the ones that came before them. The Northern road passes through to the [" . quest::saylink("What is Paludal Caverns?",0,"Paludal Caverns") . "]. Once it was a rather safe trade route to the city of Shadow Haven. It has since fallen to regular brigand attacks.. We still get traders coming to sell their wares, but the journey is far more treacherous these days.");
   }
   if($text=~/paludal/i){
     #Quest: Insect Carapace Shield 

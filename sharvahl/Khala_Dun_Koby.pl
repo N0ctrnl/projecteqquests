@@ -1,7 +1,7 @@
 # items: 29803, 29804, 29805, 29806
 sub EVENT_SAY { 
   if($text=~/Hail/i){
-    quest::say("And hello to you traveler. Beyond this gate lies the Shadeweavers Thicket. You had best go armed. for the [Claw Beasts] have been attacking merchants regularly.");
+    quest::say("And hello to you traveler. Beyond this gate lies the Shadeweavers Thicket. You had best go armed. for the [" . quest::saylink("What Claw Beasts?",0,"Claw Beasts") . "] have been attacking merchants regularly.");
   }
   if($text=~/claw beasts/i){
     quest::say("A true horror. they are mindless predators and quite large to boot. These beasts have massive razor sharp teeth that can rip your arm off cleanly."); 

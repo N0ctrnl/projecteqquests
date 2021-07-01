@@ -7,7 +7,7 @@ sub EVENT_SAY {
     $CorpseCount = COUNT_CORPSES();
     if($text eq "destroy a corpse") {
       if($CorpseCount == 1) {
-        $client->Message(15,'You have '.$CorpseCount.' corpse in the zone, are you certain you wish to [destroy this corpse]? Be very certain that you have the correct corpse unburied. A GM WILL NOT be able to undo this action. If not, I can [bury the corpse] for you.');
+        $client->Message(15,'You have '.$CorpseCount.' corpse in the zone, are you certain you wish to [" . quest::saylink("Destroy the corpse",0,"destroy a corpse") . "]? Be very certain that you have the correct corpse unburied. A GM WILL NOT be able to undo this action. If not, I can [" . quest::saylink("Bury the corpse",0,"bury the corpse") . "] for you.');
         quest::setglobal("dest_corpse",1,0,"M2");
       } elsif($CorpseCount > 1) {
         $client->Message(15,'You have '.$CorpseCount.' corpses in the zone and I am unabled to read your mind to know which one to destroy. Would you like to [bury a corpse] instead?');

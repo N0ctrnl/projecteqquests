@@ -8,7 +8,7 @@ sub EVENT_SAY {
     quest::say("Hello, $name. It's a pleasure to meet you as I do not see many visitors while I am working in the field gathering research.");
   }
   if ($text=~/research/i && $research == 1) {
-    quest::say("Oh I have some different berries and antidote ingredients that I gathered not too long ago. I would imagine these are what he needs. Will you [take the Antidote ingredients] to Zimloro?");
+    quest::say("Oh I have some different berries and antidote ingredients that I gathered not too long ago. I would imagine these are what he needs. Will you [" . quest::saylink("I will take the Antidote ingredients",0,"take the Antidote ingredients") . "] to Zimloro?");
   }
   if ($text=~/take the antidote ingredients/i && $research == 1) {
     quest::say("Here you are, $name. Please bring them to him at once so they do not spoil and thank you for your help.");

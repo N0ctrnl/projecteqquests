@@ -1,7 +1,7 @@
 # items: 5954, 3659, 5958, 17611, 5959, 5960, 5962, 5963, 5965, 5966, 5967
 sub EVENT_SAY {
   if (($text=~/hail/i) && plugin::check_hasitem($client, 3659)) { #Buckler of the Jharin Recruit
-    quest::say("Very well met, young friend. I assume that Gherik has sent you to me for the purpose of training you. Unforunately, I will not be doing any formal training for the several days. I'm taking a bit of a holiday to celebrate my wife's birthday. If you could take this receipt to the [merchant] for me before my wife gets home, I'd appreciate it. I'll place you at the top of my training list as well.");
+    quest::say("Very well met, young friend. I assume that Gherik has sent you to me for the purpose of training you. Unforunately, I will not be doing any formal training for the several days. I'm taking a bit of a holiday to celebrate my wife's birthday. If you could take this receipt to the [" . quest::saylink("What merchant?",0,"merchant") . "] for me before my wife gets home, I'd appreciate it. I'll place you at the top of my training list as well.");
     quest::summonitem(5954); #Gawfed's Receipt
   }
   if ($text=~/merchant/i) {
@@ -11,7 +11,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 3659 => 1)) { #Buckler of the Jharin Recruit
-    quest::say("Very well met, young friend. I assume that Gherik has sent you to me for the purpose of training you. Unforunately, I will not be doing any formal training for the several days. I'm taking a bit of a holiday to celebrate my wife's birthday. If you could take this receipt to the [merchant] for me before my wife gets home, I'd appreciate it. I'll place you at the top of my training list as well.");
+    quest::say("Very well met, young friend. I assume that Gherik has sent you to me for the purpose of training you. Unforunately, I will not be doing any formal training for the several days. I'm taking a bit of a holiday to celebrate my wife's birthday. If you could take this receipt to the [" . quest::saylink("What merchant?",0,"merchant") . "] for me before my wife gets home, I'd appreciate it. I'll place you at the top of my training list as well.");
     quest::summonitem(3659); #Buckler of the Jharin Recruit
     quest::summonitem(5954); #Gawfed's Receipt
   }

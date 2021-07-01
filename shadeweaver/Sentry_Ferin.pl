@@ -4,10 +4,10 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    quest::say("Hail, $name. Pardon, but I've no time for chit chat, the [poachers] never rest.");
+    quest::say("Hail, $name. Pardon, but I've no time for chit chat, the [" . quest::saylink("What poachers?",0,"poachers") . "] never rest.");
   }
   if ($text=~/poachers/i) {
-    quest::say("Some of the Loda Kai heathens have seen fit to trade in the pelts of our felidae cousins. It disgusts me to think what they are doing with the hides of the proud cats of this land. Were there only adventurers brave enough to [champion their cause]...");
+    quest::say("Some of the Loda Kai heathens have seen fit to trade in the pelts of our felidae cousins. It disgusts me to think what they are doing with the hides of the proud cats of this land. Were there only adventurers brave enough to [" . quest::saylink("I will champion their cause",0,"champion their cause") . "]...");
   }
   if ($text=~/champion their cause/i) {
     quest::say("Fighting for the honor of our cause is no small undertaking. Go and hunt down this cowardly lot. Take back from them what they have stolen and fill this casket so that the fallen cats might be honored properly.");
