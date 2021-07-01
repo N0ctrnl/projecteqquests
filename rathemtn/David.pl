@@ -7,7 +7,7 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("I, the keeper of the [Bracers of Ro], welcome you. Come and rest within our camp. You have nothing to fear while such righteous might is gathered.");
+    quest::say("I, the keeper of the [" . quest::saylink("What Bracers of Ro?",0,"Bracers of Ro") . "], welcome you. Come and rest within our camp. You have nothing to fear while such righteous might is gathered.");
   }
   elsif ($faction > 5) {
     quest::say("We, the Deepwater Knights, know of your vile ways. You had best leave while you can.");

@@ -9,10 +9,10 @@
 sub EVENT_SAY {
 
    if($text=~/Hail/i){
-      quest::say("Finally, a servant worthy of my needs! Apparently you are of high status, which perhaps means you might know a master [jeweler] capable of faceting a very magical, yet fragile stone?");
+      quest::say("Finally, a servant worthy of my needs! Apparently you are of high status, which perhaps means you might know a master [" . quest::saylink("I am a master jeweler",0,"jeweler") . "] capable of faceting a very magical, yet fragile stone?");
    }
    if($text=~/jeweler/i){
-      quest::say("You must provide me with 2000 platinum pieces as a deposit, then you must take this stone to a master jeweler or [Darfumpel], have it faceted and return it to me along with an orb of pure crystal, a gold necklace the color of snow, and the [blood of Xenyari]. Do that and I will provide you with magic beyond that of most knights of darkness.");
+      quest::say("You must provide me with 2000 platinum pieces as a deposit, then you must take this stone to a master jeweler or [" . quest::saylink("Who is Darfumpel",0,"Darfumpel") . "], have it faceted and return it to me along with an orb of pure crystal, a gold necklace the color of snow, and the [" . quest::saylink("What blood of Xenyari?",0,"blood of Xenyari") . "]. Do that and I will provide you with magic beyond that of most knights of darkness.");
    }
    if($text=~/darfumpel/i){
       quest::say("Darfumpel is a gnomish shopkeeper here in the Rathe Mountains. He apparently has a new technique for gemcutting, however, he will not deal with me due to my affiliation with necromancy. Speak with him. Perhaps he might be willing to aid you for a price, but make sure you hide your true nature. He despises dark magic.");

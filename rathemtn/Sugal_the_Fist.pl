@@ -4,17 +4,14 @@ sub EVENT_SAY {
     if ($race eq "Froglok") {
       if ($client->HasSkill(0) && $client->HasSkill(1) && $client->HasSkill(2) && $client->HasSkill(3) && $client->HasSkill(36)) {
         if (defined $qglobals{token} && $qglobals{token} == 1) {
-          quest::say("And hail to you. Well, let me have a look at you. You sure that you have [really trained]?");
+          quest::say("And hail to you. Well, let me have a look at you. You sure that you have [" . quest::saylink("I have really trained",0,"really trained") . "]?");
+        } else {
+          quest::say("You're late! Feast of flies, what a weakling you are! We have no time to lose. [" . quest::saylink("Why no rest?",0,"No rest") . "] for the strong.");
         }
-        else {
-          quest::say("You're late! Feast of flies, what a weakling you are! We have no time to lose. [No rest] for the strong.");
-        }
-      }
-      else {
+      } else {
         quest::say("Wander away, tad. You do not have what it takes.");
       }
-    }
-    else {
+    } else {
       quest::say("The Fist Strikes!");
       $npc->CastSpell(905, $userid); # Spell: Avatar Knockback
     }
@@ -22,13 +19,11 @@ sub EVENT_SAY {
   if ($text=~/no rest/i) {
     if ($race eq "Froglok") {
       if ($client->HasSkill(0) && $client->HasSkill(1) && $client->HasSkill(2) && $client->HasSkill(3) && $client->HasSkill(36)) {
-        quest::say("You've slept your last easy night, recruit. If you want to stay a common footman, then keep hopping. But if you think you can be elite, if you think you can hack being a commando, then you've come to the [right place]. Welcome to the Guja.");
-      }
-      else {
+        quest::say("You've slept your last easy night, recruit. If you want to stay a common footman, then keep hopping. But if you think you can be elite, if you think you can hack being a commando, then you've come to the [" . quest::saylink("What right place?",0,"right place") . "]. Welcome to the Guja.");
+      } else {
         quest::say("Wander away, tad. You do not have what it takes.");
       }
-    }
-    else {
+    } else {
       quest::say("The Fist Strikes!");
       $npc->CastSpell(905, $userid); # Spell: Avatar Knockback
     }
@@ -36,39 +31,34 @@ sub EVENT_SAY {
   if ($text=~/right place/i) {
     if ($race eq "Froglok") {
       if ($client->HasSkill(0) && $client->HasSkill(1) && $client->HasSkill(2) && $client->HasSkill(3) && $client->HasSkill(36)) {
-        quest::say("First things first. You need weapon practice. The army will take anyone who knows how to hold a pointy stick. A Guja, however, must know every means of combat. Go. Find some fights. Return to me when all your skills with blunt, slashing and piercing weapons have been honed to at least 75. Tell me then that you are [truly ready].");
-      }
-      else {
+        quest::say("First things first. You need weapon practice. The army will take anyone who knows how to hold a pointy stick. A Guja, however, must know every means of combat. Go. Find some fights. Return to me when all your skills with blunt, slashing and piercing weapons have been honed to at least 75. Tell me then that you are [" . quest::saylink("I am truly ready",0,"truly ready") . "].");
+      } else {
         quest::say("Wander away, tad. You do not have what it takes.");
       }
-    }
-    else {
+    } else {
       quest::say("The Fist Strikes!");
       $npc->CastSpell(905, $userid); # Spell: Avatar Knockback
     }
   }
   if ($text=~/truly ready/i) {
     if ($client->GetSkill(0) >= 75 && $client->GetSkill(1) >= 75 && $client->GetSkill(2) >= 75 && $client->GetSkill(3) >= 75 && $client->GetSkill(36) >= 75) {
-      quest::say("Good. That's a foundation we can build on. Now for your first round of training. A Guja must be adept at surviving in all forms of terrain. The swamp is warm, moist and comfortable. But you must learn to [live anywhere].");
-    }
-    else {
+      quest::say("Good. That's a foundation we can build on. Now for your first round of training. A Guja must be adept at surviving in all forms of terrain. The swamp is warm, moist and comfortable. But you must learn to [" . quest::saylink("Learn to live anywhere?",0,"live anywhere") . "].");
+    } else {
        quest::say("Ha! You're eager, but you're not ready. Go find some more fights.");
     }
   }
   if ($text=~/live anywhere/i) {
     if ($client->GetSkill(0) >= 75 && $client->GetSkill(1) >= 75 && $client->GetSkill(2) >= 75 && $client->GetSkill(3) >= 75 && $client->GetSkill(36) >= 75) {
-      quest::say("Extremes of temperature and humidity are the worst. Deserts, tundra and rocky terrain are our enemies. And so they shall be the first enemies you defeat. Take this pack. Go to Lavastorm, the Northern Desert of Ro, and distant Everfrost. Live in each for a time, taking your food from the land. Bring me back two [different examples] from each area to prove your skill.");
+      quest::say("Extremes of temperature and humidity are the worst. Deserts, tundra and rocky terrain are our enemies. And so they shall be the first enemies you defeat. Take this pack. Go to Lavastorm, the Northern Desert of Ro, and distant Everfrost. Live in each for a time, taking your food from the land. Bring me back two [" . quest::saylink("What different examples?",0,"different examples") . "] from each area to prove your skill.");
       quest::summonitem(17272); # Basic Survival Pack
-    }
-    else {
+    } else {
       quest::say("Ha! You're eager, but you're not ready. Go find some more fights.");
     }
   }
   if ($text=~/different examples/i) {
     if ($client->GetSkill(0) >= 75 && $client->GetSkill(1) >= 75 && $client->GetSkill(2) >= 75 && $client->GetSkill(3) >= 75 && $client->GetSkill(36) >= 75) {
       quest::say("From North Ro collect Blackrock Lichen and Dry Eye Weed. From Everfrost collect Ice Blood and Winter Lilly. And finally, from Lavastorm collect Stonefruit and Lava Pears. Combine them into a useful bundle and return once you've learned your way.");
-    }
-    else {
+    } else {
       quest::say("Ha! You're eager, but you're not ready. Go find some more fights.");
     }
   }
@@ -76,14 +66,13 @@ sub EVENT_SAY {
     if ($client->GetSkill(0) >= 125 && $client->GetSkill(1) >= 125 && $client->GetSkill(2) >= 125 && $client->GetSkill(3) >= 125 && $client->GetSkill(36) >= 125) {
       quest::say("I see that you were right. Well, you'll need all of those skills for the next round of your training. You've proven you could survive where frogloks do not flourish. Now let's see how adept you are in our own elements. Go find Guja Master Therik in Lake Rathetear. And by in, I do mean IN. But watch out for the barbarians nearby. Ha! That old war dog. Take him this as a gift. I'm sure he'll get the joke.");
       quest::summonitem(63099); # Therik's Tooth
-    }
-    else {
+    } else {
       quest::say("Ha! You're eager, but you're not ready. Go find some more fights.");
     }
   }
   if ($text=~/third notch/i) {
     if (defined $qglobals{token} && $qglobals{token} == 2) {
-      quest::say("Though the trolls represent a threat to our people, their threat is distant. The Lizardmen of The Feerrott, however, present a real and menacing danger. I know that they already feed on our young and plan our demise. But we will [act first].");
+      quest::say("Though the trolls represent a threat to our people, their threat is distant. The Lizardmen of The Feerrott, however, present a real and menacing danger. I know that they already feed on our young and plan our demise. But we will [" . quest::saylink("I will act first",0,"act first") . "].");
     }
   }
   if ($text=~/act first/i) {
@@ -94,7 +83,7 @@ sub EVENT_SAY {
   }
   if ($text=~/another option/i) {
     if ($race eq "Froglok" && defined $qglobals{token} && $qglobals{token} == 3) {
-      quest::say("The lizardmen have challenged us, demanding that you represent Gukta. Should you win, war will be averted and many lives spared. Of course, it may mean your [own life].");
+      quest::say("The lizardmen have challenged us, demanding that you represent Gukta. Should you win, war will be averted and many lives spared. Of course, it may mean your [" . quest::saylink("My own life?",0,"own life") . "].");
     }
   }
   if ($text=~/own life/i) {
@@ -115,7 +104,7 @@ sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 63098 => 1)) { # Notched Gukta Token
     if ($race eq "Froglok" && defined $qglobals{token} && $qglobals{token} == 1) {
       if ($client->GetSkill(0) >= 165 && $client->GetSkill(1) >= 165 && $client->GetSkill(2) >= 165 && $client->GetSkill(3) >= 165 && $client->GetSkill(36) >= 165) {
-        quest::say("Hmm, You've learned much. You know how to survive in a wide variety of environments. You've learned the ways of watery warfare. Yes, I will notch your token. But the [third notch] is something you must earn on your own.");
+        quest::say("Hmm, You've learned much. You know how to survive in a wide variety of environments. You've learned the ways of watery warfare. Yes, I will notch your token. But the [" . quest::saylink("What third notch?",0,"third notch") . "] is something you must earn on your own.");
         quest::exp(10000);
         quest::summonitem(63103); # Twice Notched Guja Token
         quest::setglobal("token", 2, 5, "F");
@@ -128,7 +117,7 @@ sub EVENT_ITEM {
   }
   if (plugin::check_handin(\%itemcount, 63103 => 1, 63104 => 1)) { # Twice Notched Guja Token, Lizardman Samples
     if ($race eq "Froglok" && defined $qglobals{token} && $qglobals{token} == 2) {
-      quest::say("I wish I could say I welcome your return. But news has reached us. Apparently you did your job too well. The Lizardmen are even now readying for war. We cannot afford that fight. The council has decided we must . . .accept [another option].");
+      quest::say("I wish I could say I welcome your return. But news has reached us. Apparently you did your job too well. The Lizardmen are even now readying for war. We cannot afford that fight. The council has decided we must . . .accept [" . quest::saylink("Another option?",0,"another option") . "].");
       quest::exp(10000);
       quest::summonitem(63105); # Thrice Notched Guja Token
       quest::setglobal("token", 3, 5, "F");

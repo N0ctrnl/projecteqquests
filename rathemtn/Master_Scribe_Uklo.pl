@@ -11,23 +11,23 @@
 sub EVENT_SAY {
 
   if($text=~/Hail/i){
-    quest::say("Well met! Welcome to Gukta, the Outpost of Marr -- our new home and base of operations for our fight to remove the trolls from the rest of our beautiful swamp. The liberation of Gukta was quite a battle! Many brave Froglok warriors, a good dose of [powerful magic] and the blessings of Mithaniel Marr allowed us to cleanse this place of the vile Trolls.");
+    quest::say("Well met! Welcome to Gukta, the Outpost of Marr -- our new home and base of operations for our fight to remove the trolls from the rest of our beautiful swamp. The liberation of Gukta was quite a battle! Many brave Froglok warriors, a good dose of [" . quest::saylink("What powerful magic?",0,"powerful magic") . "] and the blessings of Mithaniel Marr allowed us to cleanse this place of the vile Trolls.");
     }
 
   if($text=~/powerful magic/i){
-   quest::say("Our battle wizards called many comets of ice from the sky, along with bolts of pure magical force, brutal walls of flame and even [illusions] to confuse and disorient the stupid trolls.");
+   quest::say("Our battle wizards called many comets of ice from the sky, along with bolts of pure magical force, brutal walls of flame and even [" . quest::saylink("What illusions?",0,"illusions") . "] to confuse and disorient the stupid trolls.");
     }
 
   if($text=~/illusions/i){
-    quest::say("A select few of Mithaniel's chosen know the secrets of spinning illusions. This skill allowed our bravest warriors to infiltrate the Troll's defenses and ensure victory. These are some of our most closely guarded secrets. We only [teach] them to a select few so they can better aid us in our battle.");
+    quest::say("A select few of Mithaniel's chosen know the secrets of spinning illusions. This skill allowed our bravest warriors to infiltrate the Troll's defenses and ensure victory. These are some of our most closely guarded secrets. We only [" . quest::saylink("Teach me",0,"teach") . "] them to a select few so they can better aid us in our battle.");
     }
 
   if($text=~/teach me/i){
-    quest::say("You must first [prove] yourself a friend of Gukta before I will teach you our secrets.");
+    quest::say("You must first [" . quest::saylink("I will prove myself",0,"prove") . "] yourself a friend of Gukta before I will teach you our secrets.");
     }
 
   if($text=~/prove myself/i){
-    quest::say("Very well, I will put your loyalty to the test. Long ago, a great hero of our people lost his life fighting the Trolls. He was in Rathe Mountains investigating a rumor that the Trolls were stockpiling special weapons in an effort to turn the tide of war back in their favor. He was ambushed by a group of troll marauders and their captain Krignok. He fought valiantly, slaying the marauders and eventually locking swords with the captain. But in the end, exhaustion got the better of him and he died by the troll's hand. The Krignok respected the froglok's ferocity and swore that they would one day finish their fight. So through a dark ritual the troll Captain locked the froglok's spirit in his own sword and broke it into 3 pieces. One piece he placed on the [battlefield] where they fought. The other piece he gave to an [infamous troll] warrior to guard. The location of the third piece has been lost over the time but there are [clues] as to where it may be.");
+    quest::say("Very well, I will put your loyalty to the test. Long ago, a great hero of our people lost his life fighting the Trolls. He was in Rathe Mountains investigating a rumor that the Trolls were stockpiling special weapons in an effort to turn the tide of war back in their favor. He was ambushed by a group of troll marauders and their captain Krignok. He fought valiantly, slaying the marauders and eventually locking swords with the captain. But in the end, exhaustion got the better of him and he died by the troll's hand. The Krignok respected the froglok's ferocity and swore that they would one day finish their fight. So through a dark ritual the troll Captain locked the froglok's spirit in his own sword and broke it into 3 pieces. One piece he placed on the [" . quest::saylink("What battlefield?",0,"battlefield") . "] where they fought. The other piece he gave to an [" . quest::saylink("What infamous troll?",0,"infamous troll") . "] warrior to guard. The location of the third piece has been lost over the time but there are [" . quest::saylink("What clues?",0,"clues") . "] as to where it may be.");
     }
 
   if($text=~/battlefield/i){

@@ -8,9 +8,9 @@ function event_say(e)
 				elseif (e.other:HasItem(63116)) then
 					e.self:Say("AMAZING!  'Frogs falling from the sky', the bards are crying. I didn't imagine you could make a bigger fool of yourself. Again, you've proven me wrong. I'll not let you off with some simple job this time. No! Go to the Direlands and slay the Time Torn Acolyte. It is a dangerous land and you will have to use your wits . . .I hope! Find some proof of your success. Return both the prism and the proof to me. I shall consider, one last time, to continue your learning.");
 				elseif (e.other:HasItem(63117)) then
-					e.self:Say("Hmph.  We shall see how expert you are.  Now it is time for greater subtlety of skill.  Are you [well prepared]?");
+					e.self:Say("Hmph.  We shall see how expert you are.  Now it is time for greater subtlety of skill.  Are you [" .. eq.say_link("I am well prepared",false,"well prepared") .. "]?");
 				else 
-					e.self:Say("I see that you've chose the arcane path, young wizard. Very well. I cannot dissuade you now. Only the gods know how much I regret my [own choice].");
+					e.self:Say("I see that you've chose the arcane path, young wizard. Very well. I cannot dissuade you now. Only the gods know how much I regret my [" .. eq.say_link("What own choice?",false,"own choice") .. "].");
 				end
 			else
 				e.self:Say("You are not ready for my instruction yet, young one.");
@@ -27,9 +27,9 @@ function event_say(e)
 			end
 		end
 	elseif (e.message:findi("own choice")) then
-		e.self:Say("This power, this mantle of responsibility we wield. This yoke. Truth be told, I know why you've chosen this path. You want the power. You beg for the yoke. Well, I will not teach you as I was taught. There are other, more important, lessons to [learn].");
+		e.self:Say("This power, this mantle of responsibility we wield. This yoke. Truth be told, I know why you've chosen this path. You want the power. You beg for the yoke. Well, I will not teach you as I was taught. There are other, more important, lessons to [" .. eq.say_link("What lessons to learn?",false,"learn") .. "].");
 	elseif (e.message:findi("learn")) then
-		e.self:Say("First and foremost you must master your budding control of time and space. The other energies you wield pale in comparison to this. You will find practice for them enough in your common experience. It is not the same with [teleportation].");
+		e.self:Say("First and foremost you must master your budding control of time and space. The other energies you wield pale in comparison to this. You will find practice for them enough in your common experience. It is not the same with [" .. eq.say_link("What teleportation?",false,"teleportation") .. "].");
 	elseif (e.message:findi("teleportation")) then
 		e.self:Say("Even though you may have learned to gate in retreat or take the broad bridges of the spires, you are far from ready. Let us see if you can use the unwritten knowledge in your blood. Take this Portal Prism. Study it. When you think you've learned its secrets, give it back to me and we shall test your learning.");
 		e.other:SummonItem(63114); -- Portal Prism
@@ -60,7 +60,7 @@ function event_trade(e)
 		e.other:SummonItem(15562); -- Item: Spell: North Portal
 	-- Purged Portal Prism
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 63117})) then
-		e.self:Say("Yes. It grows in power. As do you. Now, I've started a spell within it. Let's have you experiment a bit. Use Igok. He's daft and nearly useless. A perfect test subject. Take the prism and focus your energies on it, but keep me as your target. You must split your concentration. Good. Now, slowly, allow those energies to extend towards Igok there. Do you feel the [growing power]?");
+		e.self:Say("Yes. It grows in power. As do you. Now, I've started a spell within it. Let's have you experiment a bit. Use Igok. He's daft and nearly useless. A perfect test subject. Take the prism and focus your energies on it, but keep me as your target. You must split your concentration. Good. Now, slowly, allow those energies to extend towards Igok there. Do you feel the [" .. eq.say_link("What growing power?",false,"growing power") .. "]?");
 		e.other:SummonItem(63118); -- Attuned Portal Prism
 	-- Attuned Portal Prism, First Igok Fragment, Second Igok Fragment
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 63118, item2 = 63127, item3 = 63128})) then

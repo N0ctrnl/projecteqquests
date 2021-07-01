@@ -1,14 +1,14 @@
 # items: 14707, 14703, 9240, 11603, 11622, 14402, 1000, 11623
 sub EVENT_SAY {
   if($text=~/hail/i){
-   quest::say("Welcome. I have a number of platemail items, if you are interested. I am also a master [smith] of exotic materials such as dragon scales.");
+   quest::say("Welcome. I have a number of platemail items, if you are interested. I am also a master [" . quest::saylink("What smith?",0,"smith") . "] of exotic materials such as dragon scales.");
   }
   if($text=~/smith/i){
-   quest::say("Dragon scales make terrific armor. I can make a [white dragonscale cloak] and [red dragonscale armor]. I have not seen any other colored dragon variants around. But if you see any, be sure to let me know. I would be interested in what can be made from their scales.");
+   quest::say("Dragon scales make terrific armor. I can make a [" . quest::saylink("What White Dragonscale Cloak?",0,"White Dragonscale Cloak") . "] and [" . quest::saylink("What red dragonscale armor?",0,"red dragonscale armor") . "]. I have not seen any other colored dragon variants around. But if you see any, be sure to let me know. I would be interested in what can be made from their scales.");
   }
   if($text=~/white dragonscale cloak/i){
    #White Dragonscale Cloak (START)
-   quest::say("Hrmmm. A white dragonscale cloak eh? Hrmmm. Well, I will make you a deal. You can save me some footwork and I will craft your cloak. I want to propose to my [fiancee] but I have neither a [wedding ring] nor a [present] for her. So, return with a white dragon hide, a wedding ring, and a present for my fiancee, and I will fashion your cloak for you.");
+   quest::say("Hrmmm. A white dragonscale cloak eh? Hrmmm. Well, I will make you a deal. You can save me some footwork and I will craft your cloak. I want to propose to my [" . quest::saylink("What fiancee?",0,"fiancee") . "] but I have neither a [" . quest::saylink("What wedding ring?",0,"wedding ring") . "] nor a [" . quest::saylink("What present?",0,"present") . "] for her. So, return with a white dragon hide, a wedding ring, and a present for my fiancee, and I will fashion your cloak for you.");
   }
   if($text=~/fiancee/i){
    #White Dragonscale Cloak 

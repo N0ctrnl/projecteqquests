@@ -3,7 +3,7 @@
 
 sub EVENT_SAY {
   if($text=~/Regis/i){
-    quest::say("Regis was my one true love, but he was [killed] and his soul enslaved by Zahal the Vile.");
+    quest::say("Regis was my one true love, but he was [" . quest::saylink("How was he killed?",0,"killed") . "] and his soul enslaved by Zahal the Vile.");
   }
   if($text=~/killed/i){
     quest::say("He was killed in the northern tree line to the east in North Karana. If you kill Zahal, Regis' body will rise from the place where he died. If my flute is on the body, please bring it to me.");

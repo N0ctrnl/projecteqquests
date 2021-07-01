@@ -7,7 +7,7 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Very good to meet you, $name. I am the keeper of the [Greaves of Ro]. Please feel free to rest and recuperate here. We shall see that you are safe from the evils of the Rathe Mountains.");
+    quest::say("Very good to meet you, $name. I am the keeper of the [" . quest::saylink("What Greaves of Ro?",0,"Greaves of Ro") . "]. Please feel free to rest and recuperate here. We shall see that you are safe from the evils of the Rathe Mountains.");
   }
   elsif ($faction > 5) {
     quest::say("Leave my presence at once. Your ways of life are not acceptable to one who follows the Truthbringer.");

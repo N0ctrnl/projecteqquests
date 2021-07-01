@@ -1,7 +1,7 @@
 -- items: 18014
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Oh, hello! Welcome to Surefall Glade. Are you planning a trip to Qeynos? If you are, I could use some help finding my [brother].");
+		e.self:Say("Oh, hello! Welcome to Surefall Glade. Are you planning a trip to Qeynos? If you are, I could use some help finding my [" .. eq.say_link("Who is your brother?",false,"brother") .. "].");
 	elseif(e.message:findi("brother")) then
 		e.self:Say("My brother Ronn went to Qeynos several days ago for supplies. He was just going to Sneed's and back. But he hasn't been seen since. I can't leave the Glade because the Sabertooths could attack at any minute. Could you please find out what happened to my brother? Ask Sneed about [Ronn Castekin].");
 	end

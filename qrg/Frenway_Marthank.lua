@@ -1,7 +1,7 @@
 -- items: 18809, 13912
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings. stranger. Please excuse my melancholy state.  I have had some [bad news] that has brought me great sorrow.");
+		e.self:Say("Greetings. stranger. Please excuse my melancholy state.  I have had some [" .. eq.say_link("What bad news?",false,"bad news") .. "] that has brought me great sorrow.");
 	elseif(e.message:findi("bayle list")) then
 		e.self:Say("The Bayle List is gone. It lies inside the belly of that beast, Mammoth");
 	elseif(e.message:findi("mammoth")) then

@@ -1,24 +1,24 @@
 # items: 17831, 63080, 63086, 63084, 63082, 63081, 63085, 63083, 63089, 51036, 51019, 63079
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Welcome back, young Jin. I hope your training is going well. Unfortunately, I have been unable to keep up to date on your progress, but should you need advanced training in any individual skills, for I am never too busy to enlighten one of my kin. You may have chosen a life of adventure, a life that will take you far from our home, but never forget your duty to your blood. The Guktan Army needs your growing powers. To remind you of this and school you in the way of our people, I will tell you something of [this place].");
+    quest::say("Welcome back, young Jin. I hope your training is going well. Unfortunately, I have been unable to keep up to date on your progress, but should you need advanced training in any individual skills, for I am never too busy to enlighten one of my kin. You may have chosen a life of adventure, a life that will take you far from our home, but never forget your duty to your blood. The Guktan Army needs your growing powers. To remind you of this and school you in the way of our people, I will tell you something of [" . quest::saylink("What of this place?",0,"this place") . "].");
   }
   
   if ($text=~/this place/i) {
-    quest::say("The fetid land we now live on of holds many evils. Trolls and other evil ilk still wander the Innothule Swamp, ready to feast on Froglok flesh. Their allies, the ogres, infest the Feerrott to the south, vying with the cursed Lizard men in a lasting contest of evil. Our lands stand distant from the other good races, separated by wastelands and deserts. Our army is our only defense. But that is enough. I am the teacher of young [froglok wizards].");
+    quest::say("The fetid land we now live on of holds many evils. Trolls and other evil ilk still wander the Innothule Swamp, ready to feast on Froglok flesh. Their allies, the ogres, infest the Feerrott to the south, vying with the cursed Lizard men in a lasting contest of evil. Our lands stand distant from the other good races, separated by wastelands and deserts. Our army is our only defense. But that is enough. I am the teacher of young [" . quest::saylink("What froglok wizards?",0,"froglok wizards") . "].");
   }
   
   if ($text=~/froglok wizards/i) {
-  quest::say("That is your path? Good. Then we must begin immediately for time is short. The arcane path ahead of you is fraught with dangers, many of them of your own making. I will guide you as I can, so [listen well].");
+  quest::say("That is your path? Good. Then we must begin immediately for time is short. The arcane path ahead of you is fraught with dangers, many of them of your own making. I will guide you as I can, so [" . quest::saylink("I will listen well",0,"listen well") . "].");
     }
     
     if ($text=~/listen well/i) {
-    quest::say("This Arcane Crucible will allow you to combine [various components] to form a basic magical mesh. This mesh, when combined with the proper mold and worked in a forge, will allow you to create your own Armor of the Jin Initiate.");
+    quest::say("This Arcane Crucible will allow you to combine [" . quest::saylink("What various components?",0,"various components") . "] to form a basic magical mesh. This mesh, when combined with the proper mold and worked in a forge, will allow you to create your own Armor of the Jin Initiate.");
     quest::summonitem(17831); # Item: Arcane Crucible
       }
       
       if ($text=~/various components/i) {
-      quest::say("These are not the usual components used in spells. Look instead in Innothule Swamp for your pieces. The many enemies and vermin that stalk that bog hold items which are only trash to others. But to you they will eventually become treasures. When you are ready to attempt making your armor, return and tell me what you wish to make and I will instruct you. I can teach you the recipes and give you the proper molds for the Armor of the Jin Initiate [Headband], [Vestment], [Armwraps], [Bracer], [Handwraps], [Leggings], and [Sandals].");
+      quest::say("These are not the usual components used in spells. Look instead in Innothule Swamp for your pieces. The many enemies and vermin that stalk that bog hold items which are only trash to others. But to you they will eventually become treasures. When you are ready to attempt making your armor, return and tell me what you wish to make and I will instruct you. I can teach you the recipes and give you the proper molds for the Armor of the Jin Initiate [" . quest::saylink("Headband",0,"Headband") . "], [" . quest::saylink("Vestment",0,"Vestment") . "], [" . quest::saylink("Armwraps",0,"Armwraps") . "], [" . quest::saylink("Bracers",0,"Bracers") . "], [" . quest::saylink("Handwraps",0,"Handwraps") . "], [" . quest::saylink("Leggings",0,"Leggings") . "], and [" . quest::saylink("Sandals",0,"Sandals") . "].");
         }
         
         if ($text=~/headband/i) {
@@ -27,7 +27,7 @@ sub EVENT_SAY {
         }
         
         if ($text=~/vestment/i) {
-        quest::say("The true mark of an initiate and a banner to the world of our growing might. To make it you'll need a Pristine Bull Alligator Hide, Bull Alligator Spines, a Giant Moccasin Eye and some Spiderling Silk. When you have the proper basic mesh in hand, take it to a forge along with this mold to finish your Vestment of the Jin Initiate. There is a [final lesson] you must learn.");
+        quest::say("The true mark of an initiate and a banner to the world of our growing might. To make it you'll need a Pristine Bull Alligator Hide, Bull Alligator Spines, a Giant Moccasin Eye and some Spiderling Silk. When you have the proper basic mesh in hand, take it to a forge along with this mold to finish your Vestment of the Jin Initiate. There is a [" . quest::saylink("What final lesson?",0,"final lesson") . "] you must learn.");
         quest::summonitem(63086); # Item: Jin Vestment Mold
         }
         
@@ -57,7 +57,7 @@ sub EVENT_SAY {
         }
         
         if ($text=~/final lesson/i) {
-           quest::say("It is said, with power must come mercy or only tyranny can result. Well there is one in need of mercy, the mercy of death. A former student of mine, Initiate Xabbis, tried his skills against the ghouls of the swamp. But he only became one himself. Now, he wanders near the broken tower, his soul a toy for the evil gods. I beg you, go free him. Go . . .[slay him].");
+           quest::say("It is said, with power must come mercy or only tyranny can result. Well there is one in need of mercy, the mercy of death. A former student of mine, Initiate Xabbis, tried his skills against the ghouls of the swamp. But he only became one himself. Now, he wanders near the broken tower, his soul a toy for the evil gods. I beg you, go free him. Go . . .[" . quest::saylink("I will slay him",0,"slay him") . "].");
         }
         
         if ($text=~/slay him/i) {

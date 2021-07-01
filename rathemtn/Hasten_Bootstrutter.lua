@@ -7,9 +7,9 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Stopped I have done. Greet you I will. What business do we have? Hmm? Speak up!!");
 	elseif(e.message:findi("journeyman boot")) then
-		e.self:Say("Journeyman Boots are what you seek? Ha!! I have those upon my feet and disinigrate will they if my life is taken. Extra pair have I and [rare trade] can we make.");
+		e.self:Say("Journeyman Boots are what you seek? Ha!! I have those upon my feet and disinigrate will they if my life is taken. Extra pair have I and [" .. eq.say_link("What rare trade?",false,"rare trade") .. "] can we make.");
 	elseif(e.message:findi("rare trade")) then
-		e.self:Say("I call for three things and Journeyman Boots are yours. I call for a [Shadowed Rapier], call for the [Ring of the Ancients] and call for Gold.. 3250 Gold Coins!! This the trade that I call.");
+		e.self:Say("I call for three things and Journeyman Boots are yours. I call for a [" .. eq.say_link("What Shadowed Rapier?",false,"Shadowed Rapier") .. "], call for the [" .. eq.say_link("What Ring of the Ancients?",false,"Ring of the Ancients") .. "] and call for Gold.. 3250 Gold Coins!! This the trade that I call.");
 	elseif(e.message:findi("shadowed rapier")) then
 		e.self:Say("Shadowed Men, foes to all, have appeared. Many lands do they walk. Invisible are they, but items they wield can be seen. Seek them out and return to me a Shadowed Rapier. Return it with haste before 'poof' goes the rapier!! No time to camp have you.");
 	elseif(e.message:findi("ring of the ancient")) then

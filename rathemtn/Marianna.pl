@@ -7,7 +7,7 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Rodcet Nife welcomes you into our noble camp. I am the keeper of the [Vambraces of Ro].");
+    quest::say("Rodcet Nife welcomes you into our noble camp. I am the keeper of the [" . quest::saylink("What Vambraces of Ro?",0,"Vambraces of Ro") . "].");
   }
   elsif ($faction > 5) {
     quest::say("Foolish person!! The word is out amongst the followers of the Prime Healer not to trust you.");

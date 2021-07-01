@@ -9,7 +9,7 @@
 sub EVENT_SAY {
  if($race=~/froglok/i) {
   if($text=~/hail/i) {
-   quest::say("Nice to meet you, $name! Please have a look at my wares, I have taken great pains to brings only the best that the mountains have to offer. Or perhaps you are here to make an [exchange]?");
+   quest::say("Nice to meet you, $name! Please have a look at my wares, I have taken great pains to brings only the best that the mountains have to offer. Or perhaps you are here to make an [" . quest::saylink("What exchange?",0,"exchange") . "]?");
   }
   
   if($text=~/exchange/i) {

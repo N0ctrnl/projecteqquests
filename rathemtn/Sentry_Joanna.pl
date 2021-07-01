@@ -8,7 +8,7 @@
 # items: 12312, 12302
 sub EVENT_SAY { 
    if($text=~/Hail/i){
-      quest::say("Love and passion to you. my friend.  Seek you the [Gauntlets of Ro]?  If not. then I offer you the safety of this camp.");
+      quest::say("Love and passion to you. my friend.  Seek you the [" . quest::saylink("What Gauntlets of Ro?",0,"Gauntlets of Ro") . "]?  If not. then I offer you the safety of this camp.");
    }
    if($text=~/gauntlets of ro/i){
       if ($faction <=4) {

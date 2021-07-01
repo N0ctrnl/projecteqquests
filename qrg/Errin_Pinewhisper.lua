@@ -1,30 +1,30 @@
 -- items: 17125, 19561, 19558, 19555, 19559, 19560, 19557, 19556, 19949, 19950, 20104, 13915, 19945, 20263
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome to Surefall Glade friend. I am Errin Pinewhisper, Ranger of Karana the Storm Lord. You will find worshipers of both Karana and Tunare residing here in harmony. I train young rangers of both faiths and assist them in getting prepared for work in the often dangerous lands beyond the glade. If you are in need of a [sturdy outfit] suitable for work as a young ranger then I will gladly instruct you on the means to obtain one.");
+		e.self:Say("Welcome to Surefall Glade friend. I am Errin Pinewhisper, Ranger of Karana the Storm Lord. You will find worshipers of both Karana and Tunare residing here in harmony. I train young rangers of both faiths and assist them in getting prepared for work in the often dangerous lands beyond the glade. If you are in need of a [" .. eq.say_link("What sturdy outfit?",false,"sturdy outfit") .. "] suitable for work as a young ranger then I will gladly instruct you on the means to obtain one.");
 	elseif(e.message:findi("sturdy outfit")) then
-		e.self:Say("This specially prepared curing kit will allow you to craft an outfit that will protect you in the wilds of Norrath. The materials required for the outfit vary depending on the piece you desire to craft. Do you desire to craft Pine Scout [Gloves], Pine Scout [Boots], a Pine Scout [Bracer], a Pine Scout [Cap], Pine Scout [Leggings], Pine Scout [Sleeves], or a Pine Scout [Tunic]? Once you are properly outfitted there is an [issue] that you may be of assistance in resolving.");
+		e.self:Say("This specially prepared curing kit will allow you to craft an outfit that will protect you in the wilds of Norrath. The materials required for the outfit vary depending on the piece you desire to craft. Do you desire to craft Pine Scout [" .. eq.say_link("Gloves",false,"Gloves") .. "], Pine Scout [" .. eq.say_link("Boots",false,"Boots") .. "], a Pine Scout [" .. eq.say_link("Bracer",false,"Bracer") .. "], a Pine Scout [" .. eq.say_link("Cap",false,"Cap") .. "], Pine Scout [" .. eq.say_link("Leggings",false,"Leggings") .. "], Pine Scout [" .. eq.say_link("Sleeves",false,"Sleeves") .. "], or a Pine Scout [" .. eq.say_link("Tunic",false,"Tunic") .. "]? Once you are properly outfitted there is an [" .. eq.say_link("What issue?",false,"issue") .. "] that you may be of assistance in resolving.");
 		e.other:SummonItem(17125); -- Item: Curing Kit
 	elseif(e.message:findi("boots")) then
-		e.self:Say("To craft Pine Scout Boots you require two [silk thread], ruined gnoll chain boots, two giant field rat whiskers, and a large whiskered bat fur. Once you have the necessary components combine them in your Curing Kit with this Tattered Boot Pattern.");
+		e.self:Say("To craft Pine Scout Boots you require two [" .. eq.say_link("What silk thread?",false,"silk thread") .. "], ruined gnoll chain boots, two giant field rat whiskers, and a large whiskered bat fur. Once you have the necessary components combine them in your Curing Kit with this Tattered Boot Pattern.");
 		e.other:SummonItem(19561); -- Item: Tattered Boot Pattern
 	elseif(e.message:findi("bracer")) then
-		e.self:Say("To craft an Pine Scout Bracer you require a [silk thread], a ruined gnoll chain bracer, and a giant field rat whiskers. Once you have the necessary components combine them in your Curing Kit with this Tattered Wristband Pattern.");
+		e.self:Say("To craft an Pine Scout Bracer you require a [" .. eq.say_link("What silk thread?",false,"silk thread") .. "], a ruined gnoll chain bracer, and a giant field rat whiskers. Once you have the necessary components combine them in your Curing Kit with this Tattered Wristband Pattern.");
 		e.other:SummonItem(19558); -- Item: Tattered Wristband Pattern
 	elseif(e.message:findi("cap")) then
-		e.self:Say("To craft a Pine Scout Cap you require two [silk thread], a ruined gnoll chain cap, a large whiskered bat fur, and a large field rat pelt. Once you have the necessary components combine them in your Curing Kit with this Tattered Coif Pattern.");
+		e.self:Say("To craft a Pine Scout Cap you require two [" .. eq.say_link("What silk thread?",false,"silk thread") .. "], a ruined gnoll chain cap, a large whiskered bat fur, and a large field rat pelt. Once you have the necessary components combine them in your Curing Kit with this Tattered Coif Pattern.");
 		e.other:SummonItem(19555); -- Item: Tattered Cap Pattern
 	elseif(e.message:findi("gloves")) then
-		e.self:Say("To craft Pine Scout Gloves you require two [silk thread], ruined gnoll chain gloves, two giant field rat whiskers, and a large whiskered bat fur. Once you have the necessary components combine them in your Curing Kit with this Tattered Glove Pattern.");
+		e.self:Say("To craft Pine Scout Gloves you require two [" .. eq.say_link("What silk thread?",false,"silk thread") .. "], ruined gnoll chain gloves, two giant field rat whiskers, and a large whiskered bat fur. Once you have the necessary components combine them in your Curing Kit with this Tattered Glove Pattern.");
 		e.other:SummonItem(19559); -- Item: Tattered Glove Pattern
 	elseif(e.message:findi("leggings")) then
-		e.self:Say("To craft Pine Scout Leggings you require three [silk thread], ruined gnoll chain leggings, two large whiskered bat furs, and a giant field rat pelt. Once you have the necessary components combine them in your Curing Kit with this Tattered Pant Pattern.");
+		e.self:Say("To craft Pine Scout Leggings you require three [" .. eq.say_link("What silk thread?",false,"silk thread") .. "], ruined gnoll chain leggings, two large whiskered bat furs, and a giant field rat pelt. Once you have the necessary components combine them in your Curing Kit with this Tattered Pant Pattern.");
 		e.other:SummonItem(19560); -- Item: Tattered Pant Pattern
 	elseif(e.message:findi("sleeves")) then
-		e.self:Say("To craft Pine Scout Sleeves you require two [silk thread], ruined gnoll chain sleeves, two large whiskered bat furs, and a giant field rat pelt. Once you have the necessary components combine them in your Curing Kit with this Tattered Sleeves Pattern.");
+		e.self:Say("To craft Pine Scout Sleeves you require two [" .. eq.say_link("What silk thread?",false,"silk thread") .. "], ruined gnoll chain sleeves, two large whiskered bat furs, and a giant field rat pelt. Once you have the necessary components combine them in your Curing Kit with this Tattered Sleeves Pattern.");
 		e.other:SummonItem(19557); -- Item: Tattered Sleeve Pattern
 	elseif(e.message:findi("tunic")) then
-		e.self:Say("To craft a Pine Scout Tunic you require four [silk thread], a ruined gnoll chain tunic, a giant whiskered bat fur, and a giant field rat pelt. Once you have the necessary components combine them in your Curing Kit with this Tattered Tunic Pattern.");
+		e.self:Say("To craft a Pine Scout Tunic you require four [" .. eq.say_link("What silk thread?",false,"silk thread") .. "], a ruined gnoll chain tunic, a giant whiskered bat fur, and a giant field rat pelt. Once you have the necessary components combine them in your Curing Kit with this Tattered Tunic Pattern.");
 		e.other:SummonItem(19556); -- Item: Tattered Tunic Pattern
 	elseif(e.message:findi("silk thread")) then
 		e.self:Say("Silk thread is created from two spiderling silks woven together in a sewing kit or loom.");

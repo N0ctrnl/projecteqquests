@@ -11,7 +11,7 @@ sub EVENT_SAY {
   }
   else {
     if($text=~/hail/i) {
-      quest::say("Greetings, friend. I am the keeper of the [Boots of Ro]. Please rest here with us in our camp of righteousness. No harm can come to you while we paladins keep watch.");
+      quest::say("Greetings, friend. I am the keeper of the [" . quest::saylink("What Boots of Ro?",0,"Boots of Ro") . "]. Please rest here with us in our camp of righteousness. No harm can come to you while we paladins keep watch.");
     }
     elsif ($text=~/boots of ro/i) {
       if ($faction == 5) {
@@ -22,16 +22,16 @@ sub EVENT_SAY {
       }
     }
     elsif ($text=~/orc onslaught/i) {
-      quest::say("The orcs attempted to take the hill, as they do on a frequent basis. We repelled them, of course, but a [blue orc] rushed off with the [Chalice of Conquest]. Where he came from, I do not know. He was no part of the battle!! I believe he just found an opportune moment to loot our camp.");
+      quest::say("The orcs attempted to take the hill, as they do on a frequent basis. We repelled them, of course, but a [" . quest::saylink("What blue orc?",0,"blue orc") . "] rushed off with the [" . quest::saylink("What Chalice of Conquest?",0,"Chalice of Conquest") . "]. Where he came from, I do not know. He was no part of the battle!! I believe he just found an opportune moment to loot our camp.");
     }
     elsif ($text=~/blue orc/i) {
-      quest::say("I had a visiting ranger track him to his camp near Lake Rathetear. I spied the camp and saw his lifeless body near two other blue orcs. Apparently, he must have taken a fatal blow, but had enough stamina to make it to his camp. I returned the following day with my fellow paladins and found the camp long gone. The ranger, who was still with us, found two sets of tracks leading away. We found [orc remnants].");
+      quest::say("I had a visiting ranger track him to his camp near Lake Rathetear. I spied the camp and saw his lifeless body near two other blue orcs. Apparently, he must have taken a fatal blow, but had enough stamina to make it to his camp. I returned the following day with my fellow paladins and found the camp long gone. The ranger, who was still with us, found two sets of tracks leading away. We found [" . quest::saylink("What orc remnants?",0,"orc remnants") . "].");
     }
     elsif ($text=~/odd druid/i) {
-      quest::say("The mountains have been plagued not only by beasts, but by evil druids!! They attempt to force all men from this land. One has stolen the foot of the candlestick which holds the [Candle of Bravery]. I remember that battle cry of hers, 'Long live the green!!'.");
+      quest::say("The mountains have been plagued not only by beasts, but by evil druids!! They attempt to force all men from this land. One has stolen the foot of the candlestick which holds the [" . quest::saylink("What Candle of Bravery?",0,"Candle of Bravery") . "]. I remember that battle cry of hers, 'Long live the green!!'.");
     }
     elsif ($text=~/chalice of conquest/i || $text=~/candle of bravery/i) {
-      quest::say("You must be the one Sir Dru of Kaladim sent to retrieve the candlestick which was broken in the [orc onslaught]. I have only this piece in my possession as the other portion was taken by an [odd druid] of these mountains. Should you reclaim it, I am sure the maker of the candlestick can patch it together.");
+      quest::say("You must be the one Sir Dru of Kaladim sent to retrieve the candlestick which was broken in the [" . quest::saylink("What orc onslaught?",0,"orc onslaught") . "]. I have only this piece in my possession as the other portion was taken by an [" . quest::saylink("What odd druid?",0,"odd druid") . "] of these mountains. Should you reclaim it, I am sure the maker of the candlestick can patch it together.");
       quest::summonitem(12276); # Item: Stem of Candlestick
     }
     elsif ($text=~/orc remnants/i) {
