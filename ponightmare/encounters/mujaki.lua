@@ -101,23 +101,23 @@ end
 --end
 
  --spawn shade if paladin global
-function Mujaki_Death(e)
-  eq.stop_all_timers();
-  local clist = eq.get_entity_list():GetClientList();
-     if ( clist ~= nil ) then
-		 --eq.zone_emote(15, "death1");
-		 for currclient in clist.entries do
-			if(currclient:GetClass() ==3) then			
-				 --eq.zone_emote(15, "death2");
-				if (currclient:HasItem(69928)) then				
-					--eq.zone_emote(15, "death3");
-					eq.spawn2(204081, 0, 0, -1475, -2555, 179.38, 256); -- NPC: #Shade_of_Mujaki_the_Devourer
-					return; --only spawn 1
-				end
-			end
-		 end
-	 end
-end
+ --function Mujaki_Death(e)
+--  eq.stop_all_timers();
+--  local clist = eq.get_entity_list():GetClientList();
+--     if ( clist ~= nil ) then
+--		 --eq.zone_emote(15, "death1");
+--		 for currclient in clist.entries do
+--			if(currclient:GetClass() ==3) then			
+--				 --eq.zone_emote(15, "death2");
+--				if (currclient:HasItem(69928)) then				
+--					--eq.zone_emote(15, "death3");
+--					eq.spawn2(204081, 0, 0, -1475, -2555, 179.38, 256); -- NPC: #Shade_of_Mujaki_the_Devourer
+--					return; --only spawn 1
+--				end
+--			end
+--		 end
+--	 end
+--end
 
 
 function Mujaki_Signal(e)
@@ -182,8 +182,8 @@ function event_encounter_load(e)
   eq.register_npc_event('mujaki', Event.death_complete, 204080, Mujaki_Death);
   eq.register_npc_event('mujaki', Event.combat, 		204080, Mujaki2_Spawn);
   eq.register_npc_event('mujaki', Event.timer, 			204080, Mujaki2_Timer);  
-  eq.register_npc_event('mujaki', Event.spawn, 			204081, Shade_Spawn);
-  eq.register_npc_event('mujaki', Event.timer, 			204081, Shade_Timer);
+--  eq.register_npc_event('mujaki', Event.spawn, 			204081, Shade_Spawn);
+--  eq.register_npc_event('mujaki', Event.timer, 			204081, Shade_Timer);
 -- add shade spawn if anyone in zone with pally epic global
   
   eq.register_npc_event('mujaki', Event.signal, 		204079, Serv_Signal);
