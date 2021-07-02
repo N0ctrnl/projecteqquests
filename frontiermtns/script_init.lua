@@ -1,1 +1,0 @@
-eq.load_encounter('druid_1_5');
