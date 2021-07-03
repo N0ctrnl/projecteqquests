@@ -1,5 +1,5 @@
 -- player.lua codecay
---function event_enter_zone(e)
+function event_enter_zone(e)
 	local qglobals = eq.get_qglobals(e.self);
 	
 --	if(qglobals["mage_epic"] == "10" and qglobals["mage_epic_cod"] == nil) then
