@@ -6,13 +6,13 @@ sub EVENT_SAY {
   if ($faction <= 3) { # Require Warmly and greater faction    
     if($text=~/hail/i){ 
       quest::emote("speaks in a rumbling tone.");
-      quest::say("Greetings. I only wish to speak to a shaman. Are you a shaman?"); 
+      quest::say("Greetings. I only wish to speak to a shaman. Are you a [" . quest::saylink("I am a shaman",0,"shaman") . "]?"); 
     }
     if($text=~/i am a shaman/i){
-      quest::say("I sense the strength of your mystical powers within you and they vibrate with power.  You have learned much from your travels and I shall help you by providing you with protection from harm and the elements in the form of armor.");
+      quest::say("I sense the strength of your mystical powers within you and they vibrate with power.  You have learned much from your travels and I shall help you by providing you with protection from harm and the elements in the form of [" . quest::saylink("What armor?",0,"armor") . "].");
     }
     if($text=~/armor/i){
-      quest::say("For you I shall make a coif, tunic, sleeves, bracers, gauntlets, leggings, and boots. Each piece is a quest unto itself. To find the components you must search the lands for them and test the power of the spirit within.");
+      quest::say("For you I shall make a [" . quest::saylink("coif",0,"coif") . "], [" . quest::saylink("tunic",0,"tunic") . "], [" . quest::saylink("sleeves",0,"sleeves") . "], [" . quest::saylink("bracers",0,"bracers") . "], [" . quest::saylink("gauntlets",0,"gauntlets") . "], [" . quest::saylink("leggings",0,"leggings") . "], and [" . quest::saylink("boots",0,"boots") . "]. Each piece is a quest unto itself. To find the components you must search the lands for them and test the power of the spirit within.");
     }
     if($text=~/coif/i){
       quest::say("Those who are wise as we are know that protection of the head is most important. I may be able to forge you something most interesting if you were to bring me a corroded chain coif and three pieces of crushed onyx sapphire.");

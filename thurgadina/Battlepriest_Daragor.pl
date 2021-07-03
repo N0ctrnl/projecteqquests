@@ -9,13 +9,13 @@
 sub EVENT_SAY {
   if ($faction <= 3) {
     if ($text=~/hail/i) {
-      quest::say("Greetings to you. I seek the service of devout knights who have distinguished themselves. Are you a paladin, $name?");
+      quest::say("Greetings to you. I seek the service of devout knights who have distinguished themselves. Are you a [" . quest::saylink("I am a paladin",0,"paladin") . "], $name?");
     }
     if ($text=~/i am a paladin/i) {
       quest::say("A paladin of your kind has not made it this far for quite some time. Well, I wonder what it is you seek here? Do you seek heroic and chivalrous deeds to distinguish yourself from your brethren? Do you need accoutrements to aid you in your battles perhaps? You are in luck, knight, for I have both for you. Do you wish to partake of my quests?");
     }
     if ($text=~/partake of your quests/i) {
-      quest::say("Excellent! By serving my cause, you, in turn, will further your own. I require certain components and if you bring them to me I shall reward you for your honorable service. You may choose from among these items: a helm, a breastplate, armplates, bracers, gauntlets, greaves, and boots.");
+      quest::say("Excellent! By serving my cause, you, in turn, will further your own. I require certain components and if you bring them to me I shall reward you for your honorable service. You may choose from among these items: a [" . quest::saylink("helm",0,"helm") . "], a [" . quest::saylink("breastplate",0,"breastplate") . "], [" . quest::saylink("armplates",0,"armplates") . "], [" . quest::saylink("bracers",0,"bracers") . "], [" . quest::saylink("gauntlets",0,"gauntlets") . "], [" . quest::saylink("greaves",0,"greaves") . "], and [" . quest::saylink("boots",0,"boots") . "].");
     }
     if ($text=~/helm/i) {
       quest::say("To create a piece of armor to protect your skull I will require three pieces of crushed coral as well as a corroded plate helmet.");

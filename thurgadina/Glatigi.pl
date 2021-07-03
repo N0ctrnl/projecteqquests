@@ -4,10 +4,10 @@
 sub EVENT_SAY { 
   if ($faction <= 3) { # Require Warmly and greater faction    
     if($text=~/Hail/i){
-      quest::say("Well met, $race! I am Glatigi. If ye seek ta join our ranks, I welcome ye with open arms and have an offer to make if you are interested. If ye seek to be our enemy, I hope ye can run swifter than my archers arrows.");
+      quest::say("Well met, $race! I am Glatigi. If ye seek ta join our ranks, I welcome ye with open arms and have an offer to make if you are [" . quest::saylink("I am interested",0,"interested") . "]. If ye seek to be our enemy, I hope ye can run swifter than my archers arrows.");
     }
     if($text=~/i am interested/i){
-      quest::say("Aye, I thought ye might be. My elite Berserkers are in sore need of some enchanted armor. Unfortunately, I can’t spare the men to go out and fetch me the components. If you can do this for me, I’ll gladly reward you with a piece of it. I need materials for a coif, a tunic, sleeves, bracers, gauntlets, leggings, and boots.");
+      quest::say("Aye, I thought ye might be. My elite Berserkers are in sore need of some enchanted armor. Unfortunately, I can’t spare the men to go out and fetch me the components. If you can do this for me, I’ll gladly reward you with a piece of it. I need materials for a [" . quest::saylink("coif",0,"coif") . "], a [" . quest::saylink("tunic",0,"tunic") . "], [" . quest::saylink("sleeves",0,"sleeves") . "], [" . quest::saylink("bracers",0,"bracers") . "], [" . quest::saylink("gauntlets",0,"gauntlets") . "], [" . quest::saylink("leggings",0,"leggings") . "], and [" . quest::saylink("boots",0,"boots") . "].");
     }
     if($text=~/coif/i){
       quest::say("To create a piece of armor to protect your skull I will require three pieces of crushed coral as well as a corroded chain coif."); 

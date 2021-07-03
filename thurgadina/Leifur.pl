@@ -5,10 +5,10 @@
 sub EVENT_SAY { 
   if ($faction <= 3) { # Require Warmly and greater faction    
     if($text=~/Hail/i){
-      quest::say("The one thing this bar is sorely missin' is a good bard I tell ye. Ye know, someone to sing a catchy tune and tell us a story from time to time. Forgive me fer seemin' a bit sentimental but my family has always had close ties with bards datin' back ta even before we crossed the ocean. In fact, me great-great-grandfather used ta forge enchanted armor for the ancient bards of Faydark. Oh, the set of bard velium armor I could make if only I had the right components!");
+      quest::say("The one thing this bar is sorely missin' is a good bard I tell ye. Ye know, someone to sing a catchy tune and tell us a story from time to time. Forgive me fer seemin' a bit sentimental but my family has always had close ties with bards datin' back ta even before we crossed the ocean. In fact, me great-great-grandfather used ta forge enchanted armor for the ancient bards of Faydark. Oh, the set of bard velium armor I could make if only I had the right [" . quest::saylink("What components?",0,"components") . "]!");
     }
     if($text=~/what components/i){
-      quest::say("With the proper components I could make a helm, a breastplate, armplates, bracers, gauntlets, greaves, and even a pair o' boots!");
+      quest::say("With the proper components I could make a [" . quest::saylink("helm",0,"helm") . "], a [" . quest::saylink("breastplate",0,"breastplate") . "], [" . quest::saylink("armplates",0,"armplates") . "], [" . quest::saylink("bracers",0,"bracers") . "], [" . quest::saylink("gauntlets",0,"gauntlets") . "], [" . quest::saylink("greaves",0,"greaves") . "], and even a pair o' [" . quest::saylink("boots",0,"boots") . "]!");
     }
     if($text=~/helm/i){
       quest::say("To create a piece of armor to protect your skull I will require three pieces of crushed coral as well as a corroded plate helmet.");

@@ -7,13 +7,13 @@ sub EVENT_SAY {
   if ($faction <= 3) { # Require Warmly and greater faction    
     if ($text=~/hail/i) { 
       quest::emote("speaks in a rumbling tone."); 
-      quest::say("Greetings. I only wish to speak to a beastlord. Are you a beastlord?"); 
+      quest::say("Greetings. I only wish to speak to a beastlord. Are you a [" . quest::saylink("I am a beastlord",0,"beastlord") . "]?"); 
     } 
     if ($text=~/i am a beastlord/i) { 
-      quest::say("I sense that you are in tune with yourself and with nature. You have learned much from your travels and I shall help you by providing you with protection from harm and the elements in the form of armor."); 
+      quest::say("I sense that you are in tune with yourself and with nature. You have learned much from your travels and I shall help you by providing you with protection from harm and the elements in the form of [" . quest::saylink("What armor?",0,"armor") . "]."); 
     } 
     if ($text=~/armor/i) { 
-      quest::say("For you I shall make a cap, tunic, sleeves, bracers, gloves, leggings, and boots. Each piece is a quest unto itself.  To seek the components you must search the lands for them and test the power of the spirit within."); 
+      quest::say("For you I shall make a [" . quest::saylink("cap",0,"cap") . "], [" . quest::saylink("tunic",0,"tunic") . "], [" . quest::saylink("sleeves",0,"sleeves") . "], [" . quest::saylink("bracers",0,"bracers") . "], [" . quest::saylink("gloves",0,"gloves") . "], [" . quest::saylink("leggings",0,"leggings") . "], and [" . quest::saylink("boots",0,"boots") . "]. Each piece is a quest unto itself.  To seek the components you must search the lands for them and test the power of the spirit within."); 
     } 
     if ($text=~/cap/i) { 
       quest::say("Those who are wise as we are know that protection of the head is most important. I may be able to sew you something most interesting if you were to bring me an eroded leather cap and three pieces of crushed coral."); 

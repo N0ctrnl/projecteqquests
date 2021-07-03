@@ -9,7 +9,7 @@
 sub EVENT_SAY {
   if ($faction <= 3) {
     if ($text=~/hail/i) {
-      quest::say("Greetin's, $name, you look like a $race who knows the value of a good bow when ye see one. I'll let ye in on a li'l secret, the bow is the greatest of all weapons as it allows you to inflict maximum punishment on yer foes with minimum risk. How can ye possibly go wrong? Or better yet, if'n ye be a ranger, I can see my way clear to making you a coif, tunic, sleeves, bracer, gauntlets, leggings, or boots that I'm sure ye would enjoy.");
+      quest::say("Greetin's, $name, you look like a $race who knows the value of a good bow when ye see one. I'll let ye in on a li'l secret, the bow is the greatest of all weapons as it allows you to inflict maximum punishment on yer foes with minimum risk. How can ye possibly go wrong? Or better yet, if'n ye be a ranger, I can see my way clear to making you a [" . quest::saylink("What coif?",0,"coif") . "], [" . quest::saylink("What tunic?",0,"tunic") . "], [" . quest::saylink("What sleeves?",0,"sleeves") . "], [" . quest::saylink("What bracer?",0,"bracer") . "], [" . quest::saylink("What gauntlets?",0,"gauntlets") . "], [" . quest::saylink("What leggings?",0,"leggings") . "], or [" . quest::saylink("What boots?",0,"boots") . "] that I'm sure ye would enjoy.");
     }
     if ($text=~/coif/i) {
       quest::say("To create a piece of armor to protect your sensitive skull. I will require three pieces of crushed coral as well as a corroded chain coif.");

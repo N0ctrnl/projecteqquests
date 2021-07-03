@@ -9,10 +9,10 @@
 sub EVENT_SAY { 
   if ($faction <= 3) { # Require greater and kindly faction    
     if ($text=~/hail/i) { 
-      quest::say("Greetings to you. I seek one that has chosen the path of monkhood. What do you call yourself?"); 
+      quest::say("Greetings to you. I seek one that has chosen the path of monkhood. What do you [" . quest::saylink("I call myself a monk",0,"call yourself") . "]?"); 
     } 
     if ($text=~/i am a monk/i) { 
-      quest::say("Good. I had hoped you were one. I have heard that as seeker of the way you are in constant training to push yourself to your physical and mental limits. It is an admirable quality and I wish to aid you. I will provide you with a cap, a tunic, sleeves, bracers, gloves, leggings and boots."); 
+      quest::say("Good. I had hoped you were one. I have heard that as seeker of the way you are in constant training to push yourself to your physical and mental limits. It is an admirable quality and I wish to aid you. I will provide you with a [" . quest::saylink("cap",0,"cap") . "], a [" . quest::saylink("tunic",0,"tunic") . "], [" . quest::saylink("sleeves",0,"sleeves") . "], [" . quest::saylink("bracers",0,"bracers") . "], [" . quest::saylink("gloves",0,"gloves") . "], [" . quest::saylink("leggings",0,"leggings") . "] and [" . quest::saylink("boots",0,"boots") . "]."); 
     } 
     if ($text=~/cap/i) { 
       quest::say("To create a piece of armor to protect your sensitive skull I will require three pieces of crushed coral as well as a eroded leather cap.");

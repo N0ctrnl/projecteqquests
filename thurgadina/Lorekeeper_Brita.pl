@@ -6,10 +6,10 @@
 sub EVENT_SAY {
   if ($faction <= 3) { # Require warmly and greater faction
     if ($text=~/hail/i) {
-      quest::say("Greetings to you.  I seek those who call themselves enchanters.  Are you an enchanter?");
+      quest::say("Greetings to you.  I seek those who call themselves enchanters.  Are you an [" . quest::saylink("I am an enchanter",0,"enchanter") . "]?");
     }
     if ($text=~/i am an enchanter/i) {
-      quest::say("I thought so.  I have several tasks for you accomplish.  Once you have completed them I will have a cap, a robe, sleeves, wristbands, gloves, leggings and boots to reward you with.");
+      quest::say("I thought so.  I have several tasks for you accomplish.  Once you have completed them I will have a [" . quest::saylink("cap",0,"cap") . "], a [" . quest::saylink("robe",0,"robe") . "], [" . quest::saylink("sleeves",0,"sleeves") . "], [" . quest::saylink("wristbands",0,"wristbands") . "], [" . quest::saylink("gloves",0,"gloves") . "], [" . quest::saylink("leggings",0,"leggings") . "] and [" . quest::saylink("boots",0,"boots") . "] to reward you with.");
     }
     if ($text=~/cap/i) {
       quest::say("For an enchanted head guard bring me a torn enchanted silk turban as well as three pieces of crushed flame opal.");

@@ -5,10 +5,10 @@
 sub EVENT_SAY { 
   if ($faction <= 3) { # Require Warmly and greater faction    
     if($text=~/Hail/i){
-      quest::say("Well met, $race! I am Captain Njall, commander of the city gaurds here in Thurgadin. If ye seek ta join our ranks, I welcome ye with open arms and have an offer to make if you are interested. If ye seek to be our enemy, I hope ye can run swifter than my archers arrows.");
+      quest::say("Well met, $race! I am Captain Njall, commander of the city gaurds here in Thurgadin. If ye seek ta join our ranks, I welcome ye with open arms and have an offer to make if you are [" . quest::saylink("I am interested",0,"interested") . "]. If ye seek to be our enemy, I hope ye can run swifter than my archers arrows.");
     }
     if($text=~/i am interested/i){
-      quest::say("Aye, I thought ye might be. My elite warriors are in sore need of some enchanted armor. Unfortunately, I can’t spare the men to go out and fetch me the components. If you can do this for me, I’ll gladly reward you with a piece of it. I need materials for a helm, a breastplate, armplates, bracers, gauntlets, greaves, and boots.");
+      quest::say("Aye, I thought ye might be. My elite warriors are in sore need of some enchanted armor. Unfortunately, I can’t spare the men to go out and fetch me the components. If you can do this for me, I’ll gladly reward you with a piece of it. I need materials for a [" . quest::saylink("helm",0,"helm") . "], a [" . quest::saylink("breastplate",0,"breastplate") . "], [" . quest::saylink("armplates",0,"armplates") . "], [" . quest::saylink("bracers",0,"bracers") . "], [" . quest::saylink("gauntlets",0,"gauntlets") . "], [" . quest::saylink("greaves",0,"greaves") . "], and [" . quest::saylink("boots",0,"boots") . "].");
     }
     if($text=~/helm/i){
       quest::say("To create a piece of armor to protect your skull I will require three pieces of crushed coral as well as a corroded plate helmet."); 

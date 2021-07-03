@@ -9,10 +9,10 @@
 sub EVENT_SAY {
   if ($faction <= 3) {
     if ($text=~/hail/i) {
-      quest::say("Welcome to the Thurgadin Minin' Company, $race. As foreman it's my job to see that me lads are well trained and well cared fer. Unfortunately, we're not in too good shape right now. Ye see, it seems a new vein was struck recently and a bunch of unwelcome critters have come crawlin outta the works attackin' me lads. In order ta help combat this menace I've engineered a new set of armor for the miners, but need some raw materials to get them started.");
+      quest::say("Welcome to the Thurgadin Minin' Company, $race. As foreman it's my job to see that me lads are well trained and well cared fer. Unfortunately, we're not in too good shape right now. Ye see, it seems a new vein was struck recently and a bunch of unwelcome critters have come crawlin outta the works attackin' me lads. In order ta help combat this menace I've engineered a [" . quest::saylink("What new set of armor?",0,"new set of armor") . "] for the miners, but need some raw materials to get them started.");
     }
     if ($text=~/new set of armor/i) {
-      quest::say("Excellent, $name! I knew ye were the right $race for the job. The pieces I can make are a coif, a tunic, sleeves, bracers, gauntlets, leggings, and boots. This stuff might not be fitting ya if ye're not stealthy like us miners though.");
+      quest::say("Excellent, $name! I knew ye were the right $race for the job. The pieces I can make are a [" . quest::saylink("coif",0,"coif") . "], a [" . quest::saylink("tunic",0,"tunic") . "], [" . quest::saylink("sleeves",0,"sleeves") . "], [" . quest::saylink("bracers",0,"bracers") . "], [" . quest::saylink("gauntlets",0,"gauntlets") . "], [" . quest::saylink("leggings",0,"leggings") . "], and [" . quest::saylink("boots",0,"boots") . "]. This stuff might not be fitting ya if ye're not stealthy like us miners though.");
     }
     if ($text=~/coif/i) {
       quest::say("To create a piece of armor to protect your sensitive skull. I will require three pieces of crushed coral as well as a corroded chain coif.");

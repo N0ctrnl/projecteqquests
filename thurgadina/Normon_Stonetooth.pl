@@ -6,19 +6,19 @@
 sub EVENT_SAY {
 
 if($text=~/hail/i) {
-	quest::emote("seems to ignore your greeting, peering at the stone in front of him intently as if reading some invisible text. After a long while he sighs deeply and says, 'Somethin I kin help ye with, whoever you are?");
+	quest::emote("seems to ignore your greeting, peering at the stone in front of him intently as if reading some invisible text. After a long while he sighs deeply and says, 'Somethin I kin help ye with, [" . quest::saylink("Who are you?",0,"whoever you are") . "]?");
     }
 
 if($text=~/who are you/i) {
-	quest::emote("speaks as he continues staring at the stone, 'I mine. So they call me a miner. Name's Normon, Normon Stonetooth, Normon the miner.. Did I say I mine?");
+	quest::emote("speaks as he continues staring at the stone, 'I mine. So they call me a miner. Name's Normon, Normon Stonetooth, Normon the miner.. Did I say [" . quest::saylink("What do you mine?",0,"I mine") . "]?");
     }
 
 if($text=~/what do you mine/i) {
-	quest::say("Well I look fer velium o'course. But ye know, I pull very little of it out o the mundane rock these days. Sometimes I hear it whisperin' to me. The stone, the velium, everything down here talks to each other. If ye're lucky enough they tell ya secrets. That be why I listen more these days than pull velium.");
+	quest::say("Well I look fer velium o'course. But ye know, I pull very little of it out o the mundane rock these days. Sometimes I hear it whisperin' to me. The stone, the velium, everything down here talks to each other. If ye're lucky enough they tell ya [" . quest::saylink("What secrets?",0,"secrets") . "]. That be why I listen more these days than pull velium.");
     }
 
 if($text=~/secrets/i) {
-	quest::say("Now if'n I told ye that it wouldn't be a secret no more now would it? No, I can't tell ya what they tells me, but I kin help ya ta listen. But first ye'll need ta do me a favor heheh.");
+	quest::say("Now if'n I told ye that it wouldn't be a secret no more now would it? No, I can't tell ya what they tells me, but I kin help ya ta listen. But first ye'll need ta do me a [" . quest::saylink("What favor?",0,"favor") . "] heheh.");
     }
 
 if($text=~/favor/i) {

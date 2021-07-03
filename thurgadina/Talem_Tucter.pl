@@ -13,7 +13,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 1859 => 1)) {
-    quest::say("I've heard of your mission, $name. I must admit that I had my doubts you'd make it this far. The rune's creation is nearly impossible for even the most skilled of Coldain craftsmen. You should be exceedingly proud. Many have attempted this feat and nearly all have lacked the skill, faith, patience and persistence that is prerequisite for what destiny holds in store for you. You are now ready to use this pattern to construct the sacred rune's casing and complete the runed shawl.");
+    quest::say("I've heard of your mission, $name. I must admit that I had my doubts you'd make it this far. The rune's creation is nearly impossible for even the most skilled of Coldain craftsmen. You should be exceedingly proud. Many have attempted this feat and nearly all have lacked the skill, faith, patience and persistence that is prerequisite for what destiny holds in store for you. You are now ready to use this pattern to construct the sacred rune's [" . quest::saylink("What casing?",0,"casing") . "] and complete the runed shawl.");
     quest::summonitem(2040); # Item: Rune Casing Pattern
     quest::summonitem(1859); # Item: Velium etched rune
   }

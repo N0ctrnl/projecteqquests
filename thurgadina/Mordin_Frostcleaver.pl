@@ -6,7 +6,7 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("Ah, allo there, and welcome to me shop, $name. Ye'll have to excuse the mess but I've been havin a bloody good time here lately. . . HAR HAR, ye get it? Anyways, thanks to you offlanders I now have a selection of some exotic meats never afore seen here on Velious.  I've been amazed at the demand for some of 'em.  I can't seem to keep shark meat in stock any more.  I wonder if eatin' raw fish is catching on?  In addition to supplyin' the freshest meat in Thurgadin I also offer tasks to would-be hunters in the wastes.");
+    quest::say("Ah, allo there, and welcome to me shop, $name. Ye'll have to excuse the mess but I've been havin a bloody good time here lately. . . HAR HAR, ye get it? Anyways, thanks to you offlanders I now have a selection of some exotic meats never afore seen here on Velious.  I've been amazed at the demand for some of 'em.  I can't seem to keep shark meat in stock any more.  I wonder if eatin' raw fish is catching on?  In addition to supplyin' the freshest meat in Thurgadin I also offer [" . quest::saylink("What tasks?",0,"tasks") . "] to would-be hunters in the wastes.");
   }
   if ($text=~/tasks/i) {
     quest::say("Sorry, $name, but I've got no tasks to offer ye this week.  If ye be seriously lookin fer sumthin ta do ask ole Borannin 'bout duties fer the crown..");
@@ -27,11 +27,11 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 1420 => 1)) {
-    quest::say("Hullo, $name, I see you've signed on for a bit of food service eh? Well, we can always use an extra pair o' hands here dat's fer sure. First things first, warsh yer grubby mitts an' cook up dinner fer good ol' Leif. Should'n be too tough fer ye, he has simple enough taste. Make him a Tundrabear sandwich an' lemme know when he's been fed. Don'tcha ferget ta give him this with his meal.");
+    quest::say("Hullo, $name, I see you've signed on for a bit of food service eh? Well, we can always use an extra pair o' hands here dat's fer sure. First things first, warsh yer grubby mitts an' cook up dinner fer good ol' Leif. Should'n be too tough fer ye, he has simple enough taste. Make him a [" . quest::saylink("What tundrabear sandwich?",0,"Tundreabear sandwich") . "] an' lemme know when he's been fed. Don'tcha ferget ta give him this with his meal.");
     quest::summonitem(1415); # Item: Leif's Napkin
   }
   elsif (plugin::check_handin(\%itemcount, 1419 => 1)) {
-    quest::say("Well don, outlander! We'll make a chef of you before we're through. Next you'll need to whip up some Frost Bunny stew fer Missus Coldheart. Again, give her this napkin with her meal an' lemme know when she's been served.");
+    quest::say("Well don, outlander! We'll make a chef of you before we're through. Next you'll need to whip up some [" . quest::saylink("What Frost Bunny Stew?",0,"Frost Bunny stew") . "] fer Missus Coldheart. Again, give her this napkin with her meal an' lemme know when she's been served.");
     quest::summonitem(1416); # Item: Trita's Napkin
     quest::exp(100000);
     quest::faction(406,10); #coldain
@@ -40,7 +40,7 @@ sub EVENT_ITEM {
     quest::faction(448,-30); #kzek
   }
   elsif (plugin::check_handin(\%itemcount, 1423 => 1)) {
-    quest::say("Now yer cookin! Letsee here... Guard Leif, check... Trita Coldheart, check... Ahh yes, next we need an Ulthork meat pie fer Brita. She's a doll, smart too, but she can be testy when she's hungry so get movin'!");
+    quest::say("Now yer cookin! Letsee here... Guard Leif, check... Trita Coldheart, check... Ahh yes, next we need an [" . quest::saylink("What Ulthork meat pie?",0,"Ulthork meat pie") . "]. She's a doll, smart too, but she can be testy when she's hungry so get movin'!");
     quest::summonitem(1417); # Item: Brita's Napkin
     quest::exp(150000);
     quest::faction(406,10); #coldain
@@ -49,7 +49,7 @@ sub EVENT_ITEM {
     quest::faction(448,-30); #kzek
   }
   elsif (plugin::check_handin(\%itemcount, 1424 => 1)) {
-    quest::say("More dirty dishes, eh? Well outlander, only one more meal to serve and I'll be done with ye. Make a snow griffin souffle fer the Grand Historian himself. It's his favorite.");
+    quest::say("More dirty dishes, eh? Well outlander, only one more meal to serve and I'll be done with ye. Make a [" . quest::saylink("What Snow Griffin souffle?",0,"Snow Griffin souffle") . "] fer the Grand Historian himself. It's his favorite.");
     quest::summonitem(1418); # Item: Thoridain's Napkin
     quest::exp(200000);
     quest::faction(406,10); #coldain

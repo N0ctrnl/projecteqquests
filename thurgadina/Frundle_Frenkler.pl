@@ -4,7 +4,7 @@
 
 sub EVENT_SAY {
   if ($text=~/velium vapors/i) {
-    quest::say("Ahh, you come seeking my family recipe? After all you've done for our people it's the least I can do. First you must fashion a velium vial, then combine the vial with two small pieces of velium in this jar. That's all there is to it. Please keep the recipe a secret.");
+    quest::say("Ahh, you come seeking my family recipe? After all you've done for our people it's the least I can do. First you must fashion a [" . quest::saylink("What velium vial?",0,"velium vial") . "], then combine the vial with two small pieces of velium in this jar. That's all there is to it. Please keep the recipe a secret.");
     if(!plugin::check_hasitem($client,17513)) { #Velium Purifier
       quest::summonitem(17513); #Velium Purifier
     }

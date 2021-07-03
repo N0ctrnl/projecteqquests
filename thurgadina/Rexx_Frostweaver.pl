@@ -11,7 +11,7 @@ sub EVENT_SAY {
     quest::summonitem(17879); # Item: Glowing Bile Soaker
   }
   elsif ($text=~/am i worthy/i) {
-    quest::say("To ensure your worthiness you must continue to refine your prayer shawl. Speak with my wife Betti regarding the embroidered shawl and listen carefully to her words. Hurry now, there seems to be a sense of urgency about.");
+    quest::say("To ensure your worthiness you must continue to refine your [" . quest::saylink("What prayer shawl?",0,"prayer shawl") . "]. Speak with my wife Betti regarding the embroidered shawl and listen carefully to her words. Hurry now, there seems to be a sense of urgency about.");
   }
 }
 

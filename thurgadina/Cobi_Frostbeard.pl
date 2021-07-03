@@ -6,10 +6,10 @@
 sub EVENT_SAY { 
   if ($faction <= 3) { # Require warmly and greater faction    
 	if($text=~/hail/i){ 
-		quest::say("Greetings to you. I seek one who calls himself a druid. What do you call yourself, manling?");
+		quest::say("Greetings to you. I seek one who calls himself a [" . quest::saylink("I am a druid",0,"druid") . "]. What do you call yourself, manling?");
 	} 
 	if($text=~/druid/i){
-		quest::say("Good. I had hoped you were one. As nature's guardian, you fight the never-ending struggle against those who seek to defile it. It is an admirable quality and I wish to aid you. I will provide you with a cap, a tunic, sleeves, bracers, gloves, leggings, and boots.");
+		quest::say("Good. I had hoped you were one. As nature's guardian, you fight the never-ending struggle against those who seek to defile it. It is an admirable quality and I wish to aid you. I will provide you with a cap, a [" . quest::saylink("tunic",0,"tunic") . "], [" . quest::saylink("sleeves",0,"sleeves") . "], [" . quest::saylink("bracers",0,"bracers") . "], [" . quest::saylink("gloves",0,"gloves") . "], [" . quest::saylink("leggings",0,"leggings") . "], and [" . quest::saylink("boots",0,"boots") . "].");
 	} 
 	if($text=~/tunic/i){  
 		quest::say("If you find an eroded leather tunic and three pieces of black marble bring them to me and I shall attempt to create an enchanted tunic that will serve you well.");
