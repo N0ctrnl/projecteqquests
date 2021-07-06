@@ -1,4 +1,5 @@
-nexus/Recordkeeper_Durand.pl
-nexus/Lorekeeper_Xivan.pl
+bazaar/Collector_Dannel.pl
 eastwastes/Belath_the_Trader.pl
+nexus/Lorekeeper_Xivan.pl
+nexus/Recordkeeper_Durand.pl
 global/spells/60000.pl
