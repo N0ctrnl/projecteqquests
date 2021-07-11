@@ -1,6 +1,6 @@
 sub EVENT_SAY { 
   if($text=~/Hail/i){
-    plugin::Whisper("Greetings, $name. I am Collector Dannel. I am searching for tokens commemorating the first year of the Vegarlson Asylum server. If you happen to find any, please bring then to me. I will reward you based on the quality of the token. Good luck!"); 
+    plugin::Whisper("Greetings, $name. I am Collector Dannel. I am searching for tokens commemorating the re-launch of the Vegarlson Asylum server. If you happen to find any, please bring then to me. I will reward you based on the quality of the token. Good luck!"); 
   }
 }
  
@@ -11,7 +11,7 @@ sub EVENT_ITEM {
 
 # Buff Crystal Only
   if($itemcount{150005}) {
-    quest::summonitem(150000,10);
+    quest::summonitem(150000,20);
     plugin::Whisper("A fine token! Use these crystals to fortify yourself and your companions!");
   }
 #    quest::gmsay("$random_result");
