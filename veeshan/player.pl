@@ -1,7 +1,3 @@
-sub EVENT_ENTERZONE {
-  $client->BuffFadeByEffect(113);
-}
-
 sub EVENT_CLICKDOOR {
   my $dragonsup = 0;
   if ($entity_list->IsMobSpawnedByNpcTypeID(108053)) { #Xygoz

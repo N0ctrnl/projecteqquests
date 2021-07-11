@@ -1,7 +1,3 @@
-sub EVENT_ENTERZONE {
-  $client->BuffFadeByEffect(113);
-}
-
 sub EVENT_CLICKDOOR {
   # gm can always use the door
   # used status > 79 because that is what bothunder/player.pl used
