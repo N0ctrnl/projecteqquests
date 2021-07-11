@@ -4,3 +4,7 @@ sub EVENT_TARGET_CHANGE {
     $client->MovePC(30,-7024,2020,-60.7,0); # Zone: everfrost
   }
 }
+
+sub EVENT_ENTERZONE {
+  $client->BuffFadeByEffect(113);
+}

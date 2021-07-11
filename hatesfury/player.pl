@@ -8,3 +8,7 @@ sub EVENT_CLICKDOOR {
     quest::movepc(228,-1360,-290,74,128); # Zone: hatesfury
   }
 }
+
+sub EVENT_ENTERZONE {
+  $client->BuffFadeByEffect(113);
+}

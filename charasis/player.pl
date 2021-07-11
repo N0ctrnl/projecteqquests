@@ -1,3 +1,7 @@
+sub EVENT_ENTERZONE {
+  $client->BuffFadeByEffect(113);
+}
+
 sub EVENT_CLICKDOOR {
   if($doorid == 8){
     if($client->KeyRingCheck(17274)){
