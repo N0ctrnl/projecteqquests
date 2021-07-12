@@ -35,6 +35,75 @@ sub EVENT_CONNECT {
   $client->GrantAlternateAdvancementAbility(453, 1, 1);
   $client->GrantAlternateAdvancementAbility(334, 5, 1);
   $client->GrantAlternateAdvancementAbility(347, 1, 1);
+
+  if($client->GetStartZone() == 9 || $client->GetStartZone() == 10){
+    # of Freeport
+    quest::enabletitle(388);
+  } 
+  if ($client->GetStartZone() == 45 || $client->GetStartZone() == 1 || $client->GetStartZone() == 2){
+    # of Qeynos
+    quest::enabletitle(387);
+  } 
+  if ($client->GetStartZone() == 29){
+    # of Halas
+    quest::enabletitle(398);
+  } 
+  if ($client->GetStartZone() == 23 || $client->GetStartZone() == 24){
+    # of Erudin
+    quest::enabletitle(399);
+  } 
+  if ($client->GetStartZone() == 54){
+    # of Kelethin
+    quest::enabletitle(396);
+  } 
+  if ($client->GetStartZone() == 75){
+    # of Paineel
+    quest::enabletitle(400);
+  } 
+  if ($client->GetStartZone() == 61 || $client->GetStartZone() == 62){
+    # of Felwithe
+    quest::enabletitle(395);
+  } 
+  if ($client->GetStartZone() == 41 || $client->GetStartZone() == 42){
+    # of Neriak
+    quest::enabletitle(98);
+  } 
+  if ($client->GetStartZone() == 3){
+    # of Surefall Glade
+    quest::enabletitle(397);
+  } 
+  if ($client->GetStartZone() == 60 || $client->GetStartZone() == 67){
+    # of Kaladim
+    quest::enabletitle(393);
+  } 
+  if ($client->GetStartZone() == 52){
+    # of Grobb
+    quest::enabletitle(390);
+  } 
+  if ($client->GetStartZone() == 49){
+    # of Oggok
+    quest::enabletitle(389);
+  } 
+  if ($client->GetStartZone() == 19){
+    # of Rivervale
+    quest::enabletitle(401);
+  } 
+  if ($client->GetStartZone() == 55){
+    # of Ak`Anon
+    quest::enabletitle(103);
+  } 
+  if ($client->GetStartZone() == 82 || $client->GetStartZone() == 106){
+    # of Cabilis
+    quest::enabletitle(394);
+  } 
+  if ($client->GetStartZone() == 155){
+    # of Shar Vahl
+    quest::enabletitle(402);
+  } 
+  if ($client->GetStartZone() == 50){
+    # of Gukta
+    quest::enabletitle(391);
+  }
 }
 
 
